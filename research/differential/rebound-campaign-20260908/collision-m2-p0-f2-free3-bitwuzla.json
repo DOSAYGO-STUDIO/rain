@@ -1,0 +1,34 @@
+{
+  "experiment": "two-free-full-block-programmed-rainstorm-collision",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 64,
+  "target_digest_bits": 128,
+  "target_fold_words": [
+    0,
+    1
+  ],
+  "fixed_prefix_first_round_outputs": 5,
+  "free_tail_first_round_outputs_per_message": 3,
+  "symbolic_bits_per_message": 192,
+  "message_rounds": 2,
+  "padding_rounds": 0,
+  "solver": "Bitwuzla 0.9.1",
+  "backend": "bitwuzla",
+  "bitwuzla_bv_solver": "bitblast",
+  "status": "unknown",
+  "unknown_reason": "timeout",
+  "elapsed_seconds": 60.04243358387612,
+  "timeout_seconds": 60,
+  "random_seed": 203,
+  "solver_statistics": {},
+  "scope": "Exact two-free-message 64-bit algebra. Production 4+4-round SAT is a full native-verifiable collision for the selected width.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "a8a2d9559700411961de30576a3bb7fc407f26358ad5137c54ee2e0694281d1a",
+    "research/differential/smt_digest.py": "7cd8476f1650fc1eba2e249632ca292be1fd321682fc19330bc65afedb489bf8",
+    "research/differential/smt_rebound.py": "c7bba8084a6cf2a1d38cfc9dc7cf9e7e55681e361b4f7726eec469a39101efc7",
+    "research/differential/solver_backends.py": "b1f370891a7c886e587f3f39085c756272877ddae5a1eb9b84924654b6daeb3e",
+    "research/differential/smt_rebound_collision.py": "50dd2469094de6f5894606ef955be14ab277a894529f7515a5f35bd000363980"
+  }
+}

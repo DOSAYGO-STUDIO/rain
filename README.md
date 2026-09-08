@@ -1,5 +1,7 @@
 # Rain
 
+> **News - [Cryptanalysis of Rainstorm](output/pdf/rainstorm-v4-external-cryptanalysis.pdf):** an independent external review reports a practical collision for a two-message-round reduction and no production Rainstorm-128 collision or output distinguisher below the generic $2^{64}$ collision baseline in the completed campaign. The result is evidence, not a security proof.
+
 > [!TIP]
 > **Example usage (hash everything)**:
 > ```console

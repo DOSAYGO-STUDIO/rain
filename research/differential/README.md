@@ -36,6 +36,138 @@ python3 research/differential/suite.py exhaustive --algorithm rainstorm --domain
 python3 research/differential/suite.py plan --family-size 224 --p-min 0.01 --alpha 0.01
 ```
 
+`suite.py` deliberately retains the frozen pre-v4 implementation used by the
+historical OG analysis. To run the same endpoint scanner against the actual
+v4.0.0 production source, use its separate batch bridge:
+
+```sh
+python3 research/differential/scan_production.py --bits 256 \
+  --lengths 16 64 65 128 --all-bits --samples 65536 \
+  --p-min 0.001 --output /tmp/rainstorm-v4-differential.json
+```
+
+The result records SHA-256 fingerprints of the production source, common
+header, bridge, and statistical scanner. Keeping the bridge separate prevents
+production upgrades from silently changing the preserved OG experiments.
+The completed 2026-09-08 production campaign and its raw JSON reports are in
+[`rainstorm-v4-diff-20260908/`](rainstorm-v4-diff-20260908/README.md).
+
+## Internal trail and bounded digest tools
+
+`rainstorm_model.py` is an exact production-v4 integer model with checkpoints
+after every round, lane, or individual operation. `trail_trace.py` compares one
+paired execution under XOR, additive, or wordwise rotation-XOR input relations:
+
+```sh
+python3 research/differential/trail_trace.py \
+  --length 8 --bits 64 --relation xor --difference 1 \
+  --trace-level round --output /tmp/rainstorm-trace.json
+```
+
+The first bounded actual-digest target is two distinct 8-byte messages colliding
+under Rainstorm-64. This domain has 64 controllable input bits, one four-round
+tail schedule, a fold, and no post-fold rounds:
+
+```sh
+python3 research/differential/smt_digest.py \
+  --message-length 8 --bits 64 --backend sat --timeout 60 \
+  --output /tmp/rainstorm-short-64.json
+```
+
+The `sat` backend explicitly bit-blasts before using Z3's SAT engine; `smt`
+retains the ordinary bit-vector solver. A SAT result is replayed through the
+native production C++ implementation. UNSAT applies only to the exact declared
+message domain, and `unknown` is inconclusive.
+
+`--reference-message-hex` changes the query to a chosen second-preimage search,
+and `--backend sls` selects Z3's quantifier-free bit-vector local search.
+`--rounds 1..3` builds a marked reduced-round Rainstorm-64 experiment;
+production uses four rounds.
+
+The stronger algebraic formulation programs the transformed words of the first
+right round and recovers the corresponding data words exactly:
+
+```sh
+python3 research/differential/smt_programmed.py \
+  --rounds 4 --free-tail-outputs 8 --backend sat --timeout 60 \
+  --output /tmp/rainstorm-programmed-r4.json
+```
+
+It targets a 63-byte Rainstorm-64 chosen second preimage. The final byte of its
+64-byte data block is constrained to the real `0xbf` padding byte. Fixing a
+prefix of the programmed first-round outputs with `--free-tail-outputs` gives a
+message-modification-style slice that preserves the reference's early path.
+The completed calibration and bounded runs are recorded in
+[`short-digest-20260908/`](short-digest-20260908/README.md).
+
+The same campaign includes a native-verified generic Rainstorm-64 collision
+control. Build and reproduce the distinguished-point search with:
+
+```sh
+c++ -std=c++17 -O3 -march=native \
+  research/differential/rho64.cpp -o /tmp/rain-rho64
+/tmp/rain-rho64 search 12000000000 16 64 20260908
+```
+
+The recorded pair required 7.23 billion walk evaluations, an ordinary result
+under the ideal 64-bit birthday model. It is a full 64-bit collision but not a
+subgeneric break. Any claimed Rainstorm-64 collision attack must compare its
+complete cost with the roughly `2^32` generic baseline.
+
+For empirical reconnaissance before constraint search, profile the selected
+difference representation at every round boundary:
+
+```sh
+python3 research/differential/profile_trails.py \
+  --length 8 --bits 64 --relation xor --difference 1 \
+  --samples 4096 --output /tmp/rainstorm-profile-xor-1.json
+```
+
+For `--relation rx`, each message word is paired as
+`ROTL(message_word, rotation) XOR difference_word`, and internal/output
+differences use the same rotation-XOR representation. These profiles are
+reconnaissance, not corrected probability claims; candidates must be fixed and
+validated in a separately budgeted run.
+
+For a minimal two-input multiplication example, treat the input as two
+unsigned `w`-bit operands and pair it with fixed operand XOR differences:
+
+```sh
+python3 research/differential/toy_product_differential.py \
+  --operand-bits 8 --delta-p 0 --delta-q 1 --product full \
+  --mode exhaustive --output /tmp/product-full.json
+```
+
+This computes `F(P || Q) = P*Q`, compares it with
+`F((P XOR delta_p) || (Q XOR delta_q))`, and collects the complete output-XOR
+histogram, individual bit biases, Hamming weights, zero differences, and
+pairwise bit statistics for small outputs. `--product low` instead retains only
+the low `w` product bits. Exhaustive mode is deliberately limited to `w <= 10`;
+sample mode supports widths through 64 bits.
+
+The pairing relation and output comparison can be changed independently. This
+version exposes multiplication's natural additive algebra:
+
+```sh
+python3 research/differential/toy_product_differential.py \
+  --operand-bits 8 --delta-p 0 --delta-q 1 --product low \
+  --input-relation add --output-relation subtract \
+  --mode exhaustive --output /tmp/product-additive.json
+```
+
+In that experiment, `Q' = Q + 1 mod 2^w` and the measured output difference is
+`P*Q' - P*Q mod 2^w = P`. Since uniform `P` makes that difference itself
+uniform, endpoint bit statistics look ideal even though the input/output
+relation is deterministic. This is a compact warning that a uniform difference
+histogram does not exclude conditional or algebraic structure. Negative
+additive arguments express subtraction, for example `--delta-q=-1`.
+
+Integer division is not folded into the same histogram interface. Division by
+zero is undefined, and modular division modulo `2^w` exists only for odd
+divisors. A scaling experiment such as `Q' = c*Q` is better checked directly
+through the algebraic invariant `F(P,Q') = c*F(P,Q)` than treated as though its
+ratios had the uniform bit-vector baseline used by XOR/additive differences.
+
 A larger, explicitly finite search, including every one-bit input difference:
 
 ```sh
@@ -327,3 +459,75 @@ not automatically transfer to these 64-bit algorithms. Neither an avalanche
 pass nor a collection of invertible/noninvertible components establishes
 collision resistance, preimage resistance, pseudorandomness, or safe MAC/KDF
 use. Those remain unproved.
+
+### Bounded SMT fold experiment
+
+`smt_fold.py` makes the proposed fold search reproducible with exact Z3
+64-bit bit-vectors.  It models two distinct 64-byte messages from the real,
+length-keyed IV, processes each message block, then processes their identical
+`0x80` padding blocks.  The constraint on word `i` is the additive condition
+
+```
+L_a[i] - H_a[i] = L_b[i] - H_b[i]  (mod 2^64),
+```
+
+not equality of XOR differences.  Both OG and A are selectable.  Only a
+prefix of each message is symbolic so every run describes a precise bounded
+instance; `unknown` (normally a timeout) is explicitly inconclusive.  A SAT
+witness for word zero is replayed through the integer model and independently
+through the corresponding native C++ 64-bit hash.
+
+This is best described as an **SMT-assisted algebraic collision search** (or,
+more broadly, an additive differential search), not yet as a probabilistic
+differential-characteristic analysis.  The solver chooses both messages and
+therefore also chooses their input difference.  It does not prescribe a trail
+through each round or estimate the probability of its carry transitions.  If
+multiple witnesses exhibit a repeatable input difference and intermediate
+state trail, fixing that difference and measuring its probability would be a
+separate follow-up experiment.
+
+The equivalent difference condition is
+
+```
+L_a[i] - L_b[i] = H_a[i] - H_b[i]  (mod 2^64).
+```
+
+Both sides use the same `a minus b` orientation: the additive change in the
+low word must equal the additive change in the corresponding high word.  The
+fold then subtracts those changes and makes the output difference zero.  An
+equivalent sum form is the *cross-sum*
+
+```
+L_a[i] + H_b[i] = L_b[i] + H_a[i]  (mod 2^64),
+```
+
+not `L_a[i] + L_b[i] = H_a[i] + H_b[i]`.  This follows from ordinary group
+algebra; modular wraparound changes how negative values are represented, not
+the sign rules.
+
+Here “word” means one 64-bit state word, not a 64-byte message block.  Matching
+one folded word is a truncated fold collision and, for word zero, a complete
+Rainstorm-64 collision.  Matching words 0--1, 0--3, or 0--7 targets the 128-,
+256-, or 512-bit outputs respectively because the common final data and the
+left-round triangular dependency preserve an equal low-state prefix.  The
+current script independently checks native C++ only for the 64-bit word-zero
+case; any wider result must also be replayed through the corresponding native
+full-hash output before making a collision claim.
+
+Install the optional solver and run, for example:
+
+```sh
+python3 -m pip install z3-solver
+python3 research/differential/smt_fold.py --variant A \
+  --symbolic-bytes 8 --words 0 --timeout 60 --output /tmp/fold-a.json
+```
+
+Add word indexes after `--words` to move from a one-word truncated collision
+toward the complete eight-word fold.  More constraints or a larger symbolic
+prefix can be materially harder; a timeout establishes no probability bound
+and no security result.  The JSON report includes Z3's `unknown_reason` when
+available.  Preserve that report along with solver version, timeout, symbolic
+byte count, word targets, variant, and machine details.  In particular, OG
+returning SAT while A returns `unknown` is not evidence by itself that OG is
+weaker: controlled comparisons need identical bounds, repeated runs, native
+replay, and a comparison with generic collision-search work.

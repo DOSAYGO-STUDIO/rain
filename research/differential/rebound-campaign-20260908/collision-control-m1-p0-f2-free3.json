@@ -1,0 +1,74 @@
+{
+  "experiment": "two-free-full-block-programmed-rainstorm-collision",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 64,
+  "target_digest_bits": 128,
+  "target_fold_words": [
+    0,
+    1
+  ],
+  "fixed_prefix_first_round_outputs": 5,
+  "free_tail_first_round_outputs_per_message": 3,
+  "symbolic_bits_per_message": 192,
+  "message_rounds": 1,
+  "padding_rounds": 0,
+  "solver": "Z3 4.15.4",
+  "backend": "sat",
+  "bitwuzla_bv_solver": null,
+  "status": "sat",
+  "unknown_reason": null,
+  "elapsed_seconds": 0.009280666941776872,
+  "timeout_seconds": 10,
+  "random_seed": 0,
+  "solver_statistics": {
+    "sat mk clause 2ary": 4827,
+    "sat mk clause nary": 5704,
+    "sat mk var": 3400,
+    "sat conflicts": 31,
+    "sat decisions": 204,
+    "sat propagations 2ary": 3349,
+    "sat propagations nary": 2980,
+    "sat minimized lits": 4,
+    "sat backjumps": 31,
+    "num allocs": 417787,
+    "rlimit count": 17257,
+    "max memory": 26.47,
+    "memory": 17.05,
+    "time": 0.009
+  },
+  "scope": "Exact two-free-message 64-bit algebra. Production 4+4-round SAT is a full native-verifiable collision for the selected width.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "a8a2d9559700411961de30576a3bb7fc407f26358ad5137c54ee2e0694281d1a",
+    "research/differential/smt_digest.py": "7cd8476f1650fc1eba2e249632ca292be1fd321682fc19330bc65afedb489bf8",
+    "research/differential/smt_rebound.py": "c7bba8084a6cf2a1d38cfc9dc7cf9e7e55681e361b4f7726eec469a39101efc7",
+    "research/differential/solver_backends.py": "b1f370891a7c886e587f3f39085c756272877ddae5a1eb9b84924654b6daeb3e",
+    "research/differential/smt_rebound_collision.py": "50dd2469094de6f5894606ef955be14ab277a894529f7515a5f35bd000363980"
+  },
+  "witness": {
+    "message_a_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000005bb3c87bc719bf7c5b96941412f56d411dc4519b2620b3ce",
+    "message_b_hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000db80046ad419bf7c5b9ed518a7d6efc91dc4519b2620b3ce",
+    "fold_a": [
+      "0xee656741fd11ee84",
+      "0xffffffffffffffbe",
+      "0xffffffffffffffc1",
+      "0x000000000000003d",
+      "0x000000000000003f",
+      "0x000000000000004b",
+      "0x000000000000004d",
+      "0x0000000000000051"
+    ],
+    "fold_b": [
+      "0xee656741fd11ee84",
+      "0xffffffffffffffbe",
+      "0xffffffffffffffc1",
+      "0x000000000000003d",
+      "0x000000000000003f",
+      "0x000000000000004b",
+      "0x000000000000004d",
+      "0x0000000000000051"
+    ],
+    "integer_model_fold_prefix_verified": true
+  }
+}
