@@ -1,0 +1,166 @@
+{
+  "binaries": {
+    "SMHasher3-candidates": "a048a7df5f4e828fba7057ed76aa43bece7940a69b688980edbecca0a4350519",
+    "SMHasher3-original": "16b488bd616980a5fbc7cbe2798cde91441105a692d6702c892e3c74933cd0a4"
+  },
+  "original": {
+    "smhasher3_revision": "3b619371047761408406991685da1c2b3f751899",
+    "production_sha256": {
+      "common.h": "d35e24c8ceb7ff0244899aeb066b208383f586b647d3b48bd25044a80d7517cb",
+      "rainbow.cpp": "d432b1b5aea6700d51dd549e8f5b753e19301439f6ddb02c85187eed5c540163",
+      "rainstorm.cpp": "3a7c1a375656e2ff6227bbc621aa085a07dd5bbcfe8010c88ed2191611fbf1bb"
+    },
+    "verification_codes": {
+      "rainlocal_rainbow_64": {
+        "LE": "0xed7533d3",
+        "BE": "0xbe75a175"
+      },
+      "rainlocal_rainbow_128": {
+        "LE": "0xff03173f",
+        "BE": "0xa8ead0c3"
+      },
+      "rainlocal_rainbow_256": {
+        "LE": "0x65f4a210",
+        "BE": "0xd2afd9eb"
+      },
+      "rainlocal_rainstorm_64": {
+        "LE": "0xcecc05ce",
+        "BE": "0x483ec3c9"
+      },
+      "rainlocal_rainstorm_128": {
+        "LE": "0xd6d12547",
+        "BE": "0x3ae5ecd9"
+      },
+      "rainlocal_rainstorm_256": {
+        "LE": "0x72d3356f",
+        "BE": "0x4903d9ef"
+      }
+    },
+    "supported_sizes": [
+      64,
+      128,
+      256
+    ],
+    "limitation": "Upstream Testlib does not instantiate 512-bit hashes. No truncated substitute is registered.",
+    "full_command_template": "SMHasher3 --test=All,BadSeeds --extra --ncpu=4 rainlocal-<algorithm>-<bits>",
+    "status": "Prepared source snapshot and verification codes; not a full statistical test result."
+  },
+  "candidates": {
+    "verification_codes": {
+      "rainexp_a_64": {
+        "LE": "0xddc48013",
+        "BE": "0x1a3e92eb"
+      },
+      "rainexp_a_128": {
+        "LE": "0x9abe5921",
+        "BE": "0xe1392073"
+      },
+      "rainexp_a_256": {
+        "LE": "0x46a86116",
+        "BE": "0x41895c3a"
+      },
+      "rainexp_b_64": {
+        "LE": "0xa3568762",
+        "BE": "0x28d44e2d"
+      },
+      "rainexp_b_128": {
+        "LE": "0x21a09c24",
+        "BE": "0x55427648"
+      },
+      "rainexp_b_256": {
+        "LE": "0xa3115b68",
+        "BE": "0x3ef64a57"
+      },
+      "rainexp_c_64": {
+        "LE": "0xae384a76",
+        "BE": "0x4a855e0d"
+      },
+      "rainexp_c_128": {
+        "LE": "0xd3e67ce1",
+        "BE": "0x56482ef9"
+      },
+      "rainexp_c_256": {
+        "LE": "0xc03875bb",
+        "BE": "0x11bb47c1"
+      },
+      "rainexp_d_64": {
+        "LE": "0xe4837cb1",
+        "BE": "0x4423ac4c"
+      },
+      "rainexp_d_128": {
+        "LE": "0xbb97081a",
+        "BE": "0x2c5d7ef1"
+      },
+      "rainexp_d_256": {
+        "LE": "0xa165c695",
+        "BE": "0x51cb1f40"
+      }
+    },
+    "variant_manifest": {
+      "original_sha256": "3a7c1a375656e2ff6227bbc621aa085a07dd5bbcfe8010c88ed2191611fbf1bb",
+      "variants": {
+        "a": {
+          "file": "research/differential/variants/rainstorm_a.cpp",
+          "sha256": "1976215168e868e49d8780321c10bb74660d9b4cd4752d7ca4b8696f766d7a48"
+        },
+        "b": {
+          "file": "research/differential/variants/rainstorm_b.cpp",
+          "sha256": "e73f69b13cf7297aa8267d964ee8d6f9775d7b040b3b017cd85bb4560cb4b0db"
+        },
+        "c": {
+          "file": "research/differential/variants/rainstorm_c.cpp",
+          "sha256": "fc0bea71291ce25c26418fd10bf53d9c69484087b1dc18421e409241ddedf884"
+        },
+        "d": {
+          "file": "research/differential/variants/rainstorm_d.cpp",
+          "sha256": "91e3f77a391e1dcdef0b06f75644c137ba251cbbddcfeacc15442ad928884e6a"
+        }
+      },
+      "definitions": {
+        "a": "Cross-half wrap; original finalization.",
+        "b": "Double final right counter; original finalization.",
+        "c": "A + four alternating final rounds + one explicit domain block.",
+        "d": "Original round + four alternating final rounds only (optional experimental fourth)."
+      }
+    },
+    "adapter_sha256": {
+      "hashes/rainexp_core.cpp": "d00da7069451f6a2ae26ae6f423d0c184b051db61802475bcbc56d0762712571",
+      "hashes/rainexp.cpp": "0d0035c424e206a5c0626b0959e4b1426fa699cb32168a5b60577bf8bf1ad13d",
+      "hashes/blake3.cpp": "75b1a04d949cffe584d1f6b83b15b2d2717ce8620b963b2aec3087e64092cdf8",
+      "hashes/rainexp_source/common.h": "d35e24c8ceb7ff0244899aeb066b208383f586b647d3b48bd25044a80d7517cb",
+      "hashes/rainexp_source/rainstorm_d.cpp": "4e9f80be089a6a8aa8adeace59d523fdc5db132973f4b969d826765ea6966a7c",
+      "hashes/rainexp_source/rainstorm_b.cpp": "2358702f66acb82a6102ddeddf4229dbd48f05d0edc3cd86c4c0257361b3cb3d",
+      "hashes/rainexp_source/rainstorm_c.cpp": "694739d9c2fe2fb58d680e0d8a62dc4694713b9cabc8cc5131c8c6494affb853",
+      "hashes/rainexp_source/rainstorm_a.cpp": "2688f7a721e1849663ec674a560d29890f24545386ee4a679662ca890c39faf7"
+    },
+    "smhasher3_revision": "3b619371047761408406991685da1c2b3f751899",
+    "metadata_policy": "Same no-slowdown metadata as exact-source OG registration; no Testlib changes."
+  },
+  "native_reference_checks": {
+    "native_reference_and_streaming_comparisons": 2496,
+    "passed": true,
+    "empty_seed_zero_vectors": {
+      "a-64": "3d2c0baad5ee730d",
+      "a-128": "d59b3c637e2b000b4fb1fc8d1ce412a8",
+      "a-256": "bf6aa062a4c6ccf8b69697494100743f24da78e0e0140af278f3156772734b49",
+      "a-512": "d71e597e213412d89302516d6c8e7f9850a3fff6c48112013929b7fc981e5e3ce65f8dffbaf6614e4fde4713fe5b0efcd5b3d0497617b1455dcdf5687f58f1d2",
+      "b-64": "4b6672482436b654",
+      "b-128": "e9ed4df581799a7284f5774d9497447d",
+      "b-256": "00fec67c299b501d7195b38399c34ffbf2b9309809f4da29d89eefb6bc3f3f73",
+      "b-512": "9bb7bb2fd9f1cac910400ab8ed8445163667d7d51d1555f5d17fd66d79c1dd475a77ae92ccbc03138baebdd31fd42fb34969fb7e1dece521319ef2cc96f2c3b7",
+      "c-64": "fd710f85fa68b028",
+      "c-128": "19ffa5fd6b85ae5f636312247ac6fa60",
+      "c-256": "f2b9cac673ed8418e337ea79be110307b125cf31d210e29fce37468a224c1d88",
+      "c-512": "f8122e0b25b6490a439964abe1bd5e6ed9cd4824990a225c45939d5a7492b10dd3de2229cde80ed0905078dd2aa1b0fa0fc38496bf39dd55683e1d5d65653998",
+      "d-64": "d3ada4e3cf6cf5ae",
+      "d-128": "d3ada4e3cf6cf5ae29abd3c374ebd25b",
+      "d-256": "d3ada4e3cf6cf5ae29abd3c374ebd25bf30eea9ea1033093d8e22df4d9692839",
+      "d-512": "d3ada4e3cf6cf5ae29abd3c374ebd25bf30eea9ea1033093d8e22df4d969283904a1b1962afda37fe597fc3442e52f504a73ae2668ded2a59f0944ed2405ef63"
+    }
+  },
+  "smhasher3_sanity_runs_passed": 26,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.5.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "cmake_cache_sha256": "b7dbb97b6b83de025a89fcb209e413c1a54952b07333428582d87d25652a01e5",
+  "testlib_changed": false,
+  "timing_note": "No candidate compilation or preflight ran during OG speed or hashmap sections."
+}
