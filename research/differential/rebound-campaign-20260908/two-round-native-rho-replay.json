@@ -1,0 +1,642 @@
+{
+  "experiment": "independent-programmed-rebound-replay",
+  "message_a_hex": "96ffffffffffffff58b56a3e941b7459bab074c685cf1afac02a2056945049fbfad0d3accbbf31fa1c4d50f00cd517fd193863ec0929f2a58af12b6ca5571671",
+  "message_b_hex": "96ffffffffffffff58b56a3e941b7459bab074c685cf1afac02a2056945049fbfad0d3accbbf31fa1c4d50f00cd517fd75d7ff14f926a35834c0702bc01e3bc8",
+  "reduced_variant": {
+    "message_rounds": 2,
+    "padding_compression_rounds": 0,
+    "final_left_rounds": "production count for each output width",
+    "fold_a": [
+      "0xf65354081cfe534e",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0xc3b190cb3b6eba58",
+      "0x8d24c0e9bfdda598"
+    ],
+    "fold_b": [
+      "0xf65354081cfe534e",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0x0000000000000000",
+      "0xbbb99b3e6eb9ee53",
+      "0xe938fb9a2e080611"
+    ],
+    "fold_prefix_words_equal": true,
+    "digests": {
+      "64": {
+        "digest_a_hex": "4e53fe1c085453f6",
+        "digest_b_hex": "4e53fe1c085453f6",
+        "collision": true
+      },
+      "128": {
+        "digest_a_hex": "62b5f41d42757d67c8a1b25310889a9d",
+        "digest_b_hex": "62b5f41d42757d67c8a1b25310889a9d",
+        "collision": true
+      },
+      "256": {
+        "digest_a_hex": "303dbf39c7cd3ae7893f50fcc132891925347bdd65f99d45d9a4f38c92d87b0d",
+        "digest_b_hex": "303dbf39c7cd3ae7893f50fcc132891925347bdd65f99d45d9a4f38c92d87b0d",
+        "collision": true
+      },
+      "512": {
+        "digest_a_hex": "ae2beb4bb35429c6d228887e8e219277c09d49e4cc8bf517683c821181bf67571960c18206ad4aeb405781a121616d53a34ebb021212617d8013eb18e9ae421a",
+        "digest_b_hex": "ae2beb4bb35429c6d228887e8e219277c09d49e4cc8bf517683c821181bf67571960c18206ad4aeb405781a121616d538ec24ab117aa68a68535f515b4408880",
+        "collision": false
+      }
+    }
+  },
+  "one_real_padding_round_extension": {
+    "message_rounds": 2,
+    "padding_compression_rounds": 1,
+    "padding_round_direction": "right",
+    "transformed_sum_a": "0x56ddbed97c83ad47",
+    "transformed_sum_b": "0xae1525395140b829",
+    "fold_a": [
+      "0xae77e49900ec3960",
+      "0x50a8a83b8b14fecc",
+      "0x69fb8c0461812083",
+      "0x7f5d8e9431b7b781",
+      "0x5bb3a1afd86c55b9",
+      "0x476decb2e86fe209",
+      "0x79c11caaf35e65cb",
+      "0x285507c9dfeaed85"
+    ],
+    "fold_b": [
+      "0x57407e392c2f2e7e",
+      "0x50a8a83b8b14fecc",
+      "0x69fb8c0461812083",
+      "0x7f5d8e9431b7b781",
+      "0x5bb3a1afd86c55b9",
+      "0x476decb2e86fe209",
+      "0x600fbb67f24773e0",
+      "0xf1ecdf24ce9f07ce"
+    ],
+    "fold_words_1_through_5_equal": true,
+    "fold_word_0_equal": false,
+    "interpretation": "The G collision fixes the full state prefix through lane 5. The padding right round preserves words 1..5, while its lane-7 wrap changes word 0 unless the transformed sums match."
+  },
+  "production_v4": {
+    "message_rounds": 4,
+    "padding_compression_rounds": 4,
+    "final_left_rounds": 2,
+    "native_digest_a_hex": "d26309b4c14f18dbeab1510045114504",
+    "native_digest_b_hex": "a53a7f6a61e35a2fc3675c1c726dd017",
+    "rainstorm_128_collision": false
+  },
+  "stages": [
+    {
+      "stage": "initial",
+      "state_difference": {
+        "equal_prefix_words": 16,
+        "active_words": 0,
+        "active_bits": 0,
+        "xor_words": [
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 8,
+        "active_words": 0,
+        "active_bits": 0,
+        "xor_words": [
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000"
+        ]
+      },
+      "fold_a": [
+        "0xffffffffffffffee",
+        "0xffffffffffffffeb",
+        "0xffffffffffffffe6",
+        "0xffffffffffffffe6",
+        "0xffffffffffffffe2",
+        "0xffffffffffffffe2",
+        "0xffffffffffffffe2",
+        "0xffffffffffffffe2"
+      ],
+      "fold_b": [
+        "0xffffffffffffffee",
+        "0xffffffffffffffeb",
+        "0xffffffffffffffe6",
+        "0xffffffffffffffe6",
+        "0xffffffffffffffe2",
+        "0xffffffffffffffe2",
+        "0xffffffffffffffe2",
+        "0xffffffffffffffe2"
+      ]
+    },
+    {
+      "stage": "message_round_1",
+      "state_difference": {
+        "equal_prefix_words": 6,
+        "active_words": 4,
+        "active_bits": 114,
+        "xor_words": [
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x88144b94ae56ab85",
+          "0x88144b94ae56ab8b",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x88144b94ae56ab85",
+          "0x88144b94ae56ab8b"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 6,
+        "active_words": 2,
+        "active_bits": 7,
+        "xor_words": [
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x000000000000000e",
+          "0x000000000000001e"
+        ]
+      },
+      "fold_a": [
+        "0xefcdab8967452343",
+        "0x0000000000000042",
+        "0x0000000000000043",
+        "0x0000000000000045",
+        "0x0000000000000047",
+        "0x000000000000004b",
+        "0xffffffffffffffbd",
+        "0x0000000000000031"
+      ],
+      "fold_b": [
+        "0xefcdab8967452343",
+        "0x0000000000000042",
+        "0x0000000000000043",
+        "0x0000000000000045",
+        "0x0000000000000047",
+        "0x000000000000004b",
+        "0xffffffffffffffb3",
+        "0x000000000000002f"
+      ]
+    },
+    {
+      "stage": "message_round_2",
+      "state_difference": {
+        "equal_prefix_words": 6,
+        "active_words": 4,
+        "active_bits": 135,
+        "xor_words": [
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0xea336f22f3da5657",
+          "0xfa56e9672f567669",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x622724b65d8cfdd2",
+          "0x7242a2f38100dde2"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 6,
+        "active_words": 2,
+        "active_bits": 61,
+        "xor_words": [
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x78080bf555d7540b",
+          "0x641c3b7391d5a389"
+        ]
+      },
+      "fold_a": [
+        "0xf65354081cfe534e",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0xc3b190cb3b6eba58",
+        "0x8d24c0e9bfdda598"
+      ],
+      "fold_b": [
+        "0xf65354081cfe534e",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0x0000000000000000",
+        "0xbbb99b3e6eb9ee53",
+        "0xe938fb9a2e080611"
+      ]
+    },
+    {
+      "stage": "message_round_3",
+      "state_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 5,
+        "active_bits": 153,
+        "xor_words": [
+          "0x600a008a7f1865d1",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x2f4a974500cbff69",
+          "0x175a66c06d3e21e8",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0xc579f867f311a93e",
+          "0xed0c8fa742685781"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 3,
+        "active_bits": 89,
+        "xor_words": [
+          "0x600a0096b3086753",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x0000000000000000",
+          "0x65ad2be171752995",
+          "0x85cea92ae5365da9"
+        ]
+      },
+      "fold_a": [
+        "0xf7e7e4ef735cce05",
+        "0xb02f683b8bf2bd24",
+        "0x9a0d9d59a08f1fa3",
+        "0x83568f1b2e472a81",
+        "0xc8f59c8fe56cee47",
+        "0xd98a1646777061f9",
+        "0x85bd1ca9735d5a75",
+        "0x97e508365fd6a57b"
+      ],
+      "fold_b": [
+        "0x97ede479c054a956",
+        "0xb02f683b8bf2bd24",
+        "0x9a0d9d59a08f1fa3",
+        "0x83568f1b2e472a81",
+        "0xc8f59c8fe56cee47",
+        "0xd98a1646777061f9",
+        "0xe0103748022873e0",
+        "0x122ba11cbae0f8d2"
+      ]
+    },
+    {
+      "stage": "message_round_4",
+      "state_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 16,
+        "active_bits": 493,
+        "xor_words": [
+          "0x323bb00500453f8c",
+          "0x64708a441e076069",
+          "0x87f333b5d09785d3",
+          "0x489af6426ae839db",
+          "0x3fbae30ffda29963",
+          "0xa2a33b70a54bb195",
+          "0x43bc225d5e65d30b",
+          "0x5096e14f47280505",
+          "0x85c14d7b2f8342d1",
+          "0x64708a441e076069",
+          "0x87f333b5d09785d3",
+          "0x489af6426ae839db",
+          "0x3fbae30ffda29963",
+          "0xa2a33b70a54bb195",
+          "0x86c5da3aad747a35",
+          "0xbd9a6ee805405284"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 8,
+        "active_bits": 222,
+        "xor_words": [
+          "0x70a99d06747dbcbd",
+          "0x80c71c08380ec092",
+          "0x3f000063e3200f06",
+          "0x30318800ddd07fb0",
+          "0xfffc061fe3c700fe",
+          "0x7c0660c00037003e",
+          "0x42230f9168da1ed8",
+          "0x2c09447b4df87699"
+        ]
+      },
+      "fold_a": [
+        "0x7aec1b902de353f7",
+        "0x40e48df1648420c7",
+        "0xa4883fcca58ff96d",
+        "0x9c1ccb98eed7c854",
+        "0xf37e16d252d9807f",
+        "0x3dbbcf54409f805f",
+        "0x02bd3dcb4506a409",
+        "0x97c26f9c87d719ec"
+      ],
+      "fold_b": [
+        "0x0a458696599eef4a",
+        "0xc02391f95c8ae055",
+        "0x9b883faf46aff66b",
+        "0xac2d43983307b7e4",
+        "0x0c8210cdb11e8081",
+        "0x41bdaf9440a88061",
+        "0x409e325a2ddcbad1",
+        "0xbbcb2be7ca2f6f75"
+      ]
+    },
+    {
+      "stage": "padding_round_1",
+      "state_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 16,
+        "active_bits": 528,
+        "xor_words": [
+          "0xe6da4a6ba5b55438",
+          "0x5d3fda9b158b39d9",
+          "0xf8d53276541332a6",
+          "0x820e46eb5f89ee95",
+          "0x47b2467d8199e7bc",
+          "0x1a9d8c6b747df6c0",
+          "0x71e17c0561b7bf6e",
+          "0xfcdaca9644760935",
+          "0xbea9c2e0a6bd97c1",
+          "0x394f50df0b8c59b0",
+          "0x7f2601c38484b775",
+          "0xca94b0a93561d74e",
+          "0x7808a5727c3b7edf",
+          "0xb83eb71bd1364755",
+          "0x325d5e583fd26c65",
+          "0xac4c2bd9035e0c30"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 8,
+        "active_bits": 251,
+        "xor_words": [
+          "0xc113847a08f7e1ab",
+          "0xdcec654279109e5b",
+          "0x637f70b4d1b0fbb9",
+          "0xcc82953c08d7e775",
+          "0xfe77ecef2582605f",
+          "0x825e272e0503780d",
+          "0x2774124fa963a303",
+          "0x0f0ea0f0c3e803c5"
+        ]
+      },
+      "fold_a": [
+        "0xc58f029c7a144e31",
+        "0xa36197e13babf0b1",
+        "0x52c64fc39d55bdb5",
+        "0xc864735f86b6309d",
+        "0xea86db6a886ffc6a",
+        "0x4ba7671eca5f732c",
+        "0xab2d6b055c1e5907",
+        "0xa0b4cbae1836f05e"
+      ],
+      "fold_b": [
+        "0x049c86e672e3af9a",
+        "0x7f8df2a342bb6eea",
+        "0x31b93f774ce5460c",
+        "0x04e6e6638e61d7e8",
+        "0x14f13785aded9c35",
+        "0xc9f94030cf5c0b21",
+        "0x8c59794af57dfa04",
+        "0xafba6b5edbdef39b"
+      ]
+    },
+    {
+      "stage": "padding_round_2",
+      "state_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 16,
+        "active_bits": 529,
+        "xor_words": [
+          "0xaa14736d2535d2da",
+          "0x6cdca78aebc4c52f",
+          "0x944e1f2d1d72548f",
+          "0xe8356eb9f48d8519",
+          "0x072d96deb9c65caf",
+          "0x2ced9b01f6577ea7",
+          "0x23de3f9dedb41dea",
+          "0x08cf4117e59d34c4",
+          "0x69d8dee4364812a8",
+          "0x5593f755e0489c9f",
+          "0xeb681eee99f6e3fa",
+          "0x22a1de10c1ec5257",
+          "0x7f2533acc5fd2270",
+          "0x94d32c1a276139f2",
+          "0x118361c5d266718f",
+          "0xa4836acee6c338f4"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 8,
+        "active_bits": 263,
+        "xor_words": [
+          "0xd27593716ccc4042",
+          "0x0ac22fab1883b2ae",
+          "0xcb39ff1c778b9763",
+          "0x1b9c4cd736f1dd48",
+          "0x58465a4b0ff1b617",
+          "0xa10989193dd23e33",
+          "0xfdd32d77d9badc25",
+          "0x54449c48fd587fe8"
+        ]
+      },
+      "fold_a": [
+        "0xcb45694d5032b7f6",
+        "0xf7bd7e93f1a735c3",
+        "0xc0b5f1036afa78db",
+        "0x2f580868cfbbda7d",
+        "0x901ca47d922c8b8f",
+        "0x57833a73773be35b",
+        "0x65d6b7efa4a64014",
+        "0x5d0b42ffa0a7d16e"
+      ],
+      "fold_b": [
+        "0x1930fa3c3cfef7b4",
+        "0xfd7f5138e924876d",
+        "0x0b8c0e1f1d71efb8",
+        "0x34c444bff94a0735",
+        "0xc85afe369ddd3d98",
+        "0xf68ab36a4ae9dd68",
+        "0x98059a987d1c9c31",
+        "0x094fdeb75dffae86"
+      ]
+    },
+    {
+      "stage": "padding_round_3",
+      "state_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 16,
+        "active_bits": 508,
+        "xor_words": [
+          "0x34329cd0f937c1ee",
+          "0x5dc849d23adce70c",
+          "0x9ed7bcc28da2c899",
+          "0x8cdf297a9cde849c",
+          "0x994ed3f7f002e6e6",
+          "0x21e3ddc1d81ed462",
+          "0xf735c4f0883b6f86",
+          "0x3e7142a8ffab83aa",
+          "0x09d434ec6f721b24",
+          "0x3114ee58d1182223",
+          "0x0a99a3ef90d09c16",
+          "0x64ea47c368530185",
+          "0x9e63452949c4ba49",
+          "0x0d0e46c02e49aac5",
+          "0xd4ebfb6d658f726c",
+          "0x36be03bf1a36b76e"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 8,
+        "active_bits": 253,
+        "xor_words": [
+          "0xdf9fa1a46a804532",
+          "0x026c706a2dfb0b29",
+          "0xb3ea101b04134c8b",
+          "0xe9eb9ea76d008419",
+          "0x32bb15d8697d2c5d",
+          "0xdea376016ae64a7f",
+          "0x1a5df64cadcafbd6",
+          "0xf9bac6089a703a58"
+        ]
+      },
+      "fold_a": [
+        "0xf9e36395c122c16b",
+        "0xb689e7c396681670",
+        "0x11e7bd81be5c808a",
+        "0x0e8187d7423ebca8",
+        "0x5bb75a3d2f1c9bd9",
+        "0xffbabe60595c8a6e",
+        "0x7c1549a8f1d35965",
+        "0xff3212b6f665a8cd"
+      ],
+      "fold_b": [
+        "0x267cc231aba28459",
+        "0xb4e597a9bb931d59",
+        "0xa20dad9aba4fcc01",
+        "0xe76a19702f3e38b1",
+        "0x690c4fe54661b784",
+        "0x2119c86133bac011",
+        "0x6648bfe45c19a2b3",
+        "0x0688d4be6c159295"
+      ]
+    },
+    {
+      "stage": "padding_round_4",
+      "state_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 16,
+        "active_bits": 488,
+        "xor_words": [
+          "0xe0b91a194e687c9b",
+          "0x9d11b6681a397404",
+          "0x249638a0b3f60f43",
+          "0xbcc43f84bed45230",
+          "0x022aec95bae9d6db",
+          "0xa8908db5cb64ae47",
+          "0x381c2a49ec3d98e3",
+          "0x75ee1e8912f04b22",
+          "0x98d05da5257102e4",
+          "0xac055830cb215627",
+          "0x2e0f9b4f23269355",
+          "0xd82e7847d68753b5",
+          "0x9c49a9bcf32d6c92",
+          "0xa59ecb75e52d0482",
+          "0xecf7d12489b2ea8f",
+          "0x43501d3608c6fc4c"
+        ]
+      },
+      "prospective_fold_difference": {
+        "equal_prefix_words": 0,
+        "active_words": 8,
+        "active_bits": 268,
+        "xor_words": [
+          "0x79d965dfd71eb185",
+          "0x31169a2940e8ee21",
+          "0x16a0de29cf2c9a0e",
+          "0x97e7be4917533efd",
+          "0xf264c54138436579",
+          "0x76fdbd2ff5b6abc5",
+          "0x8be49a9b5d48f12a",
+          "0x948e73590793ad22"
+        ]
+      },
+      "fold_a": [
+        "0x51a40ecaea6abd4c",
+        "0xb1b6e62783fdc930",
+        "0x87abc99c62b198e2",
+        "0xe1851fe315289e41",
+        "0xc94d08f1d893e409",
+        "0x4a0786a40756e515",
+        "0x1407ba641de0306f",
+        "0x3b022a2ec7de8645"
+      ],
+      "fold_b": [
+        "0x287d6b153d740cc9",
+        "0x80a07c0ec3152711",
+        "0x910b17b5ad9d02ec",
+        "0x7662a1aa027ba0bc",
+        "0x3b29cdb0e0d08170",
+        "0x3cfa3b8bf2e04ed0",
+        "0x9fe320ff40a8c145",
+        "0xaf8c5977c04d2b67"
+      ]
+    }
+  ]
+}

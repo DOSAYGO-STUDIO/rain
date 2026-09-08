@@ -1,0 +1,19 @@
+{
+  "experiment": "rainstorm-boolean-jacobian-rank",
+  "production_version": "4.0.0",
+  "message_length": 64,
+  "input_bits": 512,
+  "base_message_hex": "c462503ec2abc8d8b935ca30a61c2c5a9f473c20bb9c9230ca512ea009658077eae8d4594fa007403c710903e9ef7b2f3719f77bd3089c1c068614fa9dfb3381",
+  "ranks": {
+    "after_all_message_blocks_1024_bit_state": 512,
+    "after_fixed_padding_1024_bit_state": 512,
+    "first_two_fold_words_128_bit_output_core": 128
+  },
+  "elapsed_seconds": 0.029603332979604602,
+  "interpretation": "Ranks are first-order Boolean derivatives at one recorded point. They diagnose local degrees of freedom; full rank is not an inversion algorithm or a security proof.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "a8a2d9559700411961de30576a3bb7fc407f26358ad5137c54ee2e0694281d1a",
+    "research/differential/jacobian_rank.py": "49437663ebc7e3b1f2c37594dd9c9397528a23ab51c8b249be74623cc51373db"
+  }
+}

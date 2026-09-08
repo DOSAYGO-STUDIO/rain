@@ -1,0 +1,28 @@
+{
+  "experiment": "bounded-production-rainstorm-digest-collision",
+  "production_version": "4.0.0",
+  "solver": "Z3 4.15.4",
+  "backend": "sat",
+  "status": "unknown",
+  "unknown_reason": "timeout",
+  "elapsed_seconds": 30.273820458212867,
+  "timeout_seconds": 30,
+  "message_length": 16,
+  "symbolic_prefix_bytes_per_message": 16,
+  "fixed_suffix_byte": 0,
+  "digest_bits": 64,
+  "weak_rounds_per_block": 3,
+  "production_equivalent": false,
+  "equal_digest_words": [
+    0
+  ],
+  "complete_digest_collision_target": true,
+  "search_kind": "chosen-second-preimage",
+  "reference_message_hex": "00000000000000000000000000000000",
+  "scope": "Exact production-v4 arithmetic in a finite symbolic-prefix domain. SAT is a witness; UNSAT applies only to this domain; unknown is inconclusive.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "1c57b546a5f15f5550f318b8c2060a6b3bacc551b3d2f8929c7864955cec2fc8",
+    "research/differential/smt_digest.py": "7cd8476f1650fc1eba2e249632ca292be1fd321682fc19330bc65afedb489bf8"
+  }
+}

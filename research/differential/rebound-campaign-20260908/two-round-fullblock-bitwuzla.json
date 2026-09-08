@@ -1,0 +1,50 @@
+{
+  "experiment": "two-round-rainstorm64-message-modification",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 64,
+  "digest_bits": 64,
+  "weak_rounds": 2,
+  "fixed_first_right_outputs": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "free_first_right_outputs": [
+    5,
+    6
+  ],
+  "derived_first_right_output": 7,
+  "preserved_conditions": [
+    "sum(y[5..7])",
+    "x[0..4]",
+    "sum(x[5..7])",
+    "fold word 0"
+  ],
+  "remaining_constraints": [
+    "left lane-7 data consistency"
+  ],
+  "lane7_consistency_bits": 64,
+  "reference_message_hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "target_digest_hex": "3781f3d8b194b330",
+  "solver": "Bitwuzla 0.9.1",
+  "backend": "bitwuzla",
+  "status": "unknown",
+  "unknown_reason": "timeout",
+  "elapsed_seconds": 60.028879459016025,
+  "timeout_seconds": 60,
+  "threads": 1,
+  "random_seed": 6402,
+  "bitwuzla_sat_solver": "cadical",
+  "bitwuzla_bv_solver": "bitblast",
+  "scope": "Exact reduced two-round message modification. SAT is a verified reduced-round second preimage, not a production collision.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "a8a2d9559700411961de30576a3bb7fc407f26358ad5137c54ee2e0694281d1a",
+    "research/differential/smt_programmed.py": "2f83b19339e46704b8b5ecf4b03e2c4c2624998ac276481aa2838bbba6b2eb0a",
+    "research/differential/smt_two_round.py": "9a1dc39c44a5b7734344a60cf664e11828566d48cc50ecc0215861d21100ed41"
+  },
+  "solver_statistics": {}
+}

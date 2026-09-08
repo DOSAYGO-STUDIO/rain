@@ -1,0 +1,284 @@
+{
+  "experiment": "rainstorm-boolean-jacobian-rank-campaign",
+  "production_version": "4.0.0",
+  "message_length": 64,
+  "input_bits": 512,
+  "trials": 32,
+  "initial_seed": 20260908,
+  "rank_histograms": {
+    "after_all_message_blocks_1024_bit_state": {
+      "512": 32
+    },
+    "after_fixed_padding_1024_bit_state": {
+      "512": 32
+    },
+    "first_two_fold_words_128_bit_output_core": {
+      "128": 32
+    }
+  },
+  "records": [
+    {
+      "base_message_hex": "c462503ec2abc8d8b935ca30a61c2c5a9f473c20bb9c9230ca512ea009658077eae8d4594fa007403c710903e9ef7b2f3719f77bd3089c1c068614fa9dfb3381",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "12d72f17b593f71019c61229ecb1efc5a3e4cafa9d2af9fe19f0f68a2aa0cd1ff017fc7887225c030a771e4abb9a2cadbc0863b42cafa500c614e63c09c75ead",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "ea72cae1ee5d4f1ed66ae54073c2f0139d9be829f8baece0712e8cad00f1a75d43456cb7d0493d58365b2591456d1041c7fa88d31763d303930e7f17533fb22c",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "61a715cf19b7829a8e1fb65caa2de9030df7d572b190f1e49b865e1773ba9aa95778f5eb21317e2cf6983881ee0480d188a8e268ec6ba452f7fa2d7dc301b840",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "76f5e80f7ac9f9ae82756d6e9d6bfe36f15c951e79daa407a7da239ff9a5ecf660f560b32038c3927da77dfe9051a5ade7c65199192298f7a8ec02d5fa777be4",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "92017218903a429f1ec152e73946e0c856aa95305a9f2ae8590e943b962e54d05986d8e44f2b8ed5d5741bca0d61f2cd44a74c5f0d2f276013e8a26b8e5d0f55",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "e8d967695efbd7bc8ff7299f0a2cfb775053c4aaea4e3e582f9f5292c8cfccbed791cad462bb6300cec7febd933a97594adf0cbf444341bd9b2aaaa11a76b049",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "4fd32da41b3bf393644882b37c09851a248fa5bbe5f4d234bcb8481aa6ac68e081a24a551fb737b898435b044578cbd901777b679493aec6ef224f4b00be7b21",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "233899a9b037ff0a44ffb9aed65cea612de729f1e892bf284a3ec2de5ec2c4a4e955c91b4874995ed7c02381d065c13d5004c6ddcf3a0fc332200697eab11c70",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "f57bdd9db02e7621a027a6a7241534fa12cd3ffa42a4c3c0566dc0e20661784ffd9d9e4262404e8eca0f823cfe602d01fd039b24944e8fde6fde7c5f33faf18c",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "ac6c6ce14f5fdd4edb7046dec310722766482b9efd11ea0cf9f883ff2f2f4e9bbb8270eabbc6636e6ce7215a3dc92cd2cbf7b2cd4be5dba0d3a84753cae4c5a8",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "64612ca2fbf82d19672a6fcef60fd8598695b023d282cec9d47ca5a76b909bbf652519fd3eaab5d0cb282dc43d49ac56ba51f866163060b8f68e758f5709bc47",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "14751e963f1fe6a1e62bb6b5f529bf47d99cb2203f3ce67349a7a4e6beee5fd0af85f4685ee1bc5820b2c23dc34122f578452b704666cc5867f569055f076120",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "6b8ee9dec0a0e23d930069095c0ac130735ee913ad0ed8d36a59a40bc9f427de8338b4b7edd55128e8b10c6176484e59d0ba2530102e7bb8a703a7549550ba53",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "9d1075e76aef2eb829532cac0dbf24ba87f8725cf68c311a81e82eea718d9181e4bbf8019ff5f6820fd55013955e668d227c1aa5011025ba8695f584c1e2f009",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "bb166d588f6f213f67b2fe4a426ec55e469924c9c38b17f75643ee3e9788dc6b4f565c7e41f52634292cf906abfaeccd483daca410276608b8e4cd84ef81b1db",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "4bb8e803f0aac5d19fb677f0a1e725a9e8c8e4e9f37de38b053c8da16c5893b36f3c2c2590d9078fcc7c93916d5d37c973c45aba3e5da4d0ac2da00e9134e7d8",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "05d85454bb16d5f17e8a4421fe01a0c48e699b82713f051ed74e826e7b67ee90ad9346f2d19cb7bdcd4df1cba0e7d2a9682c089d33ad1b3c688d0b91358f947c",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "ba21aa121670df0b15650c0443f716963a13a23a434bb4d977766f81b5fbecd763c4502ffb608ea0c8f43f09bc5e7f1d39cf105fa76acc7e3cddb6c4182a213f",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "87aef6e799fa273de6138c7c28d72c50cde203fe2588d61ef48040128527d813edc7bf7ee7ca8b672ce805f79283815cb0527eae32e3581b90859c4fe35a1f12",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "6316f9af59fcaa8c0b4684e64355be47b1fc50b01ddec6c9c44c98c16291b3d53ca42d084e73ca3665e17ff2b2b33b18938e45c9a729c47136439df660aa105a",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "59cdf561e7358d84908e58bcec2d664ae3c865aa2a0889764e06a325aad1a46f9635803cc7118699115cb15d3c457a7b8f9844d1c25a761168a9f481e8ce5702",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "402a797640e1cd67b5db6aa1c863cfba5b4bea38cd37c1ac857fc04e4ed1cca35ff67f8032ab7db6673fccf004851eb867dcd4a4110d286b7f3367d20966ad05",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "8de5aa2786e0d62b23699fd7aeb6fd4dbcf649e7a13d011579fbd41d87a94fb12e6ff32707e96f7d056680a7845b857f6dbf4ef51f4b8ef0a7d90f0512ecf796",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "778f054ec2a24ad450fb2c6a91830a0d0c37594180609a6e1fe5bec4c673359bbd8c3489f9ada88127e056d2fd297d5f4698e9bde502f3f1da320ddbafe01892",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "a953f315ecfd0f5b9f0a55516229ee9ef5be695827e8f618feee3d824d8d95c2ac54dbf88dde846541284b91d1a491055d036f50ad9cf23b69c24ba8522789e4",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "7518681726bbaf2319c3bc1179abadf2f593b9a2c41cbcc20013f85d04e3b8bd8945e119837c5dbac5e32617099a172853c7b896d8f60a4424e4406582ffae76",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "0a6775755a9ab10cb494c82be4fe64b265a7d14cef82ebb9ca8fd38d13883a3ce83519aaf8f009ce051ecfee9515ad6954dd5c914a6e5f53772049aabf6c098d",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "101e45b159eafefe173882231cec37cbd4fd7cce250f8235748d0a547efb7423003e9a93d8c4239dd69fdf0454a84552ca22bff82b197198bf663f696ea5f27b",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "7ff12bab8b78e75ce9a5719c6c1e301612317aef12c50ff1da867d9f3e48c803d1b725d3b162a2e6d087c6987061a7eec4cc0f39e47c38990f2ab131d72537b4",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "3b4e14bd2b124477e3652a1677026b8e37151cec9cb8cefca015b06f1233084bdb790118112e75c47d02d7958143515bf159398462d396526c060c53d7af17ef",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    },
+    {
+      "base_message_hex": "64f4c689f3244eb09275f96b0e44baa5e0eabd0c14842fb5adf3101bf70d3295611706ce84b40aafa32f8dcf796f73f8d1ba144f9a96f70f781e4d8bded8b06c",
+      "ranks": {
+        "after_all_message_blocks_1024_bit_state": 512,
+        "after_fixed_padding_1024_bit_state": 512,
+        "first_two_fold_words_128_bit_output_core": 128
+      }
+    }
+  ],
+  "elapsed_seconds": 0.9489815826527774,
+  "interpretation": "Ranks are first-order Boolean derivatives at one recorded point. They diagnose local degrees of freedom; full rank is not an inversion algorithm or a security proof.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "a8a2d9559700411961de30576a3bb7fc407f26358ad5137c54ee2e0694281d1a",
+    "research/differential/jacobian_rank.py": "c62dcdf383faf58eb6a744dbbd8d13cfcdc5fa88344f3e4ecedff542dee35968"
+  }
+}

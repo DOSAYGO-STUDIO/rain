@@ -1,0 +1,69 @@
+{
+  "experiment": "flat-algebraic-full-block-rainstorm-collision",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 64,
+  "target_digest_bits": 128,
+  "target_fold_words": [
+    0,
+    1
+  ],
+  "message_rounds": 1,
+  "padding_rounds": 0,
+  "symbolic_transformed_words_per_path": 8,
+  "data_consistency_equations_per_path": 0,
+  "algebraic_form": "explicit transformed words; shallow per-lane data consistency",
+  "solver": "Z3 4.15.4",
+  "backend": "sls",
+  "bitwuzla_bv_solver": null,
+  "status": "sat",
+  "unknown_reason": null,
+  "elapsed_seconds": 0.00363070797175169,
+  "timeout_seconds": 30,
+  "random_seed": 11,
+  "solver_statistics": {
+    "solve-eqs-steps": 78,
+    "solve-eqs-elim-vars": 1,
+    "sls full evals": 1,
+    "sls moves": 2,
+    "num allocs": 10866,
+    "rlimit count": 1417,
+    "sls moves/sec": 666.6666666666666,
+    "max memory": 16.88,
+    "memory": 16.88,
+    "time": 0.003
+  },
+  "scope": "Exact 64-bit production equations. SAT in a 4+4 instance is a native-verifiable collision; unknown is inconclusive.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "a8a2d9559700411961de30576a3bb7fc407f26358ad5137c54ee2e0694281d1a",
+    "research/differential/smt_rebound.py": "c7bba8084a6cf2a1d38cfc9dc7cf9e7e55681e361b4f7726eec469a39101efc7",
+    "research/differential/solver_backends.py": "b1f370891a7c886e587f3f39085c756272877ddae5a1eb9b84924654b6daeb3e",
+    "research/differential/smt_flat_collision.py": "583354effb6f7149952298c8c1c381578fb5001f1b372061c9903936a74cd170"
+  },
+  "witness": {
+    "message_a_hex": "96ffffffffffffff58b56a3e94137459bab074c785cf1afac02a2057945049fbfad0d3adcbbf31fa1c4d50f10cd517fd985381836f1a47c8de090500eeec1bcf",
+    "message_b_hex": "96ffffffff01000058b56a3f941b7459bab074c785cf1afac02a2057945049fbfad0d3adcbbf31fa1c4d50f10cd517fd985381836f1a47c8de090500eeec1bcf",
+    "fold_a": [
+      "0xefcdab8966452343",
+      "0x0000000000000042",
+      "0x0000000000000043",
+      "0x0000000000000045",
+      "0x0000000000000047",
+      "0x000000000000004b",
+      "0x000000000000004d",
+      "0x0000000000000051"
+    ],
+    "fold_b": [
+      "0xefcdab8966452343",
+      "0x0000000000000042",
+      "0x0000000000000043",
+      "0x0000000000000045",
+      "0x0000000000000047",
+      "0x000000000000004b",
+      "0x000000000000004d",
+      "0x0000000000000051"
+    ],
+    "integer_model_fold_prefix_verified": true
+  }
+}

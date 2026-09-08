@@ -1,0 +1,47 @@
+{
+  "experiment": "flat-algebraic-full-block-rainstorm-collision",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 64,
+  "target_digest_bits": 128,
+  "target_fold_words": [
+    0,
+    1
+  ],
+  "message_rounds": 3,
+  "padding_rounds": 0,
+  "symbolic_transformed_words_per_path": 24,
+  "data_consistency_equations_per_path": 16,
+  "algebraic_form": "explicit transformed words; shallow per-lane data consistency",
+  "solver": "Z3 4.15.4",
+  "backend": "sls",
+  "bitwuzla_bv_solver": null,
+  "status": "unknown",
+  "unknown_reason": "timeout",
+  "elapsed_seconds": 60.051736916881055,
+  "timeout_seconds": 60,
+  "random_seed": 13,
+  "solver_statistics": {
+    "solve-eqs-steps": 54,
+    "solve-eqs-elim-vars": 1,
+    "sls restarts": 8,
+    "sls full evals": 28,
+    "sls incr evals": 1697146,
+    "sls moves": 2077,
+    "num allocs": 25988,
+    "rlimit count": 11546,
+    "sls incr evals/sec": 28261.74418411017,
+    "sls moves/sec": 34.58726748930076,
+    "max memory": 17.0,
+    "memory": 17.0,
+    "time": 60.051
+  },
+  "scope": "Exact 64-bit production equations. SAT in a 4+4 instance is a native-verifiable collision; unknown is inconclusive.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "a8a2d9559700411961de30576a3bb7fc407f26358ad5137c54ee2e0694281d1a",
+    "research/differential/smt_rebound.py": "c7bba8084a6cf2a1d38cfc9dc7cf9e7e55681e361b4f7726eec469a39101efc7",
+    "research/differential/solver_backends.py": "b1f370891a7c886e587f3f39085c756272877ddae5a1eb9b84924654b6daeb3e",
+    "research/differential/smt_flat_collision.py": "583354effb6f7149952298c8c1c381578fb5001f1b372061c9903936a74cd170"
+  }
+}

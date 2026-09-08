@@ -1,0 +1,35 @@
+{
+  "experiment": "staged-two-round-rainstorm64-message-modification",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "status": "exhausted-without-witness",
+  "message_length": 63,
+  "digest_bits": 64,
+  "weak_rounds": 2,
+  "max_padding_compatible_s_candidates": 8,
+  "tested_padding_compatible_s_candidates": 8,
+  "padding_trials": 1777,
+  "per_residual_solver_timeout_ms": 2000,
+  "residual_solver_backend": "bitwuzla",
+  "bitwuzla_bv_solver": "bitblast",
+  "elapsed_seconds": 18.59065316617489,
+  "lane7_carry_solver": "exact 11-bit-prefix enumeration",
+  "lane7_solution_count_histogram": {
+    "0": 3,
+    "1": 2,
+    "2": 2,
+    "3": 1
+  },
+  "residual_solver_statuses": {
+    "sat": 0,
+    "unsat": 0,
+    "unknown": 9
+  },
+  "witness": null,
+  "scope": "Exact reduced two-round attack. No witness is not UNSAT outside the recorded sampled sums and per-instance solver budgets.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "6c9397bf52e88961d890b3c30966c21b0caad0ad24eb43a91bc3c63d98b1c35e",
+    "research/differential/two_round_staged.py": "5b0abea6774bd9eaf3ab8773fc67f09d3f8afc13e33ce186f6d7acc62f91a167"
+  }
+}

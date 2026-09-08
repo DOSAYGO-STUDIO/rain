@@ -1,0 +1,79 @@
+{
+  "experiment": "two-round-rainstorm64-message-modification",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 63,
+  "digest_bits": 64,
+  "weak_rounds": 2,
+  "fixed_first_right_outputs": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "free_first_right_outputs": [
+    5,
+    6
+  ],
+  "derived_first_right_output": 7,
+  "preserved_conditions": [
+    "sum(y[5..7])",
+    "x[0..4]",
+    "sum(x[5..7])",
+    "fold word 0"
+  ],
+  "remaining_constraints": [
+    "left lane-7 data consistency",
+    "data[7] top padding byte is 0xbf"
+  ],
+  "lane7_consistency_bits": 64,
+  "reference_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "target_digest_hex": "0d983aca58efd4dd",
+  "solver": "Z3 4.15.4",
+  "backend": "sat",
+  "status": "unknown",
+  "unknown_reason": "timeout",
+  "elapsed_seconds": 5.017327125184238,
+  "timeout_seconds": 5,
+  "threads": 1,
+  "random_seed": 0,
+  "scope": "Exact reduced two-round message modification. SAT is a verified reduced-round second preimage, not a production collision.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "6c9397bf52e88961d890b3c30966c21b0caad0ad24eb43a91bc3c63d98b1c35e",
+    "research/differential/smt_programmed.py": "2ef4df481ee2106755f44140dd9b6d78f777459d80fecb240da805df075fd78c",
+    "research/differential/smt_two_round.py": "ae5210e22b1dcf21765bd2641d39b0c6ccf1cfeb8006b0e27a95288ddcd58dbe"
+  },
+  "solver_statistics": {
+    "sat mk clause 2ary": 7286,
+    "sat mk clause 3ary": 4039,
+    "sat mk clause nary": 111209,
+    "sat mk var": 5121,
+    "sat gc clause": 62664,
+    "sat del clause": 78129,
+    "sat conflicts": 92794,
+    "sat decisions": 181312,
+    "sat propagations 2ary": 3959185,
+    "sat propagations nary": 14208310,
+    "sat restarts": 11316,
+    "sat minimized lits": 2212660,
+    "sat subs resolution dyn": 91650,
+    "sat units": 14,
+    "sat elim bool vars res": 2165,
+    "sat backjumps": 92792,
+    "sat backtracks": 2,
+    "sat elim clauses": 28,
+    "sat elim literals": 12814,
+    "sat subsumed": 3844,
+    "sat subs resolution": 5994,
+    "sat scc elim vars": 75,
+    "sat scc elim binary": 237,
+    "sat tr": 4,
+    "num allocs": 179355386,
+    "rlimit count": 18117706,
+    "max memory": 36.85,
+    "memory": 19.26,
+    "time": 5.017
+  }
+}
