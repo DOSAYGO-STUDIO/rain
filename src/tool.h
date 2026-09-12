@@ -248,6 +248,27 @@ std::string RandomConfig::entropyMode = "default"; // Default initialization
   }
 
 // HMAC
+  //
+  // Note (2026-09-12, external review): despite the name, this is not HMAC.
+  // It is the secret-suffix construction H(message || key): no ipad/opad, no
+  // keyed compression, and so none of HMAC's proof carries over. Two specific
+  // breaks were checked and did NOT apply here, so this is a provenance and
+  // naming concern rather than a known vulnerability:
+  //
+  //   - Field-boundary ambiguity. The concatenation encodes no lengths, but
+  //     PackedHeader carries explicit hashNameLen/saltLen and the ciphertext
+  //     length is pinned by originalSize, so in practice the split is not
+  //     malleable.
+  //   - Length extension. Only 256 of the 1024 state bits are output and the
+  //     final rounds follow a fold, so the state cannot be resumed from a tag.
+  //
+  // The generic weakness that does remain is structural: a secret-suffix MAC
+  // falls to an internal-state collision on equal-length messages, which for
+  // Rainstorm's 1024-bit state is ~2^512 and therefore not a practical
+  // concern. Future consideration: adopting real HMAC, or a keyed seed rather
+  // than a suffix, would replace an unproven construction with a proved one
+  // at negligible cost. Note the seed argument below is 0, so the key reaches
+  // the hash only as trailing message bytes.
   static const size_t HMAC_SIZE = 32; // 256 bits for Rainstorm
 
   std::vector<uint8_t> createHMAC(
@@ -279,7 +300,22 @@ std::string RandomConfig::entropyMode = "default"; // Default initialization
     // Recompute the HMAC
     auto computedHMAC = createHMAC(headerData, ciphertext, key);
 
-    // Compare with the provided HMAC (constant-time comparison)
+    // Compare with the provided HMAC (intended to be constant-time)
+    //
+    // Note (2026-09-12, external review): this loop does avoid an early
+    // return, which is the usual mistake, but it is not constant-time by
+    // construction. "if (a[i] != b[i]) equal = false;" is a data-dependent
+    // branch; whether it becomes a branchless select is left to the optimiser
+    // and can change with compiler, flags, or target. Future consideration:
+    // accumulate instead of branching, which is constant-time by construction
+    // rather than by the optimiser's choice:
+    //
+    //   uint8_t diff = 0;
+    //   for (size_t i = 0; i < computedHMAC.size(); i++)
+    //     diff |= (uint8_t)(computedHMAC[i] ^ hmacToCheck[i]);
+    //   return diff == 0;
+    //
+    // The early size check above is fine to keep: tag length is public.
     if (computedHMAC.size() != hmacToCheck.size()) return false;
     bool equal = true;
     for (size_t i = 0; i < computedHMAC.size(); i++) {
