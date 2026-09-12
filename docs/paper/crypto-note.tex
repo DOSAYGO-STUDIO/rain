@@ -211,6 +211,113 @@ Despite passing all SMHasher3 tests at four rounds, Rainstorm’s true cryptogra
   \item \textbf{Reduced-Round Analysis:} Analyzing a three-round or even two-round variant might reveal structural weaknesses that are masked at four rounds. Understanding how security degrades when we reduce rounds can guide recommendations for practical security margins.
 \end{itemize}
 
+\section*{Related-Seed Structure in the Initialization Vector}
+\emph{Added 2026-09-12. Verified against the v4.0.0 production source and the
+frozen pre-v4 reference; both behave identically.}
+
+The state is initialized as \( h[i] = \texttt{seed} + \texttt{len} + p_i \) for
+\( i = 0,\dots,15 \), where the \( p_i \) are the sixteen small constants
+\( 1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47 \). The entire 1024-bit initial
+state is therefore a single 64-bit value replicated with publicly known
+additive offsets. This gives the initialization an exploitable related-seed
+property.
+
+\subsection*{A probability-one two-round relation}
+
+Work modulo \( 2^{64} \). For any \( x \),
+\[
+  x + 2^{63} \;=\; x \oplus 2^{63},
+\]
+since adding \( 2^{63} \) flips bit 63 and the resulting carry leaves the word.
+Consequently the seed difference \( \Delta = 2^{63} \) turns the additive
+initialization into a \emph{uniform XOR difference}: replacing
+\texttt{seed} by \( \texttt{seed} + 2^{63} \) flips the top bit of all sixteen
+state words simultaneously.
+
+The first operation applied to each state word in both round directions is an
+XOR with a data word. An attacker who also flips the top bit of every data word
+therefore cancels the difference. Let \( M \) be any full 64-byte block and let
+\( M' \) be \( M \) with the top bit of each of its eight words flipped. Then for
+the pair
+\[
+  (\texttt{seed},\, M) \quad\text{and}\quad (\texttt{seed} + 2^{63},\, M'),
+\]
+the two 1024-bit states are \textbf{identical after two rounds}, with
+probability one.
+
+The trace is short. In the right round, \( h[8+j] \mathbin{\oplus}= d_j \)
+cancels the two top-bit differences, so every transformed high word \( y_j \) is
+equal in the two executions; the low words retain their \( 2^{63} \) difference,
+which survives \( -K_j \) because a top-bit difference is simultaneously
+additive and exclusive-or, and survives the counter subtraction because the
+counter itself is equal. Entering the left round the low half carries a
+\( 2^{63} \) difference in every word and the high half is already equal;
+\( h[i] \mathbin{\oplus}= d_i \) now cancels the low-half difference, so every
+\( x_i \) is equal, the high half stays equal under
+\( h[i+8] \mathbin{\oplus}= x_i \), and the counter chain is equal throughout.
+Both halves therefore agree.
+
+\subsection*{Why the relation stops at the third round}
+
+The relation is confined to the first two rounds. Entering the third round the
+state is equal but the data difference is still \( 2^{63} \) per word. That
+difference re-enters the high half, survives the subtraction as before, and is
+then mapped by \( \mathrm{ROTR}(\cdot, Z_j) \) to a difference in bit
+\( 63 - Z_j \). Away from the top bit a single-bit exclusive-or difference no
+longer coincides with an additive one, so the counter accumulation becomes
+value-dependent and the deterministic structure is lost. Measured over the full
+four-round block the two states differ in roughly half of their 1024 bits,
+consistent with complete diffusion.
+
+The relation also never reaches a digest. The correction requires control of a
+complete 64-byte data block, and the final padded block is not attacker-chosen:
+for a message whose length is a multiple of 64 it is the constant all-\texttt{0x80}
+block, identical in both executions and therefore uncorrectable. Over 200 random
+trials at 64-byte messages, no pair of corrected messages produced equal
+Rainstorm-256 digests.
+
+\subsection*{\(\Delta = 2^{63}\) is the only seed difference usable blind}
+
+The correction an attacker must apply to data word \( j \) is
+\( \mathrm{IV}_a[8+j] \oplus \mathrm{IV}_b[8+j] \). For a general seed difference
+\( \Delta \) this equals
+\( (s + p_j) \oplus (s + \Delta + p_j) \), which depends on the carry pattern of
+\( s + p_j \) and hence on the secret seed. Adding \( 2^{63} \) never carries,
+making it the unique difference whose correction is a constant. Counting the
+distinct corrections induced over 200 random seeds:
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Seed difference \( \Delta \) & Distinct corrections \\
+\midrule
+\( 1 \)      & 30 \\
+\( 2 \)      & 39 \\
+\( 2^{32} \) & 5 \\
+\( 2^{62} \) & 2 \\
+\( 2^{63} \) & \textbf{1} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A difference of \( 2^{62} \) costs one bit of seed guessing, \( 2^{32} \) rather
+more, and smaller differences quickly become impractical to use without knowing
+the seed. The additive-constant initialization thus exposes exactly one bit's
+worth of related-key structure.
+
+\subsection*{Scope}
+
+This is a related-key, chosen-plaintext observation about the first two rounds
+of the compression function. It is not a collision, preimage, or distinguishing
+attack on any Rainstorm digest, and it does not reduce the cost of any attack on
+the hash with a public seed. It is recorded because the existing differential
+analysis explicitly excludes related seeds from its claims, and because the
+property is deterministic rather than statistical: it identifies the one seed
+relation that an attacker can exploit without knowledge of the seed, and bounds
+how far it propagates. Its relevance, if any, is to constructions that treat the
+seed as a key and could expose an attacker to a chosen \( +2^{63} \) seed
+relation.
+
 \section*{Why Analyze Rainstorm?}
 In a landscape where SHA-3, BLAKE3, and other well-established hashes dominate, why spend time on an outsider’s hybrid design?
 
