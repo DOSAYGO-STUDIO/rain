@@ -48,6 +48,10 @@ JS_OUTPUT   = docs/rain.cjs
 all: directories node_modules rainsum link rainwasm
 
 # Create Necessary Directories
+# These are order-only prerequisites (after the |) of the rules that write
+# into them, so targets invoked directly -- 'make rainsum' in a fresh clone,
+# for instance -- create them first instead of failing in the compiler or
+# linker. Order-only keeps a directory's mtime from forcing rebuilds.
 directories: ${OBJDIR} ${BUILDDIR} ${WASMDIR}
 
 ${OBJDIR}:
@@ -65,16 +69,16 @@ node_modules:
 	@(test ! -d ./scripts/node_modules && cd scripts && npm i && cd ..) || :
 
 # Streaming-vs-single-call equivalence test (see src/streaming-test.cpp)
-test-streaming: ${BUILDDIR}
+test-streaming: | ${BUILDDIR}
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BUILDDIR)/streaming-test src/streaming-test.cpp
 	$(BUILDDIR)/streaming-test
 
 # Build Executable (C++ native)
-rainsum: $(OBJS)
+rainsum: $(OBJS) | ${BUILDDIR}
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BUILDDIR)/$@ $^
 
 # Compile Object Files
-$(OBJDIR)/%.o: src/%.cpp
+$(OBJDIR)/%.o: src/%.cpp | ${OBJDIR}
 	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c $< -o $@
 
 # Build WebAssembly Output
