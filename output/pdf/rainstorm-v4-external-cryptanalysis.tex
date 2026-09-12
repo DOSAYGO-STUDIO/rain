@@ -332,6 +332,7 @@ Round three is high-active. Its lane-zero transform therefore consumes a value d
 This correction raises the simple lift from one to two coupled 64-bit conditions. It does not prove a $2^{64}$ lower bound, because a larger programmed family may spend neutral variables to enforce $G$ by message modification. It does invalidate the one-parameter $2^{32}$ lift. No three-round collision is claimed.
 
 \section{Internal differential experiment}
+\label{sec:internal}
 
 The native profiler draws uniform $v$, pairs it under a declared XOR, additive, or RX relation, constructs both messages by Lemma 1, and records prospective fold differences after each checkpoint. For each stage it counts exact word equalities, low-$k$ equality for $k\in\{4,8,12,16,20,24,32\}$, and all 512 XOR-difference bit frequencies.
 
@@ -576,6 +577,122 @@ Related seed/length & IV dependence and API scope inspected & No exhaustive rela
 
 The most important methodological limitations are the absence of a complete automatic carry-characteristic search, a genuine inbound/outbound splice with measured probability, and a two-block indirect-partial-matching implementation.  These are named limitations, not hidden inside solver timeouts.
 
+\section{Related-seed structure in the initialization vector}
+\label{sec:relseed}
+
+The campaign above holds the seed fixed and public. This section records what
+the initialization contributes when that restriction is lifted, since the
+differential suite explicitly excludes related seeds from its claims. The result
+is deterministic rather than statistical, and it is bounded: it covers exactly
+two rounds and provably reaches no digest.
+
+The state is initialized as \( h[i] = \code{seed} + \code{len} + p_i \) for
+\( i = 0,\dots,15 \), with
+\[
+  (p_0,\dots,p_{15}) = (1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47).
+\]
+The entire 1024-bit initial state is therefore a single 64-bit quantity
+replicated with publicly known additive offsets.
+
+\begin{lemma}[Top-bit seed differences are exclusive-or differences]
+Modulo \( 2^{64} \), \( x + 2^{63} = x \oplus 2^{63} \) for every \( x \),
+because adding \( 2^{63} \) flips bit 63 and the resulting carry leaves the
+word. Replacing \code{seed} by \( \code{seed} + 2^{63} \) therefore flips the
+top bit of all sixteen initial state words simultaneously.
+\end{lemma}
+
+\begin{proposition}[Two-round state collapse]
+\label{prop:relseed}
+Let \( M \) be any full 64-byte block and let \( M' \) be \( M \) with the top
+bit of each of its eight words flipped. Then the executions
+\( (\code{seed}, M) \) and \( (\code{seed} + 2^{63}, M') \) reach the identical
+1024-bit state after two rounds, with probability one.
+\end{proposition}
+
+\begin{proof}
+The first operation applied to each state word in both round directions is an
+exclusive-or with a data word, so the two top-bit differences cancel there. In
+the right round \( h[8+j] \mathbin{\oplus}= d_j \) cancels, making every
+transformed high word \( y_j \) equal across the two executions; the low words
+retain their \( 2^{63} \) difference, which survives \( -K_j \) because a
+top-bit difference is simultaneously additive and exclusive-or, and survives the
+counter subtraction because the counter is built from the equal \( y_j \).
+Entering the left round the low half carries a \( 2^{63} \) difference in every
+word and the high half is already equal. Now \( h[i] \mathbin{\oplus}= d_i \)
+cancels the low-half difference, so every \( x_i \) is equal, the high half
+remains equal under \( h[i+8] \mathbin{\oplus}= x_i \), and the counter chain is
+equal throughout. Both halves therefore agree.
+\end{proof}
+
+\subsection{Propagation limit}
+
+The relation is confined to the first two rounds. Entering round three the state
+is equal but the data difference is still \( 2^{63} \) per word. It re-enters the
+high half, survives the subtraction as before, and is then mapped by
+\( \mathrm{ROTR}(\cdot, Z_j) \) to a difference in bit \( 63 - Z_j \). Away from
+the top bit a single-bit exclusive-or difference no longer coincides with an
+additive one, the counter accumulation becomes value-dependent, and the
+deterministic structure is lost. Measured across a full four-round block the two
+states differ in approximately half of their 1024 bits, consistent with complete
+diffusion.
+
+Proposition~\ref{prop:relseed} also reaches no digest. The correction requires
+control of a complete 64-byte data block, and the final padded block is not
+attacker-chosen: for lengths divisible by 64 it is the constant
+all-\code{0x80} block, identical in both executions and therefore
+uncorrectable. This is the same padding barrier that stops the internal
+differentials of Section~\ref{sec:internal}, arriving by a different route.
+
+\subsection{Only one seed difference is usable blind}
+
+The correction an attacker must apply to data word \( j \) is
+\( \mathrm{IV}_a[8+j] \oplus \mathrm{IV}_b[8+j] \). For a general seed
+difference \( \Delta \) this is \( (s + p_j) \oplus (s + \Delta + p_j) \), which
+depends on the carry pattern of \( s + p_j \) and hence on the secret seed.
+Adding \( 2^{63} \) never carries, making it the unique difference whose
+correction is a constant the attacker can apply without knowing the seed.
+
+\begin{table}[h]
+\centering
+\caption{Distinct data corrections induced by each seed difference.}
+\label{tab:relseed}
+\begin{tabularx}{\linewidth}{@{}lrX@{}}
+\toprule
+Seed difference \( \Delta \) & Distinct corrections & Consequence \\
+\midrule
+\( 1 \)      & 35 & unusable without the seed \\
+\( 2 \)      & 40 & unusable without the seed \\
+\( 2^{32} \) & 8  & about three bits of seed guessing \\
+\( 2^{62} \) & 2  & one bit of seed guessing \\
+\( 2^{63} \) & \textbf{1} & \textbf{seed-independent} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Only the last row is an invariant of the construction; the remaining counts are
+distinct corrections observed in a finite sample and grow with the number of
+seeds drawn, so they indicate contrast in order of magnitude rather than
+constants. The additive-constant initialization thus exposes exactly one bit's
+worth of related-key structure.
+
+\subsection{Status}
+
+This is a related-key, chosen-plaintext observation about the first two rounds
+of the compression function. It is not a collision, preimage, or distinguishing
+attack on any Rainstorm digest, and it gives no advantage against the hash with
+a public seed, which is the threat model of the rest of this review. It is
+recorded because it is deterministic, because it identifies the one seed
+relation exploitable without knowledge of the seed, and because it bounds how
+far that relation propagates. Its relevance, if any, is to constructions that
+treat the seed as a key and could expose an attacker to a chosen
+\( +2^{63} \) seed relation.
+
+Both the production v4.0.0 round function and the frozen pre-v4 reference
+exhibit the collapse identically, at 300 of 300 trials each; neither produced an
+equal Rainstorm-256 digest in 200 corrected-pair trials. Both Python round
+functions are validated against the corresponding native C++ full hashes before
+any experiment runs.
+
 \section{Security interpretation and next attacks}
 
 \paragraph{What fell.}
@@ -612,6 +729,7 @@ Rainstorm has received hours of concentrated analysis, not years of independent 
 The analysis used repository HEAD \code{3c67a0b}; the production source hash begins \code{8b70ceb620aaaf19}. An immutable repository snapshot \code{a2e1ee1} contains the \href{https://github.com/DOSAYGO-STUDIO/rain/tree/a2e1ee1/research/differential}{source tools}, \href{https://github.com/DOSAYGO-STUDIO/rain/blob/a2e1ee1/research/differential/rebound-campaign-20260908/README.md}{campaign index}, \href{https://github.com/DOSAYGO-STUDIO/rain/blob/a2e1ee1/research/differential/rebound-campaign-20260908/two-round-native-rho-search.json}{exact search witness}, \href{https://github.com/DOSAYGO-STUDIO/rain/blob/a2e1ee1/research/differential/rebound-campaign-20260908/two-round-native-rho-replay.json}{independent replay}, and \href{https://github.com/DOSAYGO-STUDIO/rain/tree/a2e1ee1/output/pdf/rainstorm-v4-external-cryptanalysis-pages}{rendered page images}. Principal tools are:
 \begin{lstlisting}[style=code]
 research/differential/rainstorm_model.py
+research/differential/related_seed.py
 research/differential/rho64.cpp
 research/differential/profile_programmed.cpp
 research/differential/profile_programmed_differences.cpp
@@ -625,7 +743,7 @@ research/differential/smt_rebound_collision.py
 research/differential/smt_flat_collision.py
 research/differential/test_suite.py
 \end{lstlisting}
-Z3 4.15.4 and Bitwuzla 0.9.1 were used. The native benchmarks ran on an Apple M1 MacBook Air with eight cores and 8 GB RAM. A release should retain the archived source commit or tag.
+Section~\ref{sec:relseed} was added on 2026-09-12, after the snapshot above; its tool \code{related\_seed.py} exists only from that date and validates both of its Python round functions against the native \code{production\_native.cpp} and \code{native.cpp} bridges at run time, so it carries its own correctness check rather than relying on the pinned snapshot. Z3 4.15.4 and Bitwuzla 0.9.1 were used. The native benchmarks ran on an Apple M1 MacBook Air with eight cores and 8 GB RAM. A release should retain the archived source commit or tag.
 
 \section{Conclusion}
 

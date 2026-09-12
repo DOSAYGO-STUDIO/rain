@@ -291,9 +291,9 @@ distinct corrections induced over 200 random seeds:
 \toprule
 Seed difference \( \Delta \) & Distinct corrections \\
 \midrule
-\( 1 \)      & 30 \\
-\( 2 \)      & 39 \\
-\( 2^{32} \) & 5 \\
+\( 1 \)      & 35 \\
+\( 2 \)      & 40 \\
+\( 2^{32} \) & 8 \\
 \( 2^{62} \) & 2 \\
 \( 2^{63} \) & \textbf{1} \\
 \bottomrule
@@ -304,6 +304,18 @@ A difference of \( 2^{62} \) costs one bit of seed guessing, \( 2^{32} \) rather
 more, and smaller differences quickly become impractical to use without knowing
 the seed. The additive-constant initialization thus exposes exactly one bit's
 worth of related-key structure.
+
+Only the final row is an invariant of the construction. The other counts are
+the number of \emph{distinct} corrections observed in a finite sample and grow
+with the number of seeds drawn; they are reported here to show the contrast in
+order of magnitude, not as constants. All figures in this section, including
+this table, are reproduced by
+\begin{center}
+\texttt{python3 research/differential/related\_seed.py}
+\end{center}
+which validates both Python round functions against the corresponding native
+C++ full hashes before running any experiment, and whose default PRNG seed
+\( 20260912 \) fixes the sample above.
 
 \subsection*{Scope}
 
