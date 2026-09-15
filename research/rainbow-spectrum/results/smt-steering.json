@@ -3,13 +3,18 @@
   "query": "find controls x, y with F(S;x) == F(T;y); never parameter recovery",
   "timeout_ms": 60000,
   "z3_version": "4.15.4",
-  "generated": "2026-09-15T09:41:51",
+  "generated": "2026-09-15T10:37:58",
   "control": [
     {
       "verdict": "sat",
-      "seconds": 0.029,
+      "seconds": 0.027,
       "stats": {
-        "max memory": 26.56
+        "sat conflicts": 277,
+        "sat decisions": 409,
+        "sat propagations 2ary": 3215,
+        "sat propagations nary": 41893,
+        "sat restarts": 2,
+        "rlimit count": 82975
       },
       "control_bits": 64,
       "constraint_bits": 32,
@@ -17,9 +22,14 @@
     },
     {
       "verdict": "sat",
-      "seconds": 0.181,
+      "seconds": 0.17,
       "stats": {
-        "max memory": 28.26
+        "sat conflicts": 6417,
+        "sat decisions": 7498,
+        "sat propagations 2ary": 126102,
+        "sat propagations nary": 857074,
+        "sat restarts": 416,
+        "rlimit count": 1129844
       },
       "control_bits": 128,
       "constraint_bits": 64,
@@ -32,16 +42,21 @@
       "k": 2,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.038,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.034,
+      "median_conflicts": 443,
+      "median_decisions": 934,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.035,
+          "seconds": 0.031,
           "stats": {
-            "max memory": 28.26
+            "sat conflicts": 431,
+            "sat decisions": 934,
+            "sat propagations 2ary": 8633,
+            "sat propagations nary": 64252,
+            "sat restarts": 14,
+            "rlimit count": 1266512
           },
           "control_bits": 64,
           "constraint_bits": 32,
@@ -49,9 +64,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 0.038,
+          "seconds": 0.037,
           "stats": {
-            "max memory": 28.26
+            "sat conflicts": 1051,
+            "sat decisions": 1465,
+            "sat propagations 2ary": 5094,
+            "sat propagations nary": 121236,
+            "sat restarts": 56,
+            "rlimit count": 1454977
           },
           "control_bits": 64,
           "constraint_bits": 32,
@@ -59,9 +79,13 @@
         },
         {
           "verdict": "sat",
-          "seconds": 0.038,
+          "seconds": 0.034,
           "stats": {
-            "max memory": 28.26
+            "sat conflicts": 443,
+            "sat decisions": 698,
+            "sat propagations 2ary": 11820,
+            "sat propagations nary": 84124,
+            "rlimit count": 1616101
           },
           "control_bits": 64,
           "constraint_bits": 32,
@@ -74,26 +98,21 @@
       "k": 4,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.099,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.089,
+      "median_conflicts": 1772,
+      "median_decisions": 3418,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.099,
-          "stats": {
-            "max memory": 30.26
-          },
-          "control_bits": 128,
-          "constraint_bits": 32,
-          "replay_verified": true
-        },
-        {
-          "verdict": "sat",
           "seconds": 0.089,
           "stats": {
-            "max memory": 30.71
+            "sat conflicts": 1772,
+            "sat decisions": 3418,
+            "sat propagations 2ary": 15381,
+            "sat propagations nary": 352143,
+            "sat restarts": 222,
+            "rlimit count": 2857524
           },
           "control_bits": 128,
           "constraint_bits": 32,
@@ -101,9 +120,29 @@
         },
         {
           "verdict": "sat",
-          "seconds": 0.189,
+          "seconds": 0.065,
           "stats": {
-            "max memory": 30.71
+            "sat conflicts": 256,
+            "sat decisions": 1129,
+            "sat propagations 2ary": 5091,
+            "sat propagations nary": 49820,
+            "sat restarts": 30,
+            "rlimit count": 3075888
+          },
+          "control_bits": 128,
+          "constraint_bits": 32,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.124,
+          "stats": {
+            "sat conflicts": 3151,
+            "sat decisions": 4696,
+            "sat propagations 2ary": 26619,
+            "sat propagations nary": 619639,
+            "sat restarts": 539,
+            "rlimit count": 3840520
           },
           "control_bits": 128,
           "constraint_bits": 32,
@@ -116,16 +155,21 @@
       "k": 2,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.059,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.061,
+      "median_conflicts": 933,
+      "median_decisions": 1518,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.059,
+          "seconds": 0.061,
           "stats": {
-            "max memory": 31.19
+            "sat conflicts": 1078,
+            "sat decisions": 1873,
+            "sat propagations 2ary": 32914,
+            "sat propagations nary": 148453,
+            "sat restarts": 76,
+            "rlimit count": 5179449
           },
           "control_bits": 96,
           "constraint_bits": 48,
@@ -135,7 +179,12 @@
           "verdict": "sat",
           "seconds": 0.046,
           "stats": {
-            "max memory": 31.19
+            "sat conflicts": 432,
+            "sat decisions": 987,
+            "sat propagations 2ary": 21147,
+            "sat propagations nary": 54402,
+            "sat restarts": 25,
+            "rlimit count": 5398167
           },
           "control_bits": 96,
           "constraint_bits": 48,
@@ -143,9 +192,13 @@
         },
         {
           "verdict": "sat",
-          "seconds": 0.071,
+          "seconds": 0.07,
           "stats": {
-            "max memory": 31.19
+            "sat conflicts": 933,
+            "sat decisions": 1518,
+            "sat propagations 2ary": 130071,
+            "sat propagations nary": 242863,
+            "rlimit count": 5899695
           },
           "control_bits": 96,
           "constraint_bits": 48,
@@ -159,25 +212,20 @@
       "draws": 3,
       "solved": 3,
       "median_seconds": 0.119,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_conflicts": 1236,
+      "median_decisions": 3652,
       "replay_failures": 0,
       "rows": [
-        {
-          "verdict": "sat",
-          "seconds": 0.117,
-          "stats": {
-            "max memory": 34.6
-          },
-          "control_bits": 192,
-          "constraint_bits": 48,
-          "replay_verified": true
-        },
         {
           "verdict": "sat",
           "seconds": 0.119,
           "stats": {
-            "max memory": 35.31
+            "sat conflicts": 1236,
+            "sat decisions": 3652,
+            "sat propagations 2ary": 34584,
+            "sat propagations nary": 160971,
+            "sat restarts": 131,
+            "rlimit count": 10474138
           },
           "control_bits": 192,
           "constraint_bits": 48,
@@ -185,9 +233,29 @@
         },
         {
           "verdict": "sat",
-          "seconds": 1.147,
+          "seconds": 0.116,
           "stats": {
-            "max memory": 36.56
+            "sat conflicts": 923,
+            "sat decisions": 2472,
+            "sat propagations 2ary": 32552,
+            "sat propagations nary": 146512,
+            "sat restarts": 102,
+            "rlimit count": 10990754
+          },
+          "control_bits": 192,
+          "constraint_bits": 48,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 1.117,
+          "stats": {
+            "sat conflicts": 24383,
+            "sat decisions": 32685,
+            "sat propagations 2ary": 561892,
+            "sat propagations nary": 4913487,
+            "sat restarts": 1766,
+            "rlimit count": 16578972
           },
           "control_bits": 192,
           "constraint_bits": 48,
@@ -200,16 +268,21 @@
       "k": 2,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.578,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.538,
+      "median_conflicts": 13395,
+      "median_decisions": 18480,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.216,
+          "seconds": 0.212,
           "stats": {
-            "max memory": 38.15
+            "sat conflicts": 4023,
+            "sat decisions": 5689,
+            "sat propagations 2ary": 165706,
+            "sat propagations nary": 956074,
+            "sat restarts": 297,
+            "rlimit count": 22507238
           },
           "control_bits": 128,
           "constraint_bits": 64,
@@ -217,9 +290,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 0.578,
+          "seconds": 0.538,
           "stats": {
-            "max memory": 38.15
+            "sat conflicts": 13395,
+            "sat decisions": 18480,
+            "sat propagations 2ary": 344632,
+            "sat propagations nary": 2689283,
+            "sat restarts": 1127,
+            "rlimit count": 25659004
           },
           "control_bits": 128,
           "constraint_bits": 64,
@@ -227,9 +305,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 6.478,
+          "seconds": 5.689,
           "stats": {
-            "max memory": 45.26
+            "sat conflicts": 112247,
+            "sat decisions": 156973,
+            "sat propagations 2ary": 2979292,
+            "sat propagations nary": 27526213,
+            "sat restarts": 11269,
+            "rlimit count": 55707502
           },
           "control_bits": 128,
           "constraint_bits": 64,
@@ -242,16 +325,21 @@
       "k": 4,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.922,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.844,
+      "median_conflicts": 17992,
+      "median_decisions": 25987,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.962,
+          "seconds": 0.904,
           "stats": {
-            "max memory": 49.9
+            "sat conflicts": 18009,
+            "sat decisions": 25987,
+            "sat propagations 2ary": 447690,
+            "sat propagations nary": 4633237,
+            "sat restarts": 2071,
+            "rlimit count": 100123210
           },
           "control_bits": 256,
           "constraint_bits": 64,
@@ -259,9 +347,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 0.289,
+          "seconds": 0.269,
           "stats": {
-            "max memory": 49.9
+            "sat conflicts": 3669,
+            "sat decisions": 11293,
+            "sat propagations 2ary": 116454,
+            "sat propagations nary": 726055,
+            "sat restarts": 268,
+            "rlimit count": 101500411
           },
           "control_bits": 256,
           "constraint_bits": 64,
@@ -269,9 +362,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 0.922,
+          "seconds": 0.844,
           "stats": {
-            "max memory": 50.19
+            "sat conflicts": 17992,
+            "sat decisions": 27137,
+            "sat propagations 2ary": 343767,
+            "sat propagations nary": 3771629,
+            "sat restarts": 2628,
+            "rlimit count": 105949647
           },
           "control_bits": 256,
           "constraint_bits": 64,
@@ -284,16 +382,21 @@
       "k": 2,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 15.712,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 13.618,
+      "median_conflicts": 175026,
+      "median_decisions": 268034,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 10.682,
+          "seconds": 10.121,
           "stats": {
-            "max memory": 60.21
+            "sat conflicts": 124046,
+            "sat decisions": 167108,
+            "sat propagations 2ary": 5652233,
+            "sat propagations nary": 45775812,
+            "sat restarts": 11710,
+            "rlimit count": 209538894
           },
           "control_bits": 160,
           "constraint_bits": 80,
@@ -301,9 +404,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 15.712,
+          "seconds": 13.618,
           "stats": {
-            "max memory": 60.21
+            "sat conflicts": 175026,
+            "sat decisions": 268034,
+            "sat propagations 2ary": 5315937,
+            "sat propagations nary": 63842725,
+            "sat restarts": 12839,
+            "rlimit count": 277945171
           },
           "control_bits": 160,
           "constraint_bits": 80,
@@ -311,9 +419,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 18.203,
+          "seconds": 16.299,
           "stats": {
-            "max memory": 60.21
+            "sat conflicts": 248002,
+            "sat decisions": 386715,
+            "sat propagations 2ary": 5974849,
+            "sat propagations nary": 80308247,
+            "sat restarts": 28485,
+            "rlimit count": 362890605
           },
           "control_bits": 160,
           "constraint_bits": 80,
@@ -326,16 +439,21 @@
       "k": 4,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 7.614,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 7.142,
+      "median_conflicts": 116824,
+      "median_decisions": 164546,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 23.583,
+          "seconds": 21.907,
           "stats": {
-            "max memory": 81.95
+            "sat conflicts": 340032,
+            "sat decisions": 444181,
+            "sat propagations 2ary": 6967114,
+            "sat propagations nary": 107745157,
+            "sat restarts": 30395,
+            "rlimit count": 523570165
           },
           "control_bits": 320,
           "constraint_bits": 80,
@@ -343,9 +461,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 7.614,
+          "seconds": 7.142,
           "stats": {
-            "max memory": 81.95
+            "sat conflicts": 116824,
+            "sat decisions": 156316,
+            "sat propagations 2ary": 3537578,
+            "sat propagations nary": 36764739,
+            "sat restarts": 12465,
+            "rlimit count": 563780012
           },
           "control_bits": 320,
           "constraint_bits": 80,
@@ -353,9 +476,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 7.435,
+          "seconds": 6.963,
           "stats": {
-            "max memory": 81.95
+            "sat conflicts": 113564,
+            "sat decisions": 164546,
+            "sat propagations 2ary": 3433272,
+            "sat propagations nary": 35376108,
+            "sat restarts": 9030,
+            "rlimit count": 602591535
           },
           "control_bits": 320,
           "constraint_bits": 80,
@@ -368,25 +496,35 @@
       "k": 2,
       "draws": 3,
       "solved": 2,
-      "median_seconds": 22.519,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 13.669,
+      "median_conflicts": 196396,
+      "median_decisions": 268378,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "unknown",
-          "seconds": 60.022,
+          "seconds": 60.02,
           "stats": {
-            "max memory": 102.31
+            "sat conflicts": 878230,
+            "sat decisions": 1366796,
+            "sat propagations 2ary": 13290902,
+            "sat propagations nary": 278878725,
+            "sat restarts": 86329,
+            "rlimit count": 1200346481
           },
           "control_bits": 192,
           "constraint_bits": 96
         },
         {
           "verdict": "sat",
-          "seconds": 22.519,
+          "seconds": 5.326,
           "stats": {
-            "max memory": 102.31
+            "sat conflicts": 61724,
+            "sat decisions": 96255,
+            "sat propagations 2ary": 1902799,
+            "sat propagations nary": 20306171,
+            "sat restarts": 3738,
+            "rlimit count": 1222092546
           },
           "control_bits": 192,
           "constraint_bits": 96,
@@ -394,9 +532,14 @@
         },
         {
           "verdict": "sat",
-          "seconds": 1.451,
+          "seconds": 13.669,
           "stats": {
-            "max memory": 102.31
+            "sat conflicts": 196396,
+            "sat decisions": 268378,
+            "sat propagations 2ary": 4593871,
+            "sat propagations nary": 62164675,
+            "sat restarts": 17653,
+            "rlimit count": 1288005606
           },
           "control_bits": 192,
           "constraint_bits": 96,
@@ -408,17 +551,22 @@
       "w": 24,
       "k": 4,
       "draws": 3,
-      "solved": 2,
-      "median_seconds": 17.713,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "solved": 3,
+      "median_seconds": 8.349,
+      "median_conflicts": 86990,
+      "median_decisions": 115793,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 6.409,
+          "seconds": 3.779,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 30283,
+            "sat decisions": 42377,
+            "sat propagations 2ary": 1778410,
+            "sat propagations nary": 17669940,
+            "sat restarts": 2971,
+            "rlimit count": 1610468213
           },
           "control_bits": 384,
           "constraint_bits": 96,
@@ -426,22 +574,33 @@
         },
         {
           "verdict": "sat",
-          "seconds": 17.713,
+          "seconds": 8.349,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 86990,
+            "sat decisions": 115793,
+            "sat propagations 2ary": 3801317,
+            "sat propagations nary": 29443914,
+            "sat restarts": 5798,
+            "rlimit count": 1642993648
           },
           "control_bits": 384,
           "constraint_bits": 96,
           "replay_verified": true
         },
         {
-          "verdict": "unknown",
-          "seconds": 60.037,
+          "verdict": "sat",
+          "seconds": 49.507,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 575671,
+            "sat decisions": 787277,
+            "sat propagations 2ary": 11536276,
+            "sat propagations nary": 201005000,
+            "sat restarts": 56143,
+            "rlimit count": 1855291108
           },
           "control_bits": 384,
-          "constraint_bits": 96
+          "constraint_bits": 96,
+          "replay_verified": true
         }
       ]
     }
@@ -453,24 +612,34 @@
       "draws": 3,
       "solved": 3,
       "median_seconds": 0.038,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_conflicts": 648,
+      "median_decisions": 1055,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.037,
+          "seconds": 0.033,
           "stats": {
-            "max memory": 28.26
+            "sat conflicts": 540,
+            "sat decisions": 926,
+            "sat propagations 2ary": 3475,
+            "sat propagations nary": 79403,
+            "sat restarts": 22,
+            "rlimit count": 1766927
           },
           "control_bits": 64,
           "constraint_bits": 32
         },
         {
           "verdict": "sat",
-          "seconds": 0.061,
+          "seconds": 0.057,
           "stats": {
-            "max memory": 28.26
+            "sat conflicts": 2102,
+            "sat decisions": 2636,
+            "sat propagations 2ary": 17024,
+            "sat propagations nary": 318039,
+            "sat restarts": 109,
+            "rlimit count": 2157882
           },
           "control_bits": 64,
           "constraint_bits": 32
@@ -479,7 +648,12 @@
           "verdict": "sat",
           "seconds": 0.038,
           "stats": {
-            "max memory": 28.26
+            "sat conflicts": 648,
+            "sat decisions": 1055,
+            "sat propagations 2ary": 6573,
+            "sat propagations nary": 113766,
+            "sat restarts": 57,
+            "rlimit count": 2345225
           },
           "control_bits": 64,
           "constraint_bits": 32
@@ -491,34 +665,49 @@
       "k": 4,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.081,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.074,
+      "median_conflicts": 933,
+      "median_decisions": 2165,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.107,
-          "stats": {
-            "max memory": 30.71
-          },
-          "control_bits": 128,
-          "constraint_bits": 32
-        },
-        {
-          "verdict": "sat",
-          "seconds": 0.07,
-          "stats": {
-            "max memory": 30.71
-          },
-          "control_bits": 128,
-          "constraint_bits": 32
-        },
-        {
-          "verdict": "sat",
           "seconds": 0.081,
           "stats": {
-            "max memory": 31.19
+            "sat conflicts": 1315,
+            "sat decisions": 2203,
+            "sat propagations 2ary": 10689,
+            "sat propagations nary": 262077,
+            "sat restarts": 174,
+            "rlimit count": 4260403
+          },
+          "control_bits": 128,
+          "constraint_bits": 32
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.069,
+          "stats": {
+            "sat conflicts": 799,
+            "sat decisions": 2165,
+            "sat propagations 2ary": 6357,
+            "sat propagations nary": 133887,
+            "sat restarts": 46,
+            "rlimit count": 4556775
+          },
+          "control_bits": 128,
+          "constraint_bits": 32
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.074,
+          "stats": {
+            "sat conflicts": 933,
+            "sat decisions": 1813,
+            "sat propagations 2ary": 7206,
+            "sat propagations nary": 140400,
+            "sat restarts": 64,
+            "rlimit count": 4868058
           },
           "control_bits": 128,
           "constraint_bits": 32
@@ -530,16 +719,21 @@
       "k": 2,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.12,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.118,
+      "median_conflicts": 2926,
+      "median_decisions": 3956,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.12,
+          "seconds": 0.118,
           "stats": {
-            "max memory": 31.19
+            "sat conflicts": 2926,
+            "sat decisions": 3956,
+            "sat propagations 2ary": 60764,
+            "sat propagations nary": 641152,
+            "sat restarts": 227,
+            "rlimit count": 6720150
           },
           "control_bits": 96,
           "constraint_bits": 48
@@ -548,16 +742,26 @@
           "verdict": "sat",
           "seconds": 0.041,
           "stats": {
-            "max memory": 31.19
+            "sat conflicts": 339,
+            "sat decisions": 981,
+            "sat propagations 2ary": 15398,
+            "sat propagations nary": 41235,
+            "sat restarts": 45,
+            "rlimit count": 6899387
           },
           "control_bits": 96,
           "constraint_bits": 48
         },
         {
           "verdict": "sat",
-          "seconds": 0.543,
+          "seconds": 0.541,
           "stats": {
-            "max memory": 31.19
+            "sat conflicts": 21358,
+            "sat decisions": 25741,
+            "sat propagations 2ary": 320811,
+            "sat propagations nary": 2745591,
+            "sat restarts": 1694,
+            "rlimit count": 9930936
           },
           "control_bits": 96,
           "constraint_bits": 48
@@ -569,34 +773,49 @@
       "k": 4,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.287,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.187,
+      "median_conflicts": 3955,
+      "median_decisions": 7763,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.131,
+          "seconds": 0.127,
           "stats": {
-            "max memory": 36.56
+            "sat conflicts": 1966,
+            "sat decisions": 7511,
+            "sat propagations 2ary": 44253,
+            "sat propagations nary": 222274,
+            "sat restarts": 276,
+            "rlimit count": 17181512
           },
           "control_bits": 192,
           "constraint_bits": 48
         },
         {
           "verdict": "sat",
-          "seconds": 0.287,
+          "seconds": 0.187,
           "stats": {
-            "max memory": 36.56
+            "sat conflicts": 3955,
+            "sat decisions": 7763,
+            "sat propagations 2ary": 90958,
+            "sat propagations nary": 661531,
+            "sat restarts": 458,
+            "rlimit count": 18245839
           },
           "control_bits": 192,
           "constraint_bits": 48
         },
         {
           "verdict": "sat",
-          "seconds": 0.645,
+          "seconds": 0.557,
           "stats": {
-            "max memory": 38.15
+            "sat conflicts": 12137,
+            "sat decisions": 17300,
+            "sat propagations 2ary": 149441,
+            "sat propagations nary": 2626967,
+            "sat restarts": 1548,
+            "rlimit count": 21246944
           },
           "control_bits": 192,
           "constraint_bits": 48
@@ -608,34 +827,49 @@
       "k": 2,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 0.472,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 0.414,
+      "median_conflicts": 10627,
+      "median_decisions": 17060,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.087,
+          "seconds": 0.09,
           "stats": {
-            "max memory": 45.26
+            "sat conflicts": 1034,
+            "sat decisions": 2794,
+            "sat propagations 2ary": 42598,
+            "sat propagations nary": 160335,
+            "sat restarts": 97,
+            "rlimit count": 56129929
           },
           "control_bits": 128,
           "constraint_bits": 64
         },
         {
           "verdict": "sat",
-          "seconds": 8.746,
+          "seconds": 7.925,
           "stats": {
-            "max memory": 46.56
+            "sat conflicts": 175900,
+            "sat decisions": 230548,
+            "sat propagations 2ary": 2715539,
+            "sat propagations nary": 33879714,
+            "sat restarts": 17417,
+            "rlimit count": 91926697
           },
           "control_bits": 128,
           "constraint_bits": 64
         },
         {
           "verdict": "sat",
-          "seconds": 0.472,
+          "seconds": 0.414,
           "stats": {
-            "max memory": 46.56
+            "sat conflicts": 10627,
+            "sat decisions": 17060,
+            "sat propagations 2ary": 298364,
+            "sat propagations nary": 2290012,
+            "sat restarts": 1283,
+            "rlimit count": 94626559
           },
           "control_bits": 128,
           "constraint_bits": 64
@@ -647,34 +881,49 @@
       "k": 4,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 5.503,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 4.651,
+      "median_conflicts": 77419,
+      "median_decisions": 94418,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 0.953,
+          "seconds": 0.932,
           "stats": {
-            "max memory": 50.19
+            "sat conflicts": 24228,
+            "sat decisions": 32765,
+            "sat propagations 2ary": 577093,
+            "sat propagations nary": 5109317,
+            "sat restarts": 3799,
+            "rlimit count": 111857765
           },
           "control_bits": 256,
           "constraint_bits": 64
         },
         {
           "verdict": "sat",
-          "seconds": 6.5,
+          "seconds": 5.183,
           "stats": {
-            "max memory": 58.22
+            "sat conflicts": 88368,
+            "sat decisions": 117969,
+            "sat propagations 2ary": 2631761,
+            "sat propagations nary": 22666194,
+            "sat restarts": 9611,
+            "rlimit count": 136330632
           },
           "control_bits": 256,
           "constraint_bits": 64
         },
         {
           "verdict": "sat",
-          "seconds": 5.503,
+          "seconds": 4.651,
           "stats": {
-            "max memory": 60.21
+            "sat conflicts": 77419,
+            "sat decisions": 94418,
+            "sat propagations 2ary": 2080918,
+            "sat propagations nary": 21743227,
+            "sat restarts": 7023,
+            "rlimit count": 159624113
           },
           "control_bits": 256,
           "constraint_bits": 64
@@ -686,34 +935,49 @@
       "k": 2,
       "draws": 3,
       "solved": 3,
-      "median_seconds": 1.911,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 1.878,
+      "median_conflicts": 47340,
+      "median_decisions": 62862,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 6.855,
+          "seconds": 6.21,
           "stats": {
-            "max memory": 60.21
+            "sat conflicts": 63007,
+            "sat decisions": 81332,
+            "sat propagations 2ary": 2438161,
+            "sat propagations nary": 23178875,
+            "sat restarts": 7848,
+            "rlimit count": 387764624
           },
           "control_bits": 160,
           "constraint_bits": 80
         },
         {
           "verdict": "sat",
-          "seconds": 1.584,
+          "seconds": 1.465,
           "stats": {
-            "max memory": 60.21
+            "sat conflicts": 27892,
+            "sat decisions": 40356,
+            "sat propagations 2ary": 922201,
+            "sat propagations nary": 8591796,
+            "sat restarts": 3763,
+            "rlimit count": 397131955
           },
           "control_bits": 160,
           "constraint_bits": 80
         },
         {
           "verdict": "sat",
-          "seconds": 1.911,
+          "seconds": 1.878,
           "stats": {
-            "max memory": 60.21
+            "sat conflicts": 47340,
+            "sat decisions": 62862,
+            "sat propagations 2ary": 1366795,
+            "sat propagations nary": 11139447,
+            "sat restarts": 6809,
+            "rlimit count": 409314594
           },
           "control_bits": 160,
           "constraint_bits": 80
@@ -725,34 +989,49 @@
       "k": 4,
       "draws": 3,
       "solved": 2,
-      "median_seconds": 2.362,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "median_seconds": 7.339,
+      "median_conflicts": 96920,
+      "median_decisions": 138968,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 1.075,
+          "seconds": 1.079,
           "stats": {
-            "max memory": 81.95
+            "sat conflicts": 16559,
+            "sat decisions": 25207,
+            "sat propagations 2ary": 682912,
+            "sat propagations nary": 5476206,
+            "sat restarts": 2150,
+            "rlimit count": 609342917
           },
           "control_bits": 320,
           "constraint_bits": 80
         },
         {
           "verdict": "unknown",
-          "seconds": 60.019,
+          "seconds": 60.153,
           "stats": {
-            "max memory": 102.31
+            "sat conflicts": 878369,
+            "sat decisions": 1164362,
+            "sat propagations 2ary": 10557635,
+            "sat propagations nary": 266516518,
+            "sat restarts": 72712,
+            "rlimit count": 880926095
           },
           "control_bits": 320,
           "constraint_bits": 80
         },
         {
           "verdict": "sat",
-          "seconds": 2.362,
+          "seconds": 7.339,
           "stats": {
-            "max memory": 102.31
+            "sat conflicts": 96920,
+            "sat decisions": 138968,
+            "sat propagations 2ary": 4260591,
+            "sat propagations nary": 33451267,
+            "sat restarts": 12522,
+            "rlimit count": 919249368
           },
           "control_bits": 320,
           "constraint_bits": 80
@@ -763,35 +1042,50 @@
       "w": 24,
       "k": 2,
       "draws": 3,
-      "solved": 1,
-      "median_seconds": 60.018,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "solved": 2,
+      "median_seconds": 10.808,
+      "median_conflicts": 126922,
+      "median_decisions": 204023,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 7.802,
+          "seconds": 10.808,
           "stats": {
-            "max memory": 102.31
+            "sat conflicts": 126922,
+            "sat decisions": 204023,
+            "sat propagations 2ary": 3695990,
+            "sat propagations nary": 40506964,
+            "sat restarts": 8625,
+            "rlimit count": 1331571102
           },
           "control_bits": 192,
           "constraint_bits": 96
         },
         {
           "verdict": "unknown",
-          "seconds": 60.139,
+          "seconds": 60.01,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 769050,
+            "sat decisions": 1113830,
+            "sat propagations 2ary": 11576671,
+            "sat propagations nary": 247044481,
+            "sat restarts": 69150,
+            "rlimit count": 1582825701
           },
           "control_bits": 192,
           "constraint_bits": 96
         },
         {
-          "verdict": "unknown",
-          "seconds": 60.018,
+          "verdict": "sat",
+          "seconds": 1.643,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 21682,
+            "sat decisions": 27931,
+            "sat propagations 2ary": 726310,
+            "sat propagations nary": 6762481,
+            "sat restarts": 1909,
+            "rlimit count": 1590656572
           },
           "control_bits": 192,
           "constraint_bits": 96
@@ -802,35 +1096,50 @@
       "w": 24,
       "k": 4,
       "draws": 3,
-      "solved": 2,
-      "median_seconds": 31.077,
-      "median_conflicts": 0,
-      "median_decisions": 0,
+      "solved": 3,
+      "median_seconds": 33.11,
+      "median_conflicts": 470603,
+      "median_decisions": 662773,
       "replay_failures": 0,
       "rows": [
         {
           "verdict": "sat",
-          "seconds": 31.077,
+          "seconds": 1.509,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 22164,
+            "sat decisions": 40924,
+            "sat propagations 2ary": 817347,
+            "sat propagations nary": 6671204,
+            "sat restarts": 2199,
+            "rlimit count": 1863539734
           },
           "control_bits": 384,
           "constraint_bits": 96
         },
         {
           "verdict": "sat",
-          "seconds": 16.537,
+          "seconds": 42.977,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 471921,
+            "sat decisions": 700481,
+            "sat propagations 2ary": 9086877,
+            "sat propagations nary": 186283003,
+            "sat restarts": 46309,
+            "rlimit count": 2060983335
           },
           "control_bits": 384,
           "constraint_bits": 96
         },
         {
-          "verdict": "unknown",
-          "seconds": 60.023,
+          "verdict": "sat",
+          "seconds": 33.11,
           "stats": {
-            "max memory": 177.61
+            "sat conflicts": 470603,
+            "sat decisions": 662773,
+            "sat propagations 2ary": 7733911,
+            "sat propagations nary": 138246221,
+            "sat restarts": 38826,
+            "rlimit count": 2210525544
           },
           "control_bits": 384,
           "constraint_bits": 96
@@ -838,8 +1147,8 @@
       ]
     }
   ],
-  "weak_solve_rate": 0.933,
-  "hardened_solve_rate": 0.867,
+  "weak_solve_rate": 0.967,
+  "hardened_solve_rate": 0.933,
   "positive_control_passed": true,
-  "conclusion": "THE QUERY IS EASY FOR EVERYTHING, so it measures nothing about the weakness. The solver merges the HARDENED construction -- whose injection preserves no pair sum, so the cheap steering construction does not exist -- about as readily as the weak one (hardened 0.867 vs weak 0.933 solved). The reason is structural: the system has 2*k*npairs*w bits of control freedom against only 4w bits of equality, so roughly 2^(4w) solutions exist and propagation walks to one, with conflict counts near zero showing the solver barely searches. CONSEQUENCE: the flat birthday baseline of ~2^(2w) used elsewhere in this program is the cost of a RANDOM-SEARCH attacker, not of the best public attacker. An equation-solving public attacker obtains the merge cheaply at widths where birthday search is hopeless, so the factored-vs-flat separation measured against that baseline does not survive. What remains unrefuted is narrower: that the SPECIFIC sigma-steering route is cheap only with the decomposition."
+  "conclusion": "THE QUERY IS EASY FOR EVERYTHING, so it measures nothing about the weakness. The solver merges the HARDENED construction -- whose injection preserves no pair sum, so the cheap steering construction does not exist -- about as readily as the weak one (hardened 0.933 vs weak 0.967 solved). The reason is structural: the system has 2*k*npairs*w bits of control freedom against only 4w bits of equality, so roughly 2^(4w) solutions exist and the solver reaches one without difficulty. (An earlier version of this sentence added that conflict counts were near zero and the solver 'barely searches'. That was a statistics-key bug in this file -- z3 reports 'sat conflicts', the lookup asked for 'conflicts' and defaulted the miss to zero -- not a fact about the solve. The counting argument alone carries the conclusion.) CONSEQUENCE: the flat birthday baseline of ~2^(2w) used elsewhere in this program is the cost of a RANDOM-SEARCH attacker, not of the best public attacker. An equation-solving public attacker obtains the merge cheaply at widths where birthday search is hopeless, so the factored-vs-flat separation measured against that baseline does not survive. What remains unrefuted is narrower: that the SPECIFIC sigma-steering route is cheap only with the decomposition."
 }
