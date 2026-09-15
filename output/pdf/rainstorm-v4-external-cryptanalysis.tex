@@ -13,6 +13,7 @@
 \usepackage{listings}
 \usepackage{titlesec}
 \usepackage{lastpage}
+\usepackage{needspace}
 
 \widowpenalty=10000
 \clubpenalty=10000
@@ -94,7 +95,8 @@
   {\large Programmed Collisions, Rebound Corridors, and the Full-Schedule Boundary}\par
   \vspace{0.6em}
   {\large Cris Stringfellow}\par
-  Dosiago Corporation
+  DOSAYGO Corporation\par
+  \href{mailto:research@dosaygo.com}{\texttt{research@dosaygo.com}}
 \end{center}
 
 \noindent\textbf{AI-assisted research disclosure.}
@@ -356,6 +358,7 @@ message_a -> d26309b4c14f18dbeab1510045114504
 message_b -> a53a7f6a61e35a2fc3675c1c726dd017
 \end{lstlisting}
 
+\Needspace{15\baselineskip}
 \section{Extending the Attack: The Padding Boundary}
 \label{sec:padding}
 
@@ -482,6 +485,7 @@ For weight at most 36, the 95\% Wilson interval is $[1.672,2.793]\times10^{-7}$.
 
 Message reachability remains unproved: these samples begin at arbitrary internal pre-fold states, not at states obtained from the prescribed IV by attacker-chosen messages. The central open problem is to connect this sparse backward structure to an attacker-reachable forward state pair.
 
+\Needspace{8\baselineskip}
 \section{Attempts to Connect the Corridors}
 \label{sec:splice}
 \subsection{Forward splice screen}
@@ -603,6 +607,7 @@ For comparison, a random square binary matrix is full-rank with limiting probabi
 
 At word granularity, conventional neutral-word MITM is obstructed quickly: after the first right round, counter prefixes make lane $i$ depend on data words $0,\ldots,i$, and the lane-seven wrap makes low word zero depend on all eight.  The following left round begins from that word zero, so its counter chain spreads all data-word dependencies across the complete state.  Any useful MITM must exploit value-conditioned carries, indirect partial matching, or the independently programmable first rounds of successive blocks; a simple disjoint message-word partition does not survive two rounds.
 
+\Needspace{16\baselineskip}
 \section{Attack Coverage and Remaining Limitations}
 
 Tables~\ref{tab:coverage-a} and~\ref{tab:coverage-b} summarize the completed attack coverage and residual gaps.  ``Screened'' never means excluded outside the recorded domain.
@@ -690,7 +695,7 @@ Unsuccessful hypotheses and solver failures are retained where informative. In p
 \section{Reproducibility}
 \label{sec:reproducibility}
 
-The archival source release is \href{\archiveRoot/tree/\archiveTag}{\archiveName}. All repository links in this paper resolve within that single snapshot, which contains the exact v4.0.0 source, this final TeX manuscript, attack and replay tools, tests, collision witnesses, and raw JSON artifacts, including the Daybreak-assisted campaign scripts and the later related-seed tool. The tag is to remain fixed; later corrections require a new release identifier. The earlier PDF and page images retained in the repository predate this TeX revision and are historical renderings, not the archival manuscript. The revised PDF must be generated from this tagged TeX source.
+The archival source release is \href{\archiveRoot/tree/\archiveTag}{\archiveName}. All repository links in this paper resolve within that single snapshot, which contains the exact v4.0.0 source, this final TeX manuscript and its generated PDF, rendered page images, attack and replay tools, tests, collision witnesses, and raw JSON artifacts, including the Daybreak-assisted campaign scripts and the later related-seed tool. The tag is to remain fixed; later corrections require a new release identifier. The \archiveFile{output/pdf/rainstorm-v4-external-cryptanalysis.tex}{TeX source}, \archiveFile{output/pdf/rainstorm-v4-external-cryptanalysis.pdf}{PDF}, and \archiveTree{output/pdf/rainstorm-v4-external-cryptanalysis-pages}{rendered pages} belong to this same snapshot.
 
 The analyzed \archiveFile{src/rainstorm.cpp}{\code{src/rainstorm.cpp}} is byte-for-byte identical to the file in the v4.0.0 release (original release commit \nolinkurl{e4e547e6e6a9ccb6f40b26cf0f882a6dab9f8b4f}). Its SHA-256 is
 \begin{lstlisting}[style=code]
@@ -733,6 +738,7 @@ Four inverse padding rounds also admit a sparse differential hull from arbitrary
 
 No attack completed in this campaign produced a production Rainstorm-128/256 collision or validated output distinguisher. This is not a security proof or certification. The principal open problem is whether coordinated message modification or multi-block indirect matching can bridge the gap between reachable forward states and the backward hull below generic collision cost.
 
+\Needspace{12\baselineskip}
 \begingroup
 \small
 \raggedright
