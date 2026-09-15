@@ -1,0 +1,1701 @@
+{
+  "attack": "zmod_2r_linear_invariant_search",
+  "question": "does a Z/2^r-linear class label exist for the composed map, any r <= w?",
+  "generated": "2026-09-15T08:52:02",
+  "widths": [
+    {
+      "w": 3,
+      "draws": 8,
+      "output_draws_with_label": 0,
+      "output_rate": 0.0,
+      "output_max_r": 0,
+      "control_draws_with_label": 8,
+      "control_rate": 1.0,
+      "control_max_r": 3,
+      "control_example_functionals": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "per_draw_output": [
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        }
+      ]
+    },
+    {
+      "w": 4,
+      "draws": 8,
+      "output_draws_with_label": 0,
+      "output_rate": 0.0,
+      "output_max_r": 0,
+      "control_draws_with_label": 8,
+      "control_rate": 1.0,
+      "control_max_r": 4,
+      "control_example_functionals": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "per_draw_output": [
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        }
+      ]
+    },
+    {
+      "w": 5,
+      "draws": 6,
+      "output_draws_with_label": 0,
+      "output_rate": 0.0,
+      "output_max_r": 0,
+      "control_draws_with_label": 6,
+      "control_rate": 1.0,
+      "control_max_r": 5,
+      "control_example_functionals": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "per_draw_output": [
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        }
+      ]
+    },
+    {
+      "w": 6,
+      "draws": 4,
+      "output_draws_with_label": 0,
+      "output_rate": 0.0,
+      "output_max_r": 0,
+      "control_draws_with_label": 4,
+      "control_rate": 1.0,
+      "control_max_r": 6,
+      "control_example_functionals": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          4,
+          4
+        ]
+      ],
+      "per_draw_output": [
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 6,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 6,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 6,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        },
+        {
+          "per_r": [
+            {
+              "r": 1,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 2,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 3,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 4,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 5,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            },
+            {
+              "r": 6,
+              "candidates": 0,
+              "validated": 0,
+              "discriminating": 0
+            }
+          ],
+          "max_r": 0,
+          "discriminating": 0,
+          "search_was_capped": false,
+          "distinct_relations": 0,
+          "examples": []
+        }
+      ]
+    }
+  ],
+  "ring_stress_test": {
+    "all_identical": true,
+    "cases": 63,
+    "rows": [
+      {
+        "w": 3,
+        "system": "single_nonunit_2x",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "single_nonunit_2x",
+        "r": 2,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "single_nonunit_2x",
+        "r": 3,
+        "lifted": 1024,
+        "exhaustive": 1024,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "zero_divisors",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "zero_divisors",
+        "r": 2,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "zero_divisors",
+        "r": 3,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "dead_end_lift",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "dead_end_lift",
+        "r": 2,
+        "lifted": 32,
+        "exhaustive": 32,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "dead_end_lift",
+        "r": 3,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "all_even_row",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "all_even_row",
+        "r": 2,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "all_even_row",
+        "r": 3,
+        "lifted": 1024,
+        "exhaustive": 1024,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "empty_system",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "empty_system",
+        "r": 2,
+        "lifted": 256,
+        "exhaustive": 256,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "empty_system",
+        "r": 3,
+        "lifted": 4096,
+        "exhaustive": 4096,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "unit_full_rank",
+        "r": 1,
+        "lifted": 1,
+        "exhaustive": 1,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "unit_full_rank",
+        "r": 2,
+        "lifted": 1,
+        "exhaustive": 1,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "unit_full_rank",
+        "r": 3,
+        "lifted": 1,
+        "exhaustive": 1,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "duplicate_rows",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "duplicate_rows",
+        "r": 2,
+        "lifted": 64,
+        "exhaustive": 64,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "duplicate_rows",
+        "r": 3,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "nonunique_primitives",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "nonunique_primitives",
+        "r": 2,
+        "lifted": 64,
+        "exhaustive": 64,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "nonunique_primitives",
+        "r": 3,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "mixed_valuation",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "mixed_valuation",
+        "r": 2,
+        "lifted": 32,
+        "exhaustive": 32,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 3,
+        "system": "mixed_valuation",
+        "r": 3,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "single_nonunit_2x",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "single_nonunit_2x",
+        "r": 2,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "single_nonunit_2x",
+        "r": 3,
+        "lifted": 1024,
+        "exhaustive": 1024,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "single_nonunit_2x",
+        "r": 4,
+        "lifted": 8192,
+        "exhaustive": 8192,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "zero_divisors",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "zero_divisors",
+        "r": 2,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "zero_divisors",
+        "r": 3,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "zero_divisors",
+        "r": 4,
+        "lifted": 2048,
+        "exhaustive": 2048,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "dead_end_lift",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "dead_end_lift",
+        "r": 2,
+        "lifted": 32,
+        "exhaustive": 32,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "dead_end_lift",
+        "r": 3,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "dead_end_lift",
+        "r": 4,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "all_even_row",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "all_even_row",
+        "r": 2,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "all_even_row",
+        "r": 3,
+        "lifted": 1024,
+        "exhaustive": 1024,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "all_even_row",
+        "r": 4,
+        "lifted": 8192,
+        "exhaustive": 8192,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "empty_system",
+        "r": 1,
+        "lifted": 16,
+        "exhaustive": 16,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "empty_system",
+        "r": 2,
+        "lifted": 256,
+        "exhaustive": 256,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "empty_system",
+        "r": 3,
+        "lifted": 4096,
+        "exhaustive": 4096,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "empty_system",
+        "r": 4,
+        "lifted": 65536,
+        "exhaustive": 65536,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "unit_full_rank",
+        "r": 1,
+        "lifted": 1,
+        "exhaustive": 1,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "unit_full_rank",
+        "r": 2,
+        "lifted": 1,
+        "exhaustive": 1,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "unit_full_rank",
+        "r": 3,
+        "lifted": 1,
+        "exhaustive": 1,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "unit_full_rank",
+        "r": 4,
+        "lifted": 1,
+        "exhaustive": 1,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "duplicate_rows",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "duplicate_rows",
+        "r": 2,
+        "lifted": 64,
+        "exhaustive": 64,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "duplicate_rows",
+        "r": 3,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "duplicate_rows",
+        "r": 4,
+        "lifted": 4096,
+        "exhaustive": 4096,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "nonunique_primitives",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "nonunique_primitives",
+        "r": 2,
+        "lifted": 64,
+        "exhaustive": 64,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "nonunique_primitives",
+        "r": 3,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "nonunique_primitives",
+        "r": 4,
+        "lifted": 4096,
+        "exhaustive": 4096,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "mixed_valuation",
+        "r": 1,
+        "lifted": 8,
+        "exhaustive": 8,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "mixed_valuation",
+        "r": 2,
+        "lifted": 32,
+        "exhaustive": 32,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "mixed_valuation",
+        "r": 3,
+        "lifted": 128,
+        "exhaustive": 128,
+        "identical": true,
+        "capped": false
+      },
+      {
+        "w": 4,
+        "system": "mixed_valuation",
+        "r": 4,
+        "lifted": 512,
+        "exhaustive": 512,
+        "identical": true,
+        "capped": false
+      }
+    ]
+  },
+  "lifting_oracle_check": [
+    {
+      "w": 3,
+      "all_identical": true,
+      "capped": false,
+      "per_r": [
+        {
+          "r": 1,
+          "lifted": 2,
+          "exhaustive": 2,
+          "identical": true,
+          "relations_lifted": 2,
+          "relations_exhaustive": 2
+        },
+        {
+          "r": 2,
+          "lifted": 2,
+          "exhaustive": 2,
+          "identical": true,
+          "relations_lifted": 2,
+          "relations_exhaustive": 2
+        },
+        {
+          "r": 3,
+          "lifted": 2,
+          "exhaustive": 2,
+          "identical": true,
+          "relations_lifted": 2,
+          "relations_exhaustive": 2
+        }
+      ]
+    },
+    {
+      "w": 4,
+      "all_identical": true,
+      "capped": false,
+      "per_r": [
+        {
+          "r": 1,
+          "lifted": 4,
+          "exhaustive": 4,
+          "identical": true,
+          "relations_lifted": 4,
+          "relations_exhaustive": 4
+        },
+        {
+          "r": 2,
+          "lifted": 8,
+          "exhaustive": 8,
+          "identical": true,
+          "relations_lifted": 6,
+          "relations_exhaustive": 6
+        },
+        {
+          "r": 3,
+          "lifted": 16,
+          "exhaustive": 16,
+          "identical": true,
+          "relations_lifted": 10,
+          "relations_exhaustive": 10
+        },
+        {
+          "r": 4,
+          "lifted": 32,
+          "exhaustive": 32,
+          "identical": true,
+          "relations_lifted": 18,
+          "relations_exhaustive": 18
+        }
+      ]
+    }
+  ],
+  "positive_control_passed": true,
+  "flat_attack_breaks_separation": false,
+  "conclusion": "The search recovers the pair sums on the pre-mixer coset, so it works, and finds no Z/2^r-linear class label on the composed output at any modulus r <= w. With the GF(2) results this closes the linear route specifically. Untried: ANF/algebraic elimination, SAT/SMT, meet-in-the-middle, and amortised precomputation. Phase 4 exact flattening is still missing, so the attacker holds I/O access rather than the closed algebraic form the hypothesis actually assumes."
+}

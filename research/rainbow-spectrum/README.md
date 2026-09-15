@@ -169,15 +169,55 @@ It was nearly missed in both directions, which is the methodological point. With
 single θ draw per width it reported SUCCEEDED at w=4 and failed at w=6, from the
 same underlying rate. Only rates over independent draws are meaningful here.
 
+### The linear route is closed, in the right algebra
+
+The GF(2) tests above are weak evidence by construction: Rainbow conserves
+`h_i + h_j` **modulo 2^w**, and a GF(2) test sees that only through its low bit.
+`attacks/zmod_invariant_search.py` searches the correct ring, and at every
+modulus `2^r` for `r <= w`, since a relation surviving only mod `2^r` still
+exposes the low `r` bits and is still a usable class label
+(`results/zmod-invariant-search.json`).
+
+| w | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|
+| output: draws with a class label | 0/8 | 0/8 | 0/6 | 0/4 |
+| positive control (pre-mixer) | 8/8 | 8/8 | 6/6 | 4/4 |
+| control's best modulus | r=3 | r=4 | r=5 | r=6 |
+
+A negative here is only worth anything if the solver is **complete**, and over
+`Z/2^w` field intuition does not apply — zero divisors and nonunits mean a lift
+that prunes too eagerly, or a cap that truncates, would manufacture exactly the
+"no invariant found" we want to see. So the solver is gated three ways:
+
+- **63 synthetic ring cases** — nonunits (`2x=0`), zero divisors, dead-end lifts,
+  all-even rows, duplicate rows, non-unique primitives, mixed valuations, the
+  empty system — each compared against brute force at every modulus;
+- **an exhaustive oracle** on real Rainbow class data at w=3 and w=4, comparing
+  complete solution *sets*, not "both found something", with caps disabled;
+- **every lifting level** validated (mod 2, 4, 8, …, 2^w), which catches a branch
+  vanishing halfway up the lift tree.
+
+Coefficients are canonicalised under unit scaling, so `5*(1,1,0,0) = (5,5,0,0)`
+mod 8 is recognised as the same relation rather than counted as a new one. With
+that in place the control recovers exactly the expected generators, `(1,1,0,0)`
+and `(0,0,1,1)`, plus their combinations.
+
+So: the search demonstrably finds the planted invariant where it exists, and
+finds nothing on the composed output at any modulus. **The linear route is
+closed.** Non-linear routes are untouched.
+
 ## Limitations
 
 The honest verdict is "not yet disproved", not "secure".
 
-1. Only two flat attacks have been run. **Untried:** Z/2^w-linear functional
-   search (the invariant is Z/2^w-linear, not GF(2)-linear, so this is the most
-   likely to bite), ANF/algebraic elimination, SAT/SMT, meet-in-the-middle, and
-   amortised precomputation (a one-off 2^(4w) class partition makes every later
-   merge free, which is a real threat model).
+1. Three flat attacks have been run and the **linear** route is closed (GF(2) and
+   Z/2^r for every r ≤ w, with a solver proven complete against brute force).
+   **Untried and entirely non-linear:** ANF/algebraic elimination, SAT/SMT,
+   meet-in-the-middle, and amortised precomputation (a one-off 2^(4w) class
+   partition makes every later merge free, which is a real threat model). Also
+   untried: relations of the form `L(F(x)) = L(x) + c`, or `L(F(x,m)) = φ(L(x),m)`
+   for low-complexity φ — steering does not require a *conserved* quotient, only
+   a predictably *evolving* one.
 2. The separation is the *same* phenomenon as the Rainbow break itself —
    birthday on a w-bit invariant versus birthday on a 4w-bit state. It has not
    been shown to be a new primitive.
@@ -222,8 +262,9 @@ cd research/rainbow-spectrum
 python3 attacks/phase1_verify.py          # ~16 s, exhaustive
 python3 attacks/flat_invariant_probe.py   # instant
 python3 attacks/milestone_separation.py   # ~45 s
-python3 attacks/flat_adversarial.py       # ~30 s, multi-draw
+python3 attacks/flat_adversarial.py       # ~30 s, multi-draw GF(2)
 python3 attacks/branches_compare.py       # ~5 s, branches A/B/C
+python3 attacks/zmod_invariant_search.py  # ~2.5 min, Z/2^r + ring stress tests
 ```
 
 All runs are seeded (`random.Random(20260915)`) and write JSON to `results/`.
