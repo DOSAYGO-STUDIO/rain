@@ -61,6 +61,8 @@ rainbow-256(a) = rainbow-256(b) = 913ac822c5f4c8fe40cb08c0af232d8ab58e007cc27e82
 | `verify_pair_sum.py` | Independent Python (big-int) implementation; re-derives everything from the message bytes and prints a checkpoint trace |
 | `collision-result.json` | Same-seed witness + full search accounting |
 | `chosen-prefix-result.json` | Chosen-prefix witness + full search accounting |
+| `witnesses/same-seed-{a,b}.bin` | The 32-byte colliding pair, ready to hash |
+| `witnesses/chosen-prefix-{alice,mallory}.bin` | The 96-byte chosen-prefix pair |
 
 The three C++ tools each transcribe Rainbow's arithmetic *independently* rather
 than sharing a header. That duplication is deliberate: it makes agreement
