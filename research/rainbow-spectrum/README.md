@@ -481,6 +481,24 @@ and the construction is finished.
 
 ### Experiment B: a first positive toy result
 
+> **The claim, frozen.** At toy widths w = 8…18, the one-sided planted
+> sparse-witness construction exhibits an empirical complexity separation
+> between factor-aware and flattened solving. The privileged weak solver follows
+> the designed 2^(w/2)-scale route, while z3 conflict counts on the exact
+> flattened relation fit approximately 2^(0.70w) for weak instances and
+> 2^(0.67w) for weakness-removed controls. The fitted public exponents remain
+> above 0.5 when either endpoint width is excluded, and **no run used in the fit
+> was censored by timeout**. Weak and hardened public slopes are statistically
+> compatible, while the privileged shortcut exists only for the weak
+> construction. **This is evidence of a toy-scale structural separation, not a
+> hardness proof and not a public-key construction.**
+
+Nothing below widens that claim. The next phase should be adversarial rather
+than architectural: a different solver family, meet-in-the-middle, custom
+algebraic attacks, and alternative public representations. The result is worth
+exactly as much as the attacks it survives, and so far every attack in this
+repository was written by the same person who built the construction.
+
 The counting argument left exactly one viable regime: **one-sided** merge
 controls, prefix words restricted to `t = w/2 + c` bits (k=2). Challenges are
 *planted* rather than searched for — pick the controls, then **invert** B's

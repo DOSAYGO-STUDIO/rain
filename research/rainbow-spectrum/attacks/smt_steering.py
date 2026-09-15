@@ -203,10 +203,15 @@ def main():
             hard = run_width(w, k, rng, timeout_ms, hardened_round)
             report["weak"].append(weak)
             report["hardened"].append(hard)
+            # str() first: median_conflicts is legitimately None when a counter
+            # was not reported, and format(None, '<8') raises TypeError -- the
+            # honesty fix would otherwise have created its own crash path.
             print(f"  {w:>3}  {k}   {weak['solved']}/{weak['draws']} "
-                  f"{weak['median_seconds']:>8}s c={weak['median_conflicts']:<8}"
+                  f"{weak['median_seconds']:>8}s "
+                  f"c={str(weak['median_conflicts']):<9}"
                   f"      {hard['solved']}/{hard['draws']} "
-                  f"{hard['median_seconds']:>8}s c={hard['median_conflicts']}")
+                  f"{hard['median_seconds']:>8}s "
+                  f"c={str(hard['median_conflicts'])}")
 
     control_ok = all(r["verdict"] == "sat" for r in report["control"])
     replay_bad = sum(r["replay_failures"] for r in report["weak"])
