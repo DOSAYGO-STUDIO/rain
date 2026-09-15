@@ -1,0 +1,188 @@
+{
+  "analysis": "drift_test",
+  "rule": {
+    "stable_beta": 0.6,
+    "trend_tolerance": -0.01,
+    "caught_up_band": [
+      0.45,
+      0.55
+    ],
+    "preregistered": "written before scaling_wide.py finished"
+  },
+  "variants": {
+    "weak": {
+      "beta_global": 0.8282,
+      "beta_drop_lowest": 0.8298,
+      "beta_drop_highest": 0.8509,
+      "windows": [
+        {
+          "widths": [
+            12,
+            14,
+            16,
+            18
+          ],
+          "centre": 15.0,
+          "beta": 0.8059
+        },
+        {
+          "widths": [
+            14,
+            16,
+            18,
+            20
+          ],
+          "centre": 17.0,
+          "beta": 0.753
+        },
+        {
+          "widths": [
+            16,
+            18,
+            20,
+            22
+          ],
+          "centre": 19.0,
+          "beta": 0.9022
+        },
+        {
+          "widths": [
+            18,
+            20,
+            22,
+            24
+          ],
+          "centre": 21.0,
+          "beta": 0.8658
+        }
+      ],
+      "window_betas": [
+        0.8059,
+        0.753,
+        0.9022,
+        0.8658
+      ],
+      "trend_slope_per_w": 0.01645,
+      "excess_curve": [
+        [
+          12,
+          5.5
+        ],
+        [
+          14,
+          6.188
+        ],
+        [
+          16,
+          6.853
+        ],
+        [
+          18,
+          7.318
+        ],
+        [
+          20,
+          7.72
+        ],
+        [
+          22,
+          9.4
+        ],
+        [
+          24,
+          9.196
+        ]
+      ],
+      "excess_slope": 0.3282,
+      "verdict": "stable"
+    },
+    "hardened": {
+      "beta_global": 0.699,
+      "beta_drop_lowest": 0.6906,
+      "beta_drop_highest": 0.8023,
+      "windows": [
+        {
+          "widths": [
+            12,
+            14,
+            16,
+            18
+          ],
+          "centre": 15.0,
+          "beta": 0.6488
+        },
+        {
+          "widths": [
+            14,
+            16,
+            18,
+            20
+          ],
+          "centre": 17.0,
+          "beta": 0.5455
+        },
+        {
+          "widths": [
+            16,
+            18,
+            20,
+            22
+          ],
+          "centre": 19.0,
+          "beta": 0.9795
+        },
+        {
+          "widths": [
+            18,
+            20,
+            22,
+            24
+          ],
+          "centre": 21.0,
+          "beta": 0.73
+        }
+      ],
+      "window_betas": [
+        0.6488,
+        0.5455,
+        0.9795,
+        0.73
+      ],
+      "trend_slope_per_w": 0.03388,
+      "excess_curve": [
+        [
+          12,
+          6.314
+        ],
+        [
+          14,
+          7.002
+        ],
+        [
+          16,
+          7.179
+        ],
+        [
+          18,
+          7.246
+        ],
+        [
+          20,
+          7.283
+        ],
+        [
+          22,
+          10.364
+        ],
+        [
+          24,
+          7.752
+        ]
+      ],
+      "excess_slope": 0.199,
+      "verdict": "inconclusive"
+    }
+  },
+  "verdict": "stable",
+  "conclusion": "Local slopes do not decay over the tested range: every window keeps beta >= 0.6 and the trend in beta is flat to within tolerance. That is what a structural gap looks like, and it is the outcome that would justify red-teaming the construction rather than redesigning it."
+}
