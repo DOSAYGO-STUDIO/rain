@@ -429,8 +429,17 @@ leave the other's free. Each σ-match then contributes exactly one solution:
 #solutions ≈ 2^(4(k−1)t − 2w),   Q = 4(k−1)t + 2w,   N = 4w
 ```
 
-At `t = w/(2(k−1)) + c` that is `2^(4c)` solutions in a `2^(4w+4c)` space —
-density `2^(−4w)` — while the factored side keeps its birthday match.
+At `t = w/(2(k−1)) + c` the exponent is `4(k−1)t − 2w = 4(k−1)c`, so there are
+**`2^(4(k−1)c)`** solutions — which is `2^(4c)` at k=2, the case used below.
+That sits in a `2^(4w+4(k−1)c)` space, density `2^(−4w)`, while the factored
+side keeps its match.
+
+The privileged cost at that threshold is **`2^(w/2+1)`, not `2^w`**: σ splits
+into two independent w-bit halves (prefix word 0 drives pair 0 only, word 1
+drives pair 1 only, because `mixA` is pair-separable), so each half is matched
+separately by birthday over `2^t = 2^(w/2+c)` candidates per side. Treating σ as
+one 2w-bit value would cost `2^w`; the divide-and-conquer is exactly the
+privileged advantage this whole program identified in Phase 1.
 
 Verification against exhaustive enumeration (k=2), 8/8 checked cases agree:
 
