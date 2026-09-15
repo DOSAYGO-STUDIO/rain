@@ -389,6 +389,70 @@ images behave like random subsets that intersect about once, and stay SAT. That
 is a falsifiable structural difference, and it is much closer to real Rainbow,
 where message words cannot simply be solved for. Not yet run.
 
+### The counting argument (do this before any further attack)
+
+The SMT result was not a failure of an attack, it was a failure of a *task*: the
+query had ~2^(4w) solutions, so propagation reached one and the measurement
+could only ever be an artifact. `attacks/counting_model.py` exists so that
+cannot recur — it derives and **exhaustively verifies** the solution count
+before an experiment is built on it (`results/counting-model.json`).
+
+Let `N = 4w` be the equality-constraint dimension, `Q` the public control bits,
+and `S` the freedom the factor-aware route needs. A capability is worth
+measuring only when `S ≤ Q ≲ N`.
+
+**Symmetric design (the obvious one): the window is empty.** With prefix words
+restricted to `t` bits and the merge round free, the merge injection is solvable
+iff `σ(a) = σ(b)`, and then `x, y` are free while `x', y'` are determined:
+
+```
+#solutions ≈ [#σ-matching prefix pairs] × 2^(2w) ≈ 2^(4(k−1)t − 2w) × 2^(2w) = 2^(4(k−1)t)
+```
+
+The factored route needs at least one σ-match, i.e. `4(k−1)t ≥ 2w`. So **the
+moment the privileged route becomes feasible, ≥ 2^(2w) solutions already
+exist.** Verified across w=8…64 and k=2,3: the symmetric window is empty every
+time.
+
+The cause is worth naming, because it is the real lesson of this whole phase:
+
+> **The freedom the trapdoor needs is the freedom that makes the public problem
+> easy.** Even a *unique* σ-match still carries 2^(2w) merge-round solutions,
+> because `x` being free is exactly what makes the merge free for the factored
+> attacker. Restricting the merge round does not help: `x' = x + δ` must stay
+> representable, which generically fails and breaks the privileged route first.
+
+**Asymmetric repair: non-empty but narrow.** Fix one side's merge controls and
+leave the other's free. Each σ-match then contributes exactly one solution:
+
+```
+#solutions ≈ 2^(4(k−1)t − 2w),   Q = 4(k−1)t + 2w,   N = 4w
+```
+
+At `t = w/(2(k−1)) + c` that is `2^(4c)` solutions in a `2^(4w+4c)` space —
+density `2^(−4w)` — while the factored side keeps its birthday match.
+
+Verification against exhaustive enumeration (k=2), 8/8 checked cases agree:
+
+| w | t | design | σ-matches | predicted | actual |
+|---|---|---|---|---|---|
+| 3 | 2 | symmetric | 12 | 768 | 768 |
+| 3 | 2 | asymmetric | 12 | 12 | 12 |
+| 3 | 3 | asymmetric | 52 | 52 | 52 |
+| 4 | 3 | asymmetric | 4 | 4 | 4 |
+| 4 | 1,2 | both | 0 | 0 | 0 |
+
+**Caveat on `c = 0`:** "≈1 expected solution" means a constant fraction of random
+challenges have *none*. So the honest next experiment is the planted variant —
+generate the instance through the factorization so a witness is guaranteed,
+erase the witness and the factor boundary, then ask the public solver to recover
+any witness. Generating instances with a known witness is what key generation
+is, not cheating.
+
+The next experiment must also re-run the **weakness-removed control** in this
+regime. If SMT again solves hardened and weak alike, the same verdict applies
+and the construction is finished.
+
 ## Limitations
 
 The honest verdict is **"not demonstrated"** — which is weaker than "not yet
@@ -406,10 +470,14 @@ quantitative result that supported it measured a task that was never hard.
    relations of the form `L(F(x)) = L(x) + c`, or `L(F(x,m)) = φ(L(x),m)` for
    low-complexity φ — steering does not require a *conserved* quotient, only a
    predictably *evolving* one.
-1b. **The blocking item is not an attack — it is a task.** No result here can
-   mean anything until the capability is re-posed so that it is generically
-   hard (see the tight-control-budget design in the SMT section). Running more
-   attacks against the current query would only re-measure an artifact.
+1b. **The blocking item was a task, not an attack — and it is now resolved.**
+   The counting argument above shows the obvious symmetric construction *cannot*
+   host the phenomenon at any width (structural impossibility), and identifies
+   the one regime that can: asymmetric merge controls at
+   `t = w/(2(k−1)) + c`. No further attack should be run outside that regime,
+   because outside it the task is underdetermined and any measurement is an
+   artifact. What is still unbuilt is the planted sparse-witness experiment in
+   that regime, with the weakness-removed control alongside it.
 2. The separation is the *same* phenomenon as the Rainbow break itself —
    birthday on a w-bit invariant versus birthday on a 4w-bit state. It has not
    been shown to be a new primitive.
