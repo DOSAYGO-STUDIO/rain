@@ -5,8 +5,9 @@ This splices the deepened w=20/22/24 medians into the w=12..18 series from
 scaling_wide.py and calls drift_test.analyse() VERBATIM. No rule is restated,
 no threshold is touched, nothing is re-derived here. The verdict comes from the
 criteria frozen in c3ea7f0 before any of this data existed; the only thing that
-changed is that the three widths carrying all the leverage now rest on 10, 8 and
-3 draws instead of 5, 3 and 2.
+changed is how many draws the three leveraged widths rest on. Where
+deepen-w24.json is present it supersedes deepen.json for w=24, which decided the
+verdict on n=3 with a 5x spread across its raw draws.
 
 The point of doing it this way, rather than editing drift_test.py, is that the
 analysis function cannot be quietly tuned to the answer. If the verdict flips,
@@ -54,6 +55,11 @@ def main():
             return 1
     wide = json.loads(wide_path.read_text())
     deep = json.loads(deep_path.read_text())
+    # w=24 decided the verdict on n=3; if it has since been sampled properly,
+    # that measurement supersedes the thin one. deepen.json is left intact so
+    # both sit on disk rather than one silently replacing the other.
+    w24_path = RESULTS / "deepen-w24.json"
+    w24 = json.loads(w24_path.read_text()) if w24_path.exists() else None
 
     report = {
         "analysis": "retake_verdict",
@@ -66,6 +72,10 @@ def main():
     for label in ("weak", "hardened"):
         medians, provenance = merged_medians(wide["variants"][label],
                                              deep["variants"][label])
+        if w24 and w24["variants"][label]["median"]:
+            row24 = w24["variants"][label]
+            medians["24"] = row24["median"]
+            provenance["24"] = f"deepened-w24 n={row24['n']}"
         before = analyse(wide["variants"][label]["median_conflicts"])
         after = analyse(medians)
         report["variants"][label] = {
