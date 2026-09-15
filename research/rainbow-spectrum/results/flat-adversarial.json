@@ -1,0 +1,119 @@
+{
+  "phase": 7,
+  "question": "is the measured separation an artifact of a weak flat solver?",
+  "generated": "2026-09-15T08:27:15",
+  "attack_a": [
+    {
+      "attack": "A_gf2_linear_invariant_on_output",
+      "state_bits": 12,
+      "class_size": 64,
+      "classes_enumerated_exactly": true,
+      "output_difference_rank": 8,
+      "premixer_difference_rank": 7,
+      "premixer_linear_invariants": 5,
+      "candidates_from_training_class": 4,
+      "validated_on_heldout_classes": 1,
+      "discriminating_class_labels": 0,
+      "succeeded": false,
+      "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing",
+      "w": 3
+    },
+    {
+      "attack": "A_gf2_linear_invariant_on_output",
+      "state_bits": 16,
+      "class_size": 256,
+      "classes_enumerated_exactly": true,
+      "output_difference_rank": 14,
+      "premixer_difference_rank": 10,
+      "premixer_linear_invariants": 6,
+      "candidates_from_training_class": 2,
+      "validated_on_heldout_classes": 0,
+      "discriminating_class_labels": 0,
+      "succeeded": false,
+      "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing",
+      "w": 4
+    },
+    {
+      "attack": "A_gf2_linear_invariant_on_output",
+      "state_bits": 20,
+      "class_size": 1024,
+      "classes_enumerated_exactly": true,
+      "output_difference_rank": 20,
+      "premixer_difference_rank": 15,
+      "premixer_linear_invariants": 5,
+      "candidates_from_training_class": 0,
+      "validated_on_heldout_classes": 0,
+      "discriminating_class_labels": 0,
+      "succeeded": false,
+      "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing",
+      "w": 5
+    },
+    {
+      "attack": "A_gf2_linear_invariant_on_output",
+      "state_bits": 24,
+      "class_size": 4096,
+      "classes_enumerated_exactly": true,
+      "output_difference_rank": 24,
+      "premixer_difference_rank": 17,
+      "premixer_linear_invariants": 7,
+      "candidates_from_training_class": 0,
+      "validated_on_heldout_classes": 0,
+      "discriminating_class_labels": 0,
+      "succeeded": false,
+      "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing",
+      "w": 6
+    },
+    {
+      "attack": "A_gf2_linear_invariant_on_output",
+      "state_bits": 28,
+      "class_size": 16384,
+      "classes_enumerated_exactly": true,
+      "output_difference_rank": 27,
+      "premixer_difference_rank": 22,
+      "premixer_linear_invariants": 6,
+      "candidates_from_training_class": 1,
+      "validated_on_heldout_classes": 0,
+      "discriminating_class_labels": 0,
+      "succeeded": false,
+      "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing",
+      "w": 7
+    },
+    {
+      "attack": "A_gf2_linear_invariant_on_output",
+      "state_bits": 32,
+      "class_size": 65536,
+      "classes_enumerated_exactly": true,
+      "output_difference_rank": 32,
+      "premixer_difference_rank": 27,
+      "premixer_linear_invariants": 5,
+      "candidates_from_training_class": 0,
+      "validated_on_heldout_classes": 0,
+      "discriminating_class_labels": 0,
+      "succeeded": false,
+      "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing",
+      "w": 8
+    }
+  ],
+  "attack_b": [
+    {
+      "attack": "B_class_canonicalisation",
+      "merged": true,
+      "evaluations": 128,
+      "class_size": 64,
+      "w": 3,
+      "generic_birthday_log2": 7,
+      "log2_evaluations": 7.0
+    },
+    {
+      "attack": "B_class_canonicalisation",
+      "merged": true,
+      "evaluations": 9216,
+      "class_size": 256,
+      "w": 4,
+      "generic_birthday_log2": 9,
+      "log2_evaluations": 13.17
+    }
+  ],
+  "flat_attack_succeeded": false,
+  "conclusion": "No GF(2)-linear invariant of the output exists, and class canonicalisation is dominated by generic birthday. The separation survives these attacks -- which is NOT the same as surviving all of them. Untried: Z/2^w-linear functional search, algebraic/ANF elimination, SAT/SMT, meet-in-the-middle, and amortised precomputation."
+}
