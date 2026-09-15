@@ -72,6 +72,14 @@ Factored tracks `2^(w/2)`, flat tracks `2^(2w)` (at w=8, k=2 the prediction is
 2^17 and the measurement is 2^16.9), and the gap grows as roughly `2^(1.5w)`.
 This is a scaling separation, not a constant factor.
 
+> **⚠️ SUPERSEDED — do not cite this separation as evidence.** The `2^(2w)` flat
+> figure is the cost of a **random-search** attacker. An equation-solving
+> attacker does far better: z3 merges at every width up to w=24 in seconds (see
+> [SMT](#smt-the-capability-was-the-wrong-one)), where birthday is 2^48. Worse,
+> it merges a *hardened* construction with the weakness removed just as readily,
+> so the query was never hard for anyone. The number below measures a smart
+> privileged attacker against a needlessly weak public one.
+
 **Composition depth is not a separation axis.** `k` barely moves either side: the
 factored attacker merges at round 2 and coasts, and the flat birthday is on the
 final state regardless of `k`. Width is the axis that matters.
@@ -325,18 +333,83 @@ bounds an attacker who is trying to match σ; the flat attacker's actual best
 route birthdays on final states and never passes through σ at all, so in
 practice even this factor of two does not plug into it.
 
+### SMT: the capability was the wrong one
+
+A solver is different in kind from every earlier flat attack. Those sampled the
+function or searched a fixed family of invariants; a solver reads the exact
+equations and says "I do not care what your hidden structure was, I will solve
+the steering constraint directly." So it was the natural next attacker
+(`attacks/smt_steering.py`, `results/smt-steering.json`).
+
+It solves. At every width tried, up to w=24 where generic birthday is 2^48,
+with every model replayed through the independent Python model.
+
+But solving proves nothing on its own, and the control is the whole point. The
+identical query was run against a **hardened** variant whose injection does not
+preserve the pair sums (`h_i -= x, h_j += rotr(x,1)`), so the cheap steering
+construction does not exist at all. Three θ draws per cell, 60 queries total:
+
+| w | k | weak: solved, median | conflicts | hardened: solved, median | conflicts |
+|---|---|---|---|---|---|
+| 8 | 2 | 3/3, 0.038s | 0 | 3/3, 0.038s | 0 |
+| 12 | 2 | 3/3, 0.059s | 0 | 3/3, 0.120s | 0 |
+| 16 | 4 | 3/3, 0.922s | 0 | 3/3, 5.503s | 0 |
+| 20 | 2 | 3/3, 15.712s | 0 | 3/3, 1.911s | 0 |
+| 24 | 2 | 2/3, 22.519s | 0 | 1/3, 60.018s | 0 |
+
+Overall: weak 0.933 solved, hardened 0.867. **Removing the weakness barely
+changes anything**, so the solver is not exploiting it.
+
+Two details confirm the diagnosis. `conflicts = 0` in every single cell — the
+solver is not searching, it is propagating. And the timings are not monotonic in
+w (weak takes 15.7s at w=20 but 22.5s at w=24; hardened 5.5s at w=16, k=4 but
+1.9s at w=20, k=2), which is what a non-search problem looks like.
+
+The cause is structural: the system offers `2·k·npairs·w` bits of control
+freedom against only `4w` bits of equality, so roughly `2^(4w)` solutions exist
+and propagation walks to one.
+
+**So the task was badly posed, and that is the finding.** A capability worth
+separating on must be one that is generically *hard*; this one is
+underdetermined by a factor of `2^(4w)`. Measuring how difficult it was could
+only ever produce an artifact.
+
+What survives is narrower and should be stated exactly: the **specific
+σ-steering route** is cheap only with the decomposition. That is not the same
+claim as "steering is hard without it", and only the latter would support the
+hypothesis.
+
+The constructive repair is to tighten the control budget until solutions are
+rare rather than abundant. The structure then inverts in a useful way: with a
+single round of controls the weak construction's reachable set is exactly a
+σ-coset, so two states are either σ-equal or have **disjoint** images —
+generically UNSAT, and the solver must *prove* unsatisfiability, which is where
+SMT becomes expensive. The hardened variant has no coset structure, so its
+images behave like random subsets that intersect about once, and stay SAT. That
+is a falsifiable structural difference, and it is much closer to real Rainbow,
+where message words cannot simply be solved for. Not yet run.
+
 ## Limitations
 
-The honest verdict is "not yet disproved", not "secure".
+The honest verdict is **"not demonstrated"** — which is weaker than "not yet
+disproved", and the distinction matters. The hypothesis has not been refuted,
+but there is currently **no standing evidence for it either**, because the one
+quantitative result that supported it measured a task that was never hard.
 
-1. Three flat attacks have been run and the **linear** route is closed (GF(2) and
-   Z/2^r for every r ≤ w, with a solver proven complete against brute force).
-   **Untried and entirely non-linear:** ANF/algebraic elimination, SAT/SMT,
-   meet-in-the-middle, and amortised precomputation (a one-off 2^(4w) class
-   partition makes every later merge free, which is a real threat model). Also
-   untried: relations of the form `L(F(x)) = L(x) + c`, or `L(F(x,m)) = φ(L(x),m)`
-   for low-complexity φ — steering does not require a *conserved* quotient, only
-   a predictably *evolving* one.
+1. The **linear** route is closed (GF(2), and Z/2^r for every r ≤ w with a
+   solver proven complete against brute force), **exact ANF flattening** is done
+   and leaks ~1 bit, and **SMT** has been run — where it showed the chosen
+   capability was underdetermined rather than hard, invalidating the separation
+   measurement rather than beating it. What genuinely remains untried:
+   meet-in-the-middle; amortised precomputation (a one-off 2^(4w) class
+   partition makes every later merge free, which is a real threat model); and
+   relations of the form `L(F(x)) = L(x) + c`, or `L(F(x,m)) = φ(L(x),m)` for
+   low-complexity φ — steering does not require a *conserved* quotient, only a
+   predictably *evolving* one.
+1b. **The blocking item is not an attack — it is a task.** No result here can
+   mean anything until the capability is re-posed so that it is generically
+   hard (see the tight-control-budget design in the SMT section). Running more
+   attacks against the current query would only re-measure an artifact.
 2. The separation is the *same* phenomenon as the Rainbow break itself —
    birthday on a w-bit invariant versus birthday on a 4w-bit state. It has not
    been shown to be a new primitive.
@@ -368,6 +441,7 @@ Kept deliberately, per the program:
 | naive branch C destroyed the weakness | the mixer was selected from the whole state, so injection moved the state into a different parameter region and the coset fragmented | a selector must read an injection-invariant quantity (σ), not the state |
 | the flattening positive control failed at w=3,4 but passed at w=5 | it let earlier rounds' controls vary, and σ is only invariant with respect to the **final** injection — round 1's mixer changes it | a control must isolate exactly the invariant it claims to plant, nothing wider |
 | the flattening attack declared a break on any discriminating label | success was counted as existence rather than bits; the label was worth 1 bit against σ's 2w | measure capability in bits against what the privileged side actually gets |
+| the whole factored-vs-flat separation turned out to measure nothing | the chosen capability was underdetermined by ~2^(4w), so it was never hard for anyone; the flat baseline was a random-search attacker that a solver trivially beats | before measuring how hard a task is, check that it is *generically* hard — and always run the control where the planted weakness is REMOVED |
 | two implementations of one criterion disagreed by ~8x | `gf2_nullspace` reduced rows in dict-insertion order, not pivot order, and returned vectors that annihilated nothing; correct at w=3, wrong at w≥4 | when two of your own measurements disagree, one is broken — arbitrate with brute force before believing either, and give linear-algebra helpers a post-condition |
 | a first attempt looked for "low-degree relations" with no cross-class check | constancy alone is trivial — low bits of modular addition are GF(2)-linear — so it found relations that were never class labels | reuse the validated criterion (constant within class **and** discriminating across classes), do not invent a weaker one |
 

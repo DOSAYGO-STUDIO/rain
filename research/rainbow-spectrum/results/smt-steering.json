@@ -1,0 +1,845 @@
+{
+  "attack": "smt_steering_on_exact_flattened_form",
+  "query": "find controls x, y with F(S;x) == F(T;y); never parameter recovery",
+  "timeout_ms": 60000,
+  "z3_version": "4.15.4",
+  "generated": "2026-09-15T09:41:51",
+  "control": [
+    {
+      "verdict": "sat",
+      "seconds": 0.029,
+      "stats": {
+        "max memory": 26.56
+      },
+      "control_bits": 64,
+      "constraint_bits": 32,
+      "w": 8
+    },
+    {
+      "verdict": "sat",
+      "seconds": 0.181,
+      "stats": {
+        "max memory": 28.26
+      },
+      "control_bits": 128,
+      "constraint_bits": 64,
+      "w": 16
+    }
+  ],
+  "weak": [
+    {
+      "w": 8,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.038,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.035,
+          "stats": {
+            "max memory": 28.26
+          },
+          "control_bits": 64,
+          "constraint_bits": 32,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.038,
+          "stats": {
+            "max memory": 28.26
+          },
+          "control_bits": 64,
+          "constraint_bits": 32,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.038,
+          "stats": {
+            "max memory": 28.26
+          },
+          "control_bits": 64,
+          "constraint_bits": 32,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 8,
+      "k": 4,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.099,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.099,
+          "stats": {
+            "max memory": 30.26
+          },
+          "control_bits": 128,
+          "constraint_bits": 32,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.089,
+          "stats": {
+            "max memory": 30.71
+          },
+          "control_bits": 128,
+          "constraint_bits": 32,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.189,
+          "stats": {
+            "max memory": 30.71
+          },
+          "control_bits": 128,
+          "constraint_bits": 32,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 12,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.059,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.059,
+          "stats": {
+            "max memory": 31.19
+          },
+          "control_bits": 96,
+          "constraint_bits": 48,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.046,
+          "stats": {
+            "max memory": 31.19
+          },
+          "control_bits": 96,
+          "constraint_bits": 48,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.071,
+          "stats": {
+            "max memory": 31.19
+          },
+          "control_bits": 96,
+          "constraint_bits": 48,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 12,
+      "k": 4,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.119,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.117,
+          "stats": {
+            "max memory": 34.6
+          },
+          "control_bits": 192,
+          "constraint_bits": 48,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.119,
+          "stats": {
+            "max memory": 35.31
+          },
+          "control_bits": 192,
+          "constraint_bits": 48,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 1.147,
+          "stats": {
+            "max memory": 36.56
+          },
+          "control_bits": 192,
+          "constraint_bits": 48,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 16,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.578,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.216,
+          "stats": {
+            "max memory": 38.15
+          },
+          "control_bits": 128,
+          "constraint_bits": 64,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.578,
+          "stats": {
+            "max memory": 38.15
+          },
+          "control_bits": 128,
+          "constraint_bits": 64,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 6.478,
+          "stats": {
+            "max memory": 45.26
+          },
+          "control_bits": 128,
+          "constraint_bits": 64,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 16,
+      "k": 4,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.922,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.962,
+          "stats": {
+            "max memory": 49.9
+          },
+          "control_bits": 256,
+          "constraint_bits": 64,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.289,
+          "stats": {
+            "max memory": 49.9
+          },
+          "control_bits": 256,
+          "constraint_bits": 64,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.922,
+          "stats": {
+            "max memory": 50.19
+          },
+          "control_bits": 256,
+          "constraint_bits": 64,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 20,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 15.712,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 10.682,
+          "stats": {
+            "max memory": 60.21
+          },
+          "control_bits": 160,
+          "constraint_bits": 80,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 15.712,
+          "stats": {
+            "max memory": 60.21
+          },
+          "control_bits": 160,
+          "constraint_bits": 80,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 18.203,
+          "stats": {
+            "max memory": 60.21
+          },
+          "control_bits": 160,
+          "constraint_bits": 80,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 20,
+      "k": 4,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 7.614,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 23.583,
+          "stats": {
+            "max memory": 81.95
+          },
+          "control_bits": 320,
+          "constraint_bits": 80,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 7.614,
+          "stats": {
+            "max memory": 81.95
+          },
+          "control_bits": 320,
+          "constraint_bits": 80,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 7.435,
+          "stats": {
+            "max memory": 81.95
+          },
+          "control_bits": 320,
+          "constraint_bits": 80,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 24,
+      "k": 2,
+      "draws": 3,
+      "solved": 2,
+      "median_seconds": 22.519,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "unknown",
+          "seconds": 60.022,
+          "stats": {
+            "max memory": 102.31
+          },
+          "control_bits": 192,
+          "constraint_bits": 96
+        },
+        {
+          "verdict": "sat",
+          "seconds": 22.519,
+          "stats": {
+            "max memory": 102.31
+          },
+          "control_bits": 192,
+          "constraint_bits": 96,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 1.451,
+          "stats": {
+            "max memory": 102.31
+          },
+          "control_bits": 192,
+          "constraint_bits": 96,
+          "replay_verified": true
+        }
+      ]
+    },
+    {
+      "w": 24,
+      "k": 4,
+      "draws": 3,
+      "solved": 2,
+      "median_seconds": 17.713,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 6.409,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 384,
+          "constraint_bits": 96,
+          "replay_verified": true
+        },
+        {
+          "verdict": "sat",
+          "seconds": 17.713,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 384,
+          "constraint_bits": 96,
+          "replay_verified": true
+        },
+        {
+          "verdict": "unknown",
+          "seconds": 60.037,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 384,
+          "constraint_bits": 96
+        }
+      ]
+    }
+  ],
+  "hardened": [
+    {
+      "w": 8,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.038,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.037,
+          "stats": {
+            "max memory": 28.26
+          },
+          "control_bits": 64,
+          "constraint_bits": 32
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.061,
+          "stats": {
+            "max memory": 28.26
+          },
+          "control_bits": 64,
+          "constraint_bits": 32
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.038,
+          "stats": {
+            "max memory": 28.26
+          },
+          "control_bits": 64,
+          "constraint_bits": 32
+        }
+      ]
+    },
+    {
+      "w": 8,
+      "k": 4,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.081,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.107,
+          "stats": {
+            "max memory": 30.71
+          },
+          "control_bits": 128,
+          "constraint_bits": 32
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.07,
+          "stats": {
+            "max memory": 30.71
+          },
+          "control_bits": 128,
+          "constraint_bits": 32
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.081,
+          "stats": {
+            "max memory": 31.19
+          },
+          "control_bits": 128,
+          "constraint_bits": 32
+        }
+      ]
+    },
+    {
+      "w": 12,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.12,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.12,
+          "stats": {
+            "max memory": 31.19
+          },
+          "control_bits": 96,
+          "constraint_bits": 48
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.041,
+          "stats": {
+            "max memory": 31.19
+          },
+          "control_bits": 96,
+          "constraint_bits": 48
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.543,
+          "stats": {
+            "max memory": 31.19
+          },
+          "control_bits": 96,
+          "constraint_bits": 48
+        }
+      ]
+    },
+    {
+      "w": 12,
+      "k": 4,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.287,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.131,
+          "stats": {
+            "max memory": 36.56
+          },
+          "control_bits": 192,
+          "constraint_bits": 48
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.287,
+          "stats": {
+            "max memory": 36.56
+          },
+          "control_bits": 192,
+          "constraint_bits": 48
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.645,
+          "stats": {
+            "max memory": 38.15
+          },
+          "control_bits": 192,
+          "constraint_bits": 48
+        }
+      ]
+    },
+    {
+      "w": 16,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 0.472,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.087,
+          "stats": {
+            "max memory": 45.26
+          },
+          "control_bits": 128,
+          "constraint_bits": 64
+        },
+        {
+          "verdict": "sat",
+          "seconds": 8.746,
+          "stats": {
+            "max memory": 46.56
+          },
+          "control_bits": 128,
+          "constraint_bits": 64
+        },
+        {
+          "verdict": "sat",
+          "seconds": 0.472,
+          "stats": {
+            "max memory": 46.56
+          },
+          "control_bits": 128,
+          "constraint_bits": 64
+        }
+      ]
+    },
+    {
+      "w": 16,
+      "k": 4,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 5.503,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 0.953,
+          "stats": {
+            "max memory": 50.19
+          },
+          "control_bits": 256,
+          "constraint_bits": 64
+        },
+        {
+          "verdict": "sat",
+          "seconds": 6.5,
+          "stats": {
+            "max memory": 58.22
+          },
+          "control_bits": 256,
+          "constraint_bits": 64
+        },
+        {
+          "verdict": "sat",
+          "seconds": 5.503,
+          "stats": {
+            "max memory": 60.21
+          },
+          "control_bits": 256,
+          "constraint_bits": 64
+        }
+      ]
+    },
+    {
+      "w": 20,
+      "k": 2,
+      "draws": 3,
+      "solved": 3,
+      "median_seconds": 1.911,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 6.855,
+          "stats": {
+            "max memory": 60.21
+          },
+          "control_bits": 160,
+          "constraint_bits": 80
+        },
+        {
+          "verdict": "sat",
+          "seconds": 1.584,
+          "stats": {
+            "max memory": 60.21
+          },
+          "control_bits": 160,
+          "constraint_bits": 80
+        },
+        {
+          "verdict": "sat",
+          "seconds": 1.911,
+          "stats": {
+            "max memory": 60.21
+          },
+          "control_bits": 160,
+          "constraint_bits": 80
+        }
+      ]
+    },
+    {
+      "w": 20,
+      "k": 4,
+      "draws": 3,
+      "solved": 2,
+      "median_seconds": 2.362,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 1.075,
+          "stats": {
+            "max memory": 81.95
+          },
+          "control_bits": 320,
+          "constraint_bits": 80
+        },
+        {
+          "verdict": "unknown",
+          "seconds": 60.019,
+          "stats": {
+            "max memory": 102.31
+          },
+          "control_bits": 320,
+          "constraint_bits": 80
+        },
+        {
+          "verdict": "sat",
+          "seconds": 2.362,
+          "stats": {
+            "max memory": 102.31
+          },
+          "control_bits": 320,
+          "constraint_bits": 80
+        }
+      ]
+    },
+    {
+      "w": 24,
+      "k": 2,
+      "draws": 3,
+      "solved": 1,
+      "median_seconds": 60.018,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 7.802,
+          "stats": {
+            "max memory": 102.31
+          },
+          "control_bits": 192,
+          "constraint_bits": 96
+        },
+        {
+          "verdict": "unknown",
+          "seconds": 60.139,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 192,
+          "constraint_bits": 96
+        },
+        {
+          "verdict": "unknown",
+          "seconds": 60.018,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 192,
+          "constraint_bits": 96
+        }
+      ]
+    },
+    {
+      "w": 24,
+      "k": 4,
+      "draws": 3,
+      "solved": 2,
+      "median_seconds": 31.077,
+      "median_conflicts": 0,
+      "median_decisions": 0,
+      "replay_failures": 0,
+      "rows": [
+        {
+          "verdict": "sat",
+          "seconds": 31.077,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 384,
+          "constraint_bits": 96
+        },
+        {
+          "verdict": "sat",
+          "seconds": 16.537,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 384,
+          "constraint_bits": 96
+        },
+        {
+          "verdict": "unknown",
+          "seconds": 60.023,
+          "stats": {
+            "max memory": 177.61
+          },
+          "control_bits": 384,
+          "constraint_bits": 96
+        }
+      ]
+    }
+  ],
+  "weak_solve_rate": 0.933,
+  "hardened_solve_rate": 0.867,
+  "positive_control_passed": true,
+  "conclusion": "THE QUERY IS EASY FOR EVERYTHING, so it measures nothing about the weakness. The solver merges the HARDENED construction -- whose injection preserves no pair sum, so the cheap steering construction does not exist -- about as readily as the weak one (hardened 0.867 vs weak 0.933 solved). The reason is structural: the system has 2*k*npairs*w bits of control freedom against only 4w bits of equality, so roughly 2^(4w) solutions exist and propagation walks to one, with conflict counts near zero showing the solver barely searches. CONSEQUENCE: the flat birthday baseline of ~2^(2w) used elsewhere in this program is the cost of a RANDOM-SEARCH attacker, not of the best public attacker. An equation-solving public attacker obtains the merge cheaply at widths where birthday search is hopeless, so the factored-vs-flat separation measured against that baseline does not survive. What remains unrefuted is narrower: that the SPECIFIC sigma-steering route is cheap only with the decomposition."
+}
