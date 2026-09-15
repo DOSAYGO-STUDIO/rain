@@ -29,15 +29,17 @@
   linkcolor=Navy,
   urlcolor=Teal,
   citecolor=Teal,
-  pdftitle={External Cryptanalysis of Rainstorm v4.0.0},
-  pdfauthor={Independent external review}
+  pdftitle={A 2\textasciicircum 31.9 Collision Attack on Reduced Rainstorm-256},
+  pdfauthor={Cris Stringfellow},
+  pdfsubject={Programmed Collisions, Rebound Corridors, and the Full-Schedule Boundary},
+  pdfkeywords={Rainstorm; hash functions; reduced-round cryptanalysis; collision attacks; rebound attacks; ARX; AI-assisted cryptanalysis; automated cryptanalysis; Daybreak}
 }
 \urlstyle{same}
 
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Cryptanalysis of Rainstorm v4.0.0}
-\rhead{Independent external review}
+\rhead{Cris Stringfellow}
 \cfoot{\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0.4pt}
 
@@ -76,27 +78,87 @@
 \newcommand{\Fold}{\operatorname{Fold}}
 \newcommand{\code}[1]{\texttt{#1}}
 
+
+% Archival source snapshot; do not retarget this release name after publication.
+\newcommand{\archiveTag}{rainstorm-v4-cryptanalysis-eprint-v1}
+\newcommand{\archiveName}{\nolinkurl{rainstorm-v4-cryptanalysis-eprint-v1}}
+\newcommand{\archiveRoot}{https://github.com/DOSAYGO-STUDIO/rain}
+\newcommand{\archiveFile}[2]{\href{\archiveRoot/blob/\archiveTag/#1}{#2}}
+\newcommand{\archiveTree}[2]{\href{\archiveRoot/tree/\archiveTag/#1}{#2}}
+
 \begin{document}
 
 \begin{center}
-  {\LARGE\bfseries\color{Navy} External Cryptanalysis of Rainstorm v4.0.0}\par
-  \vspace{0.25em}
+  {\LARGE\bfseries\color{Navy} A $2^{31.9}$ Collision Attack on Reduced Rainstorm-256}\par
+  \vspace{0.3em}
   {\large Programmed Collisions, Rebound Corridors, and the Full-Schedule Boundary}\par
-  \vspace{0.55em}
-  {\color{Gray}Independent external review \quad 8 September 2026 \quad Report 2.0}
+  \vspace{0.6em}
+  {\large Cris Stringfellow}\par
+  Dosiago Corporation
 \end{center}
 
+\noindent\textbf{AI-assisted research disclosure.}
+The cryptanalytic campaign reported in this paper was conducted with substantial assistance from OpenAI Daybreak for hypothesis generation, experiment design, implementation, and analysis. The human author selected the research target, reviewed the evidence, and takes responsibility for the claims and manuscript. Computational evidence is published as source, raw artifacts, and witnesses; the main collision is independently replayed against the published Rainstorm v4.0.0 implementation and an integer model of its stated reduction.
+
 \begin{abstract}
-We analyze Rainstorm v4.0.0, a 1024-bit word-oriented hash construction whose compression alternates right- and left-active weak rounds and whose output subtractively folds the high state half into the low half.  The first right round is exactly programmable from its eight transformed words.  Restricting them to $(0,0,0,0,0,0,v,-v)$ makes five folded words vanish after the following left round and reduces equality of the first six fold words to collision search on one 64-bit function $G(v)$.  A native distinguished-point search finds a concrete pair after 4,070,333,044 evaluations ($2^{31.9225}$); independent replay confirms collisions for the two-message-round Rainstorm-64, -128, and -256 reductions.  This improves the reduced 256-bit collision exponent by approximately 96 bits.
+We present a practical collision attack on reduced Rainstorm v4.0.0. The first right round is exactly programmable. A structured two-message-round, no-padding reduction collapses a nominal 256-bit collision problem to collision search on a 64-bit function $G$: six folded state words agree whenever $G$ collides. A concrete collision was found after 4,070,333,044 evaluations ($2^{31.9225}$), yielding reduced Rainstorm-64/128/256 collisions. The rho search meets the generic birthday scale for the 64-bit map; the cryptanalytic gain is the algebraic collapse of the wider target.
 
-The same $G$ collision preserves fold words 1--5 through one genuine fixed-padding right round; word zero then requires equality of one additional 64-bit transformed-word sum.  Backward from a full fold collision, an MSB additive perturbation produces a reproducible low-weight padding hull: in $2^{28}$ held-out pairs, 58 boundary differences have Hamming weight at most 36 ($\hat p=2^{-22.142}$), with minimum 34.  Its exact discovered 36-bit mask never repeats, so this is a hull rather than a fixed characteristic.  A forward screen of 32,640 structured programmed differences finds no matching corridor; fresh validation returns mean boundary weights 512.020 and 511.987 bits.
+The attacked reduction is $\RS_n^{(2,0)}$, with two message rounds and no padding compression; production is $\RS_n^{(4,4)}$, with four message rounds and four mandatory padding rounds. Both retain production folding and width-dependent finalization. The structure partially survives one genuine padding round, but equality of fold word zero acquires an additional 64-bit condition. A held-out experiment also validates a sparse backward padding differential hull from arbitrary internal states; attacker-reachable messages have not been connected to it.
 
-Production processes two additional message rounds and four mandatory padding rounds.  Higher-order derivatives through dimension 20, 99,328 unique differential-linear tests, 32-point Boolean-Jacobian campaigns, monolithic and flattened SMT encodings, and matched XOR/additive/RX screens yield no production output distinguisher or collision.  Solver timeouts are explicitly discounted because even a known-broken two-round control times out.  Production Rainstorm-128 therefore remains unbroken below the $2^{64}$ generic collision baseline in this campaign; no impossibility or general security proof is claimed.
+No production Rainstorm-128/256 collision or validated output distinguisher was found in the reported campaign. Statistical non-detection is limited to the tested families, sample sizes, message lengths, masks, and relations; solver timeouts provide no evidence of security. This AI-assisted cryptanalysis used OpenAI Daybreak, with reproducible source, collision witnesses, replay artifacts, and unsuccessful controls published. No security proof or certification is claimed.
 \end{abstract}
 
-\section{Scope and claims}
+\noindent\textbf{Keywords:} Rainstorm; hash functions; reduced-round cryptanalysis; collision attacks; rebound attacks; ARX; AI-assisted cryptanalysis; automated cryptanalysis; Daybreak.
 
-The designer of Rainstorm did not conduct this analysis. The attack model fixes seed zero and considers two distinct, equal-length, attacker-chosen 64-byte messages. Both executions begin at the prescribed length-dependent IV and, for production claims, process the same mandatory \code{0x80} padding block. No free-start state is allowed.
+\section{Introduction}
+\label{sec:introduction}
+
+Rainstorm is a word-oriented hash family with a 1024-bit internal state, 64-byte input blocks, a 64-bit seed, and 64-, 128-, 256-, or 512-bit digests. It was designed for fast hashing with cryptographic aims, including collision and preimage resistance, and remains a subject for evaluation rather than an established cryptographic standard~\cite{rainstorm-spec,rainstorm-v4}. This paper studies the fixed public-seed setting, not a claim of keyed or PRF security.
+
+The design uses inexpensive, individually weak alternating rounds and relies on their repeated composition for resistance to cryptanalysis. Weak components gaining resistance through composition is a conventional symmetric-cryptography design premise, not a new principle introduced by Rainstorm. The construction and the concrete behavior of attacks against it are the objects of study here. For the complete 64-byte messages used by the principal campaign, production applies four alternating message rounds, four mandatory rounds on the fixed padding block, a subtractive fold, and width-dependent finalization.
+
+Reduced-round cryptanalysis identifies exploitable structure and measures how far an attack can be extended toward the full schedule. Here, exact first-round programming permits a six-word fold collapse after two message rounds. The resulting practical $2^{31.9225}$-evaluation collision concerns $\RS_{256}^{(2,0)}$ only; it is not a collision in production $\RS_{256}^{(4,4)}$. Restoring padding exposes an additional condition, while backward analysis finds a sparse internal hull whose connection to reachable forward states remains unresolved. These results describe a security margin against tested attack families and do not constitute a security proof or certification.
+
+\paragraph{Contributions.}
+The paper makes four main contributions:
+\begin{enumerate}
+  \item a practical $2^{31.9225}$-evaluation collision attack on the two-message-round/no-padding reduction through 256 output bits;
+  \item an exact analysis of the structure surviving one genuine padding round and the additional 64-bit condition it introduces;
+  \item a validated low-weight backward padding differential hull, including a $2^{28}$-pair held-out experiment;
+  \item a systematic full-schedule campaign that produced no production collision or validated output distinguisher, with raw artifacts, rejected hypotheses, and failed solver controls retained.
+\end{enumerate}
+
+The author is the designer of Rainstorm. The campaign evaluated the frozen v4.0.0 construction adversarially with substantial assistance from OpenAI Daybreak. Attack hypotheses were tested against that fixed implementation, and results were retained whether they supported or defeated a hypothesis. The target was not silently patched during the campaign; the historical pre-v4 comparison is identified separately. Section~\ref{sec:ai-methodology} describes the research roles and verification process.
+
+\section{Background and Rainstorm v4.0.0}
+\label{sec:background}
+
+\subsection{Construction and primary sources}
+
+The specification~\cite{rainstorm-spec} describes the constants, initialization, block processing, padding, and output schedule. The exact v4.0.0 C++ implementation~\cite{rainstorm-v4} is the reference for the campaign. Its sixteen 64-bit state words form low and high halves. A right round transforms the high half and updates the low half; the next left round reverses the active half. Word operations combine modular arithmetic, XOR, fixed rotations, and a sequential counter. After message and mandatory padding compression, the high half is subtracted from the low half; finalization acts on the low half. The formal reduction and round equations follow in Sections~\ref{sec:scope} and~\ref{sec:programming}.
+
+\subsection{Background and related work}
+
+Reduced-round analysis is a standard way to study symmetric primitives without confusing an internal or reduced-target weakness with an attack on the complete construction. ARX differential analysis must account for carries in modular addition~\cite{lipmaa2001,biryukov2013}. Rotational analysis similarly requires attention to dependencies across chained additions rather than multiplication of unjustified local probabilities~\cite{khovratovich2015}. Work on SPARX and LAX illustrates how explicit design strategies can support bounds for particular ARX structures~\cite{dinu2016}; those bounds do not transfer to Rainstorm.
+
+Rebound attacks use internal degrees of freedom to satisfy a difficult middle condition and then connect outward; results on Whirlpool and AES-like hashing provide relevant methodological context~\cite{lamberger2010,dong2022}. An arbitrary-state backward hull alone does not supply such an inbound connection. Meet-in-the-middle preimage techniques~\cite{mitm2010} and higher-order differential MITM~\cite{higherordermitm2015} motivate considering partial matching and additional message freedom. Higher-order and integral screens complement first-order differential tests by examining joint variation over message cubes.
+
+\subsection{Reduced SipHash and Skein/Threefish}
+
+Round counts are not comparable across primitives: one Rainstorm weak round contains eight sequential word transforms and a full counter chain, SipHash's round operates on four words, and Threefish uses a different MIX/permutation structure.  The first published differential analysis of SipHash found reduced-component characteristics and a four-finalization-round distinguisher without endangering full SipHash-2-4~\cite{dobraunig2014}; a 2026 follow-up reports forgery attacks on reduced variants, not the full construction~\cite{sasaki2026}.  Rotational rebound reaches 53/57 of 72 rounds in reduced Skein/Threefish-256/512 yet does not break the full Skein hash~\cite{skein2010}.
+
+Rainstorm has received limited concentrated analysis compared with the sustained independent scrutiny of mature designs.  Its practical two-round break and full-schedule non-findings are therefore an appropriate first security-margin result, not grounds to equate it with those mature designs.  The fair comparison is methodological: reduced attacks, quantified full-target costs, and repeated third-party attempts must accumulate before confidence does.
+
+\subsection{Historical OG versus production v4}
+
+The historical pre-v4 right round (``OG'') sent its final counter subtraction back into high word zero.  That word had already been transformed, so the subtraction erased one incoming-state degree of freedom.  For every tested data block and freely chosen output family, two distinct incoming states can therefore be constructed with an identical complete right-round output.  A 1,000-trial exact campaign produced 1,000 such OG collisions.  Production v4 (experimental variant A) instead sends the subtraction across to low word zero; all 1,000 paired collisions disappear and the fixed-data round has an explicit inverse.
+
+This is a primitive-level chosen-state result, not a reachable full-hash collision.  A matched full-hash screen evaluated 770,048 message pairs per variant and found no collisions or long-message projection alerts in either; the largest long-message bit biases, 0.03564 for OG and 0.03320 for A, are not a statistically meaningful ranking.  The paired experiment provides algebraic evidence that A repairs OG's state collapse; it does not establish a broader security ranking.
+
+\section{Threat Model, Notation, and Scope}
+\label{sec:scope}
+
+The attack model fixes seed zero and considers two distinct, equal-length, attacker-chosen 64-byte messages. Both executions begin at the prescribed length-dependent IV and, for production claims, process the same mandatory \code{0x80} padding block. No free-start state is allowed.
 
 \begin{definition}[Round-reduced target]
 Let $\RS_n^{(r_m,r_p)}$ denote the length-64 Rainstorm computation with $r_m$ alternating weak rounds on the message block, $r_p$ alternating weak rounds on the fixed padding block, the production fold, and the production number of left-only final rounds for output width $n$. Production is $\RS_n^{(4,4)}$. The attacked reduction is $\RS_n^{(2,0)}$.
@@ -122,9 +184,9 @@ Inverse four-round padding
 $\RS_{128}^{(4,4)}$ output screens
  & No validated first-order, differential-linear, or tested higher-order bias & Not detected \\
 $\RS_{128}^{(4,4)}$
- & No collision or output distinguisher found by the reported campaign & Unbroken \\
+ & No collision or output distinguisher found by the reported campaign & Not found \\
 $\RS_{256}^{(4,4)}$
- & No collision found; lifting the reduced attack across the full schedule remains open & Unbroken \\
+ & No collision found; lifting the reduced attack across the full schedule remains open & Not found \\
 Collision/preimage/PRF security
  & No proof is claimed for any production width & Open \\
 \bottomrule
@@ -133,13 +195,8 @@ Collision/preimage/PRF security
 
 The distinction between a reduced attack, an internal distinguisher, and a full-hash attack is maintained throughout.
 
-\subsection{Historical OG versus production v4}
-
-The historical pre-v4 right round (``OG'') sent its final counter subtraction back into high word zero.  That word had already been transformed, so the subtraction erased one incoming-state degree of freedom.  For every tested data block and freely chosen output family, two distinct incoming states can therefore be constructed with an identical complete right-round output.  A 1,000-trial exact campaign produced 1,000 such OG collisions.  Production v4 (experimental variant A) instead sends the subtraction across to low word zero; all 1,000 paired collisions disappear and the fixed-data round has an explicit inverse.
-
-This is a primitive-level chosen-state result, not a reachable full-hash collision.  A matched full-hash screen evaluated 770,048 message pairs per variant and found no collisions or long-message projection alerts in either; the largest long-message bit biases, 0.03564 for OG and 0.03320 for A, are not a statistically meaningful ranking.  Nothing in this campaign suggests that OG is stronger.  There is concrete algebraic evidence that A repairs OG's state collapse.
-
-\section{Relevant Rainstorm equations}
+\section{Exact First-Round Programming}
+\label{sec:programming}
 
 All arithmetic is in $\W$. Write the incoming state as low words $L_0,\ldots,L_7$ and high words $H_0,\ldots,H_7$. Let $d_i$ be message words, $K_i$ constants, $Z_i$ rotation amounts, and $C_R,C_L$ counter constants.
 
@@ -171,6 +228,9 @@ Invert, in order, the fixed rotation, subtraction of $K_i$, and XOR by $d_i$. Th
 \end{proof}
 
 This lemma converts chosen internal first-round outputs into an ordinary chosen 64-byte message. It is not a free-start relaxation.
+
+\section{Practical Two-Round Collision Attack}
+\label{sec:collision}
 
 \subsection{Fold degeneration after two rounds}
 
@@ -204,30 +264,7 @@ If $v_a\neq v_b$ and $G(v_a)=G(v_b)$, then the corresponding legal 64-byte messa
 
 The left-only final rounds use the same fixed data and have triangular low-half dependency. Equality of a low prefix therefore survives every final round. A collision in $G$ gives complete reduced collisions through 256 bits and a six-word truncated collision at 512 bits.
 
-\subsection{What the first real padding round preserves}
-
-Let $u_i(v)$ be the transformed high words of the next, fixed-data right round, and let $S(v)=\sum_i u_i(v)$.  The existing reduction omitted this round.  The following observation gives an exact, less artificial boundary.
-
-\begin{proposition}[One-padding-round extension]
-For the family in Equation~\eqref{eq:family}, if $G(v_a)=G(v_b)$ then, after one genuine \code{0x80} padding right round,
-\[
- F_i(v_a)=F_i(v_b),\qquad 1\leq i\leq5.
-\]
-Fold word zero is also equal if and only if $S(v_a)=S(v_b)$.
-\end{proposition}
-
-\begin{proof}
-Before padding, $x_0,\ldots,x_5$ are independent of $v$.  For $i>0$, $H_i=x_i$; moreover Equation~\eqref{eq:highzero} gives $H_0=x_0-G(v)$.  Equality of $G$ therefore makes both state halves equal through lane five.  The padding right round consequently has identical $u_0,\ldots,u_5$ and identical low/high words 1--5.  Its final lane wraps the complete counter into low word zero, changing it by $S(v)$; high word zero remains $u_0$.  Subtractive folding proves both statements.
-\end{proof}
-
-The concrete $G$-collision witness below verifies the first statement: its post-padding fold words 1--5 are equal, while word zero differs because
-\[
-S(v_a)=\mathtt{56ddbed97c83ad47}\neq
-S(v_b)=\mathtt{ae1525395140b829}.
-\]
-Thus one extra real round charges the naive trail one additional 64-bit aggregate condition; it does not erase all structure.  Colliding the 128-bit map $(G,S)$ by generic means costs $2^{64}$ and would no longer beat the Rainstorm-128 birthday baseline, although it would remain a large reduced-target advantage for wider outputs.  A useful lift must exploit correlation or spend additional neutral variables.
-
-\section{Collision algorithm and complexity}
+\subsection{Collision algorithm and complexity}
 
 The attack evaluates $G$ natively and applies a distinguished-point parallel rho search. Iteration treats the 64-bit output of $G$ as the next parameter. Endpoint collisions are replayed to recover distinct predecessors $v_a,v_b$ with a common image.
 
@@ -245,7 +282,7 @@ repeat over distinguished-point walks:
 
 For a random 64-bit mapping the expected birthday scale is $2^{32}$. The successful run used 16 distinguished bits, 64 walks, seed 20260908, and lanes $(6,7)$.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Exact successful-search accounting on an Apple M1 MacBook Air.}
 \begin{tabular}{@{}lr@{}}
@@ -262,7 +299,8 @@ Throughput & 55,324,465 evaluations/s \\
 
 Generic collision search against a 256-bit random function costs $2^{128}$. The attack therefore improves the exponent by approximately 96 bits for $\RS_{256}^{(2,0)}$. The rho phase itself does not beat the generic bound for its 64-bit map; the gain comes entirely from the algebraic collapse of six folded words to $G$.
 
-\section{Witness and independent verification}
+\subsection{Witness and independent verification}
+\label{sec:witness}
 
 The recovered parameters are shown as little-endian byte strings:
 \begin{lstlisting}[style=code]
@@ -290,7 +328,7 @@ F_a[0..5]=F_b[0..5]=
 \]
 The first word emits as little-endian bytes \code{4e53fe1c085453f6}.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Independently replayed reduced digests.}
 \begin{tabularx}{\linewidth}{@{}lX@{}}
@@ -305,20 +343,44 @@ Width & Common digest \\
 \end{tabularx}
 \end{table}
 
-Verification has three layers: the native search self-checks the six-word prefix and reduced output; an independent Python integer model reconstructs every state and digest; and a separate native bridge evaluates production v4. All 21 focused regression tests pass. The raw search and replay artifacts are
+The search implementation is \archiveFile{research/differential/rho64.cpp}{\code{rho64.cpp}} in its programmed reduced mapping. Verification has three layers: the native search self-checks the six-word prefix and reduced output; an independent Python integer model reconstructs every state and digest; and a separate native bridge evaluates production v4. The campaign reported all 21 focused regression tests passing in \code{test\_suite.py}; this is the recorded campaign status, not a claim of a new cryptanalytic run for this manuscript revision. The raw search and replay artifacts are
 \begin{lstlisting}[style=code]
 research/differential/rebound-campaign-20260908/
   two-round-native-rho-search.json
   two-round-native-rho-replay.json
 \end{lstlisting}
 
-Production replay does not collide:
+Native C++ production Rainstorm-128 replay gives distinct outputs:
 \begin{lstlisting}[style=code]
 message_a -> d26309b4c14f18dbeab1510045114504
 message_b -> a53a7f6a61e35a2fc3675c1c726dd017
 \end{lstlisting}
 
-\section{The round-three dependency correction}
+\section{Extending the Attack: The Padding Boundary}
+\label{sec:padding}
+
+Let $u_i(v)$ be the transformed high words of the next, fixed-data right round, and let $S(v)=\sum_i u_i(v)$.  The two-round reduction omits this round.  The following observation gives an exact, less artificial boundary.
+
+\begin{proposition}[One-padding-round extension]
+For the family in Equation~\eqref{eq:family}, if $G(v_a)=G(v_b)$ then, after one genuine \code{0x80} padding right round,
+\[
+ F_i(v_a)=F_i(v_b),\qquad 1\leq i\leq5.
+\]
+Fold word zero is also equal if and only if $S(v_a)=S(v_b)$.
+\end{proposition}
+
+\begin{proof}
+Before padding, $x_0,\ldots,x_5$ are independent of $v$.  For $i>0$, $H_i=x_i$; moreover Equation~\eqref{eq:highzero} gives $H_0=x_0-G(v)$.  Equality of $G$ therefore makes both state halves equal through lane five.  The padding right round consequently has identical $u_0,\ldots,u_5$ and identical low/high words 1--5.  Its final lane wraps the complete counter into low word zero, changing it by $S(v)$; high word zero remains $u_0$.  Subtractive folding proves both statements.
+\end{proof}
+
+The concrete $G$-collision witness in Section~\ref{sec:witness} verifies the first statement: its post-padding fold words 1--5 are equal, while word zero differs because
+\[
+S(v_a)=\mathtt{56ddbed97c83ad47}\neq
+S(v_b)=\mathtt{ae1525395140b829}.
+\]
+Thus one extra real round charges the naive trail one additional 64-bit aggregate condition; it does not erase all structure.  Colliding the 128-bit map $(G,S)$ by generic means costs $2^{64}$ and would no longer beat the Rainstorm-128 birthday baseline, although it would remain a large reduced-target advantage for wider outputs.  A useful lift must exploit correlation or spend additional neutral variables.
+
+\subsection{Dependency Barrier in the Round-Three Lift}
 
 An attempted lift defined the prospective round-three fold word as a second 64-bit map and searched it without first conditioning on $G$. A projected collision appeared after approximately five billion evaluations, but the complete prefix verifier rejected it.
 
@@ -331,14 +393,14 @@ Round three is high-active. Its lane-zero transform therefore consumes a value d
 
 This correction raises the simple lift from one to two coupled 64-bit conditions. It does not prove a $2^{64}$ lower bound, because a larger programmed family may spend neutral variables to enforce $G$ by message modification. It does invalidate the one-parameter $2^{32}$ lift. No three-round collision is claimed.
 
-\section{Internal differential experiment}
+\section{Internal Differential Structure}
 \label{sec:internal}
 
 The native profiler draws uniform $v$, pairs it under a declared XOR, additive, or RX relation, constructs both messages by Lemma 1, and records prospective fold differences after each checkpoint. For each stage it counts exact word equalities, low-$k$ equality for $k\in\{4,8,12,16,20,24,32\}$, and all 512 XOR-difference bit frequencies.
 
 For $2^{22}$ pairs with $v'=v\oplus1$ in lanes $(6,7)$, Table~\ref{tab:trail} gives the principal result. Here $p_1$ is the frequency with which the named XOR-difference bit is one; $z$ is measured against a Bernoulli-$1/2$ null.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Propagation of the programmed XOR differential.}
 \label{tab:trail}
@@ -361,7 +423,7 @@ The message-round values are overwhelming internal distinguishers. They are not 
 
 The campaign screened all 64 one-bit parameter differences under XOR and modular addition, the eight Rainstorm rotation amounts under RX pairing, and all 30 ordered two-lane placements among lanes 2--7. Discovery maxima were interpreted with the look-elsewhere effect and selected candidates were rerun on fresh $2^{24}$-pair samples.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Largest padding-round-one deviations. Validation uses fresh samples.}
 \begin{tabular}{@{}lrrr@{}}
@@ -376,9 +438,10 @@ Family & Discovery tests & Discovery max $|z|$ & Validation max $|z|$ \\
 \end{tabular}
 \end{table}
 
-Low-8, -16, -20, and -24 equality counts at padding checkpoints tracked random expectations. These are bounded non-findings, not proof that every padding differential is ideal. They show that the tested forward four-message-round trails are extinguished at the first fixed-padding round.  They do not contradict Proposition~2, which conditions on a $G$ collision, or the backward hull below.
+Low-8, -16, -20, and -24 equality counts at padding checkpoints tracked random expectations. These are bounded non-findings, not proof that every padding differential is ideal. No corresponding deviation was detected for these tested forward four-message-round trails at the first fixed-padding round.  They do not contradict Proposition~2, which conditions on a $G$ collision, or the backward hull below.
 
-\section{Backward padding rebound corridor}
+\section{Backward Padding/Rebound Analysis}
+\label{sec:backward}
 
 Each fixed-data weak round is bijective in the complete state, so the four padding rounds can be inverted exactly.  Start with an arbitrary pre-fold state $A$ and construct $B$ by adding the same $\delta$ to low and high word $j$:
 \[
@@ -417,6 +480,10 @@ Frequency & $2^{-22.142}$ & $2^{-13.847}$ & 0.015765 & 0.392557 \\
 \end{center}
 For weight at most 36, the 95\% Wilson interval is $[1.672,2.793]\times10^{-7}$.  The exact 36-bit XOR mask selected during discovery occurs zero times in validation; its one-sided 95\% upper bound is $1.116\times10^{-8}$.  The result is therefore a reproducible low-weight \emph{differential hull}, not a repeatable fixed characteristic and not a reachable-message collision.
 
+Message reachability remains unproved: these samples begin at arbitrary internal pre-fold states, not at states obtained from the prescribed IV by attacker-chosen messages. The central open problem is to connect this sparse backward structure to an attacker-reachable forward state pair.
+
+\section{Attempts to Connect the Corridors}
+\label{sec:splice}
 \subsection{Forward splice screen}
 
 To seek an inbound match, each of the eight freely programmable first-right-round outputs was paired under a one-bit XOR or modular-additive difference.  Every nonempty lane subset and every bit position was tested: $255\times64=16{,}320$ differences per relation, 1,024 random bases per difference.  The complete four message rounds were executed and the 1024-bit boundary weight recorded.
@@ -432,11 +499,11 @@ Additive & 44 & \code{0x41} & 511.987 & 426 \\
 \bottomrule
 \end{tabular}
 \end{center}
-These are random-state weights and are disjoint from the 34--36-bit backward corridor.  The screen rejects the obvious single-bit programmed splice; it does not cover coordinated multi-bit message modification, signed differences, or a value-conditioned inbound phase.
+These are random-state weights and are disjoint from the 34--36-bit backward corridor.  The screen rejects the obvious single-bit programmed splice; it does not cover coordinated multi-bit message modification, signed/carry-aware differences, or a value-conditioned inbound phase. This is a failed bridge for the tested single-bit families, not evidence that all forward approaches are impossible.
 
-\section{Output distinguishers beyond first-order avalanche}
+\section{Higher-Order and Differential-Linear Analysis}
 
-SMHasher-style tests and the earlier paired-bit screen do not cover higher-order derivatives or joint output parities.  We added both, always on production Rainstorm-128 with complete 64-byte messages and the real padding schedule.
+SMHasher-style tests and the earlier paired-bit screen do not cover higher-order derivatives or joint output parities.  The campaign includes both, always on production Rainstorm-128 with complete 64-byte messages and the real padding schedule.
 
 \subsection{Higher-order and integral screen}
 
@@ -463,11 +530,14 @@ The 128-bit derivative weights and bit frequencies are consistent with uniform r
 
 For every one-bit message XOR difference, we measured the parity of the 128-bit output difference under 194 unique output masks: all 128 singleton bits, two checkerboard masks, and 64 dense pseudorandom masks.  The resulting 99,328 unique tests used 8,192 pairs each.  The maximum discovery values were $z=4.22$ for a singleton and $z=4.11$ for a dense mask.  Fresh $2^{24}$-pair validation returned $z=-1.04$ and $z=1.37$, respectively.  No differential-linear output distinguisher survived validation.
 
-\section{Full-schedule exact search}
+\section{Exact/Solver-Assisted Searches}
+\label{sec:solvers}
+
+\paragraph{Control-based interpretation.} Z3 and Bitwuzla time out even on constructively broken reduced controls. An \code{unknown} result must never be interpreted as evidence of security: negative inference from the production timeouts is invalid. The runs below are search diagnostics only.
 
 The production collision condition for Rainstorm-128 is equality of fold words zero and one after four message and four padding rounds. The exact rebound model programs the first message right round forward, parameterizes a pre-fold collision manifold backward, inverts the four fixed-padding rounds, and equates the middle states.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Full 4+4 schedule, Z3 bit-blasted SAT backend, 60-second bounds.}
 \begin{tabular}{@{}rrrr@{}}
@@ -493,7 +563,7 @@ d_i=a_{r,i}\oplus\bigl(\ROTL_{Z_i}(t_{r,i})+K_i\bigr),
 \end{equation}
 where $a_{r,i}$ is the counter-adjusted active input.  The first right-round words determine the unique message through Lemma~1.  The next three message rounds must reproduce that same $d_i$; the four padding rounds must reproduce $\mathtt{8080\ldots80}$.  This is a satisfiability-preserving Tseitin-style flattening, not a relaxed model.
 
-The one-round 128-bit collision control solves in 0.0036 seconds and replays.  Crucially, the two-message-round/no-padding control---already broken constructively in Section~3---times out under Z3 SLS (30 s), Z3 bit-blasted SAT (90 s, 957,276 conflicts), and Bitwuzla propagation (90 s).  Therefore neither the original nor flattened solver can serve as negative evidence.  The production 4+4 instances were nevertheless run under matched 300-second budgets for completeness:
+The one-round 128-bit collision control solves in 0.0036 seconds and replays.  Crucially, the two-message-round/no-padding control---already broken constructively in Section~\ref{sec:collision}---times out under Z3 SLS (30 s), Z3 bit-blasted SAT (90 s, 957,276 conflicts), and Bitwuzla propagation (90 s).  Therefore neither the original nor flattened solver can serve as negative evidence.  The production 4+4 instances were nevertheless run under matched 300-second budgets for completeness:
 
 \begin{center}
 \begin{tabular}{@{}lrrrl@{}}
@@ -511,9 +581,9 @@ These are search diagnostics only.  They establish neither absence nor rarity of
 
 No timeout is an impossibility result. A proof of nonexistence for the complete 1024-bit message-pair domain would require an exhaustive exact decision procedure or an independent algebraic theorem; no plausible wall-clock budget can be assigned in advance.
 
-\section{Multi-block freedom and meet-in-the-middle audit}
+\section{Multi-Block and MITM Analysis}
 
-The principal report target uses one complete 64-byte block, hence 512 message bits to steer a 1024-bit state.  Longer messages cannot be dismissed: two blocks provide 1,024 controllable bits before the mandatory tail.  We computed exact Boolean finite-difference Jacobians at 32 independently generated bases.
+The principal target uses one complete 64-byte block, hence 512 message bits to steer a 1024-bit state.  Longer messages cannot be dismissed: two blocks provide 1,024 controllable bits before the mandatory tail.  We computed exact Boolean finite-difference Jacobians at 32 independently generated bases.
 
 \begin{table}[ht]
 \centering
@@ -533,9 +603,9 @@ For comparison, a random square binary matrix is full-rank with limiting probabi
 
 At word granularity, conventional neutral-word MITM is obstructed quickly: after the first right round, counter prefixes make lane $i$ depend on data words $0,\ldots,i$, and the lane-seven wrap makes low word zero depend on all eight.  The following left round begins from that word zero, so its counter chain spreads all data-word dependencies across the complete state.  Any useful MITM must exploit value-conditioned carries, indirect partial matching, or the independently programmable first rounds of successive blocks; a simple disjoint message-word partition does not survive two rounds.
 
-\section{Hostile completeness audit}
+\section{Attack Coverage and Remaining Limitations}
 
-Tables~\ref{tab:coverage-a} and~\ref{tab:coverage-b} state what a specialist reviewer should ask and what this report actually supplies.  ``Screened'' never means excluded outside the recorded domain.
+Tables~\ref{tab:coverage-a} and~\ref{tab:coverage-b} summarize the completed attack coverage and residual gaps.  ``Screened'' never means excluded outside the recorded domain.
 
 \begin{table}[ht]
 \centering
@@ -577,7 +647,185 @@ Related seed/length & IV dependence and API scope inspected & No exhaustive rela
 
 The most important methodological limitations are the absence of a complete automatic carry-characteristic search, a genuine inbound/outbound splice with measured probability, and a two-block indirect-partial-matching implementation.  These are named limitations, not hidden inside solver timeouts.
 
-\section{Related-seed structure in the initialization vector}
+\section{Security Interpretation and Open Problems}
+
+\paragraph{Reduced-target result.}
+Two alternating message rounds have a fully reachable, six-word fold degeneracy. The resulting reduced Rainstorm-256 collision is practical and far below its generic baseline. Four message rounds retain conspicuous internal differential structure.
+
+\paragraph{Full-schedule findings.}
+For a full 64-byte message, production executes four message rounds and four mandatory padding rounds before folding. The reported forward programmed families become statistically unremarkable at the padding boundary, the backward sparse hull does not meet them, and no first-order, tested higher-order, or differential-linear output bias survives fresh validation. No full Rainstorm-128 collision, second preimage, near-collision, or output distinguisher was found below the $2^{64}$ generic collision baseline.
+
+\paragraph{Lifting toward 256 bits.}
+Production Rainstorm-256 exposes the first four folded words after its deterministic finalization. Equality therefore requires every condition needed by Rainstorm-128 plus two additional 64-bit word equalities. Because this campaign did not carry even the 128-bit reduced corridor through the full message-and-padding schedule, it supplies no production-256 shortcut. The confirmed $\RS_{256}^{(2,0)}$ collision and the arbitrary-state inverse-padding hull identify useful endpoints, but message reachability has not connected them. Production Rainstorm-256 remains unbroken here; this is an assessment of the present attack, not a quantitative 256-bit security claim.
+
+\paragraph{Why this is not a proof.}
+The family~\eqref{eq:family} is one structured 64-bit slice of a 512-bit message space. Other lane patterns, nonzero early outputs, longer messages, multi-block degrees of freedom, and differential hulls remain. Statistical non-detection bounds only the tested events and sample sizes.
+
+The principal open cryptanalytic problems are:
+\begin{enumerate}
+  \item whether one can derive a multi-bit signed-difference family whose neutral words enforce $G$ and the round-three counter-wrap condition simultaneously;
+  \item whether one can cluster the $\leq36$ backward hull into carry templates, then condition the inbound message search on templates rather than one fixed XOR mask;
+  \item whether one can use two complete message blocks: program each first right round independently and implement indirect partial matching at the intervening full-rank state;
+  \item whether one can implement exact carry-state branch-and-bound for chained additions, retaining dependencies rather than multiplying local probabilities;
+  \item whether one can construct and measure an actual boomerang quartet around the padding boundary, followed by a rotational-rebound variant.
+\end{enumerate}
+
+Adding rounds is a conservative design response if performance permits, but it is not required by the present production result and would create a new version requiring complete reanalysis. The current evidence instead identifies the mandatory fixed-padding schedule as a security-critical boundary that must not be optimized away or weakened.
+
+\paragraph{Design hypothesis.}
+Rainstorm intentionally employs inexpensive weak rounds and relies on repeated alternating composition for cryptographic strength. The present results provide empirical evidence consistent with that conventional design premise: the two-round structure is strongly exploitable, while the tested attacks lose leverage as the complete message and padding schedule is restored. This is evidence about the tested attack families, not a proof that security increases monotonically with round count. Statistical non-detection throughout this paper is bounded by the tested families, sample sizes, message lengths, masks, and relations.
+
+\section{Research Methodology}
+\subsection{AI-Assisted Cryptanalysis Methodology}
+\label{sec:ai-methodology}
+
+OpenAI Daybreak contributed to hypothesis generation, attack exploration, experiment design, code generation and modification, result interpretation, and iterative refinement during the reported campaign. The human author supplied the target and design context, directed the research, reviewed the evidence, verified manuscript claims against the recorded artifacts, and assumes publication responsibility. Daybreak is a research aid, not an author or an independent source of authority.
+
+The campaign held the v4.0.0 target fixed. Model and experiment code could be refined, but attacks were evaluated against the same production construction rather than a moving design. The pre-v4 OG comparison and the later related-seed analysis are explicitly separated from the core fixed-seed campaign. The latter was added on 12 September 2026 and is included in the same archival source snapshot.
+
+Independent replay here means cross-checking computational paths, not independent human authorship: the native search checks its reduced witness, a separate Python integer model reconstructs the state and digests, and a native C++ bridge checks production outputs. The backward sampling includes a forward/inverse round-trip guard, and selected statistical discoveries use fresh held-out samples. The related-seed script checks its Python round functions against both native bridges before its experiments.
+
+Unsuccessful hypotheses and solver failures are retained where informative. In particular, the round-three projected collision was rejected after its missing dependence on $G$ was identified, and the broken reduced controls invalidate negative inference from production solver timeouts. Correctness rests on reproducible mathematics, witnesses, source, and replay, not on authority attributed to either the human author or an AI system. The published artifacts support verification of the reported computations; they are not a complete transcript of every interaction or abandoned idea.
+
+\section{Reproducibility}
+\label{sec:reproducibility}
+
+The archival source release is \href{\archiveRoot/tree/\archiveTag}{\archiveName}. All repository links in this paper resolve within that single snapshot, which contains the exact v4.0.0 source, this final TeX manuscript, attack and replay tools, tests, collision witnesses, and raw JSON artifacts, including the Daybreak-assisted campaign scripts and the later related-seed tool. The tag is to remain fixed; later corrections require a new release identifier. The earlier PDF and page images retained in the repository predate this TeX revision and are historical renderings, not the archival manuscript. The revised PDF must be generated from this tagged TeX source.
+
+The analyzed \archiveFile{src/rainstorm.cpp}{\code{src/rainstorm.cpp}} is byte-for-byte identical to the file in the v4.0.0 release (original release commit \nolinkurl{e4e547e6e6a9ccb6f40b26cf0f882a6dab9f8b4f}). Its SHA-256 is
+\begin{lstlisting}[style=code]
+8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f
+\end{lstlisting}
+This historical release identifier establishes the analyzed version; it is not a second artifact snapshot. Historical source hashes within raw experiment records remain intact.
+
+The \archiveTree{research/differential}{source tools}, \archiveFile{research/differential/rebound-campaign-20260908/README.md}{campaign index}, \archiveFile{research/differential/rebound-campaign-20260908/two-round-native-rho-search.json}{search accounting and exact messages}, and \archiveFile{research/differential/rebound-campaign-20260908/two-round-native-rho-replay.json}{independent and native replay} provide the principal evidence. The search source is \code{rho64.cpp}; the separate integer replay is \nolinkurl{verify_rebound_witness.py} using \nolinkurl{rainstorm_model.py}, and the production C++ bridge is \nolinkurl{production_native.cpp}, loaded by \nolinkurl{scan_production.py}. The concise witness and production outputs appear in Section~\ref{sec:witness}; the JSON retains full state traces. Principal tools are:
+\begin{lstlisting}[style=code]
+research/differential/rainstorm_model.py
+research/differential/related_seed.py
+research/differential/rho64.cpp
+research/differential/profile_programmed.cpp
+research/differential/profile_programmed_differences.cpp
+research/differential/profile_padding_inverse.cpp
+research/differential/profile_higher_order.cpp
+research/differential/profile_differential_linear.cpp
+research/differential/jacobian_rank.py
+research/differential/verify_rebound_witness.py
+research/differential/production_native.cpp
+research/differential/scan_production.py
+research/differential/smt_rebound.py
+research/differential/smt_rebound_collision.py
+research/differential/smt_flat_collision.py
+research/differential/test_suite.py
+\end{lstlisting}
+The native benchmarks ran on an Apple M1 MacBook Air with eight cores and 8 GB RAM. Z3 4.15.4 and Bitwuzla 0.9.1 were used in the recorded solver campaign. The successful rho search cost is 4,070,333,044 walk evaluations plus 33,707 replay evaluations; its elapsed time and endpoint accounting are preserved in Section~\ref{sec:collision}. The campaign's reported 21-test regression status is distinct from manuscript preparation; no implementation changes or new attack campaign form part of this revision.
+
+To build the revised manuscript from the tagged checkout, run the following in \code{output/pdf/}:
+\begin{lstlisting}[style=code]
+pdflatex -interaction=nonstopmode -halt-on-error rainstorm-v4-external-cryptanalysis.tex
+pdflatex -interaction=nonstopmode -halt-on-error rainstorm-v4-external-cryptanalysis.tex
+\end{lstlisting} The \archiveFile{research/differential/rebound-campaign-20260908/README.md}{campaign index} records the existing regression-check entry point. Raw failed controls, discovery/validation splits, and negative results remain available alongside successful witnesses, so reproduction need not rely on selected summaries alone.
+
+\section{Conclusion}
+
+Reduced Rainstorm-256 is practically broken at two message rounds without padding compression: six folded words collapse to one 64-bit map, and the confirmed collision was found after $2^{31.9225}$ walk evaluations. The rho search itself achieves the birthday scale for that map; the structural collapse supplies the cryptanalytic advantage. One genuine padding round preserves part of the structure but introduces another 64-bit condition.
+
+Four inverse padding rounds also admit a sparse differential hull from arbitrary pre-fold states, with 58 weight-at-most-36 boundaries in $2^{28}$ held-out pairs. The exact discovery mask did not repeat, and no tested forward/reachable construction connects to this hull. The tested programmed splices fail, statistical output candidates do not survive validation within the recorded domains, and solver controls prevent interpreting timeouts as negative evidence.
+
+No attack completed in this campaign produced a production Rainstorm-128/256 collision or validated output distinguisher. This is not a security proof or certification. The principal open problem is whether coordinated message modification or multi-block indirect matching can bridge the gap between reachable forward states and the backward hull below generic collision cost.
+
+\begingroup
+\small
+\raggedright
+\begin{thebibliography}{99}
+
+\bibitem{rainstorm-spec}
+C. Stringfellow,
+``The Rainstorm 4.0.0 Hash Function: Specification (Draft),''
+\archiveFile{docs/paper/storm-spec.tex}{version archived with \archiveName}, 2026.
+
+\bibitem{rainstorm-v4}
+C. Stringfellow,
+``Rainstorm v4.0.0: Reference Implementation,''
+\archiveFile{src/rainstorm.cpp}{C++ source archived with \archiveName}, 2026.
+Original release commit: \nolinkurl{e4e547e6e6a9ccb6f40b26cf0f882a6dab9f8b4f}.
+
+
+
+\bibitem{lipmaa2001}
+H. Lipmaa and S. Moriai,
+``Efficient Algorithms for Computing Differential Properties of Addition,''
+FSE 2001; Cryptology ePrint Archive, Paper 2001/001, 2001.
+\url{https://eprint.iacr.org/2001/001}
+
+\bibitem{biryukov2013}
+A. Biryukov and V. Velichkov,
+``Automatic Search for Differential Trails in ARX Ciphers (Extended Version),''
+Cryptology ePrint Archive, Paper 2013/853, 2013.
+\url{https://eprint.iacr.org/2013/853}
+
+\bibitem{khovratovich2015}
+D. Khovratovich, I. Nikoli\'c, J. Pieprzyk, P. Soko\l{}owski, and R. Steinfeld,
+``Rotational Cryptanalysis of ARX Revisited,''
+Cryptology ePrint Archive, Paper 2015/095, 2015.
+\url{https://eprint.iacr.org/2015/095}
+
+\bibitem{lamberger2010}
+M. Lamberger, F. Mendel, C. Rechberger, V. Rijmen, and M. Schl\"affer,
+``The Rebound Attack and Subspace Distinguishers: Application to Whirlpool,''
+Cryptology ePrint Archive, Paper 2010/198, 2010.
+\url{https://eprint.iacr.org/2010/198}
+
+\bibitem{dong2022}
+X. Dong, J. Guo, S. Li, and P. Pham,
+``Triangulating Rebound Attack on AES-like Hashing,''
+CRYPTO 2022, Cryptology ePrint Archive, Paper 2022/731, 2022.
+\url{https://eprint.iacr.org/2022/731}
+
+\bibitem{dinu2016}
+D. Dinu, L. Perrin, A. Udovenko, V. Velichkov, J. Gro\ss{}sch\"adl, and A. Biryukov,
+``Design Strategies for ARX with Provable Bounds: SPARX and LAX (Full Version),''
+ASIACRYPT 2016, Cryptology ePrint Archive, Paper 2016/984, 2016.
+\url{https://eprint.iacr.org/2016/984}
+
+\bibitem{dobraunig2014}
+C. Dobraunig, F. Mendel, and M. Schl\"affer,
+``Differential Cryptanalysis of SipHash,''
+SAC 2014, Cryptology ePrint Archive, Paper 2014/722, 2014.
+\url{https://eprint.iacr.org/2014/722}
+
+\bibitem{sasaki2026}
+K. Sasaki, R. Kurahara, K. Sakamoto, and T. Isobe,
+``Differential Cryptanalysis of SipHash,''
+Journal of Information Processing, vol.~34, pp.~402--412, 2026.
+\url{https://doi.org/10.2197/ipsjjip.34.402}
+
+\bibitem{mitm2010}
+J. Guo, S. Ling, C. Rechberger, and H. Wang,
+``Advanced Meet-in-the-Middle Preimage Attacks: First Results on Full Tiger, and Improved Results on MD4 and SHA-2,''
+Cryptology ePrint Archive, Paper 2010/016, 2010.
+\url{https://eprint.iacr.org/2010/016}
+
+\bibitem{higherordermitm2015}
+T. Espitau, P.-A. Fouque, and P. Karpman,
+``Higher-Order Differential Meet-in-the-Middle Preimage Attacks on SHA-1 and BLAKE,''
+Cryptology ePrint Archive, Paper 2015/515, 2015.
+\url{https://eprint.iacr.org/2015/515}
+
+\bibitem{skein2010}
+D. Khovratovich, I. Nikoli\'c, and C. Rechberger,
+``Rotational Rebound Attacks on Reduced Skein,''
+Cryptology ePrint Archive, Paper 2010/538, 2010.
+\url{https://eprint.iacr.org/2010/538}
+
+\end{thebibliography}
+\endgroup
+
+
+
+\normalsize
+\clearpage
+\appendix
+\section{Related-Seed Structure}
 \label{sec:relseed}
 
 The campaign above holds the seed fixed and public. This section records what
@@ -652,7 +900,7 @@ depends on the carry pattern of \( s + p_j \) and hence on the secret seed.
 Adding \( 2^{63} \) never carries, making it the unique difference whose
 correction is a constant the attacker can apply without knowing the seed.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Distinct data corrections induced by each seed difference.}
 \label{tab:relseed}
@@ -680,7 +928,7 @@ worth of related-key structure.
 This is a related-key, chosen-plaintext observation about the first two rounds
 of the compression function. It is not a collision, preimage, or distinguishing
 attack on any Rainstorm digest, and it gives no advantage against the hash with
-a public seed, which is the threat model of the rest of this review. It is
+a public seed, which is the threat model of the rest of this paper. It is
 recorded because it is deterministic, because it identifies the one seed
 relation exploitable without knowledge of the seed, and because it bounds how
 far that relation propagates. Its relevance, if any, is to constructions that
@@ -693,133 +941,5 @@ equal Rainstorm-256 digest in 200 corrected-pair trials. Both Python round
 functions are validated against the corresponding native C++ full hashes before
 any experiment runs.
 
-\section{Security interpretation and next attacks}
-
-\paragraph{What fell.}
-Two alternating message rounds have a fully reachable, six-word fold degeneracy. The resulting reduced Rainstorm-256 collision is practical and far below its generic baseline. Four message rounds retain conspicuous internal differential structure.
-
-\paragraph{What held.}
-For a full 64-byte message, production executes four message rounds and four mandatory padding rounds before folding. The reported forward programmed families become statistically unremarkable at the padding boundary, the backward sparse hull does not meet them, and no first-order, tested higher-order, or differential-linear output bias survives fresh validation. No full Rainstorm-128 collision, second preimage, near-collision, or output distinguisher was found below the $2^{64}$ generic collision baseline.
-
-\paragraph{Lifting toward 256 bits.}
-Production Rainstorm-256 exposes the first four folded words after its deterministic finalization. Equality therefore requires every condition needed by Rainstorm-128 plus two additional 64-bit word equalities. Because this campaign did not carry even the 128-bit reduced corridor through the full message-and-padding schedule, it supplies no production-256 shortcut. The confirmed $\RS_{256}^{(2,0)}$ collision and the arbitrary-state inverse-padding hull identify useful endpoints, but message reachability has not connected them. Production Rainstorm-256 remains unbroken here; this is an assessment of the present attack, not a quantitative 256-bit security claim.
-
-\paragraph{Why this is not a proof.}
-The family~\eqref{eq:family} is one structured 64-bit slice of a 512-bit message space. Other lane patterns, nonzero early outputs, longer messages, multi-block degrees of freedom, and differential hulls remain. Statistical non-detection bounds only the tested events and sample sizes.
-
-The highest-return next attacks are:
-\begin{enumerate}
-  \item derive a multi-bit signed-difference family whose neutral words enforce $G$ and the round-three counter-wrap condition simultaneously;
-  \item cluster the $\leq36$ backward hull into carry templates, then condition the inbound message search on templates rather than one fixed XOR mask;
-  \item use two complete message blocks: program each first right round independently and implement indirect partial matching at the intervening full-rank state;
-  \item implement exact carry-state branch-and-bound for chained additions, retaining dependencies rather than multiplying local probabilities;
-  \item construct and measure an actual boomerang quartet around the padding boundary, followed by a rotational-rebound variant.
-\end{enumerate}
-
-Adding rounds is a conservative design response if performance permits, but it is not required by the present production result and would create a new version requiring complete reanalysis. The current evidence instead identifies the mandatory fixed-padding schedule as a security-critical boundary that must not be optimized away or weakened.
-
-\subsection{Context against established ARX targets}
-
-Round counts are not comparable across primitives: one Rainstorm weak round contains eight sequential word transforms and a full counter chain, SipHash's round operates on four words, and Threefish uses a different MIX/permutation structure.  Still, the shape of this campaign is not anomalous.  The first published differential analysis of SipHash found reduced-component characteristics and a four-finalization-round distinguisher without endangering full SipHash-2-4~\cite{dobraunig2014}; a 2026 follow-up reports forgery attacks on reduced variants, not the full construction~\cite{sasaki2026}.  Rotational rebound reaches 53/57 of 72 rounds in reduced Skein/Threefish-256/512 yet does not break the full Skein hash~\cite{skein2010}.
-
-Rainstorm has received hours of concentrated analysis, not years of independent scrutiny.  Its practical two-round break and full-schedule non-findings are therefore an appropriate first security-margin result, not grounds to equate it with those mature designs.  The fair comparison is methodological: reduced attacks, quantified full-target costs, and repeated third-party attempts must accumulate before confidence does.
-
-\section{Reproducibility}
-
-The analysis used repository HEAD \code{3c67a0b}; the production source hash begins \code{8b70ceb620aaaf19}. An immutable repository snapshot \code{a2e1ee1} contains the \href{https://github.com/DOSAYGO-STUDIO/rain/tree/a2e1ee1/research/differential}{source tools}, \href{https://github.com/DOSAYGO-STUDIO/rain/blob/a2e1ee1/research/differential/rebound-campaign-20260908/README.md}{campaign index}, \href{https://github.com/DOSAYGO-STUDIO/rain/blob/a2e1ee1/research/differential/rebound-campaign-20260908/two-round-native-rho-search.json}{exact search witness}, \href{https://github.com/DOSAYGO-STUDIO/rain/blob/a2e1ee1/research/differential/rebound-campaign-20260908/two-round-native-rho-replay.json}{independent replay}, and \href{https://github.com/DOSAYGO-STUDIO/rain/tree/a2e1ee1/output/pdf/rainstorm-v4-external-cryptanalysis-pages}{rendered page images}. Principal tools are:
-\begin{lstlisting}[style=code]
-research/differential/rainstorm_model.py
-research/differential/related_seed.py
-research/differential/rho64.cpp
-research/differential/profile_programmed.cpp
-research/differential/profile_programmed_differences.cpp
-research/differential/profile_padding_inverse.cpp
-research/differential/profile_higher_order.cpp
-research/differential/profile_differential_linear.cpp
-research/differential/jacobian_rank.py
-research/differential/verify_rebound_witness.py
-research/differential/smt_rebound.py
-research/differential/smt_rebound_collision.py
-research/differential/smt_flat_collision.py
-research/differential/test_suite.py
-\end{lstlisting}
-Section~\ref{sec:relseed} was added on 2026-09-12, after the snapshot above; its tool \code{related\_seed.py} exists only from that date and validates both of its Python round functions against the native \code{production\_native.cpp} and \code{native.cpp} bridges at run time, so it carries its own correctness check rather than relying on the pinned snapshot. Z3 4.15.4 and Bitwuzla 0.9.1 were used. The native benchmarks ran on an Apple M1 MacBook Air with eight cores and 8 GB RAM. A release should retain the archived source commit or tag.
-
-\section{Conclusion}
-
-Rainstorm's two-round algebra is breakable in a strong and practical sense: six folded words collapse to a 64-bit collision problem, and the resulting reduced 256-bit collision is independently verified.  The structure extends one genuine padding round conditionally: a $G$ collision retains fold words 1--5, while word zero costs equality of one new 64-bit sum.  In the reverse direction, four padding rounds admit a surprisingly sparse chosen-output differential hull, including 58 weight-$\leq36$ boundaries in $2^{28}$ held-out trials.
-
-Neither corridor reaches production.  The best broad programmed forward differences validate at random-state weight, output derivatives and parities validate as random, and exact solvers fail controls too weak to support negative inference.  Production Rainstorm v4.0.0 has therefore defeated this campaign's completed attacks: no native Rainstorm-128 collision or output distinguisher was found below $2^{64}$.  It has not been proved secure or unbreakable.  The decisive open question is whether coordinated message modification or two-block indirect matching can connect the backward hull to a reachable boundary below the generic collision cost.
-
-\small
-\begin{thebibliography}{99}
-
-\bibitem{lipmaa2001}
-H. Lipmaa and S. Moriai,
-``Efficient Algorithms for Computing Differential Properties of Addition,''
-FSE 2001.
-\url{https://eprint.iacr.org/2001/001}
-
-\bibitem{biryukov2013}
-A. Biryukov and V. Velichkov,
-``Automatic Search for Differential Trails in ARX Ciphers,''
-Cryptology ePrint 2013/853.
-\url{https://eprint.iacr.org/2013/853.pdf}
-
-\bibitem{khovratovich2015}
-D. Khovratovich, I. Nikoli\'c, J. Pieprzyk, P. Soko\l{}owski, and R. Steinfeld,
-``Rotational Cryptanalysis of ARX Revisited,''
-Cryptology ePrint 2015/095.
-\url{https://eprint.iacr.org/2015/095.pdf}
-
-\bibitem{lamberger2010}
-M. Lamberger, F. Mendel, C. Rechberger, V. Rijmen, and M. Schl\"affer,
-``The Rebound Attack and Subspace Distinguishers: Application to Whirlpool,''
-Cryptology ePrint 2010/198.
-\url{https://eprint.iacr.org/2010/198.pdf}
-
-\bibitem{dong2022}
-X. Dong, J. Guo, S. Li, and P. Pham,
-``Triangulating Rebound Attack on AES-like Hashing,''
-CRYPTO 2022, Cryptology ePrint 2022/731.
-\url{https://eprint.iacr.org/2022/731}
-
-\bibitem{dinu2016}
-D. Dinu, L. Perrin, A. Udovenko, V. Velichkov, J. Gro\ss{}schl, and A. Biryukov,
-``Design Strategies for ARX with Provable Bounds: SPARX and LAX,''
-ASIACRYPT 2016, Cryptology ePrint 2016/984.
-\url{https://eprint.iacr.org/2016/984}
-
-\bibitem{dobraunig2014}
-C. Dobraunig, M. Eichlseder, and F. Mendel,
-``Differential Cryptanalysis of SipHash,''
-SAC 2014, Cryptology ePrint 2014/722.
-\url{https://eprint.iacr.org/2014/722.pdf}
-
-\bibitem{sasaki2026}
-K. Sasaki, R. Kurahara, K. Sakamoto, and T. Isobe,
-``Differential Cryptanalysis of SipHash,''
-Journal of Information Processing, vol.~34, 2026.
-\url{https://doi.org/10.2197/ipsjjip.34.402}
-
-\bibitem{mitm2010}
-J. Guo, S. Ling, C. Rechberger, and H. Wang,
-``Advanced Meet-in-the-Middle Preimage Attacks,''
-Cryptology ePrint 2010/016.
-\url{https://eprint.iacr.org/2010/016.pdf}
-
-\bibitem{higherordermitm2015}
-T. Espitau, P.-A. Fouque, and P. Karpman,
-``Higher-Order Differential Meet-in-the-Middle Preimage Attacks on SHA-1 and BLAKE,''
-Cryptology ePrint 2015/515.
-\url{https://eprint.iacr.org/2015/515.pdf}
-
-\bibitem{skein2010}
-D. Khovratovich, I. Nikoli\'c, and C. Rechberger,
-``Rotational Rebound Attacks on Reduced Skein,''
-Cryptology ePrint 2010/538.
-\url{https://eprint.iacr.org/2010/538.pdf}
-
-\end{thebibliography}
 
 \end{document}
