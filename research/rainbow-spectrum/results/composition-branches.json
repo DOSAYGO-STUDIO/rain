@@ -1,0 +1,315 @@
+{
+  "experiment": "composition_branches",
+  "branches": [
+    {
+      "branch": "A_sequential",
+      "w": 4,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 3.248,
+      "log2_flat": 9.295,
+      "log2_separation": 6.047,
+      "structure_attack": {
+        "output_rank": 13,
+        "state_bits": 16,
+        "candidates": 3,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "B_parallel_add",
+      "w": 4,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 2.807,
+      "log2_flat": 7.484,
+      "log2_separation": 4.676,
+      "structure_attack": {
+        "output_rank": 16,
+        "state_bits": 16,
+        "candidates": 0,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "B_parallel_xor",
+      "w": 4,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 2.644,
+      "log2_flat": 7.2,
+      "log2_separation": 4.556,
+      "structure_attack": {
+        "output_rank": 15,
+        "state_bits": 16,
+        "candidates": 1,
+        "validated": 1,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "C_crossparam_sigma",
+      "w": 4,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 2.807,
+      "log2_flat": 9.781,
+      "log2_separation": 6.974,
+      "structure_attack": {
+        "output_rank": 15,
+        "state_bits": 16,
+        "candidates": 1,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "C_crossparam_naive_control",
+      "w": 4,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 25,
+        "survives": false
+      },
+      "verdict": "rejected: cheap steering does not survive this operator"
+    },
+    {
+      "branch": "A_sequential",
+      "w": 5,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 3.358,
+      "log2_flat": 11.951,
+      "log2_separation": 8.594,
+      "structure_attack": {
+        "output_rank": 19,
+        "state_bits": 20,
+        "candidates": 1,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "B_parallel_add",
+      "w": 5,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 3.7,
+      "log2_flat": 9.73,
+      "log2_separation": 6.029,
+      "structure_attack": {
+        "output_rank": 20,
+        "state_bits": 20,
+        "candidates": 0,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "B_parallel_xor",
+      "w": 5,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 3.426,
+      "log2_flat": 9.834,
+      "log2_separation": 6.408,
+      "structure_attack": {
+        "output_rank": 20,
+        "state_bits": 20,
+        "candidates": 0,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "C_crossparam_sigma",
+      "w": 5,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 2.954,
+      "log2_flat": 11.594,
+      "log2_separation": 8.64,
+      "structure_attack": {
+        "output_rank": 19,
+        "state_bits": 20,
+        "candidates": 1,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "C_crossparam_naive_control",
+      "w": 5,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 33,
+        "survives": false
+      },
+      "verdict": "rejected: cheap steering does not survive this operator"
+    },
+    {
+      "branch": "A_sequential",
+      "w": 6,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 3.977,
+      "log2_flat": 13.877,
+      "log2_separation": 9.9,
+      "structure_attack": {
+        "output_rank": 24,
+        "state_bits": 24,
+        "candidates": 0,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "B_parallel_add",
+      "w": 6,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 3.954,
+      "log2_flat": 12.12,
+      "log2_separation": 8.166,
+      "structure_attack": {
+        "output_rank": 24,
+        "state_bits": 24,
+        "candidates": 0,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "B_parallel_xor",
+      "w": 6,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 3.728,
+      "log2_flat": 11.204,
+      "log2_separation": 7.476,
+      "structure_attack": {
+        "output_rank": 24,
+        "state_bits": 24,
+        "candidates": 0,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "C_crossparam_sigma",
+      "w": 6,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 120,
+        "survives": true
+      },
+      "factored_success": "12/12",
+      "flat_success": "12/12",
+      "log2_factored": 4.267,
+      "log2_flat": 12.883,
+      "log2_separation": 8.616,
+      "structure_attack": {
+        "output_rank": 23,
+        "state_bits": 24,
+        "candidates": 1,
+        "validated": 0,
+        "discriminating": 0,
+        "succeeded": false
+      }
+    },
+    {
+      "branch": "C_crossparam_naive_control",
+      "w": 6,
+      "k": 2,
+      "steering_survives": {
+        "trials": 120,
+        "merged": 29,
+        "survives": false
+      },
+      "verdict": "rejected: cheap steering does not survive this operator"
+    }
+  ],
+  "generated": "2026-09-15T08:36:18"
+}

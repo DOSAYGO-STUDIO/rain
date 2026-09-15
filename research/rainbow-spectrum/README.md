@@ -93,21 +93,81 @@ confirms the mechanism. This is also a candidate defence for Rainbow itself.
 
 ### Phase 7 — attacking the hypothesis
 
-Both attacks fail (`results/flat-adversarial.json`):
+Neither attack breaks the separation, but attack A is **not** uniformly empty
+(`results/flat-adversarial.json`). Classes are enumerated exactly, candidates are
+validated against 8 held-out classes, and a candidate only counts if it also
+*discriminates* between them. Rates over independent θ draws:
 
-- **A, GF(2)-linear invariant of the output.** Classes enumerated exactly, and
-  candidates validated on held-out classes. Every candidate died: w=3 gave 4
-  candidates → 1 validated → **0 discriminating**; w=4 gave 2 → 0; w=5,6,8 gave
-  none. The lone w=3 survivor is constant on *every* class, so it is a constant
-  of the map, not a class label.
-- **B, class canonicalisation.** Correct but dominated: 2^7.0 vs generic 2^7 at
-  w=3, and 2^13.2 vs 2^9 at w=4, because each label costs a full class
+| w | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|
+| draws with a discriminating label | 5/12 | 1/12 | 1/12 | 0/8 | 0/4 | 0/2 |
+| rate | 0.42 | 0.08 | 0.08 | 0 | 0 | 0 |
+| median output rank (of 4w) | 9/12 | 14/16 | 19/20 | 23/24 | 28/28 | 32/32 |
+
+So **GF(2)-linear leakage is a small-width phenomenon that dies as w grows.** At
+w=3 it is common; by w=7 and w=8 there are no candidates at all, because the
+class spans the full output width. (Those two rows use only 4 and 2 draws, but
+zero *candidates* is stronger evidence than the draw count suggests: nothing
+survives the rank test to be validated.) Where a label does exist it is worth
+one bit, which does not touch a gap growing as 2^(1.5w).
+
+The warning for this whole program is that toy widths mislead in both
+directions: at w=3 the flat attacker sees structure that simply is not there at
+w=8.
+
+- **B, class canonicalisation.** Correct but dominated: 2^9.0 vs generic 2^7 at
+  w=3, and 2^11.5 vs 2^9 at w=4, because each label costs a full class
   enumeration.
 
 **Positive control:** the same test on the pre-mixer coset consistently finds 5–7
 GF(2)-linear invariants — the low bits of the pair sums, which genuinely are
 GF(2)-linear. The test detects structure when structure exists, so the negative
 on outputs is meaningful rather than a broken measurement.
+
+### Composition branches: A is the best of the three
+
+The program warned against assuming sequential composition is the useful
+operator. It is, in fact, the *least bad* of the three tried
+(`results/composition-branches.json`, w=6, k=2):
+
+| operator | factored | flat | separation |
+|---|---|---|---|
+| A sequential | 2^4.0 | 2^13.9 | **2^9.9** |
+| B parallel, lane-wise add | 2^4.0 | 2^12.1 | 2^8.2 |
+| B parallel, lane-wise xor | 2^3.7 | 2^11.2 | 2^7.5 |
+| C cross-parameterized on σ | 2^4.3 | 2^12.9 | 2^8.6 |
+| C naive (control) | — | — | rejected |
+
+- **B makes things worse.** Combining mixers drops the flat cost, because a sum
+  of permutations is not a permutation, so outputs collide sooner. Algebraic
+  combination helps the flat attacker.
+- **C is about the same as A** at these widths. Selecting the mixer by σ hides
+  nothing measurable, though it costs nothing either.
+- **The naive control is rejected at every width**, which is the design lesson:
+  a selector must read a quantity injection cannot change. Reading the state
+  directly fragments the coset, because different controls land in different
+  parameter regions and cheap steering dies. Reading σ keeps the selector
+  constant across the whole control range.
+
+Why A wins is structural, and explains why depth buys nothing: **sequential
+composition hands the attacker a choice of merge point, and they take the
+cheapest.** Every round keeps its own invariant, so more rounds means more
+chances, not fewer.
+
+### Why the rare label is real, and how it was nearly missed
+
+A functional constant across eight classes of 256 points is not chance: for a
+random functional the probability is about 2^-255. So where it survives, this is
+genuine θ-dependent structure, not noise.
+
+An independent sweep (16 draws per width, 8 and 16 held-out classes) reproduces
+the same picture: w=4 gives 1/16 and 3/16, w=5 gives 0/16 and 1/16, w=6 gives
+0/16 and 0/16.
+
+It was nearly missed in both directions, which is the methodological point. With
+3 held-out classes the test manufactured positives that vanished under 8. With a
+single θ draw per width it reported SUCCEEDED at w=4 and failed at w=6, from the
+same underlying rate. Only rates over independent draws are meaningful here.
 
 ## Limitations
 
@@ -141,15 +201,19 @@ Kept deliberately, per the program:
 | Attack A "succeeded" at w=3..6 | last-round controls drawn randomly *with replacement*, so ~40 distinct points of 64 faked a rank deficiency | enumerate classes exactly; validate on held-out data |
 | flat cost was an artifact | the birthday ran the whole budget on side A before sampling side B | two-sided interleaved search, stop at first cross-match |
 | merge-iff row looked catastrophic | duplicate JSON key `of_which_merged` silently overwrote the agreeing count | never reuse a key in a result record |
+| Attack A "succeeded" again after being fixed | validation used only 3 held-out classes; a w=6 hit vanished under 8, and 0/12 draws reproduced it | validation depth is a parameter, and too little of it manufactures positives |
+| a single θ draw reported SUCCEEDED at w=4 and failed at w=6 | the structure is θ-dependent and rare, so one composition is not a measurement | report rates over independent draws, never a single-draw verdict |
+| naive branch C destroyed the weakness | the mixer was selected from the whole state, so injection moved the state into a different parameter region and the coset fragmented | a selector must read an injection-invariant quantity (σ), not the state |
 
 ## Layout and reproduction
 
 ```
 models/      wordops.py (exact width-w arithmetic), rainbow.py (Theta, mixers,
              steer), spectrum.py (parameterized family + admissibility)
-compositions/sequential.py (F = R_k o ... o R_1, reachable sets)
+compositions/sequential.py (branch A), branches.py (branch B parallel-algebraic,
+             branch C cross-parameterized, plus the naive negative control)
 attacks/     phase1_verify.py, flat_invariant_probe.py,
-             milestone_separation.py, flat_adversarial.py
+             milestone_separation.py, flat_adversarial.py, branches_compare.py
 results/     machine-readable JSON for every run
 ```
 
@@ -158,7 +222,8 @@ cd research/rainbow-spectrum
 python3 attacks/phase1_verify.py          # ~16 s, exhaustive
 python3 attacks/flat_invariant_probe.py   # instant
 python3 attacks/milestone_separation.py   # ~45 s
-python3 attacks/flat_adversarial.py       # ~3 s
+python3 attacks/flat_adversarial.py       # ~30 s, multi-draw
+python3 attacks/branches_compare.py       # ~5 s, branches A/B/C
 ```
 
 All runs are seeded (`random.Random(20260915)`) and write JSON to `results/`.
