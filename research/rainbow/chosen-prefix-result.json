@@ -1,0 +1,17 @@
+{
+  "attack": "rainbow-chosen-prefix",
+  "seed": 0,
+  "message_length": 96,
+  "prefix_a": "From: alice@example.com  Amount: USD      10.00                 ",
+  "prefix_b": "From: mallory@example.net Amount: USD 1000000.00                ",
+  "message_a": "46726f6d3a20616c696365406578616d706c652e636f6d2020416d6f756e743a2055534420202020202031302e3030202020202020202020202020202020202030ef079322f4607593ef0d2d378d7391bca0fb1053e4511063c92adb2073c81e",
+  "message_b": "46726f6d3a206d616c6c6f7279406578616d706c652e6e657420416d6f756e743a2055534420313030303030302e303020202020202020202020202020202020e169bc0c8a8be899e313227bc3fd401f41ad695775c839106b371ff22ad143d8",
+  "state_merged": true,
+  "digests_equal": true,
+  "claw_h": {"evaluations": 16190842307, "walks": 15083, "merges": 4, "wall_seconds": 27.058},
+  "claw_k": {"evaluations": 13673595949, "walks": 12891, "merges": 1, "wall_seconds": 22.946},
+  "total_evaluations": 29864438256,
+  "log2_total_evaluations": 34.7977,
+  "distinguished_bits": 20,
+  "threads": 8
+}

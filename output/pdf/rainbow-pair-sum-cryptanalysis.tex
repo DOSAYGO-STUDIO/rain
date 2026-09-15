@@ -1,0 +1,488 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.78in,headheight=14pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{booktabs,array,tabularx,multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{needspace}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+
+\definecolor{Navy}{HTML}{102D44}
+\definecolor{Teal}{HTML}{0D716A}
+\definecolor{Pale}{HTML}{EDF5F4}
+\definecolor{Gray}{HTML}{52606D}
+\definecolor{Red}{HTML}{9B2C2C}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Navy,
+  urlcolor=Teal,
+  citecolor=Teal,
+  pdftitle={Pair-Sum State Collapse in Rainbow},
+  pdfauthor={Cris Stringfellow},
+  pdfsubject={Chosen-Prefix Collisions Against Full Rainbow at Every Digest Width},
+  pdfkeywords={Rainbow; hash functions; collision attacks; chosen-prefix collisions; non-cryptographic hashing; state collapse; AI-assisted cryptanalysis}
+}
+\urlstyle{same}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Cryptanalysis of Rainbow v3.7.1}
+\rhead{Cris Stringfellow}
+\cfoot{\thepage\ / \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{Navy}}{\thesection}{0.55em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{Teal}}{\thesubsection}{0.55em}{}
+\titlespacing*{\section}{0pt}{1.25em}{0.35em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.25em}
+
+\setlist[itemize]{leftmargin=1.3em,itemsep=0.12em,topsep=0.2em}
+\setlist[enumerate]{leftmargin=1.5em,itemsep=0.15em,topsep=0.2em}
+
+\lstdefinestyle{code}{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{Pale},
+  frame=single,
+  rulecolor=\color{Teal!45},
+  breaklines=true,
+  columns=fullflexible,
+  xleftmargin=0.25em,
+  xrightmargin=0.25em,
+  aboveskip=0.45em,
+  belowskip=0.45em
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{result}{Experimental Result}
+
+\newcommand{\W}{\mathbb{Z}/2^{64}\mathbb{Z}}
+\newcommand{\ROTR}{\operatorname{ROTR}}
+\newcommand{\mixA}{\operatorname{mixA}}
+\newcommand{\mixB}{\operatorname{mixB}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{Navy} Pair-Sum State Collapse in Rainbow}\par
+  \vspace{0.3em}
+  {\large Chosen-Prefix Collisions Against the Full Hash at Every Digest Width}\par
+  \vspace{0.6em}
+  {\large Cris Stringfellow}\par
+  DOSAYGO Corporation\par
+  \href{mailto:research@dosaygo.com}{\texttt{research@dosaygo.com}}
+\end{center}
+
+\noindent\textbf{AI-assisted research disclosure.}
+The analysis reported here was conducted with substantial assistance from Anthropic's Claude (Opus~5) for hypothesis refinement, derivation, implementation, and experiment design. The human author selected the target, reviewed the evidence, and takes responsibility for the claims and the manuscript. All computational evidence is published as source, witnesses, and machine-readable artifacts; every collision is replayed against the unmodified published implementation.
+
+\begin{abstract}
+Rainbow is a fast general-purpose hash with 64-, 128-, and 256-bit digests, documented by its author as non-cryptographic. We show that its 256-bit internal state carries only 128 bits of collision-relevant information, and that those 128 bits decompose into two independently attackable 64-bit halves.
+
+The mechanism is an invariant of the message schedule. Rainbow injects each 16-byte block as $h_0 \mathrel{-}= x$, $h_1 \mathrel{+}= x$, $h_2 \mathrel{+}= y$, $h_3 \mathrel{-}= y$, so injection preserves the two \emph{pair sums} $\sigma_1 = h_0 + h_1$ and $\sigma_2 = h_2 + h_3$ exactly while moving the state freely inside the coset they define. We prove that two states at the same block index can be driven to the \emph{identical} state by one further message block, with zero search, if and only if their pair sums agree. Because $\mixA$ acts independently on $(h_0,h_1)$ and $(h_2,h_3)$, the two sums are refreshed by two independent 64-bit functions, so equalizing them costs two 64-bit birthday searches rather than one $2^{128}$ search.
+
+This yields collisions against \emph{full, unreduced} production Rainbow. A same-seed, equal-length pair of 32-byte messages was found in $2^{32.28}$ evaluations and $6.6$ seconds on one 8-core machine. A chosen-prefix collision between two semantically opposed 96-byte messages was found in $2^{34.80}$ evaluations and $50$ seconds. Because the merge is a full internal-state collision occurring before finalization, one message pair collides at 64, 128, and 256 bits simultaneously.
+
+The 64-bit variant is unaffected in the sense that $2^{32}$ is its generic bound. The substantive finding concerns the wider digests: rainbow-128 and rainbow-256 provide no more collision resistance than rainbow-64, a shortfall of $2^{32}$ and $2^{96}$ respectively against their generic bounds. We claim no break of a stated security property, since Rainbow claims none; we claim that the advertised output widths do not deliver proportional collision resistance, and that this follows from a structural property rather than from search. All results are reproduced by four independent implementations, including the shipped \code{rainsum} command-line tool.
+\end{abstract}
+
+\noindent\textbf{Keywords:} Rainbow; hash functions; collision attacks; chosen-prefix collisions; non-cryptographic hashing; state collapse; AI-assisted cryptanalysis.
+
+\section{Introduction}
+\label{sec:introduction}
+
+Rainbow is a word-oriented hash with a 256-bit internal state, 16-byte input blocks, a 64-bit seed, and 64-, 128-, or 256-bit digests. Its documentation is explicit that it is a general-purpose, non-cryptographic hash and is ``not designed as cryptographic''~\cite{rain-readme}. That disclaimer is important and we take it seriously: nothing in this paper contradicts a claim Rainbow makes.
+
+It is worth stating plainly why a collision attack on such a function is of interest at all. Collisions in fast non-cryptographic hashes are usually easy, and often far easier than the attack presented here: CRC32 is linear and collides by construction, and published collision constructions exist for xxHash, MurmurHash3, and CityHash at negligible cost. A $2^{32}$ search against a 64-bit digest is simply the generic birthday bound and is not a cryptanalytic result.
+
+The result here is of a different kind, and rests on two observations.
+
+First, the attack does not target a digest; it targets the internal state, and it succeeds against the \emph{full} function. Rainbow maintains 256 bits of state, but we show that only 128 of those bits can ever distinguish two states from the standpoint of an attacker who controls one more block, because message injection preserves two 64-bit quantities and lets the attacker place the state anywhere else in their coset. The state does not merely mix poorly; it is, for collision purposes, 128 bits wide.
+
+Second, those 128 bits split. The $\mixA$ mixer never moves information between $(h_0,h_1)$ and $(h_2,h_3)$, so the two pair sums are refreshed by two separate 64-bit maps. Divide and conquer applies, and the cost of merging two arbitrary states is two 64-bit searches -- roughly $2^{33}$ -- instead of the $2^{128}$ that a 256-bit state should demand.
+
+The consequence is that the digest width is decorative with respect to collisions. The same pair of messages collides at 64, 128, and 256 bits, because the states are already equal before finalization begins. Rainbow-256 costs no more to collide than rainbow-64.
+
+\paragraph{Contributions.}
+\begin{itemize}
+  \item A proof that two Rainbow states merge under one message block, with zero search, exactly when their two pair sums agree (Theorem~\ref{thm:pairsum}), validated on $1000/1000$ random state pairs.
+  \item A reduction of full-state collision search to two independent 64-bit problems (Section~\ref{sec:independence}).
+  \item A same-seed collision on full Rainbow in $2^{32.28}$ evaluations, with witnesses colliding at all three widths (Section~\ref{sec:sameiv}).
+  \item A chosen-prefix collision in $2^{34.80}$ evaluations between two messages with opposed meanings (Section~\ref{sec:chosenprefix}).
+  \item Independent verification by four implementations, including the shipped CLI (Section~\ref{sec:verification}).
+\end{itemize}
+
+\section{Background: Rainbow v3.7.1}
+\label{sec:background}
+
+We describe the function as implemented in \code{src/rainbow.cpp} at version 3.7.1, which is the authority for every claim below. All arithmetic is in $\W$; $\ROTR(x,n)$ is a 64-bit rotation.
+
+\subsection{Constants and mixers}
+
+Rainbow uses eight odd 64-bit constants $P,Q,R,S,T,U,V,W$, with $P = 2^{64}-59$. The state is $h = (h_0,h_1,h_2,h_3)$.
+
+The primary mixer $\mixA$ is
+\begin{align}
+  a &\leftarrow \ROTR(h_0 \cdot P,\ 23)\cdot Q, \label{eq:mixa-a}\\
+  b &\leftarrow \ROTR\big((h_1 \oplus a) \cdot R,\ 29\big)\cdot S, \label{eq:mixa-b}\\
+  c &\leftarrow \ROTR(h_2 \cdot T,\ 31)\cdot U, \label{eq:mixa-c}\\
+  d &\leftarrow \ROTR\big((h_3 \oplus c) \cdot V,\ 37\big)\cdot W, \label{eq:mixa-d}
+\end{align}
+with $h \leftarrow (a,b,c,d)$. The secondary mixer $\mixB$, which takes the seed as an additional input, rewrites only $h_1$ and $h_2$ and is followed by a rotation of the four words.
+
+\begin{remark}[$\mixA$ is pairwise separable]
+\label{rem:separable}
+Equations~\eqref{eq:mixa-a}--\eqref{eq:mixa-b} read only $h_0,h_1$ and write only $a,b$; equations~\eqref{eq:mixa-c}--\eqref{eq:mixa-d} read only $h_2,h_3$ and write only $c,d$. $\mixA$ therefore acts as two independent maps on $\W^2$. This is the property the attack exploits, and it is visible directly in the source.
+\end{remark}
+
+\subsection{Message schedule}
+
+For each complete 16-byte block, Rainbow parses two little-endian words $x,y$ and injects
+\begin{equation}
+  h_0 \mathrel{-}= x,\qquad h_1 \mathrel{+}= x,\qquad h_2 \mathrel{+}= y,\qquad h_3 \mathrel{-}= y.
+  \label{eq:inject}
+\end{equation}
+Blocks alternate mixers: the first complete block is followed by $\mixA$, the second by $\mixB$ and a rotation, and so on. Writing blocks $1$-indexed, block $n$ is followed by $\mixA$ exactly when $n$ is odd.
+
+The state is keyed by the total message length: $h_i = \mathrm{seed} + \mathrm{len} + \{1,2,3,5\}$ for $i=0,1,2,3$. Two messages therefore share an initial state if and only if they share a seed and a length, and every collision below is between equal-length messages.
+
+After the block loop, Rainbow applies $\mixB$, absorbs the $0$--$15$ tail bytes at length-determined lanes, then applies $\mixA$, $\mixB$, $\mixA$ and emits digest words.
+
+\begin{remark}[The output is itself a pair sum]
+\label{rem:output}
+Each 64-bit digest word is computed as \code{g = 0; g -= h[2]; g -= h[3];}, that is $-\sigma_2$ for the current state. The finalization reads out precisely the quantity that the message schedule preserves. We do not need this observation for the attack, which achieves full-state equality, but it indicates that the pair sums are load-bearing at both ends of the construction.
+\end{remark}
+
+\section{Threat Model, Notation, and Scope}
+\label{sec:scope}
+
+We work in the fixed public-seed setting with $\mathrm{seed}=0$; nothing depends on that choice, and the attack is stated for arbitrary known seeds. The attacker chooses complete messages and knows the seed. There is no key and no secret, so no PRF or MAC claim is in scope.
+
+Write $\sigma_1(h) = h_0 + h_1$ and $\sigma_2(h) = h_2 + h_3$ for the two \emph{pair sums}. We say two states are \emph{mergeable} if some choice of one further message block for each yields identical states.
+
+We attack the full, unreduced function: every mixer, the complete schedule, the finalization, and all three digest widths. No component is weakened, removed, or reduced in round count, and the attack code does not link against production sources, so it cannot perturb them.
+
+\section{The Pair-Sum Invariant}
+\label{sec:invariant}
+
+\begin{lemma}[Injection preserves both pair sums]
+\label{lem:preserve}
+Let $h'$ be the result of injecting $(x,y)$ into $h$ by \eqref{eq:inject}. Then $\sigma_1(h') = \sigma_1(h)$ and $\sigma_2(h') = \sigma_2(h)$, for every $x,y \in \W$.
+\end{lemma}
+
+\begin{proof}
+$\sigma_1(h') = (h_0 - x) + (h_1 + x) = h_0 + h_1$ and $\sigma_2(h') = (h_2 + y) + (h_3 - y) = h_2 + h_3$, all in $\W$.
+\end{proof}
+
+The message words move the state along the two cosets and cannot leave them. The attacker's freedom inside a coset is total: $x$ and $y$ range over all of $\W$. This makes the pair sums an exact invariant of the schedule and, as the next theorem shows, a complete one.
+
+\begin{theorem}[Pair-sum equivalence]
+\label{thm:pairsum}
+Let $S$ and $T$ be Rainbow states at the same block index. There exist message words $(x,y)$ for $S$ and $(x',y')$ for $T$ whose injection yields identical states if and only if
+\[
+  \sigma_1(S) = \sigma_1(T) \quad\text{and}\quad \sigma_2(S) = \sigma_2(T).
+\]
+When the condition holds, the solution set has size $2^{128}$: $x$ and $y$ may be chosen freely, and then
+\[
+  x' = x + (t_0 - s_0), \qquad y' = y + (t_3 - s_3).
+\]
+\end{theorem}
+
+\begin{proof}
+($\Leftarrow$) Injection yields $(s_0-x,\, s_1+x,\, s_2+y,\, s_3-y)$ and $(t_0-x',\, t_1+x',\, t_2+y',\, t_3-y')$. Matching word $0$ requires $x' = x + (t_0-s_0)$; matching word $1$ requires $x' = x + (s_1-t_1)$. The two are consistent precisely when $t_0-s_0 = s_1-t_1$, i.e. $s_0+s_1 = t_0+t_1$. Symmetrically, word $3$ requires $y' = y + (t_3-s_3)$ and word $2$ requires $y' = y + (s_2-t_2)$, consistent precisely when $s_2+s_3 = t_2+t_3$. Under the hypothesis both hold, and $x,y$ remain free.
+
+($\Rightarrow$) If the post-injection states are identical they have equal pair sums, and by Lemma~\ref{lem:preserve} injection did not change either state's pair sums, so $S$ and $T$ had equal pair sums already.
+\end{proof}
+
+\begin{corollary}[Effective state width]
+\label{cor:width}
+For collision finding, the collision-relevant content of a Rainbow state is the 128-bit pair $(\sigma_1,\sigma_2)$, not the 256-bit state. Two states agreeing on it are one attacker-chosen block away from being the same state, at no search cost.
+\end{corollary}
+
+Note the direction of the ``if and only if'': the theorem is not merely a sufficient trick but a characterization. The residual $128$ bits of state beyond the pair sums are attacker-erasable.
+
+\begin{result}[Theorem validation]
+\label{res:theorem}
+Over $1000$ random trials, state pairs were constructed with independently random words subject only to matching pair sums, and merged by the closed form above. All $1000$ produced bitwise-identical states after injection, and identical states after each of $\mixA$ and $\mixB$ with rotation. Implemented in \code{research/rainbow/chosen\_prefix\_collision.cpp} as \code{theorem\_selftest}.
+\end{result}
+
+\section{Independence of the Two Halves}
+\label{sec:independence}
+
+Corollary~\ref{cor:width} reduces the merging problem to matching $128$ bits. Remark~\ref{rem:separable} reduces it further, to two independent $64$-bit problems.
+
+\begin{definition}[Half-sum maps]
+For a state $S$ at a $\mixA$ boundary, define
+\begin{align*}
+  A_S(x) &= \ROTR\big((s_0-x)\cdot P,\,23\big)\cdot Q, &
+  B_S(x) &= \ROTR\big(((s_1+x)\oplus A_S(x))\cdot R,\,29\big)\cdot S,\\
+  C_S(y) &= \ROTR\big((s_2+y)\cdot T,\,31\big)\cdot U, &
+  D_S(y) &= \ROTR\big(((s_3-y)\oplus C_S(y))\cdot V,\,37\big)\cdot W,
+\end{align*}
+and set $H_S(x) = A_S(x) + B_S(x)$ and $K_S(y) = C_S(y) + D_S(y)$.
+\end{definition}
+
+$H_S$ is the value of $\sigma_1$ after injecting $x$ and applying $\mixA$; $K_S$ is the value of $\sigma_2$ after injecting $y$ and applying $\mixA$. By Remark~\ref{rem:separable}, $H_S$ depends only on $x$ and $K_S$ only on $y$.
+
+\begin{proposition}[Two-claw merging]
+\label{prop:twoclaw}
+Let $S,T$ be states at a $\mixA$ boundary. If $H_S(x) = H_T(x')$ and $K_S(y) = K_T(y')$, then injecting $(x,y)$ into $S$ and $(x',y')$ into $T$, applying $\mixA$ to each, and injecting the bridge words
+\[
+  p = -B_S(x),\quad q = -C_S(y) \qquad\text{and}\qquad p' = -B_T(x'),\quad q' = -C_T(y')
+\]
+produces identical states, namely $(H,\,0,\,0,\,K)$.
+\end{proposition}
+
+\begin{proof}
+After $\mixA$ the first pair is $(A,B)$ and the second is $(C,D)$. The bridge injection sends $(A,B)\mapsto(A-p,\,B+p)$ and $(C,D)\mapsto(C+q,\,D-q)$. With $p=-B$ the first pair becomes $(A+B,0)=(H,0)$; with $q=-C$ the second becomes $(0,C+D)=(0,K)$. The hypotheses make the two $H$ values and the two $K$ values equal, so the four words agree. (Any other common point of the cosets would serve equally; this one is convenient because it is canonical.)
+\end{proof}
+
+Since $H$ and $K$ behave as random $64$-bit maps, each condition is met after roughly $2^{32}$ evaluations by birthday search, for a total near $2^{33}$ rather than $2^{128}$.
+
+\begin{remark}[$H$ is not a permutation]
+$A_S$ is a bijection of $x$, and $t\mapsto\ROTR(tR,29)S$ is a bijection, so one might hope $H_S = A_S + B_S$ is a permutation, which would make the single-search variant of Section~\ref{sec:sameiv} impossible. It is not: the collision exhibited in Result~\ref{res:sameiv} is an explicit pair $x_a \neq x_b$ with $H(x_a)=H(x_b)$, and the search behaved throughout like a search on a random map. The XOR in \eqref{eq:mixa-b} sits between two additive structures and destroys any such algebraic balance.
+\end{remark}
+
+\section{Same-Seed Collision on Full Rainbow}
+\label{sec:sameiv}
+
+When the two messages share a seed and a length, they share an initial state, and one search suffices.
+
+\paragraph{Construction.} Fix message length $32$ bytes (two blocks) and seed $0$, giving $S=(33,34,35,37)$. Let both messages use the same second word $y=0$ in block~1, so the second pair evolves identically and $K$ agrees automatically. Search for $x_a \neq x_b$ with
+\[
+  H(x_a) = H(x_b).
+\]
+Emit
+\[
+  m_i = \mathrm{LE}_{64}(x_i)\ \|\ \mathrm{LE}_{64}(0)\ \|\ \mathrm{LE}_{64}(-B(x_i))\ \|\ \mathrm{LE}_{64}(0).
+\]
+Block~2's first word cancels $B$, so both states become $(H,0,C,D)$ with $C,D$ common. The states are equal before block~2's mixer, hence for the rest of the computation.
+
+\paragraph{Search.} We use a van Oorschot--Wiener parallel distinguished-point rho on $H$~\cite{vow1999}: walks iterate $x \mapsto H(x)$ until the low $d$ bits vanish, endpoints are stored, and a repeated endpoint is re-walked to expose the colliding pair. Memory is negligible.
+
+\begin{result}[Same-seed collision]
+\label{res:sameiv}
+With $d=20$ and 8 threads, a collision was found in $5{,}206{,}393{,}642$ evaluations ($2^{32.28}$), $4920$ walks, one endpoint merge, $6.63$\,s wall, $785.7$ Meval/s.
+\begin{center}\footnotesize
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+$x_a$ & \code{0xf2361ca7274d362f} \\
+$x_b$ & \code{0x17f81881806268c1} \\
+$H$   & \code{0x26d62ded70d34542} (both) \\
+$m_a$ & \code{2f364d27a71c36f20000000000000000dbc4cde348f671ec0000000000000000} \\
+$m_b$ & \code{c16862808118f8170000000000000000ebc98b7034e669320000000000000000} \\
+\midrule
+rainbow-64  & \code{b013b427e381f006} \\
+rainbow-128 & \code{b013b427e381f006c89c06357350be4b} \\
+rainbow-256 & \code{b013b427e381f006c89c06357350be4be142f3bdc749f11c58acc1b99a4d91e3} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+The merged state after block-2 injection is $(\code{26d62ded70d34542},\,0,\,\code{1b0560be4a530f25},\,\code{b8edca491361c74b})$ for both messages.
+\end{result}
+
+\section{Chosen-Prefix Collision}
+\label{sec:chosenprefix}
+
+The same-seed attack requires the messages to agree before the collision block. Theorem~\ref{thm:pairsum} and Proposition~\ref{prop:twoclaw} remove that restriction entirely: \emph{any} two states can be merged, so the prefixes may be chosen arbitrarily and independently.
+
+\paragraph{Construction.} Let $\mathrm{pre}_a \neq \mathrm{pre}_b$ be prefixes of equal length, padded to a multiple of $32$ bytes so that the next block is a $\mixA$ block. Absorb them to obtain $S$ and $T$. Solve two claws,
+\[
+  H_S(x_a) = H_T(x_b), \qquad K_S(y_a) = K_T(y_b),
+\]
+then append to each message its claw block $\mathrm{LE}_{64}(x)\|\mathrm{LE}_{64}(y)$ and its bridge block $\mathrm{LE}_{64}(-B)\|\mathrm{LE}_{64}(-C)$. By Proposition~\ref{prop:twoclaw} the states coincide at the bridge injection.
+
+A claw between two functions is obtained as an ordinary collision of the flavored combination $F(w) = H_{\beta(w)}(w)$, where $\beta(w)$ is a cheap bit derived from $w$; collisions with differing flavor are claws. Roughly half the collisions are same-flavor and discarded, so a claw costs about twice a plain collision. This accounts for the observed $2^{33.9}$ per claw against the $2^{32}$ of Result~\ref{res:sameiv}; a dedicated two-sided search would reduce it.
+
+\begin{result}[Chosen-prefix collision]
+\label{res:chosenprefix}
+Two 96-byte messages with opposed meanings and identical digests at all three widths. Prefixes were space-padded to 64 bytes; the padding is part of the chosen prefix.
+\begin{center}\footnotesize
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+prefix $a$ & \code{From: alice@example.com\ \ Amount: USD\ \ \ \ \ \ 10.00} \\
+prefix $b$ & \code{From: mallory@example.net Amount: USD 1000000.00} \\
+\midrule
+claw $H$ & $16{,}190{,}842{,}307$ evaluations ($2^{33.91}$), $27.1$\,s \\
+claw $K$ & $13{,}673{,}595{,}949$ evaluations ($2^{33.67}$), $23.0$\,s \\
+total    & $29{,}864{,}438{,}256$ evaluations ($2^{34.80}$), $50.0$\,s \\
+\midrule
+merged state & $(\code{0bcacc509d3457d6},\,0,\,0,\,\code{7f92191466aadf76})$ \\
+rainbow-64  & \code{913ac822c5f4c8fe} \\
+rainbow-128 & \code{913ac822c5f4c8fe40cb08c0af232d8a} \\
+rainbow-256 & \code{913ac822c5f4c8fe40cb08c0af232d8ab58e007cc27e827269d591fd423682db} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\end{result}
+
+\subsection{Corollaries}
+
+Because a merge produces genuinely identical internal states, the standard generic consequences follow immediately and at the same per-merge cost.
+
+\begin{itemize}
+  \item \textbf{Multicollisions.} Chaining $t$ successive same-state collision gadgets in the manner of Joux~\cite{joux2004} yields $2^t$ colliding messages for $t \cdot 2^{32}$ work. A $2^{64}$-multicollision costs about $2^{38}$.
+  \item \textbf{Common-suffix forgery.} Any common suffix may be appended to a merged pair, at every digest width, since the states are equal.
+  \item \textbf{Herding and expandable messages.} The cheap merge of arbitrary states is the primitive underlying diamond-structure herding~\cite{kelseykohno2006} and long-message second-preimage techniques~\cite{kelseyschneier2005}; we did not implement these.
+\end{itemize}
+
+We emphasize that only the first two items were executed; the third is stated as an expected consequence, not a demonstrated result.
+
+\section{Why the Digest Width Does Not Help}
+\label{sec:width}
+
+Rainbow's finalization is a deterministic function of the internal state. The attack achieves equality of that state before finalization begins, so every subsequent operation, and hence every digest word at every width, agrees. This is visible in the witnesses: the 64-bit digest is a prefix of the 128-bit digest, which is a prefix of the 256-bit digest, for both messages.
+
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Variant & Generic collision cost & Cost here & Shortfall \\
+\midrule
+rainbow-64  & $2^{32}$  & $2^{32.3}$ & none (generic) \\
+rainbow-128 & $2^{64}$  & $2^{32.3}$ & $\approx 2^{32}$ \\
+rainbow-256 & $2^{128}$ & $2^{32.3}$ & $\approx 2^{96}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The honest reading is narrow and, we think, still worth stating. Rainbow-64 is not weakened: $2^{32}$ is what a 64-bit digest costs. What fails is the implicit proposition that selecting a wider digest buys proportionally more collision resistance. It buys none. A user choosing rainbow-256 over rainbow-64 for collision avoidance in a large data set receives no benefit against an adversary, and the cost of demonstrating this is seconds on a laptop.
+
+This is a property of the construction, not of the search: a 256-bit state whose message schedule preserves two 64-bit invariants, and whose mixer never crosses the halves, cannot offer more than $64$-bit-per-half resistance no matter how many finalization rounds follow.
+
+\section{Experimental Results and Independent Verification}
+\label{sec:verification}
+
+Every witness was checked by four implementations that do not share code:
+
+\begin{enumerate}
+  \item \textbf{The attack's own model.} \code{collision\_pair\_sum.cpp} and \code{chosen\_prefix\_collision.cpp} each transcribe Rainbow independently and self-check their witnesses.
+  \item \textbf{An independent Python implementation.} \code{verify\_pair\_sum.py} re-implements Rainbow with big integers, re-derives the pair sums from the message bytes alone, prints a checkpoint-by-checkpoint comparison, and confirms the digests. It reports the merge point: block-2 injection for Result~\ref{res:sameiv}, block-6 injection for Result~\ref{res:chosenprefix}.
+  \item \textbf{The unmodified production source.} \code{replay\_production.cpp} includes \code{src/rainbow.cpp} verbatim and hashes the serialized bytes, never in-memory words.
+  \item \textbf{The shipped command-line tool.} \code{rainsum -a bow -s \{64,128,256\}} on the message files reproduces the same digests.
+\end{enumerate}
+
+All four agree on both witnesses at all three widths. Messages are carried as hex and replayed from bytes, so no endianness assumption is shared between the search and the verification.
+
+\section{Interpretation and Recommendations}
+\label{sec:interpretation}
+
+Rainbow is documented as non-cryptographic, and this paper does not assert that it fails a claim it makes. Two narrower statements are supported by the evidence.
+
+First, the 128-bit and 256-bit variants should not be described or selected as offering collision resistance commensurate with their width. Their collision cost is that of the 64-bit variant.
+
+Second, the cause is structural and admits a targeted remedy. Any one of the following breaks the invariant chain, and we suggest them as directions rather than as a validated fix:
+\begin{itemize}
+  \item inject with coefficients that do not cancel, so that $\sigma_1,\sigma_2$ are not preserved (for example, injecting $x$ and $\ROTR(x,k)$ rather than $x$ and $-x$);
+  \item make $\mixA$ cross the halves, so that the two 64-bit problems cannot be solved independently;
+  \item avoid reading the digest out as $-\sigma_2$ (Remark~\ref{rem:output}).
+\end{itemize}
+We have not analyzed any modified variant, and offer no assurance that these suffice.
+
+Finally, the general lesson is about state accounting. Rainbow's state is 256 bits, but its \emph{collision-relevant} state is 128 bits, and its \emph{independently attackable} state is 64 bits per half. When a message schedule has an exact invariant that the attacker can also move freely within, the invariant -- not the register file -- is the true state.
+
+\section{Reproducibility}
+\label{sec:repro}
+
+All sources, witnesses, and machine-readable results are in \code{research/rainbow/}. From the repository root:
+
+\begin{lstlisting}[style=code]
+# Build (any C++20 compiler; -march=native optional)
+clang++ -std=c++20 -O3 -march=native -o research/rainbow/bin/collision_pair_sum \
+    research/rainbow/collision_pair_sum.cpp
+clang++ -std=c++20 -O3 -march=native -o research/rainbow/bin/chosen_prefix_collision \
+    research/rainbow/chosen_prefix_collision.cpp
+clang++ -std=c++20 -O3 -march=native -o research/rainbow/bin/replay_production \
+    research/rainbow/replay_production.cpp
+
+# Same-seed collision (about 7 s on 8 cores)
+./research/rainbow/bin/collision_pair_sum --seed=0 --dp-bits=20 --threads=8
+
+# Chosen-prefix collision (about 50 s on 8 cores)
+./research/rainbow/bin/chosen_prefix_collision --dp-bits=20 --threads=8
+
+# Independent verification and production replay
+python3 research/rainbow/verify_pair_sum.py research/rainbow/collision-result.json
+python3 research/rainbow/verify_pair_sum.py research/rainbow/chosen-prefix-result.json
+./research/rainbow/bin/replay_production <hex_a> <hex_b> 0
+\end{lstlisting}
+
+Searches are randomized and will return different witnesses on each run; \code{--rng-seed} fixes the stream. The published witnesses are recorded in \code{collision-result.json} and \code{chosen-prefix-result.json} together with full search accounting.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Rainbow's message schedule preserves two 64-bit pair sums that the attacker can otherwise move at will, and its primary mixer never crosses the two halves of the state. Together these reduce a nominally 256-bit collision problem to two independent 64-bit searches. We proved that equal pair sums are necessary and sufficient for two states to merge under a single block with no search, and used the result to produce collisions against the full function: a same-seed pair in $2^{32.28}$ evaluations and a chosen-prefix pair in $2^{34.80}$, each colliding simultaneously at 64, 128, and 256 bits, each confirmed against the unmodified implementation.
+
+Rainbow claims no cryptographic security, and none is refuted. What is refuted is the value of its wider digests against collisions: they cost no more to break than the narrowest one, and the reason is structural rather than computational.
+
+\begin{thebibliography}{99}
+
+\bibitem{rain-source}
+DOSAYGO Corporation.
+\newblock \emph{rain: Rainbow and Rainstorm hash functions}, \code{src/rainbow.cpp}, version 3.7.1.
+\newblock \url{https://github.com/DOSAYGO-STUDIO/rain}
+
+\bibitem{rain-readme}
+DOSAYGO Corporation.
+\newblock \emph{rain README}: ``Rainbow \dots General-purpose, non-crypto hash \dots Not designed as cryptographic.''
+
+\bibitem{rainstorm-cryptanalysis}
+C. Stringfellow.
+\newblock \emph{A $2^{31.9}$ Collision Attack on Reduced Rainstorm-256: Programmed Collisions, Rebound Corridors, and the Full-Schedule Boundary}.
+
+\bibitem{vow1999}
+P. C. van Oorschot and M. J. Wiener.
+\newblock \emph{Parallel Collision Search with Cryptanalytic Applications}.
+\newblock Journal of Cryptology, 12(1):1--28, 1999.
+
+\bibitem{joux2004}
+A. Joux.
+\newblock \emph{Multicollisions in Iterated Hash Functions. Application to Cascaded Constructions}.
+\newblock CRYPTO 2004, LNCS 3152, pp. 306--316.
+
+\bibitem{kelseyschneier2005}
+J. Kelsey and B. Schneier.
+\newblock \emph{Second Preimages on $n$-Bit Hash Functions for Much Less than $2^n$ Work}.
+\newblock EUROCRYPT 2005, LNCS 3494, pp. 474--490.
+
+\bibitem{kelseykohno2006}
+J. Kelsey and T. Kohno.
+\newblock \emph{Herding Hash Functions and the Nostradamus Attack}.
+\newblock EUROCRYPT 2006, LNCS 4004, pp. 183--200.
+
+\bibitem{stevens2007}
+M. Stevens, A. K. Lenstra, and B. de Weger.
+\newblock \emph{Chosen-Prefix Collisions for MD5 and Colliding X.509 Certificates for Different Identities}.
+\newblock EUROCRYPT 2007, LNCS 4515, pp. 1--22.
+
+\bibitem{merkle1989}
+R. C. Merkle.
+\newblock \emph{One Way Hash Functions and DES}.
+\newblock CRYPTO 1989, LNCS 435, pp. 428--446.
+
+\bibitem{smhasher3}
+Various contributors.
+\newblock \emph{SMHasher3: Hash function quality and speed test suite}.
+
+\end{thebibliography}
+
+\end{document}
