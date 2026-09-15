@@ -275,6 +275,42 @@ across classes — so they should agree. One has a bug. Until that is found,
 **neither rate should be cited as settled**; only the brute-force-verified
 existence of a 1-bit label is established.
 
+### How much does it leak? (quantified)
+
+"Does leakage exist" is the wrong instrument once the answer is yes. What
+matters is how many **independent** bits of the steering quotient the closed
+form exposes — a hundred relations that are all the same bit still leak one bit
+— so labels are counted by the affine rank of their signatures across classes,
+and by the partition they induce, `l = log2 |{Λ(σ)}|`
+(`attacks/leakage_quantified.py`, `results/leakage-quantified.json`).
+
+| w | σ bits (2w) | independent rank | distinct signatures | leaked bits | fraction of σ |
+|---|---|---|---|---|---|
+| 3 | 6 | 2 | 4 | 2.0 | **0.333** |
+| 4 | 8 | 1 | 2 | 1.0 | **0.125** |
+| 5 | 10 | 1 | 2 | 1.0 | **0.100** |
+| 6 | 12 | 1 | 2 | 1.0 | **0.083** |
+| 7 | 14 | 0 | 1 | 0.0 | **0.000** |
+
+**The leaked bits do not grow with w.** They stay at one or two while σ grows as
+2w, so the exposed fraction falls monotonically and reaches zero at w=7. The
+flat attacker learns a bounded constant; the factored attacker's quotient keeps
+getting larger.
+
+An independent cross-check agrees. Measuring the *operational* narrowing —
+`P(σ equal | labels equal)` against the unconditional `P(σ equal)`, over 3000
+fresh prefixes — gives 3.994× at w=3 and 2.001× at w=4 and w=5, i.e. 2.0 and 1.0
+bits. That reproduces the rank column exactly, by a method that never looks at
+ANF. The label carries no hidden extra information.
+
+Two honest caveats. The w=7 zero rests on 3 θ draws (the truth tables are
+expensive), so it is suggestive rather than settled — though note it used 8
+held-out classes rather than 24, which makes the constancy test *more*
+permissive, and it still found nothing discriminating. And the narrowing above
+bounds an attacker who is trying to match σ; the flat attacker's actual best
+route birthdays on final states and never passes through σ at all, so in
+practice even this factor of two does not plug into it.
+
 ## Limitations
 
 The honest verdict is "not yet disproved", not "secure".
