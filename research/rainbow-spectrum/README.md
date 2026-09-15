@@ -5,18 +5,27 @@ become a structural primitive: individually steerable factors composed into a
 flat map whose steering is no longer cheaply accessible, while knowledge of the
 factorization still permits cheap steering.
 
-**Status: a first positive toy result, after an earlier headline was falsified
-by this repo's own controls.** The original 2^(1.5w) "separation" is
-[superseded](#smt-the-capability-was-the-wrong-one) — it measured a task that
-was never hard. The counting argument then proved the obvious construction
-*cannot* work, and identified the one regime that can. In that regime
-([Experiment B](#experiment-b-a-first-positive-toy-result)) the privileged
-solver succeeds 61/61 with the weakness present and **0/61 with it removed**,
-while the public cost grows as 2^(0.70w) against the privileged 2^(0.5w), with
-a bootstrap interval excluding 0.5 under a pre-registered decision rule.
+**Status: one real finding, one retracted one.**
 
-This is a toy-scale demonstration of the candidate phenomenon, not a primitive
-and not a hardness claim. See [Limitations](#limitations).
+**Survives.** A capability asymmetry. In the only regime the counting argument
+allows, the privileged solver recovers a witness **61/61** with the pair-sum
+weakness present and **0/61** with it removed. Factor knowledge buys something
+that vanishes when the weakness does.
+
+**Retracted.** The complexity separation. Public cost was reported as growing
+2^(0.70w), then 2^(0.83w), against the privileged 2^(0.5w). Re-measured with the
+leveraged widths at 10/8/3 draws instead of 5/3/2, the pre-registered drift test
+returns **`declining`**: windowed exponents fall 0.806 → 0.782 → 0.645 → 0.627,
+trend −0.034 against a −0.01 threshold. The separation is **pre-asymptotic** —
+the headline number was averaging a decaying curve, not describing a law. See
+[the retake](#the-verdict-flipped-under-honest-sample-sizes).
+
+Earlier still, a 2^(1.5w) "separation" was
+[superseded](#smt-the-capability-was-the-wrong-one) for measuring a task that
+was never hard. That is three headline claims falsified by this repository's own
+controls, and one narrow finding left standing.
+
+No primitive, no hardness claim. See [Limitations](#limitations).
 
 Prerequisite: the underlying weakness is the pair-sum collapse documented in
 [`../rainbow/`](../rainbow/).
@@ -481,6 +490,13 @@ and the construction is finished.
 
 ### Experiment B: a first positive toy result
 
+> **⚠️ SUPERSEDED — the complexity half of this claim did not survive.** The
+> capability asymmetry below (61/61 versus 0/61) stands. The exponent separation
+> does not: re-measured with adequate samples at the leveraged widths, the
+> pre-registered drift test returns `declining`. See
+> [the retake](#the-verdict-flipped-under-honest-sample-sizes). The text is left
+> unedited so the claim and its refutation sit together.
+
 > **The claim, frozen.** At toy widths w = 8…18, the one-sided planted
 > sparse-witness construction exhibits an empirical complexity separation
 > between factor-aware and flattened solving. The privileged weak solver follows
@@ -553,6 +569,48 @@ is the first experiment in the program whose controls all behave — it is a
 demonstration that the phenomenon *can* be exhibited, not evidence that any
 instance of it is hard.
 
+### The verdict flipped under honest sample sizes
+
+The drift verdict was taken twice on the same widths. The only thing that
+changed between them was how many draws the leveraged widths rested on
+(`attacks/retake_verdict.py`, `results/retake-verdict.json`). The analysis
+function was called **verbatim** from `drift_test.py` — no threshold touched, no
+rule restated — precisely so that a flip could not be an artifact of tuning.
+
+| width | thin run | deepened | change |
+|---|---|---|---|
+| 20 (n 5→10) | 215,847 | 246,660 | ×1.14 |
+| 22 (n 3→8) | 1,383,950 | **403,939** | **×0.29** |
+| 24 (n 2→3) | 2,402,604 | 1,254,257 | ×0.52 |
+
+**weak: `stable` → `declining`.** Windows 0.806, 0.753, 0.902, 0.866 become
+0.806, 0.782, 0.645, 0.627; trend +0.016 becomes **−0.034**, past the −0.01
+threshold. Global β 0.828 → 0.718. The excess curve, which had risen 7.72 → 9.40
+→ 9.20, now reads 7.91 → 7.62 → 8.26 and *falls* from w=20 to w=22.
+
+**hardened: `inconclusive` → `stable`,** windows 0.649, 0.660, 0.669, 0.674 —
+smooth where they had swung 0.546 → 0.980. That is the control certifying
+itself: its earlier incoherence (cost *falling* threefold from w=22 to w=24) was
+undersampling, and with adequate draws it behaves.
+
+Two things make `declining` hard to argue with. The correction was driven by
+**w=22, the width whose sample improved most** — n=3→8 moved its median 3.4×, so
+the verdict turned on the *best*-measured point rather than the thinnest. And
+weak's final window (0.627) now sits **below** hardened's (0.674): from the
+public side the two are converging, which is what should happen if the planted
+weakness is invisible to the public solver, and leaves nothing for the weak
+curve to claim.
+
+What survives is the capability asymmetry — 61/61 versus 0/61 — which never
+depended on any exponent. What does not survive is the inference from it to an
+asymptotic separation.
+
+Honest residue: w=24 still rests on n=3, and its raw draws span 694,652 to
+3,574,741 (5×), with one hardened instance taking 5560s against 150s for its
+siblings. That width is not yet trustworthy in either direction, and a
+`declining` verdict resting partly on it deserves the same scepticism the
+`stable` one got.
+
 ## Limitations
 
 The honest verdict is **"not demonstrated"** — which is weaker than "not yet
@@ -609,6 +667,9 @@ Kept deliberately, per the program:
 | naive branch C destroyed the weakness | the mixer was selected from the whole state, so injection moved the state into a different parameter region and the coset fragmented | a selector must read an injection-invariant quantity (σ), not the state |
 | the flattening positive control failed at w=3,4 but passed at w=5 | it let earlier rounds' controls vary, and σ is only invariant with respect to the **final** injection — round 1's mixer changes it | a control must isolate exactly the invariant it claims to plant, nothing wider |
 | the flattening attack declared a break on any discriminating label | success was counted as existence rather than bits; the label was worth 1 bit against σ's 2w | measure capability in bits against what the privileged side actually gets |
+| a `stable` exponent verdict reversed to `declining` | the three widths carrying the leverage rested on n=5/3/2; deepening them to 10/8/3 moved one median by 3.4x | sample the points with the most leverage *first* — a pre-registered rule is no protection if it is fed undersampled inputs |
+| a memory ceiling was trusted without being breached | `z3 memory_max_size=300MB` let an instance reach ~381MiB and still return sat; it bounds z3's allocator, not process RSS | a safety valve that has never actually tripped is an assumption, not a control |
+| a memory probe reported 381 GB on an 8 GB machine | macOS `ru_maxrss` is BYTES, Linux is kilobytes | an impossible number is a bug in the instrument, not noise to wave through |
 | the whole factored-vs-flat separation turned out to measure nothing | the chosen capability was underdetermined by ~2^(4w), so it was never hard for anyone; the flat baseline was a random-search attacker that a solver trivially beats | before measuring how hard a task is, check that it is *generically* hard — and always run the control where the planted weakness is REMOVED |
 | two implementations of one criterion disagreed by ~8x | `gf2_nullspace` reduced rows in dict-insertion order, not pivot order, and returned vectors that annihilated nothing; correct at w=3, wrong at w≥4 | when two of your own measurements disagree, one is broken — arbitrate with brute force before believing either, and give linear-algebra helpers a post-condition |
 | a first attempt looked for "low-degree relations" with no cross-class check | constancy alone is trivial — low bits of modular addition are GF(2)-linear — so it found relations that were never class labels | reuse the validated criterion (constant within class **and** discriminating across classes), do not invent a weaker one |

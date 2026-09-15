@@ -1,0 +1,463 @@
+{
+  "experiment": "deepen_top_widths",
+  "purpose": "tighten the interval where n was 2-3, without extending w",
+  "plan": {
+    "20": {
+      "draws": 10,
+      "procs": 3
+    },
+    "22": {
+      "draws": 8,
+      "procs": 2
+    },
+    "24": {
+      "draws": 3,
+      "procs": 1
+    }
+  },
+  "timeout_ms": 900000,
+  "memory_cap_mb": 1500,
+  "independent_of": "scaling_wide.py (different seed stream)",
+  "generated": "2026-09-15T14:11:44",
+  "wall_seconds": 8314.9,
+  "raw": [
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 2,
+      "conflicts": 209103,
+      "status": "sat",
+      "seconds": 33.7
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 0,
+      "conflicts": 275738,
+      "status": "sat",
+      "seconds": 53.8
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 4,
+      "conflicts": 111143,
+      "status": "sat",
+      "seconds": 25.1
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 3,
+      "conflicts": 367740,
+      "status": "sat",
+      "seconds": 67.0
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 5,
+      "conflicts": 217582,
+      "status": "sat",
+      "seconds": 44.3
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 1,
+      "conflicts": 629876,
+      "status": "sat",
+      "seconds": 126.7
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 7,
+      "conflicts": 155775,
+      "status": "sat",
+      "seconds": 37.8
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 9,
+      "conflicts": 117283,
+      "status": "sat",
+      "seconds": 28.4
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 6,
+      "conflicts": 559801,
+      "status": "sat",
+      "seconds": 118.3
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 8,
+      "conflicts": 542580,
+      "status": "sat",
+      "seconds": 127.6
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 0,
+      "conflicts": 302866,
+      "status": "sat",
+      "seconds": 72.8
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 1,
+      "conflicts": 211925,
+      "status": "sat",
+      "seconds": 56.6
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 4,
+      "conflicts": 117767,
+      "status": "sat",
+      "seconds": 26.2
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 3,
+      "conflicts": 291117,
+      "status": "sat",
+      "seconds": 67.4
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 5,
+      "conflicts": 250603,
+      "status": "sat",
+      "seconds": 47.4
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 7,
+      "conflicts": 171564,
+      "status": "sat",
+      "seconds": 42.3
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 2,
+      "conflicts": 793705,
+      "status": "sat",
+      "seconds": 172.8
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 8,
+      "conflicts": 239821,
+      "status": "sat",
+      "seconds": 46.0
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 9,
+      "conflicts": 590009,
+      "status": "sat",
+      "seconds": 97.3
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 6,
+      "conflicts": 1084156,
+      "status": "sat",
+      "seconds": 197.5
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 1,
+      "conflicts": 238524,
+      "status": "sat",
+      "seconds": 46.4
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 2,
+      "conflicts": 274911,
+      "status": "sat",
+      "seconds": 63.8
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 3,
+      "conflicts": 532967,
+      "status": "sat",
+      "seconds": 123.8
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 4,
+      "conflicts": 244225,
+      "status": "sat",
+      "seconds": 48.0
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 5,
+      "conflicts": 668993,
+      "status": "sat",
+      "seconds": 160.9
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 6,
+      "conflicts": 632076,
+      "status": "sat",
+      "seconds": 148.4
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 7,
+      "conflicts": 84607,
+      "status": "sat",
+      "seconds": 28.0
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 0,
+      "conflicts": 3114031,
+      "status": "sat",
+      "seconds": 748.7
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 1,
+      "conflicts": 172849,
+      "status": "sat",
+      "seconds": 32.2
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 2,
+      "conflicts": 324589,
+      "status": "sat",
+      "seconds": 71.3
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 0,
+      "conflicts": 1202062,
+      "status": "sat",
+      "seconds": 245.5
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 3,
+      "conflicts": 221510,
+      "status": "sat",
+      "seconds": 35.2
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 4,
+      "conflicts": 751447,
+      "status": "sat",
+      "seconds": 129.4
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 5,
+      "conflicts": 1238581,
+      "status": "sat",
+      "seconds": 220.9
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 7,
+      "conflicts": 143485,
+      "status": "sat",
+      "seconds": 21.1
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 6,
+      "conflicts": 1382706,
+      "status": "sat",
+      "seconds": 171.8
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 0,
+      "conflicts": 1254257,
+      "status": "sat",
+      "seconds": 127.5
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 1,
+      "conflicts": 694652,
+      "status": "sat",
+      "seconds": 73.2
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 2,
+      "conflicts": 3574741,
+      "status": "sat",
+      "seconds": 554.1
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 0,
+      "conflicts": 1202124,
+      "status": "sat",
+      "seconds": 155.6
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 1,
+      "conflicts": 1389300,
+      "status": "sat",
+      "seconds": 150.6
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 2,
+      "conflicts": 4856771,
+      "status": "sat",
+      "seconds": 5560.3
+    }
+  ],
+  "variants": {
+    "weak": {
+      "20": {
+        "n": 10,
+        "attempted": 10,
+        "censored": [],
+        "median": 246660.0,
+        "excess": 7.912,
+        "raw": [
+          111143,
+          117283,
+          155775,
+          209103,
+          217582,
+          275738,
+          367740,
+          542580,
+          559801,
+          629876
+        ]
+      },
+      "22": {
+        "n": 8,
+        "attempted": 8,
+        "censored": [],
+        "median": 403939.0,
+        "excess": 7.624,
+        "raw": [
+          84607,
+          238524,
+          244225,
+          274911,
+          532967,
+          632076,
+          668993,
+          3114031
+        ]
+      },
+      "24": {
+        "n": 3,
+        "attempted": 3,
+        "censored": [],
+        "median": 1254257,
+        "excess": 8.258,
+        "raw": [
+          694652,
+          1254257,
+          3574741
+        ]
+      }
+    },
+    "hardened": {
+      "20": {
+        "n": 10,
+        "attempted": 10,
+        "censored": [],
+        "median": 270860.0,
+        "excess": 8.047,
+        "raw": [
+          117767,
+          171564,
+          211925,
+          239821,
+          250603,
+          291117,
+          302866,
+          590009,
+          793705,
+          1084156
+        ]
+      },
+      "22": {
+        "n": 8,
+        "attempted": 8,
+        "censored": [],
+        "median": 538018.0,
+        "excess": 8.037,
+        "raw": [
+          143485,
+          172849,
+          221510,
+          324589,
+          751447,
+          1202062,
+          1238581,
+          1382706
+        ]
+      },
+      "24": {
+        "n": 3,
+        "attempted": 3,
+        "censored": [],
+        "median": 1389300,
+        "excess": 8.406,
+        "raw": [
+          1202124,
+          1389300,
+          4856771
+        ]
+      }
+    }
+  }
+}
