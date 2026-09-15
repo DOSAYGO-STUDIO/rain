@@ -206,6 +206,75 @@ So: the search demonstrably finds the planted invariant where it exists, and
 finds nothing on the composed output at any modulus. **The linear route is
 closed.** Non-linear routes are untouched.
 
+### Phase 4: exact flattening, and what it leaks
+
+Until now "flat" meant an attacker who could *evaluate* the function. The
+hypothesis is stronger: the attacker holds the exact closed form and merely
+lacks a useful decomposition. Those are different adversaries.
+
+`models/symbolic.py` builds a hash-consed bit-vector DAG (with SMT-LIB export),
+and `attacks/flatten_and_attack.py` computes the **canonical ANF** of every
+output bit. ANF is the honest flattening: it is canonical, so two entirely
+different programs computing the same Boolean function produce the *same* ANF.
+Intermediates are eliminated by construction, not hidden. Any advantage the
+factored solver keeps therefore cannot come from a difference in the
+mathematical function — only from knowing a decomposition of it.
+
+Flattening is verified exhaustively: **factored == DAG == ANF on every input**
+(64 to 4096 inputs per configuration), so the transformation is trusted rather
+than being one more source of artifacts.
+
+Flattening growth (`results/flattening-algebraic.json`):
+
+| w | k | ANF degree | mean monomials | density | DAG nodes / depth / muls |
+|---|---|---|---|---|---|
+| 3 | 2 | 1..2 | 3.0 | 0.047 | 46 / 14 / 16 |
+| 4 | 2 | 1..4 | 6.7 | 0.026 | 50 / 14 / 16 |
+| 5 | 2 | 1..5 | 11.0 | 0.011 | 54 / 14 / 16 |
+| 6 | 2 | 1..6 | 17.2 | 0.004 | 57 / 14 / 16 |
+| 3 | 3 | 1..3 | 2.8 | 0.044 | 65 / 19 / 24 |
+| 5 | 3 | 1..4 | 10.5 | 0.010 | 74 / 19 / 24 |
+
+**A caveat that matters.** Max ANF degree tracks `w` and monomial counts grow,
+while the DAG stays tiny — dozens of nodes at every size. The function is not
+complex; the *ANF representation* of modular arithmetic is. So an apparent
+factored advantage must not be read as "composition is hard" when it might be
+"ANF is a catastrophically inconvenient representation of carries". This is why
+the attacker is handed the DAG and an SMT export as well, not ANF alone.
+
+**Result: partial leakage, not a break.** The flattened form does expose a
+discriminating GF(2) class label — a combination of output bits constant as the
+last round's controls vary, taking different values on different classes. It
+appears in most θ draws (7–9 of 12 at w=3–5, at both k=2 and k=3), and **more**
+held-out classes found more of them, so it is not a validation artifact. One was
+verified directly by brute force: at w=5, k=2 the combination of output bits
+`[10, 11, 18]` is constant across *every* control assignment in all 16 classes
+and separates them.
+
+But capability is measured in bits, not existence:
+
+| | bits obtained |
+|---|---|
+| flat attacker, from the exact closed form | **1** |
+| factored attacker, from σ | **2w** (10 at w=5) |
+
+One bit halves the attacker's search. It does not replace a `2^(w/2)` birthday
+on σ. **Exact flattening reduces the separation without closing it.**
+
+The Z/2^r search missed these entirely, and that is instructive rather than a
+failure: those labels are GF(2)-linear in output **bits**, while the modular
+search looked for functionals Z/2^r-linear in output **words**. Carries make
+those genuinely different function classes, so the two searches are complements,
+not a redundant pair.
+
+**Open discrepancy, unresolved.** `flat_adversarial.py` attack A reports GF(2)
+label rates of 0.42 / 0.08 / 0.08 / 0 / 0 / 0 declining with w, while
+`flatten_and_attack.py` finds 7–9 of 12 draws at w=3–5. Both implement the same
+criterion — a GF(2)-linear functional constant on a class and discriminating
+across classes — so they should agree. One has a bug. Until that is found,
+**neither rate should be cited as settled**; only the brute-force-verified
+existence of a 1-bit label is established.
+
 ## Limitations
 
 The honest verdict is "not yet disproved", not "secure".
@@ -224,9 +293,12 @@ The honest verdict is "not yet disproved", not "secure".
 3. Toy widths only. At w≤8 a flat attacker could brute-force structure that would
    be out of reach asymptotically, so these sizes identify scaling laws; they do
    not establish hardness.
-4. Phase 4 exact flattening (truth table / ANF / CNF with intermediate variables
-   eliminated) is **not** implemented. The flat solver currently gets
-   input/output access, not a flattened representation.
+4. Phase 4 exact flattening **is** implemented (canonical ANF + hash-consed DAG
+   + SMT-LIB export, equivalence verified exhaustively), and it leaks ~1 bit.
+   Still missing: CNF/SAT export driven through an actual solver, and attacks
+   that read the symbolic form structurally rather than statistically —
+   monomial-support overlaps, higher-order derivatives, annihilators, variable
+   partitions, and alternative decompositions of the polynomial map.
 5. Composition branches B (algebraic) and C (cross-parameterized) are not built.
 
 ## Failure taxonomy
@@ -244,12 +316,16 @@ Kept deliberately, per the program:
 | Attack A "succeeded" again after being fixed | validation used only 3 held-out classes; a w=6 hit vanished under 8, and 0/12 draws reproduced it | validation depth is a parameter, and too little of it manufactures positives |
 | a single θ draw reported SUCCEEDED at w=4 and failed at w=6 | the structure is θ-dependent and rare, so one composition is not a measurement | report rates over independent draws, never a single-draw verdict |
 | naive branch C destroyed the weakness | the mixer was selected from the whole state, so injection moved the state into a different parameter region and the coset fragmented | a selector must read an injection-invariant quantity (σ), not the state |
+| the flattening positive control failed at w=3,4 but passed at w=5 | it let earlier rounds' controls vary, and σ is only invariant with respect to the **final** injection — round 1's mixer changes it | a control must isolate exactly the invariant it claims to plant, nothing wider |
+| the flattening attack declared a break on any discriminating label | success was counted as existence rather than bits; the label was worth 1 bit against σ's 2w | measure capability in bits against what the privileged side actually gets |
+| a first attempt looked for "low-degree relations" with no cross-class check | constancy alone is trivial — low bits of modular addition are GF(2)-linear — so it found relations that were never class labels | reuse the validated criterion (constant within class **and** discriminating across classes), do not invent a weaker one |
 
 ## Layout and reproduction
 
 ```
 models/      wordops.py (exact width-w arithmetic), rainbow.py (Theta, mixers,
-             steer), spectrum.py (parameterized family + admissibility)
+             steer), spectrum.py (parameterized family + admissibility),
+             symbolic.py (bit-vector AST, hash-consed DAG, SMT-LIB export)
 compositions/sequential.py (branch A), branches.py (branch B parallel-algebraic,
              branch C cross-parameterized, plus the naive negative control)
 attacks/     phase1_verify.py, flat_invariant_probe.py,
@@ -265,6 +341,7 @@ python3 attacks/milestone_separation.py   # ~45 s
 python3 attacks/flat_adversarial.py       # ~30 s, multi-draw GF(2)
 python3 attacks/branches_compare.py       # ~5 s, branches A/B/C
 python3 attacks/zmod_invariant_search.py  # ~2.5 min, Z/2^r + ring stress tests
+python3 attacks/flatten_and_attack.py     # ~1 s, exact ANF/DAG flattening
 ```
 
 All runs are seeded (`random.Random(20260915)`) and write JSON to `results/`.
