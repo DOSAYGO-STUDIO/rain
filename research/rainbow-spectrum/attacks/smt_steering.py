@@ -50,14 +50,15 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import z3                                                    # noqa: E402
 
 from compositions.sequential import Composition              # noqa: E402
+from models import solverstats as ST                         # noqa: E402
 from models import spectrum as S                             # noqa: E402
 
 RESULTS = pathlib.Path(__file__).resolve().parents[1] / "results"
 PAIRS = S.PAIRINGS[0]
 SIGNS = ((-1, 1), (1, -1))
 LANES = 4
-STATS_KEYS = ("conflicts", "decisions", "propagations", "restarts",
-              "mk clause", "max memory")
+# Statistics go through models/solverstats, which keeps z3's own key names and
+# reports an absent counter as None rather than 0. See that module for why.
 
 
 def make_thetas(w, count, rng):
@@ -125,14 +126,7 @@ def solve_merge(composition, sa, sb, timeout_ms, roundfn, premixer=False):
     verdict = solver.check()
     elapsed = time.time() - start
 
-    stats = {}
-    try:
-        report = solver.statistics()
-        for key in report.keys():
-            if key in STATS_KEYS:
-                stats[key] = report.get_key_value(key)
-    except Exception:
-        pass
+    stats = ST.collect(solver.statistics())
 
     row = {"verdict": str(verdict), "seconds": round(elapsed, 3), "stats": stats,
            "control_bits": 2 * k * npairs * w, "constraint_bits": LANES * w}
@@ -155,14 +149,24 @@ def run_width(w, k, rng, timeout_ms, roundfn, draws=3):
         sb = tuple(rng.getrandbits(w) for _ in range(LANES))
         rows.append(solve_merge(composition, sa, sb, timeout_ms, roundfn))
     solved = [r for r in rows if r["verdict"] == "sat"]
+
+    def median_stat(name):
+        """Median of a counter, or None if ANY draw failed to report it.
+
+        Never defaults a missing counter to zero: that is exactly how this file
+        once claimed the solver performed no search at all.
+        """
+        values = [ST.get(r["stats"], name) for r in rows]
+        if any(value is None for value in values):
+            return None
+        return statistics.median(values)
+
     return {
         "w": w, "k": k, "draws": draws,
         "solved": len(solved),
         "median_seconds": round(statistics.median([r["seconds"] for r in rows]), 3),
-        "median_conflicts": statistics.median(
-            [r["stats"].get("conflicts", 0) for r in rows]),
-        "median_decisions": statistics.median(
-            [r["stats"].get("decisions", 0) for r in rows]),
+        "median_conflicts": median_stat("conflict"),
+        "median_decisions": median_stat("decision"),
         "replay_failures": sum(1 for r in rows if r.get("replay_verified") is False),
         "rows": rows,
     }
@@ -229,9 +233,13 @@ def main():
             f"(hardened {report['hardened_solve_rate']} vs weak "
             f"{report['weak_solve_rate']} solved). The reason is structural: "
             "the system has 2*k*npairs*w bits of control freedom against only "
-            "4w bits of equality, so roughly 2^(4w) solutions exist and "
-            "propagation walks to one, with conflict counts near zero showing "
-            "the solver barely searches. CONSEQUENCE: the flat birthday "
+            "4w bits of equality, so roughly 2^(4w) solutions exist and the "
+            "solver reaches one without difficulty. (An earlier version of this "
+            "sentence added that conflict counts were near zero and the solver "
+            "'barely searches'. That was a statistics-key bug in this file -- z3 "
+            "reports 'sat conflicts', the lookup asked for 'conflicts' and "
+            "defaulted the miss to zero -- not a fact about the solve. The "
+            "counting argument alone carries the conclusion.) CONSEQUENCE: the flat birthday "
             "baseline of ~2^(2w) used elsewhere in this program is the cost of "
             "a RANDOM-SEARCH attacker, not of the best public attacker. An "
             "equation-solving public attacker obtains the merge cheaply at "

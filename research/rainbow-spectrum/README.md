@@ -5,9 +5,18 @@ become a structural primitive: individually steerable factors composed into a
 flat map whose steering is no longer cheaply accessible, while knowledge of the
 factorization still permits cheap steering.
 
-**Status: the phenomenon is not disproved at toy scale, and a scaling separation
-is measured. That is not the same as a positive result** — the flat side has so
-far survived only two attacks. See [Limitations](#limitations).
+**Status: a first positive toy result, after an earlier headline was falsified
+by this repo's own controls.** The original 2^(1.5w) "separation" is
+[superseded](#smt-the-capability-was-the-wrong-one) — it measured a task that
+was never hard. The counting argument then proved the obvious construction
+*cannot* work, and identified the one regime that can. In that regime
+([Experiment B](#experiment-b-a-first-positive-toy-result)) the privileged
+solver succeeds 61/61 with the weakness present and **0/61 with it removed**,
+while the public cost grows as 2^(0.70w) against the privileged 2^(0.5w), with
+a bootstrap interval excluding 0.5 under a pre-registered decision rule.
+
+This is a toy-scale demonstration of the candidate phenomenon, not a primitive
+and not a hardness claim. See [Limitations](#limitations).
 
 Prerequisite: the underlying weakness is the pair-sum collapse documented in
 [`../rainbow/`](../rainbow/).
@@ -349,21 +358,29 @@ identical query was run against a **hardened** variant whose injection does not
 preserve the pair sums (`h_i -= x, h_j += rotr(x,1)`), so the cheap steering
 construction does not exist at all. Three θ draws per cell, 60 queries total:
 
-| w | k | weak: solved, median | conflicts | hardened: solved, median | conflicts |
-|---|---|---|---|---|---|
-| 8 | 2 | 3/3, 0.038s | 0 | 3/3, 0.038s | 0 |
-| 12 | 2 | 3/3, 0.059s | 0 | 3/3, 0.120s | 0 |
-| 16 | 4 | 3/3, 0.922s | 0 | 3/3, 5.503s | 0 |
-| 20 | 2 | 3/3, 15.712s | 0 | 3/3, 1.911s | 0 |
-| 24 | 2 | 2/3, 22.519s | 0 | 1/3, 60.018s | 0 |
+| w | k | weak: solved, median | hardened: solved, median |
+|---|---|---|---|
+| 8 | 2 | 3/3, 0.038s | 3/3, 0.038s |
+| 12 | 2 | 3/3, 0.059s | 3/3, 0.120s |
+| 16 | 4 | 3/3, 0.922s | 3/3, 5.503s |
+| 20 | 2 | 3/3, 15.712s | 3/3, 1.911s |
+| 24 | 2 | 2/3, 22.519s | 1/3, 60.018s |
 
 Overall: weak 0.933 solved, hardened 0.867. **Removing the weakness barely
-changes anything**, so the solver is not exploiting it.
+changes anything**, so the solver is not exploiting it. The timings are also not
+monotonic in w (weak takes 15.7s at w=20 but 22.5s at w=24; hardened 5.5s at
+w=16, k=4 but 1.9s at w=20, k=2).
 
-Two details confirm the diagnosis. `conflicts = 0` in every single cell — the
-solver is not searching, it is propagating. And the timings are not monotonic in
-w (weak takes 15.7s at w=20 but 22.5s at w=24; hardened 5.5s at w=16, k=4 but
-1.9s at w=20, k=2), which is what a non-search problem looks like.
+> **Correction.** An earlier version of this section reported `conflicts = 0` in
+> every cell and concluded the solver "is not searching, it is propagating".
+> **That was a bug in the reporting, not a property of the solve.** z3 names its
+> SAT statistics `sat conflicts`, `sat decisions`, …; the filter matched the bare
+> names, captured nothing, and defaulted to zero. Measured properly, z3 does
+> substantial search on these instances (tens of thousands of conflicts by
+> w=16). The conclusion above is unaffected — it rests on weak ≈ hardened, and
+> on the counting argument, neither of which used conflict counts — but one
+> piece of evidence originally cited for it was an artifact of this repo's own
+> code.
 
 The cause is structural: the system offers `2·k·npairs·w` bits of control
 freedom against only `4w` bits of equality, so roughly `2^(4w)` solutions exist
@@ -461,6 +478,62 @@ is, not cheating.
 The next experiment must also re-run the **weakness-removed control** in this
 regime. If SMT again solves hardened and weak alike, the same verdict applies
 and the construction is finished.
+
+### Experiment B: a first positive toy result
+
+The counting argument left exactly one viable regime: **one-sided** merge
+controls, prefix words restricted to `t = w/2 + c` bits (k=2). Challenges are
+*planted* rather than searched for — pick the controls, then **invert** B's
+rounds to derive the second start state, so a witness is guaranteed to exist.
+Everything is bijective, so this works for the hardened variant too, which is
+why the control survives into this regime. The witness is discarded before any
+solver runs (`attacks/experiment_b.py`, `attacks/slope_estimate.py`).
+
+**Sparsity holds.** At w=4 the symmetric design's `2^(2w) = 256` degeneracy
+collapses to 3–36 witnesses, matching the predicted `2^(4c)` within Poisson
+noise on single samples. Fixing one side did what the counting said it would.
+
+**The privileged/hardened control is decisive:**
+
+| | weak factors | hardened (weakness removed) |
+|---|---|---|
+| privileged solver | **61/61 solved** at 2^(w/2+2) | **0/61** |
+
+Factor knowledge buys a capability that disappears entirely when the pair-sum
+weakness is removed. That is the asymmetry the whole program was after.
+
+**The public exponent, under a rule fixed before the run** (`beta − 0.5 > 0.1`
+*and* bootstrap interval excluding 0.5 *and* stable under dropping either
+endpoint width *and* weak/hardened slopes compatible):
+
+| variant | β | bootstrap 5–95% | drop lowest w | drop highest w |
+|---|---|---|---|---|
+| weak | **0.700** | [0.630, 0.785] | 0.682 | 0.678 |
+| hardened | 0.666 | [0.612, 0.732] | 0.609 | 0.645 |
+
+against the privileged **0.5**. Every criterion is met.
+
+Two supporting checks. The `log2(C) − w/2` excess rises 5.01 → 7.28 across
+w=8→18 (slope ≈ 0.227 ≈ β−0.5), where a constant-factor advantage would leave it
+flat. And **censoring is zero** — `excluded = 0` at every width, since the 300s
+budget capped nothing. That matters because dropping timed-out instances would
+preferentially remove the expensive tail at large w and bias β *downward*; here
+there was nothing to drop. An earlier 4-width run did show decaying interval
+slopes (0.79 → 0.735 → 0.61) against a 60s cap — that was the bias, and it is
+absent once the budget is generous.
+
+That weak and hardened public slopes agree (0.700 vs 0.666, intervals heavily
+overlapping) is the *expected* control: the public solver should gain nothing
+from the weakness, and it doesn't. The difficulty comes from the sparse
+flattened relation, not from the planted structure.
+
+**What this is not.** Toy widths (8–18) with 5–12 draws per cell; z3 is one
+solver and a timeout is never a lower bound; the privileged cost is an upper
+bound because the solver builds full tables rather than an optimal birthday; and
+`2^(0.70w)` is an empirical fit over six points, not an asymptotic claim. This
+is the first experiment in the program whose controls all behave — it is a
+demonstration that the phenomenon *can* be exhibited, not evidence that any
+instance of it is hard.
 
 ## Limitations
 

@@ -1,0 +1,456 @@
+{
+  "experiment": "B_planted_sparse_witness",
+  "generated": "2026-09-15T10:22:52",
+  "z3": "4.15.4",
+  "rows": [
+    {
+      "w": 8,
+      "c": 0,
+      "t": 4,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 64,
+        "log2_evaluations": 6.0,
+        "predicted_log2": 5.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.027,
+        "stats": {
+          "sat conflicts": 299,
+          "sat decisions": 531,
+          "sat propagations 2ary": 5450,
+          "sat propagations nary": 47454,
+          "rlimit count": 93304
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 8,
+      "c": 0,
+      "t": 4,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 64,
+        "reason": "no sigma match on pair 0"
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.032,
+        "stats": {
+          "sat conflicts": 595,
+          "sat decisions": 843,
+          "sat propagations 2ary": 8748,
+          "sat propagations nary": 73408,
+          "sat restarts": 12,
+          "rlimit count": 233975
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 8,
+      "c": 1,
+      "t": 5,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 128,
+        "log2_evaluations": 7.0,
+        "predicted_log2": 5.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.047,
+        "stats": {
+          "sat conflicts": 1044,
+          "sat decisions": 1338,
+          "sat propagations 2ary": 15740,
+          "sat propagations nary": 210585,
+          "sat restarts": 4,
+          "rlimit count": 514796
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 8,
+      "c": 1,
+      "t": 5,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 128,
+        "log2_evaluations": 7.0,
+        "predicted_log2": 5.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.047,
+        "stats": {
+          "sat conflicts": 1213,
+          "sat decisions": 1704,
+          "sat propagations 2ary": 10207,
+          "sat propagations nary": 214258,
+          "sat restarts": 38,
+          "rlimit count": 788396
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 12,
+      "c": 0,
+      "t": 6,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 256,
+        "log2_evaluations": 8.0,
+        "predicted_log2": 7.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.191,
+        "stats": {
+          "sat conflicts": 4651,
+          "sat decisions": 6426,
+          "sat propagations 2ary": 186383,
+          "sat propagations nary": 1155830,
+          "sat restarts": 145,
+          "rlimit count": 2233443
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 12,
+      "c": 0,
+      "t": 6,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 256,
+        "log2_evaluations": 8.0,
+        "predicted_log2": 7.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.091,
+        "stats": {
+          "sat conflicts": 1934,
+          "sat decisions": 2790,
+          "sat propagations 2ary": 65050,
+          "sat propagations nary": 417376,
+          "sat restarts": 38,
+          "rlimit count": 2854147
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 12,
+      "c": 1,
+      "t": 7,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 512,
+        "log2_evaluations": 9.0,
+        "predicted_log2": 7.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.101,
+        "stats": {
+          "sat conflicts": 2160,
+          "sat decisions": 2963,
+          "sat propagations 2ary": 81860,
+          "sat propagations nary": 567451,
+          "sat restarts": 108,
+          "rlimit count": 3612685
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 12,
+      "c": 1,
+      "t": 7,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 512,
+        "log2_evaluations": 9.0,
+        "predicted_log2": 7.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 0.149,
+        "stats": {
+          "sat conflicts": 3592,
+          "sat decisions": 5953,
+          "sat propagations 2ary": 239830,
+          "sat propagations nary": 876272,
+          "sat restarts": 259,
+          "rlimit count": 4827467
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 16,
+      "c": 0,
+      "t": 8,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 1024,
+        "log2_evaluations": 10.0,
+        "predicted_log2": 9.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 2.851,
+        "stats": {
+          "sat conflicts": 36175,
+          "sat decisions": 46585,
+          "sat propagations 2ary": 2080272,
+          "sat propagations nary": 18412139,
+          "sat restarts": 1140,
+          "rlimit count": 24799153
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 16,
+      "c": 0,
+      "t": 8,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 1024,
+        "log2_evaluations": 10.0,
+        "predicted_log2": 9.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 2.212,
+        "stats": {
+          "sat conflicts": 40661,
+          "sat decisions": 49091,
+          "sat propagations 2ary": 1864151,
+          "sat propagations nary": 11048828,
+          "sat restarts": 2531,
+          "rlimit count": 37015776
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 16,
+      "c": 1,
+      "t": 9,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 2048,
+        "log2_evaluations": 11.0,
+        "predicted_log2": 9.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 1.674,
+        "stats": {
+          "sat conflicts": 26587,
+          "sat decisions": 31516,
+          "sat propagations 2ary": 1535731,
+          "sat propagations nary": 8544211,
+          "sat restarts": 1497,
+          "rlimit count": 46757501
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 16,
+      "c": 1,
+      "t": 9,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 2048,
+        "log2_evaluations": 11.0,
+        "predicted_log2": 9.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 4.746,
+        "stats": {
+          "sat conflicts": 81882,
+          "sat decisions": 99097,
+          "sat propagations 2ary": 3400128,
+          "sat propagations nary": 22943261,
+          "sat restarts": 6541,
+          "rlimit count": 71210640
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 20,
+      "c": 0,
+      "t": 10,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 4096,
+        "log2_evaluations": 12.0,
+        "predicted_log2": 11.0
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 56.099,
+        "stats": {
+          "sat conflicts": 435864,
+          "sat decisions": 614803,
+          "sat propagations 2ary": 21557319,
+          "sat propagations nary": 267103022,
+          "sat restarts": 36737,
+          "rlimit count": 349332800
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 20,
+      "c": 0,
+      "t": 10,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 4096,
+        "reason": "no sigma match on pair 0"
+      },
+      "public": {
+        "verdict": "sat",
+        "seconds": 31.594,
+        "stats": {
+          "sat conflicts": 259747,
+          "sat decisions": 333851,
+          "sat propagations 2ary": 13853341,
+          "sat propagations nary": 139321603,
+          "sat restarts": 19656,
+          "rlimit count": 496551918
+        },
+        "replay_verified": true
+      }
+    },
+    {
+      "w": 20,
+      "c": 1,
+      "t": 11,
+      "hardened": false,
+      "witness_valid": true,
+      "privileged": {
+        "solved": true,
+        "evaluations": 8192,
+        "log2_evaluations": 13.0,
+        "predicted_log2": 11.0
+      },
+      "public": {
+        "verdict": "unknown",
+        "seconds": 60.009,
+        "stats": {
+          "sat conflicts": 601433,
+          "sat decisions": 841610,
+          "sat propagations 2ary": 19559752,
+          "sat propagations nary": 261387477,
+          "sat restarts": 51847,
+          "rlimit count": 765178394
+        }
+      }
+    },
+    {
+      "w": 20,
+      "c": 1,
+      "t": 11,
+      "hardened": true,
+      "witness_valid": true,
+      "privileged": {
+        "solved": false,
+        "evaluations": 8192,
+        "log2_evaluations": 13.0,
+        "predicted_log2": 11.0
+      },
+      "public": {
+        "verdict": "unknown",
+        "seconds": 60.009,
+        "stats": {
+          "sat conflicts": 509688,
+          "sat decisions": 647797,
+          "sat propagations 2ary": 21339988,
+          "sat propagations nary": 261865045,
+          "sat restarts": 37791,
+          "rlimit count": 1037109536
+        }
+      }
+    }
+  ],
+  "counts": [
+    {
+      "w": 4,
+      "c": 0,
+      "t": 2,
+      "hardened": false,
+      "solutions": 3,
+      "predicted": 1,
+      "witness_valid": true
+    },
+    {
+      "w": 4,
+      "c": 0,
+      "t": 2,
+      "hardened": true,
+      "solutions": 4,
+      "predicted": 1,
+      "witness_valid": true
+    },
+    {
+      "w": 4,
+      "c": 1,
+      "t": 3,
+      "hardened": false,
+      "solutions": 12,
+      "predicted": 16,
+      "witness_valid": true
+    },
+    {
+      "w": 4,
+      "c": 1,
+      "t": 3,
+      "hardened": true,
+      "solutions": 36,
+      "predicted": 16,
+      "witness_valid": true
+    }
+  ]
+}
