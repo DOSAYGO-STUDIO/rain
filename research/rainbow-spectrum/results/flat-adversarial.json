@@ -1,15 +1,15 @@
 {
   "phase": 7,
   "question": "is the measured separation an artifact of a weak flat solver?",
-  "generated": "2026-09-15T08:38:53",
+  "generated": "2026-09-15T09:35:20",
   "attack_a": [
     {
       "w": 3,
       "theta_draws": 12,
-      "draws_with_discriminating_label": 5,
-      "rate": 0.417,
+      "draws_with_discriminating_label": 8,
+      "rate": 0.667,
       "total_candidates": 36,
-      "total_validated": 7,
+      "total_validated": 14,
       "median_output_rank": 9,
       "median_premixer_invariants": 5,
       "state_bits": 12,
@@ -24,7 +24,7 @@
           "premixer_difference_rank": 7,
           "premixer_linear_invariants": 5,
           "candidates_from_training_class": 4,
-          "validated_on_heldout_classes": 1,
+          "validated_on_heldout_classes": 2,
           "discriminating_class_labels": 0,
           "succeeded": false,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
@@ -66,6 +66,20 @@
           "premixer_difference_rank": 6,
           "premixer_linear_invariants": 6,
           "candidates_from_training_class": 4,
+          "validated_on_heldout_classes": 2,
+          "discriminating_class_labels": 2,
+          "succeeded": true,
+          "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
+        },
+        {
+          "attack": "A_gf2_linear_invariant_on_output",
+          "state_bits": 12,
+          "class_size": 64,
+          "classes_enumerated_exactly": true,
+          "output_difference_rank": 8,
+          "premixer_difference_rank": 8,
+          "premixer_linear_invariants": 4,
+          "candidates_from_training_class": 4,
           "validated_on_heldout_classes": 1,
           "discriminating_class_labels": 1,
           "succeeded": true,
@@ -94,22 +108,8 @@
           "premixer_difference_rank": 8,
           "premixer_linear_invariants": 4,
           "candidates_from_training_class": 4,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
-          "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
-        },
-        {
-          "attack": "A_gf2_linear_invariant_on_output",
-          "state_bits": 12,
-          "class_size": 64,
-          "classes_enumerated_exactly": true,
-          "output_difference_rank": 8,
-          "premixer_difference_rank": 8,
-          "premixer_linear_invariants": 4,
-          "candidates_from_training_class": 4,
-          "validated_on_heldout_classes": 1,
-          "discriminating_class_labels": 1,
+          "validated_on_heldout_classes": 2,
+          "discriminating_class_labels": 2,
           "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
@@ -150,9 +150,9 @@
           "premixer_difference_rank": 7,
           "premixer_linear_invariants": 5,
           "candidates_from_training_class": 3,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -164,9 +164,9 @@
           "premixer_difference_rank": 7,
           "premixer_linear_invariants": 5,
           "candidates_from_training_class": 2,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 2,
+          "discriminating_class_labels": 2,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -188,10 +188,10 @@
     {
       "w": 4,
       "theta_draws": 12,
-      "draws_with_discriminating_label": 1,
-      "rate": 0.083,
+      "draws_with_discriminating_label": 8,
+      "rate": 0.667,
       "total_candidates": 26,
-      "total_validated": 1,
+      "total_validated": 9,
       "median_output_rank": 14,
       "median_premixer_invariants": 6,
       "state_bits": 16,
@@ -206,9 +206,9 @@
           "premixer_difference_rank": 12,
           "premixer_linear_invariants": 4,
           "candidates_from_training_class": 1,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -248,9 +248,9 @@
           "premixer_difference_rank": 11,
           "premixer_linear_invariants": 5,
           "candidates_from_training_class": 1,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -262,9 +262,9 @@
           "premixer_difference_rank": 9,
           "premixer_linear_invariants": 7,
           "candidates_from_training_class": 2,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -318,9 +318,9 @@
           "premixer_difference_rank": 10,
           "premixer_linear_invariants": 6,
           "candidates_from_training_class": 2,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -332,9 +332,9 @@
           "premixer_difference_rank": 8,
           "premixer_linear_invariants": 8,
           "candidates_from_training_class": 3,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -346,9 +346,9 @@
           "premixer_difference_rank": 10,
           "premixer_linear_invariants": 6,
           "candidates_from_training_class": 3,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 2,
+          "discriminating_class_labels": 2,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -360,9 +360,9 @@
           "premixer_difference_rank": 10,
           "premixer_linear_invariants": 6,
           "candidates_from_training_class": 2,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         }
       ]
@@ -370,10 +370,10 @@
     {
       "w": 5,
       "theta_draws": 12,
-      "draws_with_discriminating_label": 1,
-      "rate": 0.083,
+      "draws_with_discriminating_label": 4,
+      "rate": 0.333,
       "total_candidates": 14,
-      "total_validated": 1,
+      "total_validated": 5,
       "median_output_rank": 19,
       "median_premixer_invariants": 5,
       "state_bits": 20,
@@ -430,9 +430,9 @@
           "premixer_difference_rank": 13,
           "premixer_linear_invariants": 7,
           "candidates_from_training_class": 2,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -472,9 +472,9 @@
           "premixer_difference_rank": 16,
           "premixer_linear_invariants": 4,
           "candidates_from_training_class": 3,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -542,9 +542,9 @@
           "premixer_difference_rank": 16,
           "premixer_linear_invariants": 4,
           "candidates_from_training_class": 2,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 2,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         }
       ]
@@ -552,10 +552,10 @@
     {
       "w": 6,
       "theta_draws": 8,
-      "draws_with_discriminating_label": 0,
-      "rate": 0.0,
+      "draws_with_discriminating_label": 1,
+      "rate": 0.125,
       "total_candidates": 7,
-      "total_validated": 0,
+      "total_validated": 1,
       "median_output_rank": 23,
       "median_premixer_invariants": 7,
       "state_bits": 24,
@@ -570,9 +570,9 @@
           "premixer_difference_rank": 19,
           "premixer_linear_invariants": 5,
           "candidates_from_training_class": 1,
-          "validated_on_heldout_classes": 0,
-          "discriminating_class_labels": 0,
-          "succeeded": false,
+          "validated_on_heldout_classes": 1,
+          "discriminating_class_labels": 1,
+          "succeeded": true,
           "note": "a candidate counts only if it is constant on held-out classes AND separates them; constants that survive but never differ are not class labels and give the attacker nothing"
         },
         {
@@ -809,13 +809,13 @@
     }
   ],
   "discriminating_label_rate_by_width": {
-    "3": 0.417,
-    "4": 0.083,
-    "5": 0.083,
-    "6": 0.0,
+    "3": 0.667,
+    "4": 0.667,
+    "5": 0.333,
+    "6": 0.125,
     "7": 0.0,
     "8": 0.0
   },
   "flat_attack_breaks_the_separation": false,
-  "conclusion": "A GF(2)-linear class label exists for a MINORITY of parameter choices at small width (rates by w: {3: 0.417, 4: 0.083, 5: 0.083, 6: 0.0, 7: 0.0, 8: 0.0}), and the rate falls to zero by w=6. Where it exists it is worth one bit, which does not close a gap growing as 2^(1.5w). Class canonicalisation is dominated by generic birthday. So the separation survives these attacks -- which is NOT the same as surviving all of them. Untried, and most likely to bite: Z/2^w-linear functional search, since the invariant is Z/2^w-linear and not GF(2)-linear, making this GF(2) result weak evidence by construction. Also untried: ANF/algebraic elimination, SAT/SMT, meet-in-the-middle, and amortised precomputation."
+  "conclusion": "A GF(2)-linear class label is COMMON at the smallest widths and dies as w grows (rates by w: {3: 0.667, 4: 0.667, 5: 0.333, 6: 0.125, 7: 0.0, 8: 0.0}, first zero at w=7). These numbers supersede an earlier run whose nullspace solver was wrong: it returned vectors that did not annihilate their rows, which silently undercounted invariants at w >= 4 (w=4 read 0.083 where the truth is 0.667). The zeros at the largest widths do NOT depend on that solver, since there the output rank is full and the nullspace is trivial before the solver is consulted. Where a label exists it is worth about one bit, which does not close a gap growing as 2^(1.5w), and class canonicalisation remains dominated by generic birthday. The linear route is now closed in both algebras (see zmod_invariant_search.py for Z/2^r at every modulus) and exact ANF flattening is done (flatten_and_attack.py). Untried: SAT/SMT on the emitted symbolic form, meet-in-the-middle, and amortised precomputation."
 }

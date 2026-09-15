@@ -100,8 +100,8 @@ validated against 8 held-out classes, and a candidate only counts if it also
 
 | w | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|
-| draws with a discriminating label | 5/12 | 1/12 | 1/12 | 0/8 | 0/4 | 0/2 |
-| rate | 0.42 | 0.08 | 0.08 | 0 | 0 | 0 |
+| draws with a discriminating label | 8/12 | 8/12 | 4/12 | 1/8 | 0/4 | 0/2 |
+| rate | 0.67 | 0.67 | 0.33 | 0.13 | 0 | 0 |
 | median output rank (of 4w) | 9/12 | 14/16 | 19/20 | 23/24 | 28/28 | 32/32 |
 
 So **GF(2)-linear leakage is a small-width phenomenon that dies as w grows.** At
@@ -267,13 +267,27 @@ search looked for functionals Z/2^r-linear in output **words**. Carries make
 those genuinely different function classes, so the two searches are complements,
 not a redundant pair.
 
-**Open discrepancy, unresolved.** `flat_adversarial.py` attack A reports GF(2)
-label rates of 0.42 / 0.08 / 0.08 / 0 / 0 / 0 declining with w, while
-`flatten_and_attack.py` finds 7–9 of 12 draws at w=3–5. Both implement the same
-criterion — a GF(2)-linear functional constant on a class and discriminating
-across classes — so they should agree. One has a bug. Until that is found,
-**neither rate should be cited as settled**; only the brute-force-verified
-existence of a 1-bit label is established.
+**Discrepancy: found and fixed.** Two implementations of the same criterion
+disagreed — `flat_adversarial.py` reported rates declining as
+0.42 / 0.08 / 0.08 / 0 / 0 / 0 while `flatten_and_attack.py` found 7–9 of 12
+draws at w=3–5 — so one had to be wrong.
+
+It was `flat_adversarial.gf2_nullspace`. It reduced each row by iterating a dict
+in **insertion order** rather than by pivot column, and back-substituted in a
+way that could break constraints it had already satisfied. Tested against
+brute-force enumeration of all 2^(4w) functionals: at w=3 it agreed with brute
+force, which is how it survived, but at w=4 its single basis vector **did not
+annihilate the rows at all**. Invalid candidates are then discarded by held-out
+validation, so the visible symptom was a silent undercount at w ≥ 4.
+
+Corrected (the table above), w=4 moves from 0.08 to 0.67 and the two searches
+now agree. The function carries a post-condition that raises if any returned
+vector fails to annihilate its rows, so this cannot regress silently.
+
+Two things survive the correction unchanged: the decline of the rate with w,
+and the zeros at w=7 and w=8 — those come from the output rank being *full*
+(28/28, 32/32), so the nullspace is trivial before the solver is consulted at
+all, and never depended on it.
 
 ### How much does it leak? (quantified)
 
@@ -354,6 +368,7 @@ Kept deliberately, per the program:
 | naive branch C destroyed the weakness | the mixer was selected from the whole state, so injection moved the state into a different parameter region and the coset fragmented | a selector must read an injection-invariant quantity (σ), not the state |
 | the flattening positive control failed at w=3,4 but passed at w=5 | it let earlier rounds' controls vary, and σ is only invariant with respect to the **final** injection — round 1's mixer changes it | a control must isolate exactly the invariant it claims to plant, nothing wider |
 | the flattening attack declared a break on any discriminating label | success was counted as existence rather than bits; the label was worth 1 bit against σ's 2w | measure capability in bits against what the privileged side actually gets |
+| two implementations of one criterion disagreed by ~8x | `gf2_nullspace` reduced rows in dict-insertion order, not pivot order, and returned vectors that annihilated nothing; correct at w=3, wrong at w≥4 | when two of your own measurements disagree, one is broken — arbitrate with brute force before believing either, and give linear-algebra helpers a post-condition |
 | a first attempt looked for "low-degree relations" with no cross-class check | constancy alone is trivial — low bits of modular addition are GF(2)-linear — so it found relations that were never class labels | reuse the validated criterion (constant within class **and** discriminating across classes), do not invent a weaker one |
 
 ## Layout and reproduction

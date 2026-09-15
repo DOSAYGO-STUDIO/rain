@@ -69,27 +69,54 @@ def build_composition(w, k, rng):
 
 
 def gf2_nullspace(vectors, bits):
-    """Basis of {lambda : parity(lambda & d) == 0 for every d}."""
+    """Basis of {lambda : parity(lambda & d) == 0 for every d}.
+
+    Proper reduced row echelon form.
+
+    The previous version was WRONG, and its wrongness is the reason this file
+    disagreed with the ANF-based search. It reduced each row by iterating a dict
+    in INSERTION order rather than by pivot column, and then back-substituted in
+    a way that could break constraints it had already satisfied. Checked against
+    brute-force enumeration: at w=4 its single basis vector did not annihilate
+    the rows at all, while the true nullspace has dimension 1. Invalid
+    candidates are then discarded by held-out validation, so the visible effect
+    was a silent UNDERCOUNT of invariants at w >= 4. At w=3 it happened to agree
+    with brute force, which is how the bug survived.
+
+    The post-condition below makes a recurrence impossible to miss.
+    """
     rows = [v for v in vectors if v]
-    pivot_of = {}
+    pivots = {}
     for row in rows:
         cur = row
-        for col, prow in pivot_of.items():
+        for col in sorted(pivots, reverse=True):
             if (cur >> col) & 1:
-                cur ^= prow
+                cur ^= pivots[col]
         if cur:
-            col = cur.bit_length() - 1
-            pivot_of[col] = cur
-    pivots = sorted(pivot_of)
-    free = [c for c in range(bits) if c not in pivot_of]
+            pivots[cur.bit_length() - 1] = cur
+
+    # Fully reduce, so each pivot column appears in exactly one row.
+    for col in sorted(pivots):
+        for other in sorted(pivots):
+            if other != col and (pivots[other] >> col) & 1:
+                pivots[other] ^= pivots[col]
+
+    free = [c for c in range(bits) if c not in pivots]
     basis = []
     for f in free:
         lam = 1 << f
-        for col in sorted(pivots, reverse=True):
-            prow = pivot_of[col]
-            if bin(lam & prow).count("1") % 2:
-                lam ^= 1 << col
+        for col, prow in pivots.items():
+            if (prow >> f) & 1:
+                lam |= 1 << col
         basis.append(lam)
+
+    for lam in basis:
+        for row in rows:
+            if bin(lam & row).count("1") % 2:
+                raise AssertionError(
+                    "gf2_nullspace returned a vector that does not annihilate "
+                    "its rows: the solver is wrong, and every count derived "
+                    "from it would be meaningless")
     return basis
 
 
@@ -266,17 +293,23 @@ def main():
     rates = {r["w"]: r["rate"] for r in report["attack_a"]}
     report["discriminating_label_rate_by_width"] = rates
     report["flat_attack_breaks_the_separation"] = False
+    zero_at = next((w for w in sorted(rates) if rates[w] == 0), None)
     report["conclusion"] = (
-        "A GF(2)-linear class label exists for a MINORITY of parameter choices "
-        f"at small width (rates by w: {rates}), and the rate falls to zero by "
-        "w=6. Where it exists it is worth one bit, which does not close a gap "
-        "growing as 2^(1.5w). Class canonicalisation is dominated by generic "
-        "birthday. So the separation survives these attacks -- which is NOT the "
-        "same as surviving all of them. Untried, and most likely to bite: "
-        "Z/2^w-linear functional search, since the invariant is Z/2^w-linear "
-        "and not GF(2)-linear, making this GF(2) result weak evidence by "
-        "construction. Also untried: ANF/algebraic elimination, SAT/SMT, "
-        "meet-in-the-middle, and amortised precomputation."
+        f"A GF(2)-linear class label is COMMON at the smallest widths and dies "
+        f"as w grows (rates by w: {rates}"
+        + (f", first zero at w={zero_at}" if zero_at else "") + "). These "
+        "numbers supersede an earlier run whose nullspace solver was wrong: it "
+        "returned vectors that did not annihilate their rows, which silently "
+        "undercounted invariants at w >= 4 (w=4 read 0.083 where the truth is "
+        "0.667). The zeros at the largest widths do NOT depend on that solver, "
+        "since there the output rank is full and the nullspace is trivial "
+        "before the solver is consulted. Where a label exists it is worth about "
+        "one bit, which does not close a gap growing as 2^(1.5w), and class "
+        "canonicalisation remains dominated by generic birthday. The linear "
+        "route is now closed in both algebras (see zmod_invariant_search.py for "
+        "Z/2^r at every modulus) and exact ANF flattening is done "
+        "(flatten_and_attack.py). Untried: SAT/SMT on the emitted symbolic "
+        "form, meet-in-the-middle, and amortised precomputation."
     )
     path = RESULTS / "flat-adversarial.json"
     path.write_text(json.dumps(report, indent=2))
