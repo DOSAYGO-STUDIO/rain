@@ -1,0 +1,34 @@
+{
+  "question": "Q9: Q8's two gates",
+  "gate_2_all_stripes_required": "FAILS structurally -- disjoint stripes mean the cheapest witness touches one stripe, and the public cannot require otherwise without the secret",
+  "gate_1_partition_hiding": "FAILS under program access",
+  "rows": [
+    {
+      "w": 8,
+      "k": 2,
+      "words_per_stripe": 4,
+      "partition_recovered": "6/6"
+    },
+    {
+      "w": 8,
+      "k": 3,
+      "words_per_stripe": 4,
+      "partition_recovered": "6/6"
+    },
+    {
+      "w": 8,
+      "k": 4,
+      "words_per_stripe": 4,
+      "partition_recovered": "6/6"
+    },
+    {
+      "w": 10,
+      "k": 3,
+      "words_per_stripe": 4,
+      "partition_recovered": "6/6"
+    }
+  ],
+  "why_not_a_compilation_issue": "F depends on m_i only through W_i(m_i), so that digest is a bottleneck any evaluator must compute, and its input support IS the stripe",
+  "sharpest_form": "the private cheap route requires a bottleneck; a bottleneck is a publicly visible support boundary",
+  "generated": "2026-09-16T06:41:42"
+}
