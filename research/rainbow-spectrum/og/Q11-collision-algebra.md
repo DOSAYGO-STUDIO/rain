@@ -112,3 +112,34 @@ Consequences worth stating:
     failure. That was an experimental error -- random S and T with no planted
     witness, so the sigma match had only birthday luck, ~40% for two pairs, and
     3/12 is exactly that. Planting is what makes the comparison meaningful.
+
+## Addendum 2 — the geometry is ultrametric, and composition respects it
+
+For members related by successive ratios `c12`, `c23`, with `c13 = c23·c12`, the
+composition obeys `v2(c13-1) >= min(v2(c12-1), v2(c23-1))`, and the overlap
+predicted from `v2(c13-1)` matches measurement in every case tested, including
+the strict-inequality branches where valuations cancel (w=16, 400 collisions):
+
+     a    b   v2(c13-1)  min(a,b)  cancels   predicted   measured
+    15   15      16         15       yes      1.00000     1.00000
+    14   14      15         14       yes      0.50000     0.51000
+    13   13      14         13       yes      0.25000     0.24750
+    15   14      14         14        no      0.25000     0.24750
+    15   13      13         13        no      0.12500     0.12250
+    12   15      12         12        no      0.06250     0.05500
+    14   13      13         13        no      0.12500     0.12250
+    10   12      10         10        no      0.01562     0.01750
+
+Inequality held 8/8. So the m3 family carries an ultrametric collision geometry:
+parameters close 2-adically share many collisions, distant ones exponentially
+fewer, overlap is nested, and composing parameter changes respects the hierarchy.
+
+The (15,15) row pins the tree's shape rather than leaving it abstract: v2 reaches
+w, so `c13 = 1` and the two members COINCIDE, because
+`(1 + 2^(w-1))^2 = 1 + 2^w + 2^(2w-2) = 1 mod 2^w`. The deepest level is a group
+of order two.
+
+What this does not do is break the symmetry that has killed everything else:
+transport depends only on the parameters, which are public in a collision
+setting, so it serves attacker and keyholder alike. It is a structural result
+about the family, not a trapdoor.
