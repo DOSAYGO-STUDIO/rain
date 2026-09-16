@@ -15,8 +15,8 @@
   "timeout_ms": 900000,
   "isolation": "one child process per draw; artifact rewritten per draw",
   "w24_lives_in": "deepen-w24.json (measured the same way)",
-  "generated": "2026-09-15T23:29:37",
-  "wall_seconds": 136.6,
+  "generated": "2026-09-15T23:30:50",
+  "wall_seconds": 209.3,
   "raw": [
     {
       "w": 12,
@@ -1165,6 +1165,76 @@
       "seconds": 39.5,
       "rlimit": "not attempted",
       "observed_peak_rss_mb": 89.5
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 4,
+      "rlimit_count": 59975348,
+      "status": "sat",
+      "conflicts": 84619,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 92.3,
+      "seconds": 12.0,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 91.5
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 5,
+      "rlimit_count": 46517905,
+      "status": "sat",
+      "conflicts": 114161,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 95.2,
+      "seconds": 12.1,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 94.6
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 1,
+      "rlimit_count": 322764970,
+      "status": "sat",
+      "conflicts": 629876,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 101.2,
+      "seconds": 87.6,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 101.0
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 6,
+      "rlimit_count": 164478549,
+      "status": "sat",
+      "conflicts": 344428,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 101.9,
+      "seconds": 44.2,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 101.9
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 3,
+      "rlimit_count": 272791253,
+      "status": "sat",
+      "conflicts": 602957,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 103.0,
+      "seconds": 79.7,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 102.8
     }
   ],
   "variants": {
@@ -1247,14 +1317,19 @@
           ]
         },
         "20": {
-          "n": 2,
-          "attempted": 2,
+          "n": 7,
+          "attempted": 7,
           "censored": 0,
-          "median": 242420.5,
-          "median_rlimit": 138149885.5,
+          "median": 275738,
+          "median_rlimit": 164478549,
           "raw": [
+            84619,
+            114161,
             209103,
-            275738
+            275738,
+            344428,
+            602957,
+            629876
           ]
         },
         "22": {
@@ -1271,14 +1346,14 @@
         "14": 11727.5,
         "16": 33256.5,
         "18": 62869.5,
-        "20": 242420.5
+        "20": 275738
       },
       "n": {
         "12": 10,
         "14": 10,
         "16": 10,
         "18": 10,
-        "20": 2,
+        "20": 7,
         "22": 0
       }
     },

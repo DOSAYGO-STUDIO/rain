@@ -22,14 +22,25 @@ measures of the same solve, so a verdict that holds on one and not the other is
 a verdict about the metric rather than about the construction. Both are
 reported; agreement is evidence, disagreement is a finding.
 
-W=24 MAY HAVE NO MEDIAN. Where censoring leaves survival above 0.5 there is no
-median to quote, and the width is dropped with that stated rather than filled in
--- the failure mode guarded against here is the earlier version of this script,
+ONE ESTIMATOR FOR EVERY WIDTH. Medians are recomputed here from the raw draws
+rather than read out of whichever summary field each artifact happens to carry.
+scaling_clean.py reports a plain median over solved draws and deepen_w24.py
+reports a Kaplan-Meier median, and splicing those two into a single fit would
+mean the low widths and the high widths were estimated by different rules --
+which is the exact shape of silent mismatch that produced the last three
+retractions in this project. So the same censoring-aware estimator is applied
+uniformly: a plain median where nothing is censored, Kaplan-Meier where
+something is, and no value at all where survival never reaches 0.5.
+
+A WIDTH MAY HAVE NO MEDIAN. Where censoring leaves survival above 0.5 there is
+nothing to quote, and the width is dropped with that stated rather than filled
+in -- the failure mode guarded against is the earlier version of this script,
 which silently fell back to the superseded number when the new one was absent.
 """
 
 import json
 import pathlib
+import statistics
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
@@ -40,27 +51,59 @@ from drift_test import analyse                                   # noqa: E402
 RESULTS = pathlib.Path(__file__).resolve().parents[1] / "results"
 
 
+def censored_median(rows, metric):
+    """Median cost, treating timed-out draws as right-censored lower bounds.
+
+    Plain median when nothing is censored, Kaplan-Meier when something is, and
+    None where survival never falls to 0.5 -- in which case there is no median
+    and saying so is the only honest option. Returns (value, basis).
+
+    The censoring caveat is worth restating where it is used rather than only in
+    a paper: the budget is wall-clock, and timeout-validity.json shows wall time
+    on this machine tracks load rather than difficulty. The conflict and rlimit
+    COUNTS are exactly reproducible; which draws got censored is not.
+    """
+    key = "conflicts" if metric == "conflicts" else "rlimit_count"
+    observations = [(r[key], bool(r.get("event")))
+                    for r in rows if r.get(key)]
+    if not observations:
+        return None, "no data"
+    events = sorted(v for v, e in observations if e)
+    if not any(not e for _, e in observations):
+        return (statistics.median(events) if events else None,
+                f"median of {len(events)} solved, none censored")
+    observations.sort()
+    at_risk, survival = len(observations), 1.0
+    for value, event in observations:
+        if event:
+            survival *= (at_risk - 1) / at_risk
+            if survival <= 0.5:
+                return value, (f"Kaplan-Meier over {len(observations)} draws, "
+                               f"{sum(1 for _, e in observations if not e)} censored")
+        at_risk -= 1
+    return None, (f"NOT ESTIMABLE: survival never reaches 0.5 "
+                  f"({len(events)} solved of {len(observations)})")
+
+
 def series(clean, w24, label, metric):
-    """{width: cost} for one variant under one cost metric, plus provenance."""
-    key = "median" if metric == "conflicts" else "median_rlimit"
+    """{width: cost} for one variant under one cost metric, plus provenance.
+
+    Built from the raw draws of both artifacts so that every width is estimated
+    by the same rule.
+    """
+    hardened = (label == "hardened")
+    by_width = {}
+    for source in (clean, w24):
+        for row in source["raw"]:
+            if row.get("hardened") == hardened:
+                by_width.setdefault(row["w"], []).append(row)
+
     out, provenance = {}, {}
-    for width, row in clean["variants"][label]["per_width"].items():
-        if row[key]:
-            out[width] = row[key]
-            provenance[width] = (f"clean n={row['n']}/{row['attempted']}"
-                                 + (f", {row['censored']} censored"
-                                    if row["censored"] else ""))
-    row24 = w24["variants"][label]
-    if metric == "conflicts" and row24.get("median"):
-        out["24"] = row24["median"]
-        provenance["24"] = (f"clean n={row24['n']}/{row24['attempted']}, "
-                            f"{row24['censored']} censored "
-                            f"({row24.get('median_basis')})")
-    else:
-        provenance["24"] = (
-            f"EXCLUDED: no median ({row24['solved']}/{row24['attempted']} "
-            f"solved, {row24['censored']} censored)" if metric == "conflicts"
-            else "EXCLUDED: rlimit not summarised for w=24")
+    for width in sorted(by_width):
+        value, basis = censored_median(by_width[width], metric)
+        provenance[str(width)] = f"{basis} (n={len(by_width[width])} drawn)"
+        if value:
+            out[str(width)] = value
     return out, provenance
 
 
@@ -101,8 +144,9 @@ def main():
             for width in sorted(costs, key=int):
                 print(f"    w={width:>2}  {costs[width]:>14.0f}  "
                       f"{provenance[width]}")
-            if "24" in provenance and "24" not in costs:
-                print(f"    w=24  {provenance['24']}")
+            for width in sorted(provenance, key=int):
+                if width not in costs:
+                    print(f"    w={width:>2}  {'-':>14}  {provenance[width]}")
             if result.get("error"):
                 print(f"    {result['error']}")
                 continue
