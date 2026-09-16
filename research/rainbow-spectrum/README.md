@@ -5,27 +5,53 @@ become a structural primitive: individually steerable factors composed into a
 flat map whose steering is no longer cheaply accessible, while knowledge of the
 factorization still permits cheap steering.
 
-**Status: one real finding, one retracted one.**
+**Status: the designed 2x2 reproduces on clean measurements. Two earlier
+headline claims stay falsified; a third retraction is itself withdrawn.**
 
-**Survives.** A capability asymmetry. In the only regime the counting argument
-allows, the privileged solver recovers a witness **61/61** with the pair-sum
-weakness present and **0/61** with it removed. Factor knowledge buys something
-that vanishes when the weakness does.
+Experiment B is an **interaction** — representation (flat/factored) crossed with
+weakness (present/removed) — and for a long time this README evaluated it one
+cell at a time, which is how it managed to be wrong in both directions.
 
-**Retracted.** The complexity separation. Public cost was reported as growing
-2^(0.70w), then 2^(0.83w), against the privileged 2^(0.5w). Re-measured with the
-leveraged widths at 10/8/3 draws instead of 5/3/2, the pre-registered drift test
-returns **`declining`**: windowed exponents fall 0.806 → 0.782 → 0.645 → 0.627,
-trend −0.034 against a −0.01 threshold. The separation is **pre-asymptotic** —
-the headline number was averaging a decaying curve, not describing a law. See
-[the retake](#the-verdict-flipped-under-honest-sample-sizes).
+|              | weak                      | hardened                |
+| ------------ | ------------------------- | ----------------------- |
+| **flat**     | 2^0.722w  [0.656, 0.796]  | 2^0.739w  [0.652, 0.807] |
+| **factored** | 2^0.500w  [0.500, 0.500]  | **no shortcut** (0/70)  |
 
-Earlier still, a 2^(1.5w) "separation" was
-[superseded](#smt-the-capability-was-the-wrong-one) for measuring a task that
-was never hard. That is three headline claims falsified by this repository's own
-controls, and one narrow finding left standing.
+*(flat row by conflicts; by rlimit it is 2^0.854w vs 2^0.871w. See
+[units](#the-gap-is-between-representations-not-a-hardness-claim).)*
 
-No primitive, no hardness claim. See [Limitations](#limitations).
+**Survives, and is now stronger.** The capability asymmetry. The privileged
+solver recovers a witness **110/110** with the pair-sum weakness present and
+**0/70** with it removed, across w = 12…32. Removing the weakness does not make
+the private route slower, it removes the route: the sigma match fails on pair
+0/1 at every width tried. The factored cost is exactly 4·2^(w/2) on every
+instance, so that exponent is 0.5 with a degenerate interval rather than a fit.
+
+**New: a measured separation between representations.** Flat-weak minus
+factored-weak is **+0.222 [0.156, 0.296]** by conflicts and **+0.354 [0.291,
+0.405]** by rlimit. Both exclude zero.
+
+**The negative control behaves as a trapdoor predicts.** Flat-weak vs
+flat-hardened is null — Δ = −0.017, interval spanning zero under both metrics.
+This was previously read *as a refutation*, which is backwards: a hidden
+trapdoor is supposed to be invisible from the public side, so a null there is
+the control succeeding. A difference would have meant the public solver was
+feeding on the very weakness that gives the private route its shortcut.
+
+**Withdrawn: the `declining` retraction.** That verdict rested on conflict
+counts gathered by solving many draws per process, which
+[do not measure the instance](#conflict-counts-were-not-a-property-of-the-instance).
+Re-measured one solve per process, the same frozen rule returns **`stable`**
+under both cost metrics. The earlier `declining` and the `stable` before it were
+both computed over a quantity that could not be measured twice.
+
+**Still falsified.** The 2^(1.5w) "separation", which
+[measured a task that was never hard](#smt-the-capability-was-the-wrong-one),
+and the "zero conflicts" claim, which was
+[a statistics-key bug](#correction). Those stand.
+
+No primitive, no hardness claim, and the public side rests on a single solver.
+See [Limitations](#limitations).
 
 Prerequisite: the underlying weakness is the pair-sum collapse documented in
 [`../rainbow/`](../rainbow/).
@@ -571,6 +597,17 @@ instance of it is hard.
 
 ### The verdict flipped under honest sample sizes
 
+> **SUPERSEDED, twice over, and kept because both errors are instructive.** The
+> numbers below are contaminated: they come from solving many draws per process,
+> which [does not measure the
+> instance](#conflict-counts-were-not-a-property-of-the-instance). Re-measured
+> cleanly the frozen rule returns `stable`, not `declining`. And the reasoning
+> in the final paragraphs — that weak converging to hardened from the public
+> side "leaves nothing for the weak curve to claim" — is backwards. It correctly
+> spotted that the weakness *should* be invisible publicly, then treated that
+> invisibility as a refutation instead of as the negative control succeeding.
+> See [the interaction](#experiment-b-is-an-interaction).
+
 The drift verdict was taken twice on the same widths. The only thing that
 changed between them was how many draws the leveraged widths rested on
 (`attacks/retake_verdict.py`, `results/retake-verdict.json`). The analysis
@@ -610,6 +647,85 @@ Honest residue: w=24 still rests on n=3, and its raw draws span 694,652 to
 siblings. That width is not yet trustworthy in either direction, and a
 `declining` verdict resting partly on it deserves the same scepticism the
 `stable` one got.
+
+### Conflict counts were not a property of the instance
+
+Every cost number this project published before 2026-09-16 was gathered by
+solving many draws inside one process. That does not measure what it appears to
+(`attacks/solver_state_contamination.py`,
+`results/solver-state-contamination.json`).
+
+    fresh process per draw   [4071, 5224, 3527, 6267, 628]
+    one shared process       [4071, 5396, 5188, 5343, 5662]
+
+The first draw agrees exactly; nothing after it does. The instances are not what
+differ — `plant()` was fingerprinted forward and in reverse draw order and is
+byte-identical either way, so every past run solved exactly the problems it
+claimed. **The solver is what differs.** One identical instance, solved sixteen
+times in a single process, ranges 2,422 to 5,610 — a **2.32× spread on a problem
+that cannot vary**. Pinning `sat.random_seed`, `smt.random_seed` and `nlsat.seed`
+does not fix it; it is per-process state surviving between `Solver` objects.
+
+It is noise, not positional drift (first half of sixteen repeats averaged 4,079,
+second half 3,922). That distinction is load-bearing: `scaling_wide.py` solved
+every width in one process with larger widths always later, so a positional
+trend would have been confounded with width and would have biased the exponent
+directly. Measured, it is not.
+
+One solve per process is exactly reproducible — three draws, three fresh
+processes each, agreeing to the digit on **both** cost metrics. So under the
+clean protocol cost is a deterministic function of the instance, per-width
+spread is pure instance variance, and a bootstrap over draws resamples only what
+genuinely varies. The old β interval [0.505, 0.902], whose lower bound cleared
+0.5 by 0.005, was partly resampling solver noise that would never recur.
+
+A second instrument failed the same day. **Wall-clock censoring measures machine
+load, not difficulty** (`attacks/timeout_validity.py`): one deterministic
+instance was recorded as solved in 127.5s, solved in 385.1s, and censored at
+>900s, with identical conflict counts wherever it finished. Conflict and rlimit
+*counts* are exactly reproducible; *which draws get censored* is not.
+
+### Experiment B is an interaction
+
+The design is representation (flat/factored) crossed with weakness
+(present/removed), and three comparisons fall out of it — only two of which
+carry the hypothesis (`attacks/interaction.py`, `results/interaction.json`).
+
+| comparison | prediction | measured |
+|---|---|---|
+| flat-weak vs flat-hardened (**negative control**) | null | Δ −0.017, CI spans 0 under both metrics ✓ |
+| flat-weak vs factored-weak (**the separation**) | gap > 0 | +0.222 [0.156, 0.296] conflicts; +0.354 [0.291, 0.405] rlimit ✓ |
+| factored-weak vs factored-hardened (**weakness gap**) | shortcut disappears | 110/110 vs **0/70** ✓ |
+
+The negative control is the one this README previously got backwards. A trapdoor
+is supposed to be invisible from the public side; a *difference* there would
+mean the public solver was exploiting the very weakness that gives the private
+route its shortcut, which would sink the construction. The null is the control
+succeeding.
+
+The third row is stronger than an exponent difference. Hardening does not slow
+the private route, it **removes** it — the sigma match fails on pair 0/1 at every
+width from 12 to 24.
+
+### The gap is between representations, not a hardness claim
+
+Three limits bound what the table above supports, and they are in
+`results/interaction.json` rather than in a footnote.
+
+**Units.** The flat arm counts z3 steps; the factored arm counts `round_fwd`
+evaluations. Both are step counts and an exponent is a dimensionless growth
+rate, so the *exponents* may be compared — but the *constants* may not. Nothing
+here says at what w the private route wins in wall-clock terms.
+
+**Metric dependence.** The public exponent is 0.722 by conflicts and 0.854 by
+rlimit *on identical draws*. That 0.13 spread propagates straight into the gap,
+which is why it is quoted under both rather than under the more flattering one.
+
+**One public attack.** z3 is a single solver, driven by an encoding written by
+the same process that built the construction. The separation holds only until a
+dedicated public algorithm finds the sigma route without being handed the
+decomposition. **That experiment has not been run, and it is the one that could
+still kill this.**
 
 ## Limitations
 
