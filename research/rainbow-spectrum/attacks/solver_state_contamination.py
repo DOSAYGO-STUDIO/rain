@@ -53,11 +53,29 @@ WHAT IT DOES AND DOES NOT INVALIDATE.
   The capability result is untouched. 61/61 privileged versus 0/61 public is a
   sat/unsat outcome, not a cost measurement, and nothing here moves it.
 
-THE FIX, and it is not optional: one solve per process. That is reproducible --
-draw 0 at w=24 returned 1,254,257 conflicts in three independent fresh
-processes. deepen_w24.py already works this way. scaling_wide.py and deepen.py
-do not, so the w=12..22 series cannot be spliced against cleanly measured w=24
-numbers as if they were the same kind of quantity.
+4. does one solve per process actually fix it? Yes, exactly. Three draws, each
+   run in three independent fresh processes, agree to the digit on BOTH cost
+   metrics:
+
+       draw 0   (4071, 1313856) x3
+       draw 1   (5224, 1113490) x3
+       draw 2   (3527, 1151672) x3
+
+   That is the constructive half of this result and it is stronger than merely
+   removing a bias. Under the clean protocol, cost is a deterministic function
+   of the instance, so the spread across draws at a width is PURE INSTANCE
+   VARIANCE with no solver noise in it at all. The 2.32x floor is a property of
+   the old measurements only, and nothing measured from here carries it.
+
+   Incidentally the two metrics are not monotone with one another -- draw 0 has
+   fewer conflicts than draw 1 but more rlimit -- which is what makes agreement
+   between them a real check rather than a restatement.
+
+THE FIX, and it is not optional: one solve per process. deepen_w24.py and
+scaling_clean.py work this way. scaling_wide.py and deepen.py do not, so the
+w=12..22 numbers they produced cannot be spliced against cleanly measured w=24
+numbers as if they were the same kind of quantity -- which is why the series was
+re-measured rather than patched at the top end.
 """
 
 import hashlib
@@ -130,6 +148,18 @@ def main():
                               "conflict"))
     half = REPEATS // 2
 
+    # 4. does a fresh process per solve give determinism?
+    determinism = {}
+    for d in range(3):
+        seen = []
+        for _ in range(3):
+            out = subprocess.run(
+                [sys.executable, str(CHILD), str(W), "0", str(d), "60000", "0"],
+                capture_output=True, text=True).stdout.strip()
+            row = json.loads(out.splitlines()[-1])
+            seen.append((row.get("conflicts"), row.get("rlimit_count")))
+        determinism[d] = {"observed": seen, "identical": len(set(seen)) == 1}
+
     report = {
         "experiment": "solver_state_contamination",
         "question": "is conflict count a property of the instance?",
@@ -148,6 +178,12 @@ def main():
         "repeat_second_half_mean": round(statistics.mean(repeats[half:]), 1),
         "positional_drift": "none measured; the contamination is noise",
         "z3_seeds_fix_it": False,
+        "fresh_process_determinism": determinism,
+        "fresh_process_is_deterministic": all(v["identical"]
+                                              for v in determinism.values()),
+        "consequence": ("under one-solve-per-process, cost is a deterministic "
+                        "function of the instance, so per-width spread is pure "
+                        "instance variance and carries no solver noise"),
         "affected": ["scaling_wide.py (one process, all widths, all draws)",
                      "deepen.py (pool workers each run several draws)"],
         "unaffected": ["deepen_w24.py and _w24_child.py (one solve per process)",
@@ -166,6 +202,8 @@ def main():
     print(f"  spread {report['repeat_spread']}x, "
           f"halves {report['repeat_first_half_mean']} / "
           f"{report['repeat_second_half_mean']}")
+    print(f"fresh-process determinism: "
+          f"{report['fresh_process_is_deterministic']}")
     print(f"-> {path}")
     return 0
 
