@@ -3,24 +3,25 @@
 (Numbering note: this is the work proposed as "Q23"; that number was already
 taken by the derivation result committed earlier.)
 
-## 1. The counting bound
+## 1. The counting bound -- CORRECTED, see Q25
 
-Let `K_L` be the secret-dependent capability that makes collisions cheap at label
-`L`, and suppose a witness at `L` determines `h` bits of `K_L` while revealing
-nothing about any `K_{L'}`. Perfect isolation means `I(K_{L'} ; W_L) = 0` for all
-`L' != L`, so the capabilities carry independent entropy and
+The bound first written here was wrong and is superseded. It argued from
+PAIRWISE isolation `I(K_{L'} ; W_L) = 0` to JOINT independence, and that step
+does not hold. Counterexample: `K_L = a L + b` over a field is pairwise
+independent -- learning `K_L` reveals nothing whatever about `K_{L'}` -- while the
+master key is only `2h` bits, not `N h`.
 
-    H(K_1, ..., K_N) = sum_i H(K_i) ~ N h
+The correct statement is **exposure-parameterized**. Requiring that a fresh label
+stay information-theoretically independent after ANY `t` exposed labels needs
+`(t+1)`-wise independence of the capability variables, giving
 
-Every `K_i` is a function of the master secret `K`, so `H(K) >= H(K_1..K_N)` and
+    H(K) >= (t + 1) h
 
-    H(K) >= N h
+and that is TIGHT: a degree-`t` polynomial over `GF(2^h)` achieves it with
+exactly `(t+1) h` secret bits. Only demanding isolation after all `N-1` other
+labels are exposed recovers `H(K) >= N h`.
 
-**Information-theoretic label isolation costs `h` fresh bits of master key per
-label.** This is why the Q22 positive control works: it is paying, one
-independent subkey at a time. Any construction with a key sublinear in the label
-count must therefore be *computationally* hiding the relations between the
-`K_L`s -- it cannot be hiding them information-theoretically.
+Q25 builds that construction and measures it.
 
 ## 2. The independent construction, built for real
 
@@ -85,7 +86,7 @@ a tree serving `N` labels with `N/c` classes is just `N/c` independent secrets
 with the leaves relabelled. Key size stays linear in the number of *distinct
 capabilities*, which is the only count the bound in section 1 cares about.
 
-## 5. What this settles
+## 5. What this settles (read with section 1's correction)
 
     sharing scheme        key size        isolation
     independent           N words         PERFECT (l_cross = 0)
@@ -93,10 +94,12 @@ capabilities*, which is the only count the bound in section 1 cares about.
     additive tree         #classes words  perfect between classes, none within;
                                           no compression -- classes ARE the key
 
-Every algebraic sharing scheme tried collapses to one of two regimes: pay `N`
-independent secrets and isolate, or share and leak from the first witness. That
-is section 1's bound showing up construction by construction, which is what it
-should do if the bound is right.
+Every algebraic sharing scheme *tried here* collapses to one of two regimes: pay
+`N` independent secrets and isolate, or share and leak from the first witness.
+**That dichotomy is an artifact of these derivations, not a law.** The degree-`d`
+rows leak one cross-bit immediately only because the derivation was built over
+`Z/2^w` with odd-restricted coefficients and a 2-to-1 final map, none of which is
+`t`-wise independent. Done over a field the middle ground exists -- see Q25.
 
 **The remaining door is exactly the one the bound names.** A key sublinear in the
 label count with `l_cross ~ 0` must hide the relations between capabilities
@@ -107,5 +110,6 @@ source of security.
 ## 6. The sentence the program was looking for
 
     Rainbow's collision weakness gives cheap private collision construction only
-    by consuming label-local secret entropy; sharing that entropy across labels
-    makes witnesses transferable, and the trade is one-for-one.
+    by consuming label-local secret entropy; that entropy can be shared across
+    labels up to a chosen exposure threshold t at cost (t+1)h, and beyond t it
+    must be hidden computationally rather than information-theoretically.
