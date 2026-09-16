@@ -61,3 +61,54 @@ inside the rotation; the rotations have no multiplicative structure at all. The
 seed direction is Q1's exact two-carry condition for the bridge, and no closed
 form for the collision. So the family has exactly one direction with clean
 collision transport, not a general group action.
+
+## Addendum — the law is an exact iff
+
+Verified in both directions, not just as a rate: transfer holds **iff**
+`v2(dB) >= w - nu`. At w=16 over 600 constructed collisions, agreement was
+600/600 at every nu, and the transferred count equalled the
+divisibility-satisfying count exactly:
+
+    nu    predicted    agree(iff)   transferred   satisfying
+    15      0.5000      600/600         263           263
+    14      0.2500      600/600         139           139
+    13      0.1250      600/600          76            76
+    12      0.0625      600/600          43            43
+    10      0.0156      600/600           9             9
+     8      0.0039      600/600           3             3
+
+So `C_theta ∩ C_theta'` is exactly `{ c : v2(dB(c)) >= w - v2(c-1) }`, giving a
+filtration `C^(1) ⊂ C^(2) ⊂ … ⊂ C^(w)` selected by 2-adic parameter distance.
+
+# Q12 — B made faithful to production Rainbow
+
+Production schedule (mixA on even block index, mixB + rotate_right on odd),
+production-style IV, randomised theta (the parameters that must stay secret).
+The relation stays STATE equality rather than digest equality: the finalization
+is lossy -- at w=4 it maps 65,536 states onto 4,014 digests -- so a
+digest-equality relation would flood the problem with spurious witnesses, which
+is the sparse-witness defect B was designed to avoid.
+
+Witness planted by inverting backwards, which needs the inverse of mixB+rotate
+as well as mixA.
+
+    w=12  k=2 (mixA in prefix)           sigma route 12/12 at 4*2^(w/2)
+    w=12  k=3 (mixB+rotate in prefix)    sigma route  0/12
+    w=14  k=2                            12/12 at 4*2^(w/2)
+    w=14  k=3                             0/12
+
+So B survives being made faithful -- at k=2, and only at k=2. Once a
+pair-crossing mixer sits inside the prefix, per-pair separability is gone and the
+privileged route fails outright.
+
+Consequences worth stating:
+
+  * B's k=2 is not a simplification chosen for convenience. Production's own
+    alternation forces it.
+  * The earlier layering experiments added mixA-only rounds, i.e. they layered a
+    construction that had already departed from Rainbow. In a faithful setting
+    there are no extra prefix rounds to add, so that lever does not exist.
+  * An earlier run of this test gave 3/12 at k=2 and looked like a partial
+    failure. That was an experimental error -- random S and T with no planted
+    witness, so the sigma match had only birthday luck, ~40% for two pairs, and
+    3/12 is exactly that. Planting is what makes the comparison meaningful.
