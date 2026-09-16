@@ -8,15 +8,20 @@ collision relation, digest length `n`. Write
     a = log2 C_generic - log2 C_private     the advantage the secret buys
     l = bits about theta revealed per published witness
 
-**The unconditional half.** A collision is an `n`-bit coincidence. A wrong
-`theta'` reproduces it only if the same coincidence holds there, which for a
-family behaving randomly is a `2^-n` event. So
+**The exact definition.** Under a uniform key prior, leakage is by definition
 
-    #consistent ~ max(1, 2^(s-n))       l ~ min(s, n)
+    l(W) = log2 |Theta| - log2 |{ theta : V_theta(W) = 1 }|
 
-Every published collision costs `min(s, n)` bits of key, whatever the
-construction. Survival is `s / n` witnesses. This is not a trapdoor-killer: it
-just says the key must be much larger than the digest.
+and nothing more. **The random-family counting BASELINE** adds an assumption:
+if the keyed verification relation is balanced/random-like, a wrong `theta'`
+reproduces an `n`-bit coincidence with probability `2^-n`, giving
+`#consistent ~ max(1, 2^(s-n))` and `l ~ min(s, n)`.
+
+That baseline is NOT a theorem about every keyed family, and the exception is
+exactly the phenomenon this program has been studying: a family whose members
+share structured collisions accepts one witness under many keys, so `l` can be
+far below `min(s, n)`. Treat `l ~ min(s,n)` as the generic expectation to beat,
+not as a bound.
 
 **The conditional half, which is the real obstruction.** If the private route is
 cheap because it birthdays on a secret-dependent statistic `sigma_theta`, then
@@ -28,7 +33,9 @@ fraction, and a birthday over a `2^-l'` fraction costs `2^(l'/2)` more:
     a(l)              = a_max - (l_max - l)/2
 
 so **`a <= l/2`** whenever `a_max <= l_max/2`, and advantage falls at half the
-rate leakage does. Q14 measured this coordinate exactly: `l = (w-1) - v2(dC)`,
+rate leakage does. This holds under an explicit model -- **a secret-dependent rare
+subset searched by birthday** -- and is claimed only there. Narrower, but harder
+to attack. Q14 measured this coordinate exactly: `l = (w-1) - v2(dC)`,
 `log2 C ~ (w+r)/2`, generic `2^w`, hence `a = (w-r)/2 = l/2` -- on the line with
 equality, and its own summary already said so in words.
 
@@ -83,7 +90,15 @@ That reframes every failure in this program:
 `a <= l/2` is a theorem about global-structure trapdoors. It does not bind a
 construction where the secret enters per-instance.
 
-## The door, stated so it can be tested
+## The door -- superseded by Q22
+
+The criterion first written here (does `S_L` shrink across labels) is WRONG, and
+Q22 replaces it. Kept for the record: master-key entropy loss is not label
+failure, because a perfect label that selects an independent subkey also shrinks
+the global posterior. The operative question is capability transfer. See
+`og/Q22-label-isolation.md`.
+
+## The door, as originally (mis)stated
 
 A construction escapes iff its private cheapness does NOT come from birthdaying
 on a single secret-dependent statistic shared across witnesses. Concretely, the
