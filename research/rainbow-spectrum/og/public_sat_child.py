@@ -84,7 +84,7 @@ def main():
         z = public["aig"].evaluate(public["z"], dict(zip(public["x"], x_bits)))
         # Ground truth: map back through the secret and check every factor.
         y_bits = (C.apply_bits(secret["L"], x_bits)
-                  if family == "coupled" else x_bits)
+                  if "L" in secret else x_bits)
         per, _ = F.input_bits(w, t)
         from models.aig import Aig
         factor_ok = []

@@ -89,6 +89,8 @@ def apply_literals(aig, rows, literals):
 
 # ----------------------------------------------------------------------- compose
 FAMILIES = ("parallel", "coupled")
+# Diagnostic ablations, not candidates: which secret layer does the work?
+ABLATIONS = ("coupled_in", "coupled_out")
 
 
 def build(family, factors, w, t, rng):
@@ -100,20 +102,22 @@ def build(family, factors, w, t, rng):
     x = [aig.input(f"x{i}") for i in range(n)]
 
     secret = {"family": family}
-    if family == "coupled":
+    mix_inputs = family in ("coupled", "coupled_in")
+    mix_outputs = family in ("coupled", "coupled_out")
+    if family not in FAMILIES + ABLATIONS:
+        raise ValueError(family)
+    if mix_inputs:
         L, L_inv = random_invertible(n, rng)
         y = apply_literals(aig, L, x)
         secret.update(L=L, L_inv=L_inv)
-    elif family == "parallel":
-        y = list(x)
     else:
-        raise ValueError(family)
+        y = list(x)
 
     residuals = []
     for index, challenge in enumerate(factors):
         residuals += residual_circuit(aig, challenge, t, y[index * per:(index + 1) * per])
 
-    if family == "coupled":
+    if mix_outputs:
         M, _ = random_invertible(len(residuals), rng)
         z = apply_literals(aig, M, residuals)
         secret["M"] = M
@@ -144,7 +148,7 @@ def private_solve(public, secret, factors, w, t):
         per_factor.append(evaluations)
 
     x_bits = (apply_bits(secret["L_inv"], y_bits)
-              if secret["family"] == "coupled" else y_bits)
+              if "L_inv" in secret else y_bits)
 
     aig = public["aig"]
     z = aig.evaluate(public["z"], {l: b for l, b in zip(public["x"], x_bits)})
