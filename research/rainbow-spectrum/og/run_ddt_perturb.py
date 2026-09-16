@@ -64,3 +64,31 @@ def sweep(w, which):
 
 for which in (0, 1, 2, 3):
     sweep(12, which)
+
+
+def threshold_scan(ws=(10, 14, 16)):
+    """Where in 2-adic distance does the ray recover? Does it track w?"""
+    print("=" * 66)
+    print("RECOVERY THRESHOLD in v2(m' - m) for m[1], across widths")
+    print("=" * 66)
+    for w in ws:
+        base = peak(w, R.default_theta(w))[0]
+        print(f"--- w={w}  real R={base:.1f}   (recovery = first j with R >= 0.5*real) ---",
+              flush=True)
+        rec = None
+        for j in range(1, w):
+            vals = []
+            for fam in ("add", "mul", "xor"):
+                vals.append(peak(w, perturbed(w, which=1, j=j, family=fam))[0])
+            spread = max(vals) - min(vals)
+            mark = ""
+            if rec is None and min(vals) >= 0.5 * base:
+                rec = j; mark = "  <- recovers"
+            print(f"  j={j:>2}  add {vals[0]:7.1f}  mul {vals[1]:7.1f}  "
+                  f"xor {vals[2]:7.1f}   spread {spread:6.1f}{mark}", flush=True)
+        print(f"  => w={w}: recovery at j={rec}, j/w={rec/w:.2f}, w-j={w-rec}\n",
+              flush=True)
+
+
+if __name__ == "__main__" and "--threshold" in sys.argv:
+    threshold_scan()
