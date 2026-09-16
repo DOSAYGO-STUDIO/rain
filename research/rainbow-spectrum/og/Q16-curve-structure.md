@@ -92,3 +92,48 @@ directions, which strongly indicates a common differential structure. That is a
 coincidence of directions, not yet a demonstrated cause. The ablation that would
 settle it -- randomising multipliers, rotation amounts and XOR position one at a
 time, and checking whether both effects vanish together -- has not been run.
+
+## Addendum 2 — the DDT reframing, and what the preferred directions actually are
+
+In coordinates `u = A(x)` with `G = C o A^-1`, the message curve is the graph
+`u -> (G(u), u)` and the rebasing multiplicity is exactly a difference-distribution
+table entry:
+
+    N(d, e) = #{ u : G(u) - G(u-d) = e }
+
+and family member m selects the **line** `d + m e = 0` through the difference
+plane. That resolves the apparent contradiction: the DDT can carry huge spikes,
+but a spike only affects collision multiplicity if it lies on that line. Generic
+chords with enormous N sit off it; collision chords average ~2.
+
+All the 2-adic results restate in this picture. Transport is
+`(m'-m) e = 0`, i.e. `v2(m'-m) + v2(e) >= w`. Reverse incidence is the ball of
+slopes through a fixed cell. Composition is addition of cells with valuation
+cancellation in the e-coordinate.
+
+**Which directions are preferred.** Writing `d = 2^r u` with u odd and measuring
+row energy against the shuffle null (w=12):
+
+    r    odd units   median energy   u=+/-1 rank   u=+/-1 excess   top row
+    0      2048          1.74x        11 / 2048       6.74x       u=7    13.1x
+    2       512          2.08x        55 /  512       4.62x       u=507  22.7x
+    4       128          2.31x         1 /  128      31.37x       u=1
+    6        32          3.33x         1 /   32     133.68x       u=1 (next 13.3x)
+
+Both mechanisms are present and they are different:
+
+  * a **2-adic component**: the MEDIAN row energy rises with r, 1.74 -> 3.33x, so
+    valuation alone lifts the whole distribution;
+  * a **ray component that only appears at high r**: at r = 0 and 2, `u = +/-1`
+    is unremarkable (ranks 11 and 55, other units dominate); at r = 4 and 6 it
+    takes rank 1 outright, beating the runner-up by 10x at r = 6.
+
+So the preferred directions are neither "any depth-r difference" nor "+/-1 at
+every depth". They are **single high bits, d = +/- 2^r for r in the upper-middle
+range** -- consistent with carry propagation through mul/rotr/mul staying confined
+for such differences, and the same regime as the top-bit seed transport and the
+single-bit differential spike measured earlier.
+
+The ablation that would tie these together causally -- randomising multipliers,
+rotations and XOR position one at a time, checking whether the differential spike
+and the DDT-row spike vanish together -- remains unrun.
