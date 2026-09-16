@@ -17,6 +17,27 @@ Both variants are reported. The hardened control is not decoration: weak and
 hardened should behave alike from the public side, and on the thin data they did
 not -- the hardened series had cost FALLING threefold between w=22 and w=24,
 which is impossible and marked that whole fit as noise-dominated.
+
+W=24 MAY HAVE NO MEDIAN, and that has to be handled rather than papered over.
+Sampled to ten draws, most w=24 instances do not finish inside the 900s budget,
+so the survival curve need never reach 0.5 and there is simply no median to
+quote. The earlier version of this script tested `if w24[...]["median"]:` and
+fell through to deepen.json when it was absent -- which would have silently
+restored the n=3 survivorship figure that this whole exercise exists to
+replace. A missing median now forces the question instead of defaulting.
+
+When w=24 is not estimable the frozen rule is applied to three arms and all
+three are reported:
+
+  excluded     w=24 dropped. The honest primary: a width with no median cannot
+               be handed to a rule that consumes medians.
+  lower_bound  w=24 set to the largest censored observation. This deliberately
+               favours the weak-scaling claim -- it is the most generous number
+               the data permits -- so if the verdict still does not improve,
+               that conclusion is robust rather than an artifact of exclusion.
+  survivorship w=24 set to the median of only the draws that finished. Known to
+               be biased low; reported so the size of the bias is visible, and
+               never treated as the answer.
 """
 
 import json
@@ -76,11 +97,34 @@ def main():
             row24 = w24["variants"][label]
             medians["24"] = row24["median"]
             provenance["24"] = f"deepened-w24 n={row24['n']}"
+        arms = {}
+        if w24:
+            row24 = w24["variants"][label]
+            if row24.get("median"):
+                medians["24"] = row24["median"]
+                provenance["24"] = (f"deepened-w24 n={row24['n']} "
+                                    f"({row24.get('median_basis')})")
+            else:
+                # No median exists at this width. Say so, and test the verdict
+                # against every reading of w=24 the data actually permits.
+                medians.pop("24", None)
+                provenance["24"] = (
+                    f"NOT ESTIMABLE: {row24['solved']}/{row24['attempted']} "
+                    f"solved in budget, {row24['censored']} censored")
+                bound = max(row24["raw_censored_lower_bounds"] or [0]) or None
+                arms = {
+                    "excluded": dict(medians),
+                    "lower_bound": {**medians, "24": bound} if bound else None,
+                    "survivorship": ({**medians, "24": row24["survivors_median"]}
+                                     if row24.get("survivors_median") else None),
+                }
         before = analyse(wide["variants"][label]["median_conflicts"])
         after = analyse(medians)
         report["variants"][label] = {
             "medians": medians, "provenance": provenance,
             "before_deepening": before, "after_deepening": after,
+            "w24_arms": {name: analyse(series) if series else None
+                         for name, series in arms.items()} or None,
         }
 
         print(f"\n=== {label} ===")
@@ -98,6 +142,11 @@ def main():
               f"{after['window_betas']}  trend {after['trend_slope_per_w']}"
               f"  -> {after['verdict']}")
         print(f"  excess curve: {[e for _, e in after['excess_curve']]}")
+        for name, result in (report["variants"][label]["w24_arms"] or {}).items():
+            if result:
+                print(f"    w24 arm {name:<12} beta {result['beta_global']}"
+                      f"  trend {result['trend_slope_per_w']}"
+                      f"  -> {result['verdict']}")
 
     weak = report["variants"]["weak"]
     before, after = weak["before_deepening"], weak["after_deepening"]

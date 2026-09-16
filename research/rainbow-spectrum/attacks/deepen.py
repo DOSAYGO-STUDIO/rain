@@ -43,6 +43,33 @@ only medians, which is why the top end cannot simply be augmented in place.
 
 No decision rule is restated. The verdict remains the one frozen in
 drift_test.py before any of this data existed.
+
+CORRECTION (added after deepen_w24.py measured it). Two claims above are wrong,
+and they are left in place rather than edited out because the reasoning they
+produced is the interesting part.
+
+  1. "a z3 instance reaching millions of conflicts holds a very large clause
+     database" -- FALSE on this workload. One w=24 instance was sampled at 60s
+     and 180s: 216,131 then 710,662 conflicts, for 92.4 then 93.0 MB of peak
+     RSS. Memory is flat because z3 garbage-collects learned clauses. The whole
+     per-width concurrency ladder was therefore protecting against something
+     that does not happen, and it cost wall-clock for nothing. The follow-up run
+     was still killed for memory at procs=1, which was the evidence that the
+     cause was elsewhere -- the machine, not this job -- and it was misread here
+     as a reason to throttle further.
+
+  2. The censoring policy -- "censored instances are reported and excluded,
+     never counted" -- is right about not counting a capped solve as its cap,
+     but excluding it throws away a real right-censored LOWER BOUND, and
+     public_solve() reports conflicts even on unknown. At w=24 that discarded
+     six of ten weak observations. Worse, the w=24 median published below
+     (1,254,257 from n=3) is a survivorship figure: when the sample was taken to
+     ten, six timed out, so the three that finished were the easy tail. A low
+     w=24 median is precisely what drove the 'declining' verdict, so this is not
+     a cosmetic error.
+
+deepen-w24.json supersedes the w=24 row here. The w=20 and w=22 rows stand:
+both were uncensored (10/10 and 8/8), so neither defect touches them.
 """
 
 import json
