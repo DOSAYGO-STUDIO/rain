@@ -1,0 +1,35 @@
+{
+  "audit": "leakage_audit",
+  "rule": "a public/flat/attack-named function touching secret material must declare it with the quarantine marker",
+  "clean_public_functions": 5,
+  "quarantined": [
+    {
+      "file": "attacks/experiment_b.py",
+      "function": "public_solve",
+      "secrets": [
+        "merge_a",
+        "merge_b",
+        "mixa_rotations",
+        "multipliers",
+        "pairs",
+        "prefix_a",
+        "prefix_b",
+        "signs",
+        "theta",
+        "thetas"
+      ],
+      "line": 229
+    },
+    {
+      "file": "attacks/flat_adversarial.py",
+      "function": "attack_a_linear_invariant",
+      "secrets": [
+        "thetas"
+      ],
+      "line": 135
+    }
+  ],
+  "violations": [],
+  "passed": true,
+  "generated": "2026-09-16T03:37:55"
+}

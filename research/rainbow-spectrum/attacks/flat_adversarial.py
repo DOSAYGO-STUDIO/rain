@@ -135,6 +135,20 @@ def enumerate_class(composition, state, prefix, w):
 def attack_a_linear_invariant(composition, rng):
     """Is a merge class GF(2)-affine in the output? If so, steering is free.
 
+    QUARANTINED: reads secret material by design.
+
+    theta appears in exactly one place here and it is NOT on the attack path.
+    The attack itself sees only composition.evaluate -- black-box output access.
+    The single theta read builds the POSITIVE CONTROL: the pre-mixer coset,
+    which really is affine over Z/2^w, so a nonzero rank there proves the test
+    can detect structure when structure is present. Without that control a null
+    result would be indistinguishable from a broken measurement, which is a
+    failure mode this project has hit more than once.
+
+    The marker is required by attacks/leakage_audit.py. It is here because the
+    audit cannot tell a control from a leak, and a human reading a flagged
+    function should not have to guess which one this is.
+
     Classes are enumerated EXACTLY (no random draws with replacement, which
     would fake a rank deficiency), and any functional the first class suggests
     must then hold on independently drawn held-out classes. A functional is only

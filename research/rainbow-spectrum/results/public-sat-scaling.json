@@ -21,8 +21,8 @@
   "censoring": "deterministic conflict budget, not wall clock",
   "privileged_beta": 0.5,
   "privileged_cost": "exactly 4*2^(w/2) evaluations, no fit required",
-  "generated": "2026-09-16T03:34:20",
-  "wall_seconds": 228.0,
+  "generated": "2026-09-16T03:38:06",
+  "wall_seconds": 454.2,
   "raw": [
     {
       "w": 6,
@@ -14918,6 +14918,2301 @@
       "privileged_solved": true,
       "privileged_evaluations": 1024,
       "peak_rss_mb": 61.6
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 1,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 23318,
+        "clauses": 69888,
+        "inputs": 64,
+        "ands": 23253,
+        "shuffled": true,
+        "seed": 1
+      },
+      "decisions": 72920,
+      "propagations": 38497421,
+      "conflicts": 61923,
+      "seconds": 9.42,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            234,
+            152
+          ]
+        ],
+        "prefix_b": [
+          [
+            33,
+            222
+          ]
+        ],
+        "merge_b": [
+          13549,
+          46041
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 62.5
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 2,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 21049,
+        "clauses": 63081,
+        "inputs": 64,
+        "ands": 20984,
+        "shuffled": true,
+        "seed": 2
+      },
+      "decisions": 64691,
+      "propagations": 30377013,
+      "conflicts": 55657,
+      "seconds": 7.31,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            69,
+            253
+          ]
+        ],
+        "prefix_b": [
+          [
+            162,
+            45
+          ]
+        ],
+        "merge_b": [
+          13285,
+          13321
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 62.4
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 5,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 17477,
+        "clauses": 52365,
+        "inputs": 64,
+        "ands": 17412,
+        "shuffled": true,
+        "seed": 5
+      },
+      "decisions": 33295,
+      "propagations": 13902928,
+      "conflicts": 26148,
+      "seconds": 3.13,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            243,
+            234
+          ]
+        ],
+        "prefix_b": [
+          [
+            1,
+            138
+          ]
+        ],
+        "merge_b": [
+          50953,
+          5222
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 54.5
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 3,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 19853,
+        "clauses": 59493,
+        "inputs": 64,
+        "ands": 19788,
+        "shuffled": true,
+        "seed": 3
+      },
+      "decisions": 82277,
+      "propagations": 46862512,
+      "conflicts": 70344,
+      "seconds": 11.12,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            32,
+            167
+          ]
+        ],
+        "prefix_b": [
+          [
+            93,
+            181
+          ]
+        ],
+        "merge_b": [
+          23652,
+          24894
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 62.3
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 6,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 17070,
+        "clauses": 51144,
+        "inputs": 64,
+        "ands": 17005,
+        "shuffled": true,
+        "seed": 6
+      },
+      "decisions": 38142,
+      "propagations": 16191342,
+      "conflicts": 31507,
+      "seconds": 3.61,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            61,
+            77
+          ]
+        ],
+        "prefix_b": [
+          [
+            173,
+            10
+          ]
+        ],
+        "merge_b": [
+          22780,
+          36328
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 52.9
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 7,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 18253,
+        "clauses": 54693,
+        "inputs": 64,
+        "ands": 18188,
+        "shuffled": true,
+        "seed": 7
+      },
+      "decisions": 56703,
+      "propagations": 31157653,
+      "conflicts": 49144,
+      "seconds": 6.72,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            239,
+            208
+          ]
+        ],
+        "prefix_b": [
+          [
+            84,
+            70
+          ]
+        ],
+        "merge_b": [
+          37215,
+          39308
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 57.9
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 4,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 18830,
+        "clauses": 56424,
+        "inputs": 64,
+        "ands": 18765,
+        "shuffled": true,
+        "seed": 4
+      },
+      "decisions": 144794,
+      "propagations": 98717511,
+      "conflicts": 129912,
+      "seconds": 23.62,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            153,
+            118
+          ]
+        ],
+        "prefix_b": [
+          [
+            123,
+            139
+          ]
+        ],
+        "merge_b": [
+          64997,
+          50532
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 61.4
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 8,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 20255,
+        "clauses": 60699,
+        "inputs": 64,
+        "ands": 20190,
+        "shuffled": true,
+        "seed": 8
+      },
+      "decisions": 88551,
+      "propagations": 68300524,
+      "conflicts": 74395,
+      "seconds": 14.52,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            112,
+            166
+          ]
+        ],
+        "prefix_b": [
+          [
+            205,
+            105
+          ]
+        ],
+        "merge_b": [
+          27832,
+          63474
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 60.5
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 9,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 20194,
+        "clauses": 60516,
+        "inputs": 64,
+        "ands": 20129,
+        "shuffled": true,
+        "seed": 9
+      },
+      "decisions": 76627,
+      "propagations": 48033905,
+      "conflicts": 64805,
+      "seconds": 11.11,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            212,
+            19
+          ]
+        ],
+        "prefix_b": [
+          [
+            220,
+            115
+          ]
+        ],
+        "merge_b": [
+          27203,
+          36733
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 61.6
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 1,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 22939,
+        "clauses": 68751,
+        "inputs": 64,
+        "ands": 22874,
+        "shuffled": true,
+        "seed": 1
+      },
+      "decisions": 10596,
+      "propagations": 5285455,
+      "conflicts": 4494,
+      "seconds": 1.21,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            234,
+            171
+          ]
+        ],
+        "prefix_b": [
+          [
+            33,
+            131
+          ]
+        ],
+        "merge_b": [
+          13549,
+          49770
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 78.8
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 0,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 19225,
+        "clauses": 57609,
+        "inputs": 64,
+        "ands": 19160,
+        "shuffled": true,
+        "seed": 0
+      },
+      "decisions": 79375,
+      "propagations": 20521926,
+      "conflicts": 44386,
+      "seconds": 5.03,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            246,
+            3
+          ]
+        ],
+        "prefix_b": [
+          [
+            171,
+            36
+          ]
+        ],
+        "merge_b": [
+          49047,
+          4412
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 82.1
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 2,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 20886,
+        "clauses": 62592,
+        "inputs": 64,
+        "ands": 20821,
+        "shuffled": true,
+        "seed": 2
+      },
+      "decisions": 37626,
+      "propagations": 10547753,
+      "conflicts": 20986,
+      "seconds": 2.5,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            46,
+            253
+          ]
+        ],
+        "prefix_b": [
+          [
+            106,
+            45
+          ]
+        ],
+        "merge_b": [
+          50135,
+          13321
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 81.9
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 3,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 19750,
+        "clauses": 59184,
+        "inputs": 64,
+        "ands": 19685,
+        "shuffled": true,
+        "seed": 3
+      },
+      "decisions": 64552,
+      "propagations": 19990462,
+      "conflicts": 37366,
+      "seconds": 4.72,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            32,
+            244
+          ]
+        ],
+        "prefix_b": [
+          [
+            93,
+            54
+          ]
+        ],
+        "merge_b": [
+          23652,
+          32227
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 78.0
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 5,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 17277,
+        "clauses": 51765,
+        "inputs": 64,
+        "ands": 17212,
+        "shuffled": true,
+        "seed": 5
+      },
+      "decisions": 20084,
+      "propagations": 5599084,
+      "conflicts": 9561,
+      "seconds": 1.26,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            95,
+            234
+          ]
+        ],
+        "prefix_b": [
+          [
+            176,
+            138
+          ]
+        ],
+        "merge_b": [
+          47137,
+          5222
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 71.2
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 4,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 18758,
+        "clauses": 56208,
+        "inputs": 64,
+        "ands": 18693,
+        "shuffled": true,
+        "seed": 4
+      },
+      "decisions": 66513,
+      "propagations": 13013682,
+      "conflicts": 34710,
+      "seconds": 3.24,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            153,
+            185
+          ]
+        ],
+        "prefix_b": [
+          [
+            123,
+            209
+          ]
+        ],
+        "merge_b": [
+          64997,
+          59796
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 74.9
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 6,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 16925,
+        "clauses": 50709,
+        "inputs": 64,
+        "ands": 16860,
+        "shuffled": true,
+        "seed": 6
+      },
+      "decisions": 74666,
+      "propagations": 12290091,
+      "conflicts": 32734,
+      "seconds": 3.02,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            61,
+            204
+          ]
+        ],
+        "prefix_b": [
+          [
+            173,
+            15
+          ]
+        ],
+        "merge_b": [
+          22780,
+          11275
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 73.8
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 7,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 18254,
+        "clauses": 54696,
+        "inputs": 64,
+        "ands": 18189,
+        "shuffled": true,
+        "seed": 7
+      },
+      "decisions": 82551,
+      "propagations": 19100570,
+      "conflicts": 41030,
+      "seconds": 4.32,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            33,
+            202
+          ]
+        ],
+        "prefix_b": [
+          [
+            230,
+            79
+          ]
+        ],
+        "merge_b": [
+          40848,
+          60226
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 73.4
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 8,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 20077,
+        "clauses": 60165,
+        "inputs": 64,
+        "ands": 20012,
+        "shuffled": true,
+        "seed": 8
+      },
+      "decisions": 70409,
+      "propagations": 17362532,
+      "conflicts": 37761,
+      "seconds": 4.44,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            195,
+            166
+          ]
+        ],
+        "prefix_b": [
+          [
+            180,
+            105
+          ]
+        ],
+        "merge_b": [
+          22277,
+          63474
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 83.3
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 0,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 19423,
+        "clauses": 58203,
+        "inputs": 64,
+        "ands": 19358,
+        "shuffled": true,
+        "seed": 0
+      },
+      "decisions": 55106,
+      "propagations": 13067385,
+      "conflicts": 27086,
+      "seconds": 2.92,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            127,
+            167
+          ]
+        ],
+        "prefix_b": [
+          [
+            39,
+            236
+          ]
+        ],
+        "merge_b": [
+          53078,
+          4261
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 77.1
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": false,
+      "draw": 9,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 20012,
+        "clauses": 59970,
+        "inputs": 64,
+        "ands": 19947,
+        "shuffled": true,
+        "seed": 9
+      },
+      "decisions": 70260,
+      "propagations": 22506771,
+      "conflicts": 44253,
+      "seconds": 5.37,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            212,
+            136
+          ]
+        ],
+        "prefix_b": [
+          [
+            220,
+            167
+          ]
+        ],
+        "merge_b": [
+          27203,
+          17653
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 80.6
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 1,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 23318,
+        "clauses": 69888,
+        "inputs": 64,
+        "ands": 23253,
+        "shuffled": true,
+        "seed": 1
+      },
+      "decisions": 71760,
+      "propagations": 27246042,
+      "conflicts": 41971,
+      "seconds": 5.48,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            234,
+            152
+          ]
+        ],
+        "prefix_b": [
+          [
+            33,
+            222
+          ]
+        ],
+        "merge_b": [
+          13549,
+          46041
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 86.5
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 2,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 21049,
+        "clauses": 63081,
+        "inputs": 64,
+        "ands": 20984,
+        "shuffled": true,
+        "seed": 2
+      },
+      "decisions": 66511,
+      "propagations": 14284862,
+      "conflicts": 32355,
+      "seconds": 3.29,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            46,
+            253
+          ]
+        ],
+        "prefix_b": [
+          [
+            106,
+            45
+          ]
+        ],
+        "merge_b": [
+          50135,
+          13321
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 83.4
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 3,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 19853,
+        "clauses": 59493,
+        "inputs": 64,
+        "ands": 19788,
+        "shuffled": true,
+        "seed": 3
+      },
+      "decisions": 72364,
+      "propagations": 20248231,
+      "conflicts": 42370,
+      "seconds": 4.45,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            32,
+            50
+          ]
+        ],
+        "prefix_b": [
+          [
+            93,
+            175
+          ]
+        ],
+        "merge_b": [
+          23652,
+          43735
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 81.1
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 5,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 17477,
+        "clauses": 52365,
+        "inputs": 64,
+        "ands": 17412,
+        "shuffled": true,
+        "seed": 5
+      },
+      "decisions": 49444,
+      "propagations": 9403746,
+      "conflicts": 23780,
+      "seconds": 2.0,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            247,
+            251
+          ]
+        ],
+        "prefix_b": [
+          [
+            199,
+            213
+          ]
+        ],
+        "merge_b": [
+          31451,
+          31162
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 71.5
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 6,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 17070,
+        "clauses": 51144,
+        "inputs": 64,
+        "ands": 17005,
+        "shuffled": true,
+        "seed": 6
+      },
+      "decisions": 71489,
+      "propagations": 14211015,
+      "conflicts": 36541,
+      "seconds": 2.57,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            61,
+            238
+          ]
+        ],
+        "prefix_b": [
+          [
+            173,
+            206
+          ]
+        ],
+        "merge_b": [
+          22780,
+          11973
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 71.0
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 7,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 18253,
+        "clauses": 54693,
+        "inputs": 64,
+        "ands": 18188,
+        "shuffled": true,
+        "seed": 7
+      },
+      "decisions": 36498,
+      "propagations": 10124707,
+      "conflicts": 20659,
+      "seconds": 1.7,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            169,
+            208
+          ]
+        ],
+        "prefix_b": [
+          [
+            230,
+            70
+          ]
+        ],
+        "merge_b": [
+          42864,
+          39308
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 71.0
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 4,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 18830,
+        "clauses": 56424,
+        "inputs": 64,
+        "ands": 18765,
+        "shuffled": true,
+        "seed": 4
+      },
+      "decisions": 166108,
+      "propagations": 36377697,
+      "conflicts": 92744,
+      "seconds": 8.47,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            153,
+            118
+          ]
+        ],
+        "prefix_b": [
+          [
+            123,
+            139
+          ]
+        ],
+        "merge_b": [
+          64997,
+          50532
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 86.0
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 8,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 20255,
+        "clauses": 60699,
+        "inputs": 64,
+        "ands": 20190,
+        "shuffled": true,
+        "seed": 8
+      },
+      "decisions": 81366,
+      "propagations": 16673829,
+      "conflicts": 45388,
+      "seconds": 3.67,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            225,
+            166
+          ]
+        ],
+        "prefix_b": [
+          [
+            50,
+            105
+          ]
+        ],
+        "merge_b": [
+          29109,
+          63474
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 76.0
+    },
+    {
+      "w": 16,
+      "t": 8,
+      "hardened": true,
+      "draw": 9,
+      "solver": "cadical153",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 20194,
+        "clauses": 60516,
+        "inputs": 64,
+        "ands": 20129,
+        "shuffled": true,
+        "seed": 9
+      },
+      "decisions": 69186,
+      "propagations": 24855030,
+      "conflicts": 44758,
+      "seconds": 4.97,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            212,
+            104
+          ]
+        ],
+        "prefix_b": [
+          [
+            220,
+            240
+          ]
+        ],
+        "merge_b": [
+          27203,
+          15430
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 1024,
+      "peak_rss_mb": 80.6
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 1,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 25922,
+        "clauses": 77692,
+        "inputs": 72,
+        "ands": 25849,
+        "shuffled": true,
+        "seed": 1
+      },
+      "decisions": 16342,
+      "propagations": 35382513,
+      "conflicts": 12029,
+      "seconds": 2.68,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            152,
+            117
+          ]
+        ],
+        "prefix_b": [
+          [
+            375,
+            288
+          ]
+        ],
+        "merge_b": [
+          87310,
+          164886
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 56.5
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 3,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 26627,
+        "clauses": 79807,
+        "inputs": 72,
+        "ands": 26554,
+        "shuffled": true,
+        "seed": 3
+      },
+      "decisions": 19788,
+      "propagations": 41295549,
+      "conflicts": 13846,
+      "seconds": 3.41,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            305,
+            360
+          ]
+        ],
+        "prefix_b": [
+          [
+            363,
+            324
+          ]
+        ],
+        "merge_b": [
+          8917,
+          30548
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 56.8
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 2,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 23721,
+        "clauses": 71089,
+        "inputs": 72,
+        "ands": 23648,
+        "shuffled": true,
+        "seed": 2
+      },
+      "decisions": 77689,
+      "propagations": 232305128,
+      "conflicts": 69061,
+      "seconds": 22.28,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            145,
+            150
+          ]
+        ],
+        "prefix_b": [
+          [
+            119,
+            317
+          ]
+        ],
+        "merge_b": [
+          22039,
+          115716
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 61.2
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 5,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 24443,
+        "clauses": 73255,
+        "inputs": 72,
+        "ands": 24370,
+        "shuffled": true,
+        "seed": 5
+      },
+      "decisions": 42436,
+      "propagations": 125971107,
+      "conflicts": 35209,
+      "seconds": 10.99,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            472,
+            327
+          ]
+        ],
+        "prefix_b": [
+          [
+            278,
+            295
+          ]
+        ],
+        "merge_b": [
+          114344,
+          261307
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 58.0
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 0,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 22323,
+        "clauses": 66895,
+        "inputs": 72,
+        "ands": 22250,
+        "shuffled": true,
+        "seed": 0
+      },
+      "decisions": 153516,
+      "propagations": 480751603,
+      "conflicts": 139303,
+      "seconds": 46.01,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            485,
+            151
+          ]
+        ],
+        "prefix_b": [
+          [
+            2,
+            41
+          ]
+        ],
+        "merge_b": [
+          205210,
+          126559
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 72.4
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 6,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 22008,
+        "clauses": 65950,
+        "inputs": 72,
+        "ands": 21935,
+        "shuffled": true,
+        "seed": 6
+      },
+      "decisions": 55745,
+      "propagations": 187131267,
+      "conflicts": 46147,
+      "seconds": 15.85,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            472,
+            478
+          ]
+        ],
+        "prefix_b": [
+          [
+            306,
+            396
+          ]
+        ],
+        "merge_b": [
+          136149,
+          31766
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 56.6
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 4,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 25270,
+        "clauses": 75736,
+        "inputs": 72,
+        "ands": 25197,
+        "shuffled": true,
+        "seed": 4
+      },
+      "decisions": 135240,
+      "propagations": 546235179,
+      "conflicts": 122844,
+      "seconds": 49.78,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            333,
+            67
+          ]
+        ],
+        "prefix_b": [
+          [
+            97,
+            245
+          ]
+        ],
+        "merge_b": [
+          136676,
+          193524
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 70.3
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 9,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 25455,
+        "clauses": 76291,
+        "inputs": 72,
+        "ands": 25382,
+        "shuffled": true,
+        "seed": 9
+      },
+      "decisions": 67722,
+      "propagations": 200618179,
+      "conflicts": 58450,
+      "seconds": 17.6,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            109,
+            75
+          ]
+        ],
+        "prefix_b": [
+          [
+            170,
+            325
+          ]
+        ],
+        "merge_b": [
+          216725,
+          182072
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 62.4
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 7,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 23824,
+        "clauses": 71398,
+        "inputs": 72,
+        "ands": 23751,
+        "shuffled": true,
+        "seed": 7
+      },
+      "decisions": 95029,
+      "propagations": 379525412,
+      "conflicts": 85473,
+      "seconds": 33.31,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            426,
+            115
+          ]
+        ],
+        "prefix_b": [
+          [
+            36,
+            269
+          ]
+        ],
+        "merge_b": [
+          6889,
+          239595
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 66.4
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 8,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 21861,
+        "clauses": 65509,
+        "inputs": 72,
+        "ands": 21788,
+        "shuffled": true,
+        "seed": 8
+      },
+      "decisions": 83874,
+      "propagations": 313167529,
+      "conflicts": 73414,
+      "seconds": 27.64,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            404,
+            125
+          ]
+        ],
+        "prefix_b": [
+          [
+            13,
+            28
+          ]
+        ],
+        "merge_b": [
+          94645,
+          173578
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 59.4
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 1,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 26097,
+        "clauses": 78217,
+        "inputs": 72,
+        "ands": 26024,
+        "shuffled": true,
+        "seed": 1
+      },
+      "decisions": 41817,
+      "propagations": 78681145,
+      "conflicts": 35582,
+      "seconds": 7.24,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            195,
+            359
+          ]
+        ],
+        "prefix_b": [
+          [
+            45,
+            247
+          ]
+        ],
+        "merge_b": [
+          249380,
+          10299
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 60.4
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 2,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 23953,
+        "clauses": 71785,
+        "inputs": 72,
+        "ands": 23880,
+        "shuffled": true,
+        "seed": 2
+      },
+      "decisions": 96558,
+      "propagations": 248562531,
+      "conflicts": 85158,
+      "seconds": 22.39,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            328,
+            217
+          ]
+        ],
+        "prefix_b": [
+          [
+            189,
+            508
+          ]
+        ],
+        "merge_b": [
+          199482,
+          169569
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 64.7
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 3,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 26760,
+        "clauses": 80206,
+        "inputs": 72,
+        "ands": 26687,
+        "shuffled": true,
+        "seed": 3
+      },
+      "decisions": 105332,
+      "propagations": 393577230,
+      "conflicts": 87277,
+      "seconds": 37.12,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            263,
+            496
+          ]
+        ],
+        "prefix_b": [
+          [
+            127,
+            264
+          ]
+        ],
+        "merge_b": [
+          14404,
+          175514
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 65.0
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 0,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 22668,
+        "clauses": 67930,
+        "inputs": 72,
+        "ands": 22595,
+        "shuffled": true,
+        "seed": 0
+      },
+      "decisions": 176246,
+      "propagations": 613545878,
+      "conflicts": 158734,
+      "seconds": 58.88,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            250,
+            472
+          ]
+        ],
+        "prefix_b": [
+          [
+            469,
+            139
+          ]
+        ],
+        "merge_b": [
+          7966,
+          163356
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 62.0
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 5,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 24669,
+        "clauses": 73933,
+        "inputs": 72,
+        "ands": 24596,
+        "shuffled": true,
+        "seed": 5
+      },
+      "decisions": 48857,
+      "propagations": 128260446,
+      "conflicts": 41201,
+      "seconds": 11.86,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            168,
+            431
+          ]
+        ],
+        "prefix_b": [
+          [
+            404,
+            206
+          ]
+        ],
+        "merge_b": [
+          114803,
+          105617
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 60.6
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 4,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 25461,
+        "clauses": 76309,
+        "inputs": 72,
+        "ands": 25388,
+        "shuffled": true,
+        "seed": 4
+      },
+      "decisions": 120387,
+      "propagations": 423659333,
+      "conflicts": 110095,
+      "seconds": 40.25,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            467,
+            60
+          ]
+        ],
+        "prefix_b": [
+          [
+            217,
+            357
+          ]
+        ],
+        "merge_b": [
+          120019,
+          8937
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 71.1
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 6,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 22227,
+        "clauses": 66607,
+        "inputs": 72,
+        "ands": 22154,
+        "shuffled": true,
+        "seed": 6
+      },
+      "decisions": 47238,
+      "propagations": 133590859,
+      "conflicts": 39907,
+      "seconds": 11.38,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            29,
+            228
+          ]
+        ],
+        "prefix_b": [
+          [
+            149,
+            511
+          ]
+        ],
+        "merge_b": [
+          108903,
+          161904
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 56.6
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 7,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 24016,
+        "clauses": 71974,
+        "inputs": 72,
+        "ands": 23943,
+        "shuffled": true,
+        "seed": 7
+      },
+      "decisions": 44159,
+      "propagations": 90026534,
+      "conflicts": 37719,
+      "seconds": 7.54,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            94,
+            115
+          ]
+        ],
+        "prefix_b": [
+          [
+            389,
+            269
+          ]
+        ],
+        "merge_b": [
+          142749,
+          239595
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 57.9
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": true,
+      "draw": 8,
+      "solver": "minisat22",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 21871,
+        "clauses": 65539,
+        "inputs": 72,
+        "ands": 21798,
+        "shuffled": true,
+        "seed": 8
+      },
+      "decisions": 58993,
+      "propagations": 135716460,
+      "conflicts": 50442,
+      "seconds": 12.55,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            404,
+            178
+          ]
+        ],
+        "prefix_b": [
+          [
+            13,
+            467
+          ]
+        ],
+        "merge_b": [
+          94645,
+          252744
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": false,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 56.9
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 1,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 25922,
+        "clauses": 77692,
+        "inputs": 72,
+        "ands": 25849,
+        "shuffled": true,
+        "seed": 1
+      },
+      "decisions": 40061,
+      "propagations": 29298288,
+      "conflicts": 29515,
+      "seconds": 4.51,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            152,
+            11
+          ]
+        ],
+        "prefix_b": [
+          [
+            375,
+            187
+          ]
+        ],
+        "merge_b": [
+          87310,
+          184966
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 63.2
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 0,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 22323,
+        "clauses": 66895,
+        "inputs": 72,
+        "ands": 22250,
+        "shuffled": true,
+        "seed": 0
+      },
+      "decisions": 168679,
+      "propagations": 87239155,
+      "conflicts": 148478,
+      "seconds": 17.39,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            485,
+            183
+          ]
+        ],
+        "prefix_b": [
+          [
+            2,
+            70
+          ]
+        ],
+        "merge_b": [
+          205210,
+          125088
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 65.9
+    },
+    {
+      "w": 18,
+      "t": 9,
+      "hardened": false,
+      "draw": 3,
+      "solver": "glucose4",
+      "budget": 4000000,
+      "cnf": {
+        "variables": 26627,
+        "clauses": 79807,
+        "inputs": 72,
+        "ands": 26554,
+        "shuffled": true,
+        "seed": 3
+      },
+      "decisions": 17533,
+      "propagations": 7181200,
+      "conflicts": 10571,
+      "seconds": 1.19,
+      "status": "sat",
+      "event": true,
+      "witness_verified": true,
+      "witness": {
+        "prefix_a": [
+          [
+            305,
+            360
+          ]
+        ],
+        "prefix_b": [
+          [
+            363,
+            324
+          ]
+        ],
+        "merge_b": [
+          8917,
+          30548
+        ]
+      },
+      "artifact_agrees": true,
+      "privileged_solved": true,
+      "privileged_evaluations": 2048,
+      "peak_rss_mb": 59.5
     }
   ],
   "variants": {
@@ -15038,16 +17333,27 @@
           ]
         },
         "18": {
-          "n": 0,
-          "attempted": 0,
+          "n": 10,
+          "attempted": 10,
           "unverified_witnesses": 0,
           "censored": 0,
-          "median": null,
-          "raw": []
+          "median": 63755.5,
+          "raw": [
+            12029,
+            13846,
+            35209,
+            46147,
+            58450,
+            69061,
+            73414,
+            85473,
+            122844,
+            139303
+          ]
         }
       },
-      "beta": 0.7961,
-      "gap_vs_privileged": 0.2961
+      "beta": 0.7671,
+      "gap_vs_privileged": 0.2671
     },
     "minisat22/hardened": {
       "per_width": {
@@ -15166,16 +17472,26 @@
           ]
         },
         "18": {
-          "n": 0,
-          "attempted": 0,
+          "n": 9,
+          "attempted": 9,
           "unverified_witnesses": 0,
           "censored": 0,
-          "median": null,
-          "raw": []
+          "median": 50442,
+          "raw": [
+            35582,
+            37719,
+            39907,
+            41201,
+            50442,
+            85158,
+            87277,
+            110095,
+            158734
+          ]
         }
       },
-      "beta": 0.7114,
-      "gap_vs_privileged": 0.2114
+      "beta": 0.6767,
+      "gap_vs_privileged": 0.1767
     },
     "glucose4/weak": {
       "per_width": {
@@ -15294,16 +17610,20 @@
           ]
         },
         "18": {
-          "n": 0,
-          "attempted": 0,
+          "n": 3,
+          "attempted": 3,
           "unverified_witnesses": 0,
           "censored": 0,
-          "median": null,
-          "raw": []
+          "median": 29515,
+          "raw": [
+            10571,
+            29515,
+            148478
+          ]
         }
       },
-      "beta": 0.8326,
-      "gap_vs_privileged": 0.3326
+      "beta": 0.7122,
+      "gap_vs_privileged": 0.2122
     },
     "glucose4/hardened": {
       "per_width": {
@@ -15403,13 +17723,22 @@
           ]
         },
         "16": {
-          "n": 1,
-          "attempted": 1,
+          "n": 10,
+          "attempted": 10,
           "unverified_witnesses": 0,
           "censored": 0,
-          "median": 42859,
+          "median": 58790.0,
           "raw": [
-            42859
+            26148,
+            31507,
+            42859,
+            49144,
+            55657,
+            61923,
+            64805,
+            70344,
+            74395,
+            129912
           ]
         },
         "18": {
@@ -15421,8 +17750,8 @@
           "raw": []
         }
       },
-      "beta": 0.7608,
-      "gap_vs_privileged": 0.2608
+      "beta": 0.7934,
+      "gap_vs_privileged": 0.2934
     },
     "cadical153/weak": {
       "per_width": {
@@ -15522,12 +17851,23 @@
           ]
         },
         "16": {
-          "n": 0,
-          "attempted": 0,
+          "n": 10,
+          "attempted": 10,
           "unverified_witnesses": 0,
           "censored": 0,
-          "median": null,
-          "raw": []
+          "median": 36038.0,
+          "raw": [
+            4494,
+            9561,
+            20986,
+            32734,
+            34710,
+            37366,
+            37761,
+            41030,
+            44253,
+            44386
+          ]
         },
         "18": {
           "n": 0,
@@ -15538,8 +17878,8 @@
           "raw": []
         }
       },
-      "beta": 0.8782,
-      "gap_vs_privileged": 0.3782
+      "beta": 0.8103,
+      "gap_vs_privileged": 0.3103
     },
     "cadical153/hardened": {
       "per_width": {
@@ -15639,12 +17979,23 @@
           ]
         },
         "16": {
-          "n": 0,
-          "attempted": 0,
+          "n": 10,
+          "attempted": 10,
           "unverified_witnesses": 0,
           "censored": 0,
-          "median": null,
-          "raw": []
+          "median": 39256.0,
+          "raw": [
+            20659,
+            23780,
+            27086,
+            32355,
+            36541,
+            41971,
+            42370,
+            44758,
+            45388,
+            92744
+          ]
         },
         "18": {
           "n": 0,
@@ -15655,8 +18006,8 @@
           "raw": []
         }
       },
-      "beta": 0.8202,
-      "gap_vs_privileged": 0.3202
+      "beta": 0.7622,
+      "gap_vs_privileged": 0.2622
     }
   }
 }

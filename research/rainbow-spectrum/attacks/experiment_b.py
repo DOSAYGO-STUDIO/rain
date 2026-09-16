@@ -227,6 +227,24 @@ def privileged_solve(challenge, t, hardened):
 
 # ------------------------------------------------------------- public solver
 def public_solve(challenge, t, hardened, timeout_ms):
+    """NOT PUBLIC. Kept for provenance; superseded by the real boundary.
+
+    QUARANTINED: reads secret material by design.
+
+    This function is named for what it was intended to be and not for what it
+    is. It receives challenge["thetas"] -- the same factorization the privileged
+    solver uses -- and compiles the secret multipliers, rotations, pairs and
+    signs straight into its formula as BitVecVal constants. Every exponent
+    derived from it therefore compared generic SMT against a specialised
+    algorithm holding identical structural information. That is an algorithmic
+    gap and it was reported for months as a representation gap.
+
+    It is left in place because the numbers it produced are cited in the
+    README's superseded sections and deleting it would orphan them. Nothing new
+    should use it. The genuine public attacker is models/public_artifact.py plus
+    attacks/_public_sat_child.py, and attacks/leakage_audit.py fails the build
+    if any other public-named function starts reading secrets without saying so.
+    """
     thetas = challenge["thetas"]
     w = thetas[0].w
     k = len(thetas)
