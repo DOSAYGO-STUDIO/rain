@@ -15,8 +15,8 @@
   "timeout_ms": 900000,
   "isolation": "one child process per draw; artifact rewritten per draw",
   "w24_lives_in": "deepen-w24.json (measured the same way)",
-  "generated": "2026-09-15T23:30:50",
-  "wall_seconds": 209.3,
+  "generated": "2026-09-15T23:33:40",
+  "wall_seconds": 379.3,
   "raw": [
     {
       "w": 12,
@@ -1235,6 +1235,132 @@
       "seconds": 79.7,
       "rlimit": "not attempted",
       "observed_peak_rss_mb": 102.8
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 7,
+      "rlimit_count": 106541606,
+      "status": "sat",
+      "conflicts": 126496,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 91.3,
+      "seconds": 25.0,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 91.2
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 9,
+      "rlimit_count": 119162829,
+      "status": "sat",
+      "conflicts": 212697,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 102.5,
+      "seconds": 28.5,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 101.9
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 0,
+      "rlimit_count": 125047257,
+      "status": "sat",
+      "conflicts": 220312,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 103.2,
+      "seconds": 29.7,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 102.6
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 8,
+      "rlimit_count": 228181411,
+      "status": "sat",
+      "conflicts": 433268,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 93.9,
+      "seconds": 64.0,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 93.5
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 3,
+      "rlimit_count": 22484794,
+      "status": "sat",
+      "conflicts": 57527,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 88.0,
+      "seconds": 5.5,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 86.1
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 4,
+      "rlimit_count": 68118429,
+      "status": "sat",
+      "conflicts": 111659,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 97.0,
+      "seconds": 15.8,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 96.5
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 1,
+      "rlimit_count": 330530257,
+      "status": "sat",
+      "conflicts": 640534,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 99.2,
+      "seconds": 96.7,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 98.6
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 5,
+      "rlimit_count": 170285496,
+      "status": "sat",
+      "conflicts": 295888,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 102.6,
+      "seconds": 47.7,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 101.9
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 7,
+      "rlimit_count": 147295169,
+      "status": "sat",
+      "conflicts": 193313,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 100.2,
+      "seconds": 37.1,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 99.6
     }
   ],
   "variants": {
@@ -1317,17 +1443,20 @@
           ]
         },
         "20": {
-          "n": 7,
-          "attempted": 7,
+          "n": 10,
+          "attempted": 10,
           "censored": 0,
-          "median": 275738,
-          "median_rlimit": 164478549,
+          "median": 244217.5,
+          "median_rlimit": 141820689.0,
           "raw": [
             84619,
             114161,
+            126496,
             209103,
+            212697,
             275738,
             344428,
+            433268,
             602957,
             629876
           ]
@@ -1346,14 +1475,14 @@
         "14": 11727.5,
         "16": 33256.5,
         "18": 62869.5,
-        "20": 275738
+        "20": 244217.5
       },
       "n": {
         "12": 10,
         "14": 10,
         "16": 10,
         "18": 10,
-        "20": 7,
+        "20": 10,
         "22": 0
       }
     },
@@ -1436,12 +1565,19 @@
           ]
         },
         "20": {
-          "n": 0,
-          "attempted": 0,
+          "n": 6,
+          "attempted": 6,
           "censored": 0,
-          "median": null,
-          "median_rlimit": null,
-          "raw": []
+          "median": 206812.5,
+          "median_rlimit": 136171213.0,
+          "raw": [
+            57527,
+            111659,
+            193313,
+            220312,
+            295888,
+            640534
+          ]
         },
         "22": {
           "n": 0,
@@ -1456,14 +1592,15 @@
         "12": 5983.0,
         "14": 11001.0,
         "16": 35874.0,
-        "18": 68975.0
+        "18": 68975.0,
+        "20": 206812.5
       },
       "n": {
         "12": 10,
         "14": 10,
         "16": 10,
         "18": 10,
-        "20": 0,
+        "20": 6,
         "22": 0
       }
     }
