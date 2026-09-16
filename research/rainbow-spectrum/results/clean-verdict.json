@@ -1,0 +1,448 @@
+{
+  "analysis": "clean_verdict",
+  "inputs": {
+    "widths_12_22": "scaling-clean.json",
+    "width_24": "deepen-w24.json"
+  },
+  "measurement": "one solve per process; see solver-state-contamination.json",
+  "rule": "drift_test.analyse(), unmodified, frozen in c3ea7f0",
+  "supersedes": "retake-verdict.json (contaminated conflict counts)",
+  "variants": {
+    "weak": {
+      "conflicts": {
+        "costs": {
+          "12": 4184.0,
+          "14": 11727.5,
+          "16": 33256.5,
+          "18": 62869.5,
+          "20": 244217.5,
+          "22": 473954.5,
+          "24": 2091329
+        },
+        "provenance": {
+          "12": "median of 10 solved, none censored (n=10 drawn)",
+          "14": "median of 10 solved, none censored (n=10 drawn)",
+          "16": "median of 10 solved, none censored (n=10 drawn)",
+          "18": "median of 10 solved, none censored (n=10 drawn)",
+          "20": "median of 10 solved, none censored (n=10 drawn)",
+          "22": "median of 10 solved, none censored (n=10 drawn)",
+          "24": "Kaplan-Meier over 10 draws, 3 censored (n=10 drawn)"
+        },
+        "analysis": {
+          "beta_global": 0.7222,
+          "beta_drop_lowest": 0.7264,
+          "beta_drop_highest": 0.6883,
+          "windows": [
+            {
+              "widths": [
+                12,
+                14,
+                16,
+                18
+              ],
+              "centre": 15.0,
+              "beta": 0.6616
+            },
+            {
+              "widths": [
+                14,
+                16,
+                18,
+                20
+              ],
+              "centre": 17.0,
+              "beta": 0.703
+            },
+            {
+              "widths": [
+                16,
+                18,
+                20,
+                22
+              ],
+              "centre": 19.0,
+              "beta": 0.6728
+            },
+            {
+              "widths": [
+                18,
+                20,
+                22,
+                24
+              ],
+              "centre": 21.0,
+              "beta": 0.8062
+            }
+          ],
+          "window_betas": [
+            0.6616,
+            0.703,
+            0.6728,
+            0.8062
+          ],
+          "trend_slope_per_w": 0.02018,
+          "excess_curve": [
+            [
+              12,
+              6.031
+            ],
+            [
+              14,
+              6.518
+            ],
+            [
+              16,
+              7.021
+            ],
+            [
+              18,
+              6.94
+            ],
+            [
+              20,
+              7.898
+            ],
+            [
+              22,
+              7.854
+            ],
+            [
+              24,
+              8.996
+            ]
+          ],
+          "excess_slope": 0.2222,
+          "verdict": "stable"
+        }
+      },
+      "rlimit": {
+        "costs": {
+          "12": 1105193.5,
+          "14": 3566814.5,
+          "16": 12078092.5,
+          "18": 31015867.0,
+          "20": 141820689.0,
+          "22": 341938038.0,
+          "24": 1461816309
+        },
+        "provenance": {
+          "12": "median of 10 solved, none censored (n=10 drawn)",
+          "14": "median of 10 solved, none censored (n=10 drawn)",
+          "16": "median of 10 solved, none censored (n=10 drawn)",
+          "18": "median of 10 solved, none censored (n=10 drawn)",
+          "20": "median of 10 solved, none censored (n=10 drawn)",
+          "22": "median of 10 solved, none censored (n=10 drawn)",
+          "24": "Kaplan-Meier over 10 draws, 3 censored (n=10 drawn)"
+        },
+        "analysis": {
+          "beta_global": 0.8541,
+          "beta_drop_lowest": 0.858,
+          "beta_drop_highest": 0.8381,
+          "windows": [
+            {
+              "widths": [
+                12,
+                14,
+                16,
+                18
+              ],
+              "centre": 15.0,
+              "beta": 0.8096
+            },
+            {
+              "widths": [
+                14,
+                16,
+                18,
+                20
+              ],
+              "centre": 17.0,
+              "beta": 0.865
+            },
+            {
+              "widths": [
+                16,
+                18,
+                20,
+                22
+              ],
+              "centre": 19.0,
+              "beta": 0.8331
+            },
+            {
+              "widths": [
+                18,
+                20,
+                22,
+                24
+              ],
+              "centre": 21.0,
+              "beta": 0.8973
+            }
+          ],
+          "window_betas": [
+            0.8096,
+            0.865,
+            0.8331,
+            0.8973
+          ],
+          "trend_slope_per_w": 0.01156,
+          "excess_curve": [
+            [
+              12,
+              14.076
+            ],
+            [
+              14,
+              14.766
+            ],
+            [
+              16,
+              15.526
+            ],
+            [
+              18,
+              15.887
+            ],
+            [
+              20,
+              17.079
+            ],
+            [
+              22,
+              17.349
+            ],
+            [
+              24,
+              18.445
+            ]
+          ],
+          "excess_slope": 0.354,
+          "verdict": "stable"
+        }
+      }
+    },
+    "hardened": {
+      "conflicts": {
+        "costs": {
+          "12": 5983.0,
+          "14": 11001.0,
+          "16": 35874.0,
+          "18": 68975.0,
+          "20": 266099.0,
+          "22": 610438,
+          "24": 2989893
+        },
+        "provenance": {
+          "12": "median of 10 solved, none censored (n=10 drawn)",
+          "14": "median of 10 solved, none censored (n=10 drawn)",
+          "16": "median of 10 solved, none censored (n=10 drawn)",
+          "18": "median of 10 solved, none censored (n=10 drawn)",
+          "20": "median of 10 solved, none censored (n=10 drawn)",
+          "22": "Kaplan-Meier over 10 draws, 1 censored (n=10 drawn)",
+          "24": "Kaplan-Meier over 10 draws, 5 censored (n=10 drawn)"
+        },
+        "analysis": {
+          "beta_global": 0.7388,
+          "beta_drop_lowest": 0.7807,
+          "beta_drop_highest": 0.6871,
+          "windows": [
+            {
+              "widths": [
+                12,
+                14,
+                16,
+                18
+              ],
+              "centre": 15.0,
+              "beta": 0.6143
+            },
+            {
+              "widths": [
+                14,
+                16,
+                18,
+                20
+              ],
+              "centre": 17.0,
+              "beta": 0.7366
+            },
+            {
+              "widths": [
+                16,
+                18,
+                20,
+                22
+              ],
+              "centre": 19.0,
+              "beta": 0.7107
+            },
+            {
+              "widths": [
+                18,
+                20,
+                22,
+                24
+              ],
+              "centre": 21.0,
+              "beta": 0.8756
+            }
+          ],
+          "window_betas": [
+            0.6143,
+            0.7366,
+            0.7107,
+            0.8756
+          ],
+          "trend_slope_per_w": 0.0379,
+          "excess_curve": [
+            [
+              12,
+              6.547
+            ],
+            [
+              14,
+              6.425
+            ],
+            [
+              16,
+              7.131
+            ],
+            [
+              18,
+              7.074
+            ],
+            [
+              20,
+              8.022
+            ],
+            [
+              22,
+              8.219
+            ],
+            [
+              24,
+              9.512
+            ]
+          ],
+          "excess_slope": 0.2388,
+          "verdict": "stable"
+        }
+      },
+      "rlimit": {
+        "costs": {
+          "12": 1494315.5,
+          "14": 3199918.5,
+          "16": 18090913.0,
+          "18": 30646169.0,
+          "20": 158790332.5,
+          "22": 508647127,
+          "24": 1928511274
+        },
+        "provenance": {
+          "12": "median of 10 solved, none censored (n=10 drawn)",
+          "14": "median of 10 solved, none censored (n=10 drawn)",
+          "16": "median of 10 solved, none censored (n=10 drawn)",
+          "18": "median of 10 solved, none censored (n=10 drawn)",
+          "20": "median of 10 solved, none censored (n=10 drawn)",
+          "22": "Kaplan-Meier over 10 draws, 1 censored (n=10 drawn)",
+          "24": "Kaplan-Meier over 10 draws, 5 censored (n=10 drawn)"
+        },
+        "analysis": {
+          "beta_global": 0.8707,
+          "beta_drop_lowest": 0.8999,
+          "beta_drop_highest": 0.8531,
+          "windows": [
+            {
+              "widths": [
+                12,
+                14,
+                16,
+                18
+              ],
+              "centre": 15.0,
+              "beta": 0.7787
+            },
+            {
+              "widths": [
+                14,
+                16,
+                18,
+                20
+              ],
+              "centre": 17.0,
+              "beta": 0.883
+            },
+            {
+              "widths": [
+                16,
+                18,
+                20,
+                22
+              ],
+              "centre": 19.0,
+              "beta": 0.8407
+            },
+            {
+              "widths": [
+                18,
+                20,
+                22,
+                24
+              ],
+              "centre": 21.0,
+              "beta": 0.9803
+            }
+          ],
+          "window_betas": [
+            0.7787,
+            0.883,
+            0.8407,
+            0.9803
+          ],
+          "trend_slope_per_w": 0.02813,
+          "excess_curve": [
+            [
+              12,
+              14.511
+            ],
+            [
+              14,
+              14.61
+            ],
+            [
+              16,
+              16.109
+            ],
+            [
+              18,
+              15.869
+            ],
+            [
+              20,
+              17.243
+            ],
+            [
+              22,
+              17.922
+            ],
+            [
+              24,
+              18.845
+            ]
+          ],
+          "excess_slope": 0.3707,
+          "verdict": "stable"
+        }
+      }
+    }
+  },
+  "verdict": "stable",
+  "verdict_by_metric": {
+    "conflicts": "stable",
+    "rlimit": "stable"
+  },
+  "metrics_agree": true,
+  "previous_verdict": "declining",
+  "conclusion": "On measurements that reproduce, the pre-registered verdict is 'stable' by conflicts and 'stable' by rlimit count -- the two cost metrics agree, so this is a statement about the construction rather than about the metric. The superseded contaminated data gave 'declining'."
+}

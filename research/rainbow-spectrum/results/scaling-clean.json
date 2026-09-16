@@ -15,8 +15,8 @@
   "timeout_ms": 900000,
   "isolation": "one child process per draw; artifact rewritten per draw",
   "w24_lives_in": "deepen-w24.json (measured the same way)",
-  "generated": "2026-09-15T23:33:40",
-  "wall_seconds": 379.3,
+  "generated": "2026-09-16T00:33:16",
+  "wall_seconds": 3956.2,
   "raw": [
     {
       "w": 12,
@@ -1361,6 +1361,342 @@
       "seconds": 37.1,
       "rlimit": "not attempted",
       "observed_peak_rss_mb": 99.6
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 8,
+      "rlimit_count": 137698845,
+      "status": "sat",
+      "conflicts": 236310,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 97.5,
+      "seconds": 41.0,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 97.4
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 2,
+      "rlimit_count": 555992780,
+      "status": "sat",
+      "conflicts": 1084473,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 103.6,
+      "seconds": 180.8,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 103.5
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 6,
+      "rlimit_count": 404876148,
+      "status": "sat",
+      "conflicts": 871715,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 106.4,
+      "seconds": 133.1,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 106.2
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 9,
+      "rlimit_count": 249227962,
+      "status": "sat",
+      "conflicts": 433342,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 99.2,
+      "seconds": 69.6,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 99.2
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 1,
+      "rlimit_count": 166859681,
+      "status": "sat",
+      "conflicts": 238524,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 98.3,
+      "seconds": 43.3,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 98.3
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 2,
+      "rlimit_count": 229320750,
+      "status": "sat",
+      "conflicts": 270559,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 101.5,
+      "seconds": 55.4,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 101.5
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 3,
+      "rlimit_count": 279864732,
+      "status": "sat",
+      "conflicts": 422290,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 101.0,
+      "seconds": 75.4,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 100.7
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 4,
+      "rlimit_count": 192009520,
+      "status": "sat",
+      "conflicts": 324837,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 103.0,
+      "seconds": 53.6,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 103.0
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 5,
+      "rlimit_count": 404011344,
+      "status": "sat",
+      "conflicts": 599059,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 104.5,
+      "seconds": 115.4,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 104.5
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 7,
+      "rlimit_count": 153043451,
+      "status": "sat",
+      "conflicts": 167310,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 95.3,
+      "seconds": 33.9,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 95.3
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 6,
+      "rlimit_count": 463320825,
+      "status": "sat",
+      "conflicts": 879505,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 88.0,
+      "seconds": 139.4,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 87.8
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 9,
+      "rlimit_count": 431816142,
+      "status": "sat",
+      "conflicts": 525619,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 100.3,
+      "seconds": 99.4,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 100.2
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 0,
+      "rlimit_count": 1426239328,
+      "status": "sat",
+      "conflicts": 3114031,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 102.2,
+      "seconds": 2351.1,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 102.2
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 1,
+      "rlimit_count": 315264924,
+      "status": "sat",
+      "conflicts": 515764,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 101.2,
+      "seconds": 71.0,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 101.1
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 2,
+      "rlimit_count": 315643745,
+      "status": "sat",
+      "conflicts": 400431,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 101.8,
+      "seconds": 85.7,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 101.8
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 8,
+      "rlimit_count": 1362848161,
+      "status": "sat",
+      "conflicts": 2246636,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 99.3,
+      "seconds": 2253.5,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 96.0
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 4,
+      "rlimit_count": 321090861,
+      "status": "sat",
+      "conflicts": 514078,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 90.4,
+      "seconds": 148.7,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 90.4
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 3,
+      "rlimit_count": 508647127,
+      "status": "sat",
+      "conflicts": 830099,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 98.6,
+      "seconds": 292.4,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 98.6
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 0,
+      "rlimit_count": 1427179852,
+      "status": "unknown",
+      "conflicts": 3156047,
+      "event": false,
+      "replay_verified": null,
+      "peak_rss_mb": 109.2,
+      "seconds": 2696.3,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 109.2
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 5,
+      "rlimit_count": 588003843,
+      "status": "sat",
+      "conflicts": 1007947,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 112.8,
+      "seconds": 406.1,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 112.8
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 7,
+      "rlimit_count": 234578133,
+      "status": "sat",
+      "conflicts": 209733,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 94.8,
+      "seconds": 78.3,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 94.2
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 6,
+      "rlimit_count": 599674623,
+      "status": "sat",
+      "conflicts": 1309114,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 105.6,
+      "seconds": 428.9,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 105.6
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 9,
+      "rlimit_count": 560365141,
+      "status": "sat",
+      "conflicts": 610438,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 106.5,
+      "seconds": 164.9,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 106.0
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 8,
+      "rlimit_count": 1166244564,
+      "status": "sat",
+      "conflicts": 1782566,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 121.8,
+      "seconds": 405.8,
+      "rlimit": "not attempted",
+      "observed_peak_rss_mb": 121.2
     }
   ],
   "variants": {
@@ -1462,12 +1798,23 @@
           ]
         },
         "22": {
-          "n": 0,
-          "attempted": 0,
+          "n": 10,
+          "attempted": 10,
           "censored": 0,
-          "median": null,
-          "median_rlimit": null,
-          "raw": []
+          "median": 473954.5,
+          "median_rlimit": 341938038.0,
+          "raw": [
+            167310,
+            238524,
+            270559,
+            324837,
+            422290,
+            525619,
+            599059,
+            879505,
+            2246636,
+            3114031
+          ]
         }
       },
       "median_conflicts": {
@@ -1475,7 +1822,8 @@
         "14": 11727.5,
         "16": 33256.5,
         "18": 62869.5,
-        "20": 244217.5
+        "20": 244217.5,
+        "22": 473954.5
       },
       "n": {
         "12": 10,
@@ -1483,7 +1831,7 @@
         "16": 10,
         "18": 10,
         "20": 10,
-        "22": 0
+        "22": 10
       }
     },
     "hardened": {
@@ -1565,27 +1913,41 @@
           ]
         },
         "20": {
-          "n": 6,
-          "attempted": 6,
+          "n": 10,
+          "attempted": 10,
           "censored": 0,
-          "median": 206812.5,
-          "median_rlimit": 136171213.0,
+          "median": 266099.0,
+          "median_rlimit": 158790332.5,
           "raw": [
             57527,
             111659,
             193313,
             220312,
+            236310,
             295888,
-            640534
+            433342,
+            640534,
+            871715,
+            1084473
           ]
         },
         "22": {
-          "n": 0,
-          "attempted": 0,
-          "censored": 0,
-          "median": null,
-          "median_rlimit": null,
-          "raw": []
+          "n": 9,
+          "attempted": 10,
+          "censored": 1,
+          "median": 610438,
+          "median_rlimit": 508647127,
+          "raw": [
+            209733,
+            400431,
+            514078,
+            515764,
+            610438,
+            830099,
+            1007947,
+            1309114,
+            1782566
+          ]
         }
       },
       "median_conflicts": {
@@ -1593,15 +1955,16 @@
         "14": 11001.0,
         "16": 35874.0,
         "18": 68975.0,
-        "20": 206812.5
+        "20": 266099.0,
+        "22": 610438
       },
       "n": {
         "12": 10,
         "14": 10,
         "16": 10,
         "18": 10,
-        "20": 6,
-        "22": 0
+        "20": 10,
+        "22": 9
       }
     }
   }
