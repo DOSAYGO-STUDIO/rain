@@ -1,0 +1,601 @@
+{
+  "question": "Q3: public recoverability of each parameter class",
+  "what_the_attack_needs": "pairing and injection coefficients only; every mixer, constant, rotation, IV, seed and finalization is consumed as a black box (Q2)",
+  "rows": [
+    {
+      "w": 8,
+      "member": "actual Rainbow (control)",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.38,
+        "mean_bit_flip_pair1": 0.482,
+        "max_per_bit_gap": 0.62
+      }
+    },
+    {
+      "w": 8,
+      "member": "odd coefficients (3,5),(7,9)",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            3,
+            5
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.377,
+        "mean_bit_flip_pair1": 0.522,
+        "max_per_bit_gap": 0.79
+      }
+    },
+    {
+      "w": 8,
+      "member": "random separable merge mixer",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.37,
+        "mean_bit_flip_pair1": 0.495,
+        "max_per_bit_gap": 0.632
+      }
+    },
+    {
+      "w": 8,
+      "member": "random NON-separable seeded mixB",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.503,
+        "mean_bit_flip_pair1": 0.5,
+        "max_per_bit_gap": 0.083
+      }
+    },
+    {
+      "w": 8,
+      "member": "random IV + random finalization",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.506,
+        "mean_bit_flip_pair1": 0.5,
+        "max_per_bit_gap": 0.082
+      }
+    },
+    {
+      "w": 8,
+      "member": "all of the above at once",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            3,
+            5
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.509,
+        "mean_bit_flip_pair1": 0.501,
+        "max_per_bit_gap": 0.09
+      }
+    },
+    {
+      "w": 12,
+      "member": "actual Rainbow (control)",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.375,
+        "mean_bit_flip_pair1": 0.492,
+        "max_per_bit_gap": 0.825
+      }
+    },
+    {
+      "w": 12,
+      "member": "odd coefficients (3,5),(7,9)",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            3,
+            5
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.371,
+        "mean_bit_flip_pair1": 0.516,
+        "max_per_bit_gap": 0.81
+      }
+    },
+    {
+      "w": 12,
+      "member": "random separable merge mixer",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.37,
+        "mean_bit_flip_pair1": 0.496,
+        "max_per_bit_gap": 0.823
+      }
+    },
+    {
+      "w": 12,
+      "member": "random NON-separable seeded mixB",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.503,
+        "mean_bit_flip_pair1": 0.496,
+        "max_per_bit_gap": 0.105
+      }
+    },
+    {
+      "w": 12,
+      "member": "random IV + random finalization",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.497,
+        "mean_bit_flip_pair1": 0.5,
+        "max_per_bit_gap": 0.088
+      }
+    },
+    {
+      "w": 12,
+      "member": "all of the above at once",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            3,
+            5
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.493,
+        "mean_bit_flip_pair1": 0.498,
+        "max_per_bit_gap": 0.09
+      }
+    },
+    {
+      "w": 16,
+      "member": "actual Rainbow (control)",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.375,
+        "mean_bit_flip_pair1": 0.499,
+        "max_per_bit_gap": 0.83
+      }
+    },
+    {
+      "w": 16,
+      "member": "odd coefficients (3,5),(7,9)",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            3,
+            5
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.373,
+        "mean_bit_flip_pair1": 0.501,
+        "max_per_bit_gap": 0.782
+      }
+    },
+    {
+      "w": 16,
+      "member": "random separable merge mixer",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.377,
+        "mean_bit_flip_pair1": 0.505,
+        "max_per_bit_gap": 0.89
+      }
+    },
+    {
+      "w": 16,
+      "member": "random NON-separable seeded mixB",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.494,
+        "mean_bit_flip_pair1": 0.502,
+        "max_per_bit_gap": 0.082
+      }
+    },
+    {
+      "w": 16,
+      "member": "random IV + random finalization",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.5,
+        "mean_bit_flip_pair1": 0.503,
+        "max_per_bit_gap": 0.112
+      }
+    },
+    {
+      "w": 16,
+      "member": "all of the above at once",
+      "program_access": {
+        "recovered": true,
+        "evaluations": 4,
+        "pairing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "coefficients": [
+          [
+            3,
+            5
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      "digest_access": {
+        "mean_bit_flip_pair0": 0.499,
+        "mean_bit_flip_pair1": 0.502,
+        "max_per_bit_gap": 0.11
+      }
+    }
+  ],
+  "generated": "2026-09-16T05:37:32"
+}
