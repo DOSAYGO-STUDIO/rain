@@ -40,7 +40,7 @@ class FaithfulArtifact:
                      for l in range(lanes))
 
 
-def build(thetas, S, T, t, seed):
+def build(thetas, S, T, t, seed, suffix='mixb'):
     w = thetas[0].w
     aig = Aig()
     groups = {
@@ -79,15 +79,19 @@ def build(thetas, S, T, t, seed):
     sa = const(S)
     pa = words("pa", t)
     sa = mix_a(inject(sa, widen(pa[0]), widen(pa[1])), thetas[0])
-    sa = mix_b_rot(inject(sa, zero, zero), thetas[-1])
+    sa = inject(sa, zero, zero)
+    if suffix == 'mixb':   sa = mix_b_rot(sa, thetas[-1])
+    elif suffix == 'mixa': sa = mix_a(sa, thetas[-1])
 
     sb = const(T)
     pb = words("pb", t)
     sb = mix_a(inject(sb, widen(pb[0]), widen(pb[1])), thetas[0])
     mb = words("mb", w)
-    sb = mix_b_rot(inject(sb, mb[0], mb[1]), thetas[-1])
+    sb = inject(sb, mb[0], mb[1])
+    if suffix == 'mixb':   sb = mix_b_rot(sb, thetas[-1])
+    elif suffix == 'mixa': sb = mix_a(sb, thetas[-1])
 
     out_a = [bit for word in sa for bit in word]
     out_b = [bit for word in sb for bit in word]
     return FaithfulArtifact(aig, groups, out_a, out_b,
-                            {"w": w, "t": t, "gates": len(aig.ands)})
+                            {"w": w, "t": t, "gates": len(aig.ands), "suffix": suffix})

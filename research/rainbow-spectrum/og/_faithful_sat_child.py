@@ -8,26 +8,24 @@ sys.path.insert(0, str(HERE.parents[1] / "attacks"))
 def main():
     w, t, draw, solver_name, budget = (int(sys.argv[1]), int(sys.argv[2]),
         int(sys.argv[3]), sys.argv[4], int(sys.argv[5]))
+    suffix = sys.argv[6] if len(sys.argv) > 6 else 'mixb'
     from pysat.solvers import Solver
-    import faithful_artifact as FA
+    import faithful_artifact as FA, faithful_plant as FP
     from models import cnf as C
-    from models import spectrum as S
     rng = random.Random(8800 + 97 * draw + w)
     seed = rng.getrandbits(w)
-    ths = []
-    while len(ths) < 2:
-        th = S.random_theta(w, rng, pairs=S.PAIRINGS[0], signs=((-1,1),(1,-1)))
-        if S.validate_weakness(th, rng, trials=20)["admissible"]: ths.append(th)
-    S0 = tuple(rng.getrandbits(w) for _ in range(4))
-    T0 = tuple(rng.getrandbits(w) for _ in range(4))
-    art = FA.build(tuple(ths), S0, T0, t, seed)
+    # PLANTED: random S,T give an unsatisfiable relation. Two different states
+    # reaching the same state generically has no solution, so an unplanted
+    # instance is unsat and any cost fitted over the lucky few is meaningless.
+    ths, S0, T0 = FP.plant(w, t, rng, seed)
+    art = FA.build(ths, S0, T0, t, seed, suffix)
     clauses, vin, stats = C.build(art, seed=draw, shuffle=True)
     started = time.time()
     with Solver(name=solver_name, bootstrap_with=clauses) as s:
         s.conf_budget(budget)
         verdict = s.solve_limited(expect_interrupt=False)
         accum = s.accum_stats()
-    print(json.dumps({"w": w, "t": t, "draw": draw, "solver": solver_name,
+    print(json.dumps({"w": w, "t": t, "draw": draw, "solver": solver_name, "suffix": suffix,
         "gates": art.meta["gates"], "clauses": stats["clauses"],
         "conflicts": accum.get("conflicts"), "seconds": round(time.time()-started,2),
         "status": {True:"sat",False:"unsat",None:"budget"}[verdict],
