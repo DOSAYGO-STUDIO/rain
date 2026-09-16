@@ -1,0 +1,117 @@
+{
+  "test": "public_boundary",
+  "question": "can the public object exist without the trapdoor?",
+  "cases": [
+    {
+      "w": 3,
+      "t": 1,
+      "hardened": false,
+      "gates": {
+        "inputs": 10,
+        "ands": 164
+      },
+      "inputs_checked_exhaustively": 260,
+      "mismatches": 0,
+      "exact": true,
+      "secret_values_found_in_bytes": {},
+      "secret_free": true,
+      "survives_deletion": true,
+      "privileged_dies_without_secret": true,
+      "privileged_failure": "KeyError",
+      "artifact_bytes": 2205
+    },
+    {
+      "w": 3,
+      "t": 1,
+      "hardened": true,
+      "gates": {
+        "inputs": 10,
+        "ands": 139
+      },
+      "inputs_checked_exhaustively": 260,
+      "mismatches": 0,
+      "exact": true,
+      "secret_values_found_in_bytes": {},
+      "secret_free": true,
+      "survives_deletion": true,
+      "privileged_dies_without_secret": true,
+      "privileged_failure": "KeyError",
+      "artifact_bytes": 1950
+    },
+    {
+      "w": 4,
+      "t": 2,
+      "hardened": false,
+      "gates": {
+        "inputs": 16,
+        "ands": 884
+      },
+      "inputs_checked_exhaustively": 4112,
+      "mismatches": 0,
+      "exact": true,
+      "secret_values_found_in_bytes": {},
+      "secret_free": true,
+      "survives_deletion": true,
+      "privileged_dies_without_secret": true,
+      "privileged_failure": "KeyError",
+      "artifact_bytes": 11562
+    },
+    {
+      "w": 4,
+      "t": 2,
+      "hardened": true,
+      "gates": {
+        "inputs": 16,
+        "ands": 979
+      },
+      "inputs_checked_exhaustively": 4112,
+      "mismatches": 0,
+      "exact": true,
+      "secret_values_found_in_bytes": {},
+      "secret_free": true,
+      "survives_deletion": true,
+      "privileged_dies_without_secret": true,
+      "privileged_failure": "KeyError",
+      "artifact_bytes": 12856
+    },
+    {
+      "w": 5,
+      "t": 2,
+      "hardened": false,
+      "gates": {
+        "inputs": 18,
+        "ands": 1465
+      },
+      "inputs_checked_exhaustively": 16400,
+      "mismatches": 0,
+      "exact": true,
+      "secret_values_found_in_bytes": {},
+      "secret_free": true,
+      "survives_deletion": true,
+      "privileged_dies_without_secret": true,
+      "privileged_failure": "KeyError",
+      "artifact_bytes": 19667
+    },
+    {
+      "w": 5,
+      "t": 2,
+      "hardened": true,
+      "gates": {
+        "inputs": 18,
+        "ands": 1621
+      },
+      "inputs_checked_exhaustively": 16400,
+      "mismatches": 0,
+      "exact": true,
+      "secret_values_found_in_bytes": {},
+      "secret_free": true,
+      "survives_deletion": true,
+      "privileged_dies_without_secret": true,
+      "privileged_failure": "KeyError",
+      "artifact_bytes": 21780
+    }
+  ],
+  "generated": "2026-09-16T03:19:29",
+  "all_passed": true,
+  "conclusion": "A secret-free public artifact exists and is exact: the compiled circuit matches the factored implementation on every enumerated input, carries none of the secret values in its serialised form, still evaluates after theta is deleted, and the privileged route cannot run without the secret. This establishes the boundary; it does NOT establish that theta is unrecoverable from the gate graph."
+}
