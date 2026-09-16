@@ -119,17 +119,23 @@ class Aig:
 
     # ------------------------------------------------------------- evaluation
     def evaluate(self, outputs, assignment):
-        """Simulate. `assignment` maps input literal -> 0/1. No theta involved."""
-        values = {FALSE: 0, TRUE: 1}
-        for literal in self.inputs:
-            values[literal] = assignment[literal] & 1
-            values[invert(literal)] = values[literal] ^ 1
+        """Simulate. `assignment` maps input literal -> 0/1. No theta involved.
+
+        Node-indexed list rather than a literal-keyed dict: the attack in
+        attacks/public_mitm.py runs this millions of times, and the dict version
+        stored two entries per node and rebuilt the mapping on every call.
+        Inversion is applied at read time instead, which is one xor.
+        """
+        n_inputs = len(self.inputs)
+        values = [0] * (n_inputs + len(self.ands) + 1)
+        for index, literal in enumerate(self.inputs, start=1):
+            values[index] = assignment[literal] & 1
         for index, (a, b) in enumerate(self.ands, start=1):
-            literal = lit(len(self.inputs) + index)
-            value = values[a] & values[b]
-            values[literal] = value
-            values[invert(literal)] = value ^ 1
-        return [values[o] for o in outputs]
+            va = values[a >> 1] ^ (a & 1) if a >> 1 else (a & 1)
+            vb = values[b >> 1] ^ (b & 1) if b >> 1 else (b & 1)
+            values[n_inputs + index] = va & vb
+        return [(values[o >> 1] ^ (o & 1)) if o >> 1 else (o & 1)
+                for o in outputs]
 
     def stats(self):
         return {"inputs": len(self.inputs), "ands": len(self.ands)}

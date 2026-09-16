@@ -111,7 +111,7 @@
       "artifact_bytes": 21780
     }
   ],
-  "generated": "2026-09-16T03:19:29",
+  "generated": "2026-09-16T03:32:43",
   "all_passed": true,
   "conclusion": "A secret-free public artifact exists and is exact: the compiled circuit matches the factored implementation on every enumerated input, carries none of the secret values in its serialised form, still evaluates after theta is deleted, and the privileged route cannot run without the secret. This establishes the boundary; it does NOT establish that theta is unrecoverable from the gate graph."
 }
