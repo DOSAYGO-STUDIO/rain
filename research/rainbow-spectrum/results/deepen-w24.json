@@ -1,0 +1,100 @@
+{
+  "experiment": "deepen_w24_censoring_aware",
+  "purpose": "the width that decided the verdict, sampled past n=3",
+  "w": 24,
+  "draws_planned": 10,
+  "timeout_ms": 900000,
+  "rss_cap_mb": 800,
+  "memory_ceiling": "parent polls child RSS and SIGKILLs at the cap; z3 memory_max_size and Darwin RLIMIT_AS/DATA were all measured not to work",
+  "isolation": "one child process per draw; artifact rewritten per draw",
+  "seed_stream": "same as deepen.py (8800 + 97*draw + w) -- draws 0..9 at w=24 are the SAME instances, now recorded correctly",
+  "censoring": "timeouts kept as right-censored lower bounds on conflicts",
+  "generated": "2026-09-15T22:21:39",
+  "wall_seconds": 765.0,
+  "raw": [
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 0,
+      "rlimit_count": 777454874,
+      "status": "sat",
+      "conflicts": 1254257,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 78.8,
+      "seconds": 438.5,
+      "rlimit": "RLIMIT_AS unsupported: current limit exceeds maximum limit",
+      "observed_peak_rss_mb": 70.9
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 2,
+      "rlimit_count": 994155097,
+      "status": "sat",
+      "conflicts": 950400,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 88.1,
+      "seconds": 505.8,
+      "rlimit": "RLIMIT_AS unsupported: current limit exceeds maximum limit",
+      "observed_peak_rss_mb": 85.5
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 1,
+      "rlimit_count": 1309949010,
+      "status": "sat",
+      "conflicts": 2103636,
+      "event": true,
+      "replay_verified": true,
+      "peak_rss_mb": 87.1,
+      "seconds": 764.4,
+      "rlimit": "RLIMIT_AS unsupported: current limit exceeds maximum limit",
+      "observed_peak_rss_mb": 82.5
+    }
+  ],
+  "variants": {
+    "weak": {
+      "attempted": 3,
+      "solved": 3,
+      "censored": 0,
+      "failed": 0,
+      "solve_rate_in_budget": 1.0,
+      "survivors_median": 1254257,
+      "survivors_median_is_biased": false,
+      "km_median": 1254257,
+      "km_median_kind": "point",
+      "median": 1254257,
+      "median_basis": "statistics.median of solved draws (no censoring)",
+      "n": 3,
+      "raw_solved": [
+        950400,
+        1254257,
+        2103636
+      ],
+      "raw_censored_lower_bounds": [],
+      "peak_rss_mb": 85.5,
+      "memory_killed": 0
+    },
+    "hardened": {
+      "attempted": 0,
+      "solved": 0,
+      "censored": 0,
+      "failed": 0,
+      "solve_rate_in_budget": null,
+      "survivors_median": null,
+      "survivors_median_is_biased": false,
+      "km_median": null,
+      "km_median_kind": "no_data",
+      "median": null,
+      "median_basis": "statistics.median of solved draws (no censoring)",
+      "n": 0,
+      "raw_solved": [],
+      "raw_censored_lower_bounds": [],
+      "peak_rss_mb": null,
+      "memory_killed": 0
+    }
+  }
+}
