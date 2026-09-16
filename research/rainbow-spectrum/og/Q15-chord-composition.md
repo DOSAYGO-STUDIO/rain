@@ -21,7 +21,25 @@ and splitting by whether the valuations cancel:
     v2(dC_xz) == min(...)   ->  B(e_xz) == intersection     166/166
     v2(dC_xz)  > min(...)   ->  B(e_xz)  > intersection      84/84
 
-Cancellation occurred in 84/250 = 34% of triples. So composing two collisions
+Two further exact checks:
+
+    |B(e)| == 2^v2(dC) for all three chords          250/250
+    enlargement factor == 2^(v3 - min(v1,v2))        250/250
+
+and the cancellation-depth distribution:
+
+    depth 0 (none)  0.664      depth 3  0.052
+    depth 1         0.168      depth 4  0.032
+    depth 2         0.080      depth 5  0.004
+
+**Cancellation occurs exactly when v1 == v2.** If the valuations differ then
+`v2(dC_xy + dC_yz) = min` exactly. If they are equal, both terms are `2^j * odd`
+so their sum is `2^j * even` and `v3 >= j+1` always. Hence
+
+    P(no cancellation) = 1 - sum_j 2^-2(j+1) = 1 - 1/3 = 2/3
+
+against the measured 0.664. So the whole branch structure is predicted, not just
+observed. So composing two collisions
 gives a collision whose compatible-parameter ball is exactly the intersection of
 the constituents' -- unless the `dC` valuations cancel, in which case the result
 sits strictly **higher** in the 2-adic tree and is compatible with MORE family
