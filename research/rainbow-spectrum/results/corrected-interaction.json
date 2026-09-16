@@ -1,0 +1,54 @@
+{
+  "analysis": "corrected_interaction",
+  "supersedes": "interaction.json, whose flat row used public_solve and therefore held the secret",
+  "boundary": "flat attackers hold PublicArtifact only (attacks/public_boundary.json)",
+  "flat_attacks": {
+    "weak": {
+      "sat/minisat22": 0.7671,
+      "sat/glucose4": 0.8241,
+      "sat/cadical153": 0.761,
+      "mitm": 1.4004
+    },
+    "hardened": {
+      "sat/minisat22": 0.6996,
+      "sat/glucose4": 0.7821,
+      "sat/cadical153": 0.7146
+    }
+  },
+  "known_public_leak": {
+    "what": "the pairing",
+    "cost": "15 public evaluations",
+    "recovered": "24/24",
+    "consequence": "pairs become independent: one 4w-bit match becomes two 2w-bit matches. Per pair the MITM is still ~2^(3w/2) against the privileged 2^(w/2), so the pairing alone does not surrender the sigma route"
+  },
+  "cells": {
+    "weak": {
+      "flat_best_beta": 0.761,
+      "flat_best_attack": "sat/cadical153",
+      "flat_all": {
+        "sat/minisat22": 0.7671,
+        "sat/glucose4": 0.8241,
+        "sat/cadical153": 0.761,
+        "mitm": 1.4004
+      },
+      "factored_beta": 0.5
+    },
+    "hardened": {
+      "flat_best_beta": 0.6996,
+      "flat_best_attack": "sat/minisat22",
+      "flat_all": {
+        "sat/minisat22": 0.6996,
+        "sat/glucose4": 0.7821,
+        "sat/cadical153": 0.7146
+      },
+      "factored_beta": null,
+      "factored_status": "no shortcut: 0/70 solved"
+    }
+  },
+  "comparisons": {
+    "representation_gap_flat_minus_factored_weak": 0.261,
+    "negative_control_flat_weak_minus_flat_hardened": 0.0614,
+    "weakness_gap": "110/110 vs 0/70"
+  },
+  "conclusion": "Across a boundary that now exists, the best public attack scales as 2^(0.761w) against a privileged route of exactly 2^(0.5w), a gap of +0.2610 in the exponent. The negative control holds: weak and hardened look alike publicly (+0.0614), which is what a hidden trapdoor predicts rather than evidence against one. Removing the weakness does not slow the private route, it deletes it (110/110 vs 0/70). The pairing leaks publicly and is not repairable by better compilation. This is a toy candidate separation against the strongest attacks run so far, not security: the widths are small, the flat row is a best-of-four rather than a lower bound, and no attack here rules out a cleverer public algorithm."
+}
