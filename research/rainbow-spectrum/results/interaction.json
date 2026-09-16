@@ -1,0 +1,96 @@
+{
+  "analysis": "interaction",
+  "design": "representation (flat|factored) x weakness (present|removed)",
+  "cells": {
+    "conflicts": {
+      "flat_weak": 0.7222,
+      "flat_weak_ci": [
+        0.6561,
+        0.7956
+      ],
+      "flat_hardened": 0.7388,
+      "flat_hardened_ci": [
+        0.6519,
+        0.8069
+      ],
+      "factored_weak": 0.5,
+      "factored_weak_ci": [
+        0.5,
+        0.5
+      ],
+      "factored_hardened": null
+    },
+    "rlimit": {
+      "flat_weak": 0.8541,
+      "flat_weak_ci": [
+        0.7914,
+        0.9052
+      ],
+      "flat_hardened": 0.8707,
+      "flat_hardened_ci": [
+        0.7796,
+        0.9324
+      ],
+      "factored_weak": 0.5,
+      "factored_weak_ci": [
+        0.5,
+        0.5
+      ],
+      "factored_hardened": null
+    }
+  },
+  "comparisons": {
+    "conflicts": {
+      "negative_control_flat_weak_minus_flat_hardened": {
+        "delta": -0.0166,
+        "ci95": [
+          -0.1172,
+          0.0924
+        ],
+        "predicted": "null",
+        "as_predicted": true
+      },
+      "representation_gap_flat_weak_minus_factored_weak": {
+        "delta": 0.2222,
+        "ci95": [
+          0.1561,
+          0.2956
+        ],
+        "excludes_zero": true,
+        "reading": "public/private cost ratio ~ 2^(0.222w) in the measured range"
+      }
+    },
+    "rlimit": {
+      "negative_control_flat_weak_minus_flat_hardened": {
+        "delta": -0.0167,
+        "ci95": [
+          -0.1056,
+          0.0822
+        ],
+        "predicted": "null",
+        "as_predicted": true
+      },
+      "representation_gap_flat_weak_minus_factored_weak": {
+        "delta": 0.3541,
+        "ci95": [
+          0.2914,
+          0.4052
+        ],
+        "excludes_zero": true,
+        "reading": "public/private cost ratio ~ 2^(0.354w) in the measured range"
+      }
+    }
+  },
+  "caveats": [
+    "flat arm counted in solver steps, factored arm in round_fwd evaluations: exponents comparable, constants not",
+    "the public exponent is metric-dependent (0.722 conflicts vs 0.854 rlimit on identical draws)",
+    "z3 is one public attack, written by the same process that built the construction; a dedicated public algorithm finding the sigma route unaided would collapse the separation"
+  ],
+  "weakness_gap_factored": {
+    "weak_solved": "110/110",
+    "hardened_solved": "0/70",
+    "reading": "removing the weakness does not raise the private route's exponent, it removes the route: the sigma match fails on pair 0/1 at every width tried"
+  },
+  "separation_holds": true,
+  "conclusion": "The matrix comes out as designed. The negative control is null under both metrics (True), which is what a hidden trapdoor predicts: the weakness is not visible to the public solver. The private route is cheap only when the weakness is present -- 110/110 solved weak against 0/70 hardened, and removing the weakness removes the route rather than slowing it. And the representation gap excludes zero under both metrics: 2^(0.222w) by conflicts, 2^(0.354w) by rlimit. This is a measured separation between representations, not a proof of hardness: the public side rests on one solver."
+}
