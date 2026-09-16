@@ -62,14 +62,27 @@ produced is the interesting part.
      never counted" -- is right about not counting a capped solve as its cap,
      but excluding it throws away a real right-censored LOWER BOUND, and
      public_solve() reports conflicts even on unknown. At w=24 that discarded
-     six of ten weak observations. Worse, the w=24 median published below
-     (1,254,257 from n=3) is a survivorship figure: when the sample was taken to
-     ten, six timed out, so the three that finished were the easy tail. A low
-     w=24 median is precisely what drove the 'declining' verdict, so this is not
-     a cosmetic error.
+     six of ten weak observations in the follow-up run.
 
-deepen-w24.json supersedes the w=24 row here. The w=20 and w=22 rows stand:
-both were uncensored (10/10 and 8/8), so neither defect touches them.
+AMENDMENT to that second point, made the same day and kept visible because the
+first version of it was confidently wrong in an instructive way. It originally
+went further and called the w=24 median below (1,254,257 from n=3) a
+survivorship figure -- the easy tail of a sample where six of ten timed out.
+That inference was wrong, because the censoring it reasoned from was not real.
+See timeout_validity.py: draw 0 at w=24 is a deterministic instance, and it was
+recorded as solved in 127.5s here, solved in 385.1s under a clean probe, and
+CENSORED at 900s in the follow-up run -- with identical conflict counts wherever
+it finished. The follow-up was thrashing, so its instances hit the clock without
+being harder. Wall-clock censoring on this machine measures machine load.
+
+So the three draws below were not survivors of a hard sample; they ran under
+reasonable conditions and finished honestly. n=3 remains too thin to rest a
+verdict on, which is the original and still-valid reason for deepening w=24 --
+but "too thin" and "biased low" are different criticisms, and only the first one
+is supported.
+
+The w=20 and w=22 rows stand either way: both were uncensored (10/10 and 8/8),
+so no censoring question touches them.
 """
 
 import json

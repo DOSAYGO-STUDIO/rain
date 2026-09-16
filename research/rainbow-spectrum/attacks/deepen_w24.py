@@ -86,7 +86,14 @@ TIMEOUT_MS = 900000
 RLIMIT_MB = 2200          # attempted in-process; expected to be refused here
 RSS_CAP_MB = 800          # 8x the measured peak: catches a runaway, not normal work
 PROCS = int(sys.argv[1]) if len(sys.argv) > 1 else 3
-SYSTEM_FLOOR_MB = 700     # do not start a new child below this much free memory
+# Do not start an ADDITIONAL child below this much free memory. Sized against
+# the measured 93 MB footprint of one w=24 instance, not against fear: a floor
+# of 700 MB was tried first and was wrong in the same direction as everything
+# else in this saga, because macOS routinely reports a few hundred MB free
+# while caching the rest, so a high floor silently collapses the run back to
+# serial. A child is always launched when none is running, so the job cannot
+# deadlock against its own guard.
+SYSTEM_FLOOR_MB = 250
 ARTIFACT = RESULTS / "deepen-w24.json"
 
 
