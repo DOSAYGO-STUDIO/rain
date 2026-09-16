@@ -1,0 +1,35 @@
+{
+  "question": "Q1: exact condition for the cross-seed bridge",
+  "bridge_condition": "c(u_a)==c(u_b) and e(u_a)==e(u_b): the carry out of the rotated low r bits and the carry out of the top, when D = (s'-s)*P is added",
+  "bridge_probability": "4/9 for a uniformly random seed difference",
+  "seed_free_formula_probability": "1/4",
+  "collision_condition": "about w-dimensional: B XORs two independently shifted additive terms; derived, not verified case by case",
+  "design_lever": "parameters on additive-only paths couple stripes through a few carry bits; parameters meeting another shift under XOR cost ~w bits",
+  "rows": [
+    {
+      "w": 16,
+      "rotation": 6,
+      "samples": 200000,
+      "condition_matches_reality": 200000,
+      "transfer_rate": 0.44344,
+      "predicted_rate": 0.44344
+    },
+    {
+      "w": 32,
+      "rotation": 12,
+      "samples": 200000,
+      "condition_matches_reality": 200000,
+      "transfer_rate": 0.44442,
+      "predicted_rate": 0.44442
+    },
+    {
+      "w": 64,
+      "rotation": 23,
+      "samples": 200000,
+      "condition_matches_reality": 200000,
+      "transfer_rate": 0.44184,
+      "predicted_rate": 0.44184
+    }
+  ],
+  "generated": "2026-09-16T05:33:58"
+}
