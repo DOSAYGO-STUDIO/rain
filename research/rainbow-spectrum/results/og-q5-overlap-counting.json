@@ -1,0 +1,94 @@
+{
+  "question": "Q5: can partial overlap r open a window where public cost grows faster than private?",
+  "threshold": "r = w/2: equalize-and-separate exists below, not above",
+  "region_r_le_half": "both solvers equalize shared bits and separate; C_priv = C_pub = 2^(w/2)",
+  "region_r_gt_half": "stripes couple through shared bits; the keyholder's only edge is the boundary/geometry, which Q3 shows leaks in 4 evaluations under program access; C_pub <= C_priv",
+  "verdict": "advantageous region EMPTY for all r; SAT sweep not run",
+  "would_change_it": [
+    "shared quantity not a free input (Q4 feedforward regime -> trapdoor function in one transform)",
+    "injection geometry not leaking under program access (Q3: it leaks for the whole family)"
+  ],
+  "exhaustive_validation": [
+    {
+      "w": 10,
+      "r": 0,
+      "free_bits": 10,
+      "cosets_with_independent_collision_both": 1.0,
+      "predicted": 1.0,
+      "equalize_and_separate_works": true
+    },
+    {
+      "w": 10,
+      "r": 2,
+      "free_bits": 8,
+      "cosets_with_independent_collision_both": 1.0,
+      "predicted": 1.0,
+      "equalize_and_separate_works": true
+    },
+    {
+      "w": 10,
+      "r": 5,
+      "free_bits": 5,
+      "cosets_with_independent_collision_both": 0.125,
+      "predicted": 0.155,
+      "equalize_and_separate_works": false
+    },
+    {
+      "w": 10,
+      "r": 7,
+      "free_bits": 3,
+      "cosets_with_independent_collision_both": 0.0,
+      "predicted": 0.001,
+      "equalize_and_separate_works": false
+    },
+    {
+      "w": 10,
+      "r": 9,
+      "free_bits": 1,
+      "cosets_with_independent_collision_both": 0.0,
+      "predicted": 0.0,
+      "equalize_and_separate_works": false
+    },
+    {
+      "w": 12,
+      "r": 0,
+      "free_bits": 12,
+      "cosets_with_independent_collision_both": 1.0,
+      "predicted": 1.0,
+      "equalize_and_separate_works": true
+    },
+    {
+      "w": 12,
+      "r": 3,
+      "free_bits": 9,
+      "cosets_with_independent_collision_both": 1.0,
+      "predicted": 1.0,
+      "equalize_and_separate_works": true
+    },
+    {
+      "w": 12,
+      "r": 6,
+      "free_bits": 6,
+      "cosets_with_independent_collision_both": 0.219,
+      "predicted": 0.155,
+      "equalize_and_separate_works": false
+    },
+    {
+      "w": 12,
+      "r": 9,
+      "free_bits": 3,
+      "cosets_with_independent_collision_both": 0.0,
+      "predicted": 0.0,
+      "equalize_and_separate_works": false
+    },
+    {
+      "w": 12,
+      "r": 11,
+      "free_bits": 1,
+      "cosets_with_independent_collision_both": 0.0,
+      "predicted": 0.0,
+      "equalize_and_separate_works": false
+    }
+  ],
+  "generated": "2026-09-16T05:55:50"
+}
