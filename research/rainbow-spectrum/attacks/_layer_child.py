@@ -20,7 +20,8 @@ def main():
         s.conf_budget(budget)
         verdict = s.solve_limited(expect_interrupt=False)
         accum = s.accum_stats()
-    out = {"w": w, "t": t, "k": k, "draw": draw, "cnf": stats,
+    out = {"w": w, "t": t, "k": k, "draw": draw, "solver": solver_name,
+           "cnf": stats,
            "conflicts": accum.get("conflicts"), "seconds": round(time.time()-started, 2),
            "status": {True: "sat", False: "unsat", None: "budget"}[verdict],
            "event": verdict is True,
