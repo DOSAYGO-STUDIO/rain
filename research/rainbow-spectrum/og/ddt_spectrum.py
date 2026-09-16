@@ -107,11 +107,16 @@ def null_energy(tab, w, rng, rows=16, trials=3):
 
 
 def spectrum(w, variant="rainbow", theta_what=None, seed=1, rs=None,
-             sample=48, instances=1):
-    """{r: (M_r, R_r(1), rank of u=1, units sampled, best u, R_r(best))}."""
-    per_r = {}
+             sample=48, instances=1, theta=None):
+    """{r: (M_r, R_r(1), rank of u=1, units sampled, best u, R_r(best))}.
+
+    `theta` overrides everything else, for perturbation studies that need exact
+    control of the multipliers rather than a random redraw.
+    """
+    override, per_r = theta, {}
     for inst in range(instances):
-        theta = (randomised_theta(w, seed + inst, theta_what) if theta_what
+        theta = (override if override is not None else
+                 randomised_theta(w, seed + inst, theta_what) if theta_what
                  else R.default_theta(w))
         rng = random.Random(seed * 7919 + inst)
         tab = g_table(w, theta, rng.getrandbits(w), rng.getrandbits(w), variant)

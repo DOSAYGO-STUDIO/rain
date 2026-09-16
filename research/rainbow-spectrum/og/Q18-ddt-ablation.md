@@ -45,10 +45,13 @@ Three seeds per row, median reported. max M_r is over the same r range.
 
 ## What causes what
 
-**The multipliers create the ray; the rotations only place it.** `rand-mults`
+**The multipliers create the ray; the rotations mostly place it.** `rand-mults`
 collapses the ray 45.3 -> 2.7 and 396.9 -> 11.6 (a 34x drop at w=16) while
-leaving M_r at or below the real value. `rand-rots` leaves the ray at full
-strength (203 vs 397, same order) and merely scatters r*. So the anisotropy is a
+leaving M_r at or below the real value. `rand-rots` PRESERVES a huge ray -- 203
+against 397 is a factor-2 reduction, not none -- and scatters r* across 11, 0, 11.
+The roles are distinguishable without claiming rotations have zero amplitude
+effect: random rotations keep a large ray at a different depth, random
+multipliers destroy it. So the anisotropy is a
 property of Rainbow's *chosen constants*, not of the mul/rotr/mul shape --
 sparsity of `d = 2^r` is necessary but nowhere near sufficient, since the same
 sparse d gives R ~ 1 once the multipliers are random.
@@ -64,10 +67,14 @@ Without a non-ring operation the map is near-affine over Z/2^w and *every* row
 concentrates. This is the separable control, and it places the whole phenomenon
 in the ring/XOR mismatch.
 
-**Everything that matters is in the A branch.** `no-rot-c` and `no-mul-c` leave
-the ray within 0.7-1.1x of real Rainbow and barely move M_r. C's rotation and C's
-multiply contribute essentially nothing to the DDT geometry; A's multiply and A's
-rotation, plus the XOR that couples them, contribute all of it.
+**Ray formation is an A-branch phenomenon; the depth bias is not.** `no-rot-c`
+and `no-mul-c` leave the ray at 0.88x and 0.71x of real Rainbow, so the C-side
+operations are secondary for ray formation. They are NOT inert, though: at w=16
+`no-rot-c` moves max M_r from 53.0 to 104.7 (2.0x) and `no-mul-c` to 78.9 (1.5x).
+So the C-side operations are secondary for ray formation but measurably affect
+the broad depth bias -- which is the more interesting statement, since it means
+the two mechanisms have different spatial extents inside the round as well as
+different causes.
 
 A side observation worth keeping: at w=16 random multipliers give max M_r = 104.9
 against real Rainbow's 53.0. Rainbow's actual constants **suppress** depth bias
