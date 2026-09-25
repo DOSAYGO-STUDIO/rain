@@ -495,8 +495,11 @@ export async function streamEncryptBuffer(
       throw new Error("Encryption failed or returned empty buffer.");
     }
 
-    // Copy encrypted data from WASM memory to Node.js Buffer
-    const encryptedData = Buffer.from(HEAPU8.buffer, encryptedPtr, encryptedSize);
+    // Own the bytes before releasing the WASM allocation. The three-argument
+    // Buffer.from overload creates a view into the heap rather than a copy.
+    const encryptedData = Buffer.from(
+      HEAPU8.subarray(encryptedPtr, encryptedPtr + encryptedSize)
+    );
 
     // Free allocated memory in WASM
     wasmFreeBuffer(encryptedPtr);
@@ -597,8 +600,11 @@ export async function blockDecryptBuffer(
       throw new Error("Block decryption returned empty buffer.");
     }
 
-    // Copy out the result
-    const decryptedData = Buffer.from(HEAPU8.buffer, decryptedPtr, decryptedSize);
+    // Own the bytes before releasing the WASM allocation. The three-argument
+    // Buffer.from overload creates a view into the heap rather than a copy.
+    const decryptedData = Buffer.from(
+      HEAPU8.subarray(decryptedPtr, decryptedPtr + decryptedSize)
+    );
 
     // Free the result buffer
     wasmFreeBuffer(decryptedPtr);
@@ -724,7 +730,13 @@ async function loadRain() {
         }
 
         const resultLen = rain.HEAPU32[outLenPtr >> 2]; // Read size_t value
-        const encrypted = Buffer.from(rain.HEAPU8.buffer, resultPtr, resultLen)
+        // Own the result before releasing its WASM allocation. Callers may
+        // invoke more WASM work while retaining this ciphertext.
+        const encrypted = Buffer.from(
+          rain.HEAPU8.subarray(resultPtr, resultPtr + resultLen)
+        );
+
+        rain.wasmFreeBuffer(resultPtr);
 
         rain._free(dataPtr);
         rain._free(keyPtr);
@@ -793,7 +805,6 @@ async function sleep(ms) {
   setTimeout(resolve, ms);
   return pr;
 }
-
 
 
 
