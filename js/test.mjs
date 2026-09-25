@@ -1,7 +1,15 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { testVectors, rainstormHash, rainbowHash, streamEncryptBuffer, streamDecryptBuffer } from './lib/api.mjs';
+import {
+  blockDecryptBuffer,
+  blockEncryptBuffer,
+  rainstormHash,
+  rainbowHash,
+  streamDecryptBuffer,
+  streamEncryptBuffer,
+  testVectors,
+} from './lib/api.mjs';
 
 await testVectors();
 const { vectors } = JSON.parse(await readFile(new URL('./test-vectors.json', import.meta.url), 'utf8'));
@@ -23,3 +31,27 @@ for (let i = 0; i < 16; i++) await rainstormHash(512, 0n, plaintext);
 assert.deepEqual(ciphertext, originalCiphertext);
 assert.deepEqual(await streamDecryptBuffer(ciphertext, password, false), plaintext);
 console.log('PASS: WASM stream-cipher buffer ownership and round trip.');
+
+const blockKey = Buffer.from(password);
+const blockCiphertext = await blockEncryptBuffer(
+  plaintext,
+  blockKey,
+  'rainstorm',
+  'scatter',
+  512,
+  9,
+  9,
+  0n,
+  Buffer.from('release-fixture'),
+  256,
+  false,
+  false,
+);
+const originalBlockCiphertext = Buffer.from(blockCiphertext);
+for (let i = 0; i < 16; i++) await rainstormHash(512, 0n, plaintext);
+assert.deepEqual(blockCiphertext, originalBlockCiphertext);
+
+const blockPlaintext = await blockDecryptBuffer(blockCiphertext, blockKey);
+for (let i = 0; i < 16; i++) await rainstormHash(512, 0n, plaintext);
+assert.deepEqual(blockPlaintext, plaintext);
+console.log('PASS: WASM block-cipher buffer ownership and round trip.');
