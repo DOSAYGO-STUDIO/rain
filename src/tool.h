@@ -635,7 +635,9 @@ void hashAnything(Mode mode, HashAlgorithm algot, const std::string& inpath,
     for (const auto& test_vector : test_vectors) {
       std::vector<uint8_t> buffer(test_vector.begin(), test_vector.end());
       hashBuffer(mode, algot, buffer, seed, output_length, outstream, size);
-      outstream << ' ' << '"' << test_vector << '"' << '\n';
+      if (mode != Mode::Stream) {
+        outstream << ' ' << '"' << test_vector << '"' << '\n';
+      }
     }
   } else {
     std::vector<uint8_t> buffer;
@@ -658,7 +660,9 @@ void hashAnything(Mode mode, HashAlgorithm algot, const std::string& inpath,
 
     // Process the complete input buffer.
     hashBuffer(mode, algot, buffer, seed, output_length, outstream, size);
-    outstream << ' ' << (inpath.empty() ? "stdin" : inpath) << '\n';
+    if (mode != Mode::Stream) {
+      outstream << ' ' << (inpath.empty() ? "stdin" : inpath) << '\n';
+    }
   }
 }
 
