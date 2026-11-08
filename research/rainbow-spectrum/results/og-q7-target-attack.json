@@ -1,0 +1,194 @@
+{
+  "question": "Q7: can a solver hit the tag without the aiming recipe?",
+  "prediction": "penalty collapses; tag constrains p additively so SAT propagates it; cost roughly flat in t",
+  "rows": [
+    {
+      "w": 8,
+      "pins": 1,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 237,
+      "median_seconds": 0.02
+    },
+    {
+      "w": 8,
+      "pins": 1,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 341,
+      "median_seconds": 0.02
+    },
+    {
+      "w": 8,
+      "pins": 2,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 928,
+      "median_seconds": 0.05
+    },
+    {
+      "w": 8,
+      "pins": 2,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 414,
+      "median_seconds": 0.04
+    },
+    {
+      "w": 8,
+      "pins": 3,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 6529,
+      "median_seconds": 0.18
+    },
+    {
+      "w": 8,
+      "pins": 3,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 1395,
+      "median_seconds": 0.07
+    },
+    {
+      "w": 10,
+      "pins": 1,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 446,
+      "median_seconds": 0.03
+    },
+    {
+      "w": 10,
+      "pins": 1,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 531,
+      "median_seconds": 0.02
+    },
+    {
+      "w": 10,
+      "pins": 2,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 4095,
+      "median_seconds": 0.14
+    },
+    {
+      "w": 10,
+      "pins": 2,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 1990,
+      "median_seconds": 0.07
+    },
+    {
+      "w": 10,
+      "pins": 3,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 14734,
+      "median_seconds": 0.47
+    },
+    {
+      "w": 10,
+      "pins": 3,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 12622,
+      "median_seconds": 0.37
+    },
+    {
+      "w": 12,
+      "pins": 1,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 1492,
+      "median_seconds": 0.05
+    },
+    {
+      "w": 12,
+      "pins": 1,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 534,
+      "median_seconds": 0.03
+    },
+    {
+      "w": 12,
+      "pins": 2,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 8957,
+      "median_seconds": 0.36
+    },
+    {
+      "w": 12,
+      "pins": 2,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 6143,
+      "median_seconds": 0.18
+    },
+    {
+      "w": 12,
+      "pins": 3,
+      "tagged": false,
+      "sat": "5/5",
+      "median_conflicts": 39744,
+      "median_seconds": 2.0
+    },
+    {
+      "w": 12,
+      "pins": 3,
+      "tagged": true,
+      "sat": "5/5",
+      "median_conflicts": 10576,
+      "median_seconds": 0.31
+    }
+  ],
+  "generated": "2026-09-16T06:26:54",
+  "outcome": "prediction confirmed; the 2^(2wt) penalty does not exist",
+  "tagged_vs_untagged": {
+    "w=8,pins=1": {
+      "untagged": 237,
+      "tagged": 341
+    },
+    "w=8,pins=2": {
+      "untagged": 928,
+      "tagged": 414
+    },
+    "w=8,pins=3": {
+      "untagged": 6529,
+      "tagged": 1395
+    },
+    "w=10,pins=1": {
+      "untagged": 446,
+      "tagged": 531
+    },
+    "w=10,pins=2": {
+      "untagged": 4095,
+      "tagged": 1990
+    },
+    "w=10,pins=3": {
+      "untagged": 14734,
+      "tagged": 12622
+    },
+    "w=12,pins=1": {
+      "untagged": 1492,
+      "tagged": 534
+    },
+    "w=12,pins=2": {
+      "untagged": 8957,
+      "tagged": 6143
+    },
+    "w=12,pins=3": {
+      "untagged": 39744,
+      "tagged": 10576
+    }
+  },
+  "structural_reason": "the tag can never exhaust the freedom. Per gadget there are 8w variables and 4w bits of merge equality, leaving 4w. The tag can take at most 2w, because the other two merged lanes are pinned by the collision's pair sums H and K. So 2w bits of freedom always survive, solutions stay abundant, and the extra constraints give a solver more to propagate rather than more to search.",
+  "retraction": "Q6's blind baseline was rejection sampling -- the weakest adversary -- and the 'right derivative shape' claimed from it does not survive a solver that attacks collision and tag jointly. Tagged instances are consistently CHEAPER than untagged.",
+  "what_survives": "the programmability itself: 2w bits per gadget are exactly aimable at zero extra search by the informed route (Q6, 12/12 at every pin count). That is a real property of Rainbow collisions. What does not survive is that aiming them is hard for anyone else.",
+  "residual": "public conflicts still grow with pins (~2 bits per pin at these widths) while the informed route grows like log t, but both grow, the instances also grow, and this residual deserves the same scrutiny that killed the larger claim -- it is not evidence of amplification."
+}

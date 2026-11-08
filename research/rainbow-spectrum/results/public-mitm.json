@@ -1,0 +1,161 @@
+{
+  "attack": "public_mitm",
+  "access": "PublicArtifact.eval_side plus the publicly leaked pairing",
+  "cost_unit": "public artifact evaluations",
+  "widths": [
+    4,
+    6,
+    8,
+    10
+  ],
+  "draws": 3,
+  "per_width": {
+    "4": {
+      "solved": 3,
+      "attempted": 3,
+      "median": 59
+    },
+    "6": {
+      "solved": 3,
+      "attempted": 3,
+      "median": 369
+    },
+    "8": {
+      "solved": 3,
+      "attempted": 3,
+      "median": 3583
+    },
+    "10": {
+      "solved": 3,
+      "attempted": 3,
+      "median": 17875
+    }
+  },
+  "beta_public_mitm": 1.4004,
+  "beta_privileged": 0.5,
+  "predicted_beta": 1.5,
+  "generated": "2026-09-16T03:35:04",
+  "rows": [
+    {
+      "w": 4,
+      "draw": 0,
+      "solved": true,
+      "public_evaluations": 80,
+      "privileged_evaluations": 16,
+      "privileged_solved": true,
+      "seconds": 0.0,
+      "cap": 1024
+    },
+    {
+      "w": 4,
+      "draw": 1,
+      "solved": true,
+      "public_evaluations": 42,
+      "privileged_evaluations": 16,
+      "privileged_solved": true,
+      "seconds": 0.0,
+      "cap": 1024
+    },
+    {
+      "w": 4,
+      "draw": 2,
+      "solved": true,
+      "public_evaluations": 59,
+      "privileged_evaluations": 16,
+      "privileged_solved": true,
+      "seconds": 0.0,
+      "cap": 1024
+    },
+    {
+      "w": 6,
+      "draw": 0,
+      "solved": true,
+      "public_evaluations": 141,
+      "privileged_evaluations": 32,
+      "privileged_solved": true,
+      "seconds": 0.1,
+      "cap": 8192
+    },
+    {
+      "w": 6,
+      "draw": 1,
+      "solved": true,
+      "public_evaluations": 369,
+      "privileged_evaluations": 32,
+      "privileged_solved": true,
+      "seconds": 0.2,
+      "cap": 8192
+    },
+    {
+      "w": 6,
+      "draw": 2,
+      "solved": true,
+      "public_evaluations": 444,
+      "privileged_evaluations": 32,
+      "privileged_solved": true,
+      "seconds": 0.3,
+      "cap": 8192
+    },
+    {
+      "w": 8,
+      "draw": 0,
+      "solved": true,
+      "public_evaluations": 897,
+      "privileged_evaluations": 64,
+      "privileged_solved": true,
+      "seconds": 1.0,
+      "cap": 65536
+    },
+    {
+      "w": 8,
+      "draw": 1,
+      "solved": true,
+      "public_evaluations": 4718,
+      "privileged_evaluations": 64,
+      "privileged_solved": true,
+      "seconds": 4.9,
+      "cap": 65536
+    },
+    {
+      "w": 8,
+      "draw": 2,
+      "solved": true,
+      "public_evaluations": 3583,
+      "privileged_evaluations": 64,
+      "privileged_solved": true,
+      "seconds": 3.7,
+      "cap": 65536
+    },
+    {
+      "w": 10,
+      "draw": 0,
+      "solved": true,
+      "public_evaluations": 19384,
+      "privileged_evaluations": 128,
+      "privileged_solved": true,
+      "seconds": 35.2,
+      "cap": 524288
+    },
+    {
+      "w": 10,
+      "draw": 1,
+      "solved": true,
+      "public_evaluations": 16004,
+      "privileged_evaluations": 128,
+      "privileged_solved": true,
+      "seconds": 31.1,
+      "cap": 524288
+    },
+    {
+      "w": 10,
+      "draw": 2,
+      "solved": true,
+      "public_evaluations": 17875,
+      "privileged_evaluations": 128,
+      "privileged_solved": true,
+      "seconds": 36.4,
+      "cap": 524288
+    }
+  ],
+  "conclusion": "Public MITM scales as 2^(1.400w) against the privileged 2^(0.500w). The sigma route is NOT publicly available by this attack: without the invariant the attacker pays for the full 2w-bit match."
+}

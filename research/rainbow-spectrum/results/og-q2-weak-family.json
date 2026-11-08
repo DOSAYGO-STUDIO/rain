@@ -1,0 +1,167 @@
+{
+  "question": "Q2: largest family preserving the cheap collision attack",
+  "rows": [
+    {
+      "w": 8,
+      "member": "actual Rainbow (control)",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 24.5,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "odd coefficients (3,5),(7,9)",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 15.5,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "random separable merge mixer",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 21.5,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "random NON-separable seeded mixB",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 24.5,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "random IV + random finalization",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 18.5,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "all of the above at once",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 20.0,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "EVEN coefficient (2,1)",
+      "predicted_to_work": false,
+      "verified_collisions": "11/24",
+      "median_evaluations": 16,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "NON-separable merge mixer",
+      "predicted_to_work": false,
+      "verified_collisions": "0/24",
+      "median_evaluations": null,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "separable, WRONG pairing",
+      "predicted_to_work": false,
+      "verified_collisions": "0/24",
+      "median_evaluations": null,
+      "as_predicted": true
+    },
+    {
+      "w": 8,
+      "member": "hardened injection (no invariant)",
+      "predicted_to_work": false,
+      "verified_collisions": "0/24",
+      "median_evaluations": null,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "actual Rainbow (control)",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 72.5,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "odd coefficients (3,5),(7,9)",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 93.0,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "random separable merge mixer",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 76.0,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "random NON-separable seeded mixB",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 72.5,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "random IV + random finalization",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 70.5,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "all of the above at once",
+      "predicted_to_work": true,
+      "verified_collisions": "24/24",
+      "median_evaluations": 86.5,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "EVEN coefficient (2,1)",
+      "predicted_to_work": false,
+      "verified_collisions": "11/24",
+      "median_evaluations": 68,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "NON-separable merge mixer",
+      "predicted_to_work": false,
+      "verified_collisions": "0/24",
+      "median_evaluations": null,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "separable, WRONG pairing",
+      "predicted_to_work": false,
+      "verified_collisions": "0/24",
+      "median_evaluations": null,
+      "as_predicted": true
+    },
+    {
+      "w": 12,
+      "member": "hardened injection (no invariant)",
+      "predicted_to_work": false,
+      "verified_collisions": "0/24",
+      "median_evaluations": null,
+      "as_predicted": true
+    }
+  ],
+  "generated": "2026-09-16T05:35:32",
+  "all_as_predicted": true
+}

@@ -1,0 +1,308 @@
+{
+  "phase": 1,
+  "generated": "2026-09-15T08:18:43",
+  "checks": [
+    {
+      "check": "production_anchor",
+      "passed": true,
+      "detail": "w=64 model reproduces production Rainbow"
+    },
+    {
+      "check": "fixed_control_is_permutation",
+      "passed": true,
+      "pair_widths": [
+        {
+          "w": 3,
+          "images": 64,
+          "expected": 64
+        },
+        {
+          "w": 4,
+          "images": 256,
+          "expected": 256
+        },
+        {
+          "w": 5,
+          "images": 1024,
+          "expected": 1024
+        },
+        {
+          "w": 6,
+          "images": 4096,
+          "expected": 4096
+        },
+        {
+          "w": 7,
+          "images": 16384,
+          "expected": 16384
+        },
+        {
+          "w": 8,
+          "images": 65536,
+          "expected": 65536
+        }
+      ],
+      "full_widths": [
+        {
+          "w": 3,
+          "inner": false,
+          "images": 4096,
+          "expected": 4096
+        },
+        {
+          "w": 3,
+          "inner": true,
+          "images": 4096,
+          "expected": 4096
+        },
+        {
+          "w": 4,
+          "inner": false,
+          "images": 65536,
+          "expected": 65536
+        },
+        {
+          "w": 4,
+          "inner": true,
+          "images": 65536,
+          "expected": 65536
+        }
+      ]
+    },
+    {
+      "check": "injection_preserves_invariants",
+      "passed": true,
+      "widths": [
+        {
+          "w": 3,
+          "cases": 4096
+        },
+        {
+          "w": 4,
+          "cases": 65536
+        }
+      ]
+    },
+    {
+      "check": "merge_iff_invariants_agree",
+      "passed": true,
+      "widths": [
+        {
+          "w": 3,
+          "invariants_agree": 512,
+          "agreeing_that_merged": 512,
+          "invariants_differ": 3584,
+          "differing_that_merged": 0
+        },
+        {
+          "w": 4,
+          "invariants_agree": 4096,
+          "agreeing_that_merged": 4096,
+          "invariants_differ": 61440,
+          "differing_that_merged": 0
+        }
+      ]
+    },
+    {
+      "check": "steer_correct_and_solution_count",
+      "passed": true,
+      "widths": [
+        {
+          "w": 4,
+          "trials": 400,
+          "merged": 400,
+          "solutions_for_one_pair": 16,
+          "expected_solutions": 16
+        },
+        {
+          "w": 8,
+          "trials": 400,
+          "merged": 400,
+          "solutions_for_one_pair": null,
+          "expected_solutions": null
+        },
+        {
+          "w": 16,
+          "trials": 400,
+          "merged": 400,
+          "solutions_for_one_pair": null,
+          "expected_solutions": null
+        },
+        {
+          "w": 32,
+          "trials": 400,
+          "merged": 400,
+          "solutions_for_one_pair": null,
+          "expected_solutions": null
+        },
+        {
+          "w": 64,
+          "trials": 400,
+          "merged": 400,
+          "solutions_for_one_pair": null,
+          "expected_solutions": null
+        }
+      ]
+    },
+    {
+      "check": "birthday_steering_construction",
+      "passed": true,
+      "widths": [
+        {
+          "w": 8,
+          "trials": 64,
+          "median_evaluations": 21.0,
+          "log2_median": 4.392,
+          "analytic_log2_median": 4.235,
+          "log2_mean": 4.449,
+          "analytic_log2_mean": 4.326,
+          "example": {
+            "s0": 220,
+            "s1": 242,
+            "xa": 8,
+            "xb": 20,
+            "H": 207
+          },
+          "seconds": 0.002
+        },
+        {
+          "w": 10,
+          "trials": 64,
+          "median_evaluations": 40.0,
+          "log2_median": 5.322,
+          "analytic_log2_median": 5.235,
+          "log2_mean": 5.416,
+          "analytic_log2_mean": 5.326,
+          "example": {
+            "s0": 611,
+            "s1": 681,
+            "xa": 3,
+            "xb": 35,
+            "H": 18
+          },
+          "seconds": 0.004
+        },
+        {
+          "w": 12,
+          "trials": 64,
+          "median_evaluations": 73.0,
+          "log2_median": 6.19,
+          "analytic_log2_median": 6.235,
+          "log2_mean": 6.262,
+          "analytic_log2_mean": 6.326,
+          "example": {
+            "s0": 3605,
+            "s1": 1078,
+            "xa": 22,
+            "xb": 24,
+            "H": 1795
+          },
+          "seconds": 0.006
+        },
+        {
+          "w": 14,
+          "trials": 64,
+          "median_evaluations": 198.0,
+          "log2_median": 7.629,
+          "analytic_log2_median": 7.235,
+          "log2_mean": 7.529,
+          "analytic_log2_mean": 7.326,
+          "example": {
+            "s0": 11130,
+            "s1": 7156,
+            "xa": 172,
+            "xb": 198,
+            "H": 12924
+          },
+          "seconds": 0.015
+        },
+        {
+          "w": 16,
+          "trials": 64,
+          "median_evaluations": 344.0,
+          "log2_median": 8.426,
+          "analytic_log2_median": 8.235,
+          "log2_mean": 8.461,
+          "analytic_log2_mean": 8.326,
+          "example": {
+            "s0": 28970,
+            "s1": 31548,
+            "xa": 34,
+            "xb": 57,
+            "H": 23869
+          },
+          "seconds": 0.029
+        },
+        {
+          "w": 18,
+          "trials": 64,
+          "median_evaluations": 579.0,
+          "log2_median": 9.177,
+          "analytic_log2_median": 9.235,
+          "log2_mean": 9.356,
+          "analytic_log2_mean": 9.326,
+          "example": {
+            "s0": 168669,
+            "s1": 81900,
+            "xa": 587,
+            "xb": 1002,
+            "H": 88276
+          },
+          "seconds": 0.055
+        },
+        {
+          "w": 20,
+          "trials": 64,
+          "median_evaluations": 1400.5,
+          "log2_median": 10.452,
+          "analytic_log2_median": 10.235,
+          "log2_mean": 10.622,
+          "analytic_log2_mean": 10.326,
+          "example": {
+            "s0": 677978,
+            "s1": 999975,
+            "xa": 263,
+            "xb": 2395,
+            "H": 772992
+          },
+          "seconds": 0.138
+        },
+        {
+          "w": 22,
+          "trials": 64,
+          "median_evaluations": 2618.0,
+          "log2_median": 11.354,
+          "analytic_log2_median": 11.235,
+          "log2_mean": 11.38,
+          "analytic_log2_mean": 11.326,
+          "example": {
+            "s0": 1942763,
+            "s1": 2748300,
+            "xa": 294,
+            "xb": 1360,
+            "H": 2296638
+          },
+          "seconds": 0.233
+        },
+        {
+          "w": 24,
+          "trials": 64,
+          "median_evaluations": 4652.0,
+          "log2_median": 12.184,
+          "analytic_log2_median": 12.235,
+          "log2_mean": 12.509,
+          "analytic_log2_mean": 12.326,
+          "example": {
+            "s0": 2090490,
+            "s1": 9818665,
+            "xa": 92,
+            "xb": 970,
+            "H": 10642183
+          },
+          "seconds": 0.591
+        }
+      ]
+    }
+  ],
+  "all_passed": true
+}

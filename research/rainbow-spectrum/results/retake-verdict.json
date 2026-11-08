@@ -1,0 +1,397 @@
+{
+  "analysis": "retake_verdict",
+  "inputs": {
+    "widths_12_18": "scaling-wide.json",
+    "widths_20_24": "deepen.json (independent seeds)"
+  },
+  "rule": "drift_test.analyse(), unmodified, frozen in c3ea7f0",
+  "variants": {
+    "weak": {
+      "medians": {
+        "12": 2897.0,
+        "14": 9332.5,
+        "16": 29592.0,
+        "18": 81682.0,
+        "20": 246660.0,
+        "22": 403939.0,
+        "24": 1254257
+      },
+      "provenance": {
+        "12": "wide n=12",
+        "14": "wide n=12",
+        "16": "wide n=10",
+        "18": "wide n=8",
+        "20": "deepened n=10",
+        "22": "deepened n=8",
+        "24": "deepened n=3"
+      },
+      "before_deepening": {
+        "beta_global": 0.8282,
+        "beta_drop_lowest": 0.8298,
+        "beta_drop_highest": 0.8509,
+        "windows": [
+          {
+            "widths": [
+              12,
+              14,
+              16,
+              18
+            ],
+            "centre": 15.0,
+            "beta": 0.8059
+          },
+          {
+            "widths": [
+              14,
+              16,
+              18,
+              20
+            ],
+            "centre": 17.0,
+            "beta": 0.753
+          },
+          {
+            "widths": [
+              16,
+              18,
+              20,
+              22
+            ],
+            "centre": 19.0,
+            "beta": 0.9022
+          },
+          {
+            "widths": [
+              18,
+              20,
+              22,
+              24
+            ],
+            "centre": 21.0,
+            "beta": 0.8658
+          }
+        ],
+        "window_betas": [
+          0.8059,
+          0.753,
+          0.9022,
+          0.8658
+        ],
+        "trend_slope_per_w": 0.01645,
+        "excess_curve": [
+          [
+            12,
+            5.5
+          ],
+          [
+            14,
+            6.188
+          ],
+          [
+            16,
+            6.853
+          ],
+          [
+            18,
+            7.318
+          ],
+          [
+            20,
+            7.72
+          ],
+          [
+            22,
+            9.4
+          ],
+          [
+            24,
+            9.196
+          ]
+        ],
+        "excess_slope": 0.3282,
+        "verdict": "stable"
+      },
+      "after_deepening": {
+        "beta_global": 0.7179,
+        "beta_drop_lowest": 0.6894,
+        "beta_drop_highest": 0.7322,
+        "windows": [
+          {
+            "widths": [
+              12,
+              14,
+              16,
+              18
+            ],
+            "centre": 15.0,
+            "beta": 0.8059
+          },
+          {
+            "widths": [
+              14,
+              16,
+              18,
+              20
+            ],
+            "centre": 17.0,
+            "beta": 0.7819
+          },
+          {
+            "widths": [
+              16,
+              18,
+              20,
+              22
+            ],
+            "centre": 19.0,
+            "beta": 0.6454
+          },
+          {
+            "widths": [
+              18,
+              20,
+              22,
+              24
+            ],
+            "centre": 21.0,
+            "beta": 0.6267
+          }
+        ],
+        "window_betas": [
+          0.8059,
+          0.7819,
+          0.6454,
+          0.6267
+        ],
+        "trend_slope_per_w": -0.0337,
+        "excess_curve": [
+          [
+            12,
+            5.5
+          ],
+          [
+            14,
+            6.188
+          ],
+          [
+            16,
+            6.853
+          ],
+          [
+            18,
+            7.318
+          ],
+          [
+            20,
+            7.912
+          ],
+          [
+            22,
+            7.624
+          ],
+          [
+            24,
+            8.258
+          ]
+        ],
+        "excess_slope": 0.2179,
+        "verdict": "declining"
+      }
+    },
+    "hardened": {
+      "medians": {
+        "12": 5090.5,
+        "14": 16403.0,
+        "16": 37098.5,
+        "18": 77730.5,
+        "20": 270860.0,
+        "22": 538018.0,
+        "24": 1389300
+      },
+      "provenance": {
+        "12": "wide n=12",
+        "14": "wide n=12",
+        "16": "wide n=10",
+        "18": "wide n=8",
+        "20": "deepened n=10",
+        "22": "deepened n=8",
+        "24": "deepened n=3"
+      },
+      "before_deepening": {
+        "beta_global": 0.699,
+        "beta_drop_lowest": 0.6906,
+        "beta_drop_highest": 0.8023,
+        "windows": [
+          {
+            "widths": [
+              12,
+              14,
+              16,
+              18
+            ],
+            "centre": 15.0,
+            "beta": 0.6488
+          },
+          {
+            "widths": [
+              14,
+              16,
+              18,
+              20
+            ],
+            "centre": 17.0,
+            "beta": 0.5455
+          },
+          {
+            "widths": [
+              16,
+              18,
+              20,
+              22
+            ],
+            "centre": 19.0,
+            "beta": 0.9795
+          },
+          {
+            "widths": [
+              18,
+              20,
+              22,
+              24
+            ],
+            "centre": 21.0,
+            "beta": 0.73
+          }
+        ],
+        "window_betas": [
+          0.6488,
+          0.5455,
+          0.9795,
+          0.73
+        ],
+        "trend_slope_per_w": 0.03388,
+        "excess_curve": [
+          [
+            12,
+            6.314
+          ],
+          [
+            14,
+            7.002
+          ],
+          [
+            16,
+            7.179
+          ],
+          [
+            18,
+            7.246
+          ],
+          [
+            20,
+            7.283
+          ],
+          [
+            22,
+            10.364
+          ],
+          [
+            24,
+            7.752
+          ]
+        ],
+        "excess_slope": 0.199,
+        "verdict": "inconclusive"
+      },
+      "after_deepening": {
+        "beta_global": 0.6646,
+        "beta_drop_lowest": 0.6485,
+        "beta_drop_highest": 0.6689,
+        "windows": [
+          {
+            "widths": [
+              12,
+              14,
+              16,
+              18
+            ],
+            "centre": 15.0,
+            "beta": 0.6488
+          },
+          {
+            "widths": [
+              14,
+              16,
+              18,
+              20
+            ],
+            "centre": 17.0,
+            "beta": 0.6602
+          },
+          {
+            "widths": [
+              16,
+              18,
+              20,
+              22
+            ],
+            "centre": 19.0,
+            "beta": 0.6688
+          },
+          {
+            "widths": [
+              18,
+              20,
+              22,
+              24
+            ],
+            "centre": 21.0,
+            "beta": 0.6735
+          }
+        ],
+        "window_betas": [
+          0.6488,
+          0.6602,
+          0.6688,
+          0.6735
+        ],
+        "trend_slope_per_w": 0.00413,
+        "excess_curve": [
+          [
+            12,
+            6.314
+          ],
+          [
+            14,
+            7.002
+          ],
+          [
+            16,
+            7.179
+          ],
+          [
+            18,
+            7.246
+          ],
+          [
+            20,
+            8.047
+          ],
+          [
+            22,
+            8.037
+          ],
+          [
+            24,
+            8.406
+          ]
+        ],
+        "excess_slope": 0.1645,
+        "verdict": "stable"
+      }
+    }
+  },
+  "verdict": "declining",
+  "flipped": true,
+  "conclusion": "With the leveraged widths at 10/8/3 draws instead of 5/3/2, the pre-registered verdict is 'declining' -- CHANGED from 'stable' on the thin data. The earlier reading was carried by undersampled points. Global beta moved 0.8282 -> 0.7179; windows [0.8059, 0.753, 0.9022, 0.8658] -> [0.8059, 0.7819, 0.6454, 0.6267]."
+}

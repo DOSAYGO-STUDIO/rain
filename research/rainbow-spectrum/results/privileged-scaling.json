@@ -1,0 +1,1989 @@
+{
+  "experiment": "privileged_scaling",
+  "purpose": "measure the factored row of the Experiment B matrix",
+  "draws": 10,
+  "matched_widths": [
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24
+  ],
+  "extended_widths": [
+    26,
+    28,
+    30,
+    32
+  ],
+  "generated": "2026-09-16T03:01:40",
+  "raw": [
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 256,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 0,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 1,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 2,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 3,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 4,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 5,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 6,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 7,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 8,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 12,
+      "hardened": true,
+      "draw": 9,
+      "solved": false,
+      "evaluations": 256,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 512,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 0,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 1,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 2,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 3,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 4,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 5,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 6,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 7,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 8,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 14,
+      "hardened": true,
+      "draw": 9,
+      "solved": false,
+      "evaluations": 512,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 1024,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 0,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 1,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 2,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.01
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 3,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 4,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 5,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 6,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 7,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 8,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 16,
+      "hardened": true,
+      "draw": 9,
+      "solved": false,
+      "evaluations": 1024,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.0
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 2048,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 0,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 1,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 2,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 3,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 4,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 5,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 6,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 7,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 8,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.01
+    },
+    {
+      "w": 18,
+      "hardened": true,
+      "draw": 9,
+      "solved": false,
+      "evaluations": 2048,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.01
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 4096,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 0,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 1,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 2,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 3,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 4,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 5,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 6,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 7,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 8,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 20,
+      "hardened": true,
+      "draw": 9,
+      "solved": false,
+      "evaluations": 4096,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.02
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.03
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 8192,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 0,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 1,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 2,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 3,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 4,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 5,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 6,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 7,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 8,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.04
+    },
+    {
+      "w": 22,
+      "hardened": true,
+      "draw": 9,
+      "solved": false,
+      "evaluations": 8192,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.04
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 16384,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.07
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 0,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 1,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 2,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 3,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 4,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 5,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": "no sigma match on pair 1",
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 6,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 7,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 8,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": "no sigma match on pair 0",
+      "seconds": 0.08
+    },
+    {
+      "w": 24,
+      "hardened": true,
+      "draw": 9,
+      "solved": false,
+      "evaluations": 16384,
+      "verified": false,
+      "reason": null,
+      "seconds": 0.08
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.14
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.14
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.15
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.15
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.15
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.14
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.14
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.14
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.14
+    },
+    {
+      "w": 26,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 32768,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.14
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.3
+    },
+    {
+      "w": 28,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 65536,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.29
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.69
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.68
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.68
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.68
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.68
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.69
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.69
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.68
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.68
+    },
+    {
+      "w": 30,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 131072,
+      "verified": true,
+      "reason": null,
+      "seconds": 0.68
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 0,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.5
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 1,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.5
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 2,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.5
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 3,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.5
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 4,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.5
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 5,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.48
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 6,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.49
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 7,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.49
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 8,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.49
+    },
+    {
+      "w": 32,
+      "hardened": false,
+      "draw": 9,
+      "solved": true,
+      "evaluations": 262144,
+      "verified": true,
+      "reason": null,
+      "seconds": 1.49
+    }
+  ],
+  "variants": {
+    "weak": {
+      "per_width": {
+        "12": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 256.0,
+          "reasons": []
+        },
+        "14": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 512.0,
+          "reasons": []
+        },
+        "16": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 1024.0,
+          "reasons": []
+        },
+        "18": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 2048.0,
+          "reasons": []
+        },
+        "20": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 4096.0,
+          "reasons": []
+        },
+        "22": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 8192.0,
+          "reasons": []
+        },
+        "24": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 16384.0,
+          "reasons": []
+        },
+        "26": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 32768.0,
+          "reasons": []
+        },
+        "28": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 65536.0,
+          "reasons": []
+        },
+        "30": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 131072.0,
+          "reasons": []
+        },
+        "32": {
+          "solved": 10,
+          "attempted": 10,
+          "verified": 10,
+          "median_evaluations": 262144.0,
+          "reasons": []
+        }
+      },
+      "total_solved": 110,
+      "total_attempted": 110,
+      "beta_matched_widths": 0.5,
+      "ci95": [
+        0.5,
+        0.5
+      ],
+      "beta_all_widths": 0.5
+    },
+    "hardened": {
+      "per_width": {
+        "12": {
+          "solved": 0,
+          "attempted": 10,
+          "verified": 0,
+          "median_evaluations": null,
+          "reasons": [
+            "no sigma match on pair 0"
+          ]
+        },
+        "14": {
+          "solved": 0,
+          "attempted": 10,
+          "verified": 0,
+          "median_evaluations": null,
+          "reasons": [
+            "no sigma match on pair 0",
+            "no sigma match on pair 1"
+          ]
+        },
+        "16": {
+          "solved": 0,
+          "attempted": 10,
+          "verified": 0,
+          "median_evaluations": null,
+          "reasons": [
+            "no sigma match on pair 0",
+            "no sigma match on pair 1"
+          ]
+        },
+        "18": {
+          "solved": 0,
+          "attempted": 10,
+          "verified": 0,
+          "median_evaluations": null,
+          "reasons": [
+            "no sigma match on pair 0",
+            "no sigma match on pair 1"
+          ]
+        },
+        "20": {
+          "solved": 0,
+          "attempted": 10,
+          "verified": 0,
+          "median_evaluations": null,
+          "reasons": [
+            "no sigma match on pair 0",
+            "no sigma match on pair 1"
+          ]
+        },
+        "22": {
+          "solved": 0,
+          "attempted": 10,
+          "verified": 0,
+          "median_evaluations": null,
+          "reasons": [
+            "no sigma match on pair 0",
+            "no sigma match on pair 1"
+          ]
+        },
+        "24": {
+          "solved": 0,
+          "attempted": 10,
+          "verified": 0,
+          "median_evaluations": null,
+          "reasons": [
+            "no sigma match on pair 0",
+            "no sigma match on pair 1"
+          ]
+        }
+      },
+      "total_solved": 0,
+      "total_attempted": 70
+    }
+  }
+}

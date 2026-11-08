@@ -1,0 +1,195 @@
+{
+  "experiment": "scaling_wide",
+  "question": "does beta hold, or drift toward the privileged 0.5?",
+  "preregistered": {
+    "widths": [
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24
+    ],
+    "draws": {
+      "12": 12,
+      "14": 12,
+      "16": 10,
+      "18": 8,
+      "20": 5,
+      "22": 3,
+      "24": 2
+    },
+    "timeout_ms": 900000,
+    "primary": "beta over all uncensored widths",
+    "drift": "beta refit on each 4-width window",
+    "rule": "holds if windowed betas stay >=0.6 with bootstrap lower bound >0.5; pre-asymptotic if they decline toward 0.5; caught up if the final window is within [0.45,0.55]"
+  },
+  "generated": "2026-09-15T10:41:56",
+  "variants": {
+    "weak": {
+      "median_conflicts": {
+        "12": 2897.0,
+        "14": 9332.5,
+        "16": 29592.0,
+        "18": 81682.0,
+        "20": 215847,
+        "22": 1383950,
+        "24": 2402603.5
+      },
+      "n": {
+        "12": 12,
+        "14": 12,
+        "16": 10,
+        "18": 8,
+        "20": 5,
+        "22": 3,
+        "24": 2
+      },
+      "excluded": {
+        "12": 0,
+        "14": 0,
+        "16": 0,
+        "18": 0,
+        "20": 0,
+        "22": 0,
+        "24": 0
+      },
+      "excess_curve": {
+        "12": 5.5,
+        "14": 6.188,
+        "16": 6.853,
+        "18": 7.318,
+        "20": 7.72,
+        "22": 9.4,
+        "24": 9.196
+      },
+      "beta": 0.8282,
+      "bootstrap": [
+        0.505,
+        0.9019
+      ],
+      "drift_windows": [
+        {
+          "widths": [
+            12,
+            14,
+            16,
+            18
+          ],
+          "beta": 0.8059
+        },
+        {
+          "widths": [
+            14,
+            16,
+            18,
+            20
+          ],
+          "beta": 0.753
+        },
+        {
+          "widths": [
+            16,
+            18,
+            20,
+            22
+          ],
+          "beta": 0.9022
+        },
+        {
+          "widths": [
+            18,
+            20,
+            22,
+            24
+          ],
+          "beta": 0.8658
+        }
+      ]
+    },
+    "hardened": {
+      "median_conflicts": {
+        "12": 5090.5,
+        "14": 16403.0,
+        "16": 37098.5,
+        "18": 77730.5,
+        "20": 159431,
+        "22": 2698196,
+        "24": 883234.0
+      },
+      "n": {
+        "12": 12,
+        "14": 12,
+        "16": 10,
+        "18": 8,
+        "20": 5,
+        "22": 3,
+        "24": 2
+      },
+      "excluded": {
+        "12": 0,
+        "14": 0,
+        "16": 0,
+        "18": 0,
+        "20": 0,
+        "22": 0,
+        "24": 0
+      },
+      "excess_curve": {
+        "12": 6.314,
+        "14": 7.002,
+        "16": 7.179,
+        "18": 7.246,
+        "20": 7.283,
+        "22": 10.364,
+        "24": 7.752
+      },
+      "beta": 0.699,
+      "bootstrap": [
+        0.6156,
+        0.7551
+      ],
+      "drift_windows": [
+        {
+          "widths": [
+            12,
+            14,
+            16,
+            18
+          ],
+          "beta": 0.6488
+        },
+        {
+          "widths": [
+            14,
+            16,
+            18,
+            20
+          ],
+          "beta": 0.5455
+        },
+        {
+          "widths": [
+            16,
+            18,
+            20,
+            22
+          ],
+          "beta": 0.9795
+        },
+        {
+          "widths": [
+            18,
+            20,
+            22,
+            24
+          ],
+          "beta": 0.73
+        }
+      ]
+    }
+  },
+  "verdict": "holds",
+  "conclusion": "The scaling law HOLDS over w=12..24: every 4-width window keeps beta >= 0.6 (windows: [0.8059, 0.753, 0.9022, 0.8658]) and the bootstrap lower bound 0.505 stays above 0.5. The separation is not a toy-width artifact over this range."
+}

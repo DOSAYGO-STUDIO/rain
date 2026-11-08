@@ -1,0 +1,200 @@
+{
+  "rows": [
+    {
+      "w": 10,
+      "series": [
+        {
+          "k": 2,
+          "pub": 10.84,
+          "priv": 7.0,
+          "A": 3.84,
+          "draws": 10
+        },
+        {
+          "k": 3,
+          "pub": 13.52,
+          "priv": 8.58,
+          "A": 4.93,
+          "draws": 10
+        },
+        {
+          "k": 4,
+          "pub": 14.85,
+          "priv": 9.58,
+          "A": 5.27,
+          "draws": 6
+        },
+        {
+          "k": 5,
+          "pub": 15.24,
+          "priv": 10.0,
+          "A": 5.24,
+          "draws": 6
+        },
+        {
+          "k": 6,
+          "pub": 15.34,
+          "priv": 9.91,
+          "A": 5.43,
+          "draws": 6
+        },
+        {
+          "k": 7,
+          "pub": 15.29,
+          "priv": 10.17,
+          "A": 5.12,
+          "draws": 6
+        }
+      ],
+      "A_at_k2": 3.84,
+      "A_max": 5.43,
+      "k_star": 6,
+      "gain_over_k2": 1.59
+    },
+    {
+      "w": 12,
+      "series": [
+        {
+          "k": 2,
+          "pub": 12.6,
+          "priv": 8.0,
+          "A": 4.6,
+          "draws": 7
+        },
+        {
+          "k": 3,
+          "pub": 15.43,
+          "priv": 9.0,
+          "A": 6.43,
+          "draws": 7
+        },
+        {
+          "k": 4,
+          "pub": 15.62,
+          "priv": 11.39,
+          "A": 4.23,
+          "draws": 3
+        },
+        {
+          "k": 5,
+          "pub": 16.11,
+          "priv": 10.0,
+          "A": 6.11,
+          "draws": 3
+        },
+        {
+          "k": 6,
+          "pub": 17.24,
+          "priv": 10.91,
+          "A": 6.33,
+          "draws": 3
+        },
+        {
+          "k": 7,
+          "pub": 16.96,
+          "priv": 11.58,
+          "A": 5.37,
+          "draws": 3
+        },
+        {
+          "k": 8,
+          "pub": 17.8,
+          "priv": 12.13,
+          "A": 5.67,
+          "draws": 3
+        }
+      ],
+      "A_at_k2": 4.6,
+      "A_max": 6.43,
+      "k_star": 3,
+      "gain_over_k2": 1.83
+    },
+    {
+      "w": 14,
+      "series": [
+        {
+          "k": 2,
+          "pub": 14.27,
+          "priv": 9.0,
+          "A": 5.27,
+          "draws": 11
+        },
+        {
+          "k": 3,
+          "pub": 16.37,
+          "priv": 10.58,
+          "A": 5.78,
+          "draws": 11
+        },
+        {
+          "k": 4,
+          "pub": 18.93,
+          "priv": 11.17,
+          "A": 7.76,
+          "draws": 7
+        },
+        {
+          "k": 5,
+          "pub": 18.72,
+          "priv": 12.0,
+          "A": 6.72,
+          "draws": 7
+        },
+        {
+          "k": 6,
+          "pub": 18.63,
+          "priv": 13.32,
+          "A": 5.3,
+          "draws": 3
+        }
+      ],
+      "A_at_k2": 5.27,
+      "A_max": 7.76,
+      "k_star": 4,
+      "gain_over_k2": 2.48
+    },
+    {
+      "w": 16,
+      "series": [
+        {
+          "k": 2,
+          "pub": 15.34,
+          "priv": 10.0,
+          "A": 5.34,
+          "draws": 4
+        },
+        {
+          "k": 3,
+          "pub": 18.74,
+          "priv": 11.58,
+          "A": 7.16,
+          "draws": 4
+        }
+      ],
+      "A_at_k2": 5.34,
+      "A_max": 7.16,
+      "k_star": 3,
+      "gain_over_k2": 1.82
+    }
+  ],
+  "gains_over_k2": [
+    [
+      10,
+      1.59
+    ],
+    [
+      12,
+      1.83
+    ],
+    [
+      14,
+      2.48
+    ],
+    [
+      16,
+      1.82
+    ]
+  ],
+  "verdict": "layering buys extra bits beyond k=2; gain slope +0.067 bits per bit of w",
+  "units_caveat": "public in solver conflicts, private in round evaluations; only differences across k at fixed w are meaningful"
+}

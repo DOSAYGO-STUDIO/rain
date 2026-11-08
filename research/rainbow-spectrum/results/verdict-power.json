@@ -1,0 +1,86 @@
+{
+  "analysis": "verdict_power",
+  "question": "is the clean series precise enough to support any verdict?",
+  "resamples": 2000,
+  "seed": 20260915,
+  "note": "bootstrap over draws; the decision rule is not touched here",
+  "variants": {
+    "weak": {
+      "conflicts": {
+        "beta": 0.7222,
+        "ci95": [
+          0.6561,
+          0.7956
+        ],
+        "ci_width": 0.1395,
+        "excludes_half": true,
+        "log2_stdev_per_width": {
+          "12": 1.026,
+          "14": 1.563,
+          "16": 0.731,
+          "18": 1.108,
+          "20": 1.003,
+          "22": 1.375,
+          "24": 0.534
+        }
+      },
+      "rlimit": {
+        "beta": 0.8541,
+        "ci95": [
+          0.7914,
+          0.9052
+        ],
+        "ci_width": 0.1138,
+        "excludes_half": true,
+        "log2_stdev_per_width": {
+          "12": 0.494,
+          "14": 1.43,
+          "16": 0.829,
+          "18": 1.084,
+          "20": 0.904,
+          "22": 1.153,
+          "24": 0.425
+        }
+      }
+    },
+    "hardened": {
+      "conflicts": {
+        "beta": 0.7388,
+        "ci95": [
+          0.6519,
+          0.8069
+        ],
+        "ci_width": 0.155,
+        "excludes_half": true,
+        "log2_stdev_per_width": {
+          "12": 0.74,
+          "14": 0.889,
+          "16": 0.967,
+          "18": 0.968,
+          "20": 1.321,
+          "22": 0.938,
+          "24": 0.928
+        }
+      },
+      "rlimit": {
+        "beta": 0.8707,
+        "ci95": [
+          0.7796,
+          0.9324
+        ],
+        "ci_width": 0.1528,
+        "excludes_half": true,
+        "log2_stdev_per_width": {
+          "12": 0.746,
+          "14": 0.974,
+          "16": 0.866,
+          "18": 0.965,
+          "20": 1.344,
+          "22": 0.705,
+          "24": 0.718
+        }
+      }
+    }
+  },
+  "conclusion": "Weak-variant beta is determined to within 0.11-0.14 in log2 slope at 95%. Both metrics exclude 0.5, so a gap above square-root scaling is resolvable with this data."
+}

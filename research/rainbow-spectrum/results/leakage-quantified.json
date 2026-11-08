@@ -1,0 +1,488 @@
+{
+  "experiment": "quantified_flattening_leakage",
+  "question": "how many independent steering bits does exact flattening reveal?",
+  "generated": "2026-09-15T09:21:16",
+  "rows": [
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 2,
+      "discriminating_relations": 2,
+      "independent_label_rank": 2,
+      "distinct_signatures": 4,
+      "effective_leaked_bits": 2.0,
+      "fraction_of_sigma": 0.3333
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.1667
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.1667
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.1667
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 2,
+      "discriminating_relations": 2,
+      "independent_label_rank": 2,
+      "distinct_signatures": 4,
+      "effective_leaked_bits": 2.0,
+      "fraction_of_sigma": 0.3333
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 2,
+      "discriminating_relations": 2,
+      "independent_label_rank": 2,
+      "distinct_signatures": 3,
+      "effective_leaked_bits": 1.585,
+      "fraction_of_sigma": 0.2642
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.1667
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.125
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.125
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.125
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.125
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.125
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.125
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.1
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.1
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.1
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "sigma_bits": 12,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "sigma_bits": 12,
+      "relations_constant_in_every_class": 1,
+      "discriminating_relations": 1,
+      "independent_label_rank": 1,
+      "distinct_signatures": 2,
+      "effective_leaked_bits": 1.0,
+      "fraction_of_sigma": 0.0833
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "sigma_bits": 12,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "sigma_bits": 12,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "sigma_bits": 12,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 7,
+      "k": 2,
+      "sigma_bits": 14,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 7,
+      "k": 2,
+      "sigma_bits": 14,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    },
+    {
+      "w": 7,
+      "k": 2,
+      "sigma_bits": 14,
+      "relations_constant_in_every_class": 0,
+      "discriminating_relations": 0,
+      "independent_label_rank": 0,
+      "distinct_signatures": 1,
+      "effective_leaked_bits": 0.0,
+      "fraction_of_sigma": 0.0
+    }
+  ],
+  "scaling": [
+    {
+      "w": 3,
+      "k": 2,
+      "sigma_bits": 6,
+      "draws": 10,
+      "max_independent_rank": 2,
+      "max_leaked_bits": 2.0,
+      "mean_leaked_bits": 0.959,
+      "max_fraction_of_sigma": 0.3333
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "sigma_bits": 8,
+      "draws": 10,
+      "max_independent_rank": 1,
+      "max_leaked_bits": 1.0,
+      "mean_leaked_bits": 0.6,
+      "max_fraction_of_sigma": 0.125
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "sigma_bits": 10,
+      "draws": 8,
+      "max_independent_rank": 1,
+      "max_leaked_bits": 1.0,
+      "mean_leaked_bits": 0.375,
+      "max_fraction_of_sigma": 0.1
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "sigma_bits": 12,
+      "draws": 5,
+      "max_independent_rank": 1,
+      "max_leaked_bits": 1.0,
+      "mean_leaked_bits": 0.2,
+      "max_fraction_of_sigma": 0.0833
+    },
+    {
+      "w": 7,
+      "k": 2,
+      "sigma_bits": 14,
+      "draws": 3,
+      "max_independent_rank": 0,
+      "max_leaked_bits": 0.0,
+      "mean_leaked_bits": 0.0,
+      "max_fraction_of_sigma": 0.0
+    }
+  ],
+  "operational": [
+    {
+      "w": 3,
+      "k": 2,
+      "labels": 2,
+      "sigma_equal_pairs": 155103,
+      "label_equal_pairs": 1126401,
+      "total_pairs": 4498500,
+      "narrowing": 3.994,
+      "implied_bits": 1.998
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "labels": 1,
+      "sigma_equal_pairs": 49608,
+      "label_equal_pairs": 2248564,
+      "total_pairs": 4498500,
+      "narrowing": 2.001,
+      "implied_bits": 1.0
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "labels": 1,
+      "sigma_equal_pairs": 14059,
+      "label_equal_pairs": 2248564,
+      "total_pairs": 4498500,
+      "narrowing": 2.001,
+      "implied_bits": 1.0
+    }
+  ],
+  "conclusion": "Exact flattening reveals a small, bounded amount of the steering quotient: at most 2.0 bit(s) against sigma's npairs*w, with the fraction of sigma exposed running [0.3333, 0.125, 0.1, 0.0833, 0.0] across w=3..7. The label is real -- brute force confirms constancy within every class -- but it is not equivalent capability, and the operational speedup it buys is close to the factor of two that one bit implies. The interesting quantity is now the trend of that fraction as w grows, not a survives/does-not-survive verdict."
+}

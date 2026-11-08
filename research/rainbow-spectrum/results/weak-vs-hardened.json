@@ -1,0 +1,30 @@
+{
+  "analysis": "weak_vs_hardened",
+  "null": "delta = beta_weak - beta_hardened = 0 (the weakness buys nothing asymptotically)",
+  "resamples": 4000,
+  "seed": 20260916,
+  "metrics": {
+    "conflicts": {
+      "beta_weak": 0.7222,
+      "beta_hardened": 0.7388,
+      "delta": -0.0166,
+      "ci95": [
+        -0.1172,
+        0.0924
+      ],
+      "excludes_zero": false
+    },
+    "rlimit": {
+      "beta_weak": 0.8541,
+      "beta_hardened": 0.8707,
+      "delta": -0.0167,
+      "ci95": [
+        -0.1056,
+        0.0822
+      ],
+      "excludes_zero": false
+    }
+  },
+  "separation_detected": false,
+  "conclusion": "Neither cost metric separates the weak construction from the hardened control: both difference intervals contain zero, and the hardened point estimate is in fact slightly HIGHER than the weak one under both. The public task's exponent is therefore a property of the relation, not of the weak factor. The 'stable' verdict the frozen rule returns on the weak series is returned on the control as well, so it is not evidence for the construction."
+}

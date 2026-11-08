@@ -1,0 +1,598 @@
+{
+  "experiment": "exact_flattening_and_algebraic_attack",
+  "question": "does the closed algebraic form expose a steering quotient?",
+  "criterion": "a class label is a bit-combination constant in the last round's controls AND differing across classes; constancy alone is trivial because low bits of modular addition are GF(2)-linear",
+  "generated": "2026-09-15T09:16:27",
+  "control": [
+    {
+      "w": 3,
+      "k": 2,
+      "variables": 6,
+      "output_bits": 12,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 47,
+        "depth": 14,
+        "ops": {
+          "mul": 16,
+          "const": 7,
+          "rotr": 8,
+          "xor": 4,
+          "add": 4,
+          "var": 4,
+          "sub": 4
+        },
+        "multiplications": 16
+      },
+      "last_round_dag": {
+        "dag_nodes": 26,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 6,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 2,
+      "anf_min_degree": 1,
+      "mean_monomials": 2.1,
+      "anf_density": 0.0326,
+      "constant_relations_in_every_class": 2,
+      "discriminating_class_labels": 2,
+      "label_bits": 2,
+      "sigma_bits": 6,
+      "label_fraction_of_sigma": 0.3333,
+      "distinct_label_values_seen": 3,
+      "equivalence": {
+        "inputs_checked": 64,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "variables": 8,
+      "output_bits": 16,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 48,
+        "depth": 14,
+        "ops": {
+          "mul": 16,
+          "const": 8,
+          "rotr": 8,
+          "xor": 4,
+          "add": 4,
+          "var": 4,
+          "sub": 4
+        },
+        "multiplications": 16
+      },
+      "last_round_dag": {
+        "dag_nodes": 26,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 6,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 3,
+      "anf_min_degree": 1,
+      "mean_monomials": 3.4,
+      "anf_density": 0.0134,
+      "constant_relations_in_every_class": 2,
+      "discriminating_class_labels": 2,
+      "label_bits": 2,
+      "sigma_bits": 8,
+      "label_fraction_of_sigma": 0.25,
+      "distinct_label_values_seen": 3,
+      "equivalence": {
+        "inputs_checked": 256,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "variables": 10,
+      "output_bits": 20,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 53,
+        "depth": 14,
+        "ops": {
+          "mul": 16,
+          "const": 13,
+          "rotr": 8,
+          "xor": 4,
+          "add": 4,
+          "var": 4,
+          "sub": 4
+        },
+        "multiplications": 16
+      },
+      "last_round_dag": {
+        "dag_nodes": 27,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 7,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 4,
+      "anf_min_degree": 1,
+      "mean_monomials": 2.6,
+      "anf_density": 0.0026,
+      "constant_relations_in_every_class": 2,
+      "discriminating_class_labels": 2,
+      "label_bits": 2,
+      "sigma_bits": 10,
+      "label_fraction_of_sigma": 0.2,
+      "distinct_label_values_seen": 4,
+      "equivalence": {
+        "inputs_checked": 1024,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    }
+  ],
+  "flattened": [
+    {
+      "w": 3,
+      "k": 2,
+      "variables": 6,
+      "output_bits": 12,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 46,
+        "depth": 14,
+        "ops": {
+          "mul": 16,
+          "const": 6,
+          "rotr": 8,
+          "xor": 4,
+          "add": 4,
+          "var": 4,
+          "sub": 4
+        },
+        "multiplications": 16
+      },
+      "last_round_dag": {
+        "dag_nodes": 24,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 4,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 2,
+      "anf_min_degree": 1,
+      "mean_monomials": 3.0,
+      "anf_density": 0.0469,
+      "constant_relations_in_every_class": 0,
+      "discriminating_class_labels": 0,
+      "label_bits": 0,
+      "sigma_bits": 6,
+      "label_fraction_of_sigma": 0.0,
+      "distinct_label_values_seen": 0,
+      "equivalence": {
+        "inputs_checked": 64,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "variables": 8,
+      "output_bits": 16,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 50,
+        "depth": 14,
+        "ops": {
+          "mul": 16,
+          "const": 10,
+          "rotr": 8,
+          "xor": 4,
+          "add": 4,
+          "var": 4,
+          "sub": 4
+        },
+        "multiplications": 16
+      },
+      "last_round_dag": {
+        "dag_nodes": 26,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 6,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 4,
+      "anf_min_degree": 1,
+      "mean_monomials": 6.7,
+      "anf_density": 0.0261,
+      "constant_relations_in_every_class": 0,
+      "discriminating_class_labels": 0,
+      "label_bits": 0,
+      "sigma_bits": 8,
+      "label_fraction_of_sigma": 0.0,
+      "distinct_label_values_seen": 0,
+      "equivalence": {
+        "inputs_checked": 256,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "variables": 10,
+      "output_bits": 20,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 54,
+        "depth": 14,
+        "ops": {
+          "mul": 16,
+          "const": 14,
+          "rotr": 8,
+          "xor": 4,
+          "add": 4,
+          "var": 4,
+          "sub": 4
+        },
+        "multiplications": 16
+      },
+      "last_round_dag": {
+        "dag_nodes": 30,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 10,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 5,
+      "anf_min_degree": 1,
+      "mean_monomials": 11.0,
+      "anf_density": 0.0107,
+      "constant_relations_in_every_class": 0,
+      "discriminating_class_labels": 0,
+      "label_bits": 0,
+      "sigma_bits": 10,
+      "label_fraction_of_sigma": 0.0,
+      "distinct_label_values_seen": 0,
+      "equivalence": {
+        "inputs_checked": 1024,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "variables": 12,
+      "output_bits": 24,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 57,
+        "depth": 14,
+        "ops": {
+          "mul": 16,
+          "const": 17,
+          "rotr": 8,
+          "xor": 4,
+          "add": 4,
+          "var": 4,
+          "sub": 4
+        },
+        "multiplications": 16
+      },
+      "last_round_dag": {
+        "dag_nodes": 31,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 11,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 6,
+      "anf_min_degree": 1,
+      "mean_monomials": 17.2,
+      "anf_density": 0.0042,
+      "constant_relations_in_every_class": 0,
+      "discriminating_class_labels": 0,
+      "label_bits": 0,
+      "sigma_bits": 12,
+      "label_fraction_of_sigma": 0.0,
+      "distinct_label_values_seen": 0,
+      "equivalence": {
+        "inputs_checked": 4096,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 3,
+      "k": 3,
+      "variables": 6,
+      "output_bits": 12,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 65,
+        "depth": 19,
+        "ops": {
+          "mul": 24,
+          "const": 5,
+          "rotr": 12,
+          "xor": 6,
+          "add": 6,
+          "var": 6,
+          "sub": 6
+        },
+        "multiplications": 24
+      },
+      "last_round_dag": {
+        "dag_nodes": 24,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 4,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 3,
+      "anf_min_degree": 1,
+      "mean_monomials": 2.8,
+      "anf_density": 0.0443,
+      "constant_relations_in_every_class": 1,
+      "discriminating_class_labels": 1,
+      "label_bits": 1,
+      "sigma_bits": 6,
+      "label_fraction_of_sigma": 0.1667,
+      "distinct_label_values_seen": 2,
+      "equivalence": {
+        "inputs_checked": 64,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 4,
+      "k": 3,
+      "variables": 8,
+      "output_bits": 16,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 70,
+        "depth": 19,
+        "ops": {
+          "mul": 24,
+          "const": 10,
+          "rotr": 12,
+          "xor": 6,
+          "add": 6,
+          "var": 6,
+          "sub": 6
+        },
+        "multiplications": 24
+      },
+      "last_round_dag": {
+        "dag_nodes": 27,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 7,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 4,
+      "anf_min_degree": 1,
+      "mean_monomials": 6.0,
+      "anf_density": 0.0234,
+      "constant_relations_in_every_class": 0,
+      "discriminating_class_labels": 0,
+      "label_bits": 0,
+      "sigma_bits": 8,
+      "label_fraction_of_sigma": 0.0,
+      "distinct_label_values_seen": 0,
+      "equivalence": {
+        "inputs_checked": 256,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    },
+    {
+      "w": 5,
+      "k": 3,
+      "variables": 10,
+      "output_bits": 20,
+      "classes": 6,
+      "whole_composition_dag": {
+        "dag_nodes": 74,
+        "depth": 19,
+        "ops": {
+          "mul": 24,
+          "const": 14,
+          "rotr": 12,
+          "xor": 6,
+          "add": 6,
+          "var": 6,
+          "sub": 6
+        },
+        "multiplications": 24
+      },
+      "last_round_dag": {
+        "dag_nodes": 31,
+        "depth": 9,
+        "ops": {
+          "mul": 8,
+          "const": 11,
+          "rotr": 4,
+          "xor": 2,
+          "add": 2,
+          "var": 2,
+          "sub": 2
+        },
+        "multiplications": 8
+      },
+      "anf_max_degree": 4,
+      "anf_min_degree": 1,
+      "mean_monomials": 10.5,
+      "anf_density": 0.0103,
+      "constant_relations_in_every_class": 1,
+      "discriminating_class_labels": 1,
+      "label_bits": 1,
+      "sigma_bits": 10,
+      "label_fraction_of_sigma": 0.1,
+      "distinct_label_values_seen": 2,
+      "equivalence": {
+        "inputs_checked": 1024,
+        "factored_vs_dag_mismatches": 0,
+        "anf_vs_truth_mismatched_bits": 0,
+        "identical": true
+      }
+    }
+  ],
+  "growth_table": [
+    {
+      "w": 3,
+      "k": 2,
+      "anf_max_degree": 2,
+      "mean_monomials": 3.0,
+      "anf_density": 0.0469,
+      "dag_nodes": 46,
+      "dag_depth": 14,
+      "multiplications": 16
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "anf_max_degree": 4,
+      "mean_monomials": 6.7,
+      "anf_density": 0.0261,
+      "dag_nodes": 50,
+      "dag_depth": 14,
+      "multiplications": 16
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "anf_max_degree": 5,
+      "mean_monomials": 11.0,
+      "anf_density": 0.0107,
+      "dag_nodes": 54,
+      "dag_depth": 14,
+      "multiplications": 16
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "anf_max_degree": 6,
+      "mean_monomials": 17.2,
+      "anf_density": 0.0042,
+      "dag_nodes": 57,
+      "dag_depth": 14,
+      "multiplications": 16
+    },
+    {
+      "w": 3,
+      "k": 3,
+      "anf_max_degree": 3,
+      "mean_monomials": 2.8,
+      "anf_density": 0.0443,
+      "dag_nodes": 65,
+      "dag_depth": 19,
+      "multiplications": 24
+    },
+    {
+      "w": 4,
+      "k": 3,
+      "anf_max_degree": 4,
+      "mean_monomials": 6.0,
+      "anf_density": 0.0234,
+      "dag_nodes": 70,
+      "dag_depth": 19,
+      "multiplications": 24
+    },
+    {
+      "w": 5,
+      "k": 3,
+      "anf_max_degree": 4,
+      "mean_monomials": 10.5,
+      "anf_density": 0.0103,
+      "dag_nodes": 74,
+      "dag_depth": 19,
+      "multiplications": 24
+    }
+  ],
+  "positive_control_passed": true,
+  "equivalence_verified": true,
+  "partial_leakage_draws": 2,
+  "max_label_bits_observed": 1,
+  "algebraic_attack_recovered_sigma": false,
+  "conclusion": "PARTIAL LEAKAGE. The flattened form exposes a discriminating GF(2) class label in 2 of 7 configurations, worth at most 1 bit(s) against sigma's npairs*w. Brute force confirms such a relation really is constant across every control assignment in every class, so this is real structure and not a validation artifact. The Z/2^r search could not see it because it is GF(2)-linear in output BITS rather than Z/2^r-linear in output WORDS. One bit halves the attacker's search; it does not replace a 2^(w/2) birthday on sigma. So exact flattening REDUCES the separation without closing it."
+}

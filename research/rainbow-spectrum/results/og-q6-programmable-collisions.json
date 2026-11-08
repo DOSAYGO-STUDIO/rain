@@ -1,0 +1,47 @@
+{
+  "question": "Q6: how programmable are Rainbow collisions?",
+  "free_to_aim": "exactly 2w bits per gadget -- merged lanes 0 and 2, via the bridge word p and the pair-1 word q",
+  "determined": "merged lanes 1 and 3, pinned by the collision's pair sums H and K",
+  "not_freely_aimable": [
+    "H and K themselves (a collision at a prescribed value)",
+    "the digest (inverting the finalization)"
+  ],
+  "scaling": {
+    "aimed_bits": "2*w*t",
+    "private_cost": "t * 2^(w/2)",
+    "blind_cost": "2^(2*w*t)"
+  },
+  "derivative_shape": "d log C_pub / dt = 2w  vs  d log C_priv / dt ~ 0",
+  "obstruction": "a tag must be publicly verifiable, so it is computable from public data; aiming and verifying need the same internal quantities, so anyone who can run the construction can aim it. This is structure-aware vs structure-blind, not yet a trapdoor.",
+  "w": 16,
+  "rows": [
+    {
+      "gadgets": 1,
+      "aimed_bits": 32,
+      "verified_collisions": "12/12",
+      "tag_hit_exactly": "12/12",
+      "blind_tag_hit": "0/12",
+      "median_search": 281.5,
+      "one_birthday": 256
+    },
+    {
+      "gadgets": 2,
+      "aimed_bits": 64,
+      "verified_collisions": "12/12",
+      "tag_hit_exactly": "12/12",
+      "blind_tag_hit": "0/12",
+      "median_search": 562.5,
+      "one_birthday": 256
+    },
+    {
+      "gadgets": 3,
+      "aimed_bits": 96,
+      "verified_collisions": "12/12",
+      "tag_hit_exactly": "12/12",
+      "blind_tag_hit": "0/12",
+      "median_search": 1015.5,
+      "one_birthday": 256
+    }
+  ],
+  "generated": "2026-09-16T06:19:26"
+}
