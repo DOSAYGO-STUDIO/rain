@@ -1,5 +1,7 @@
 # Rain
 
+> **News - [Cryptanalysis of Rainbow & The Rainbow 2 Hardening Ladder](output/pdf/rainbow-pair-sum-cryptanalysis.pdf) ([JPEG Contact Sheet](output/pdf/rainbow-pair-sum-cryptanalysis-contact-sheet.jpg) | [Ladder Data](research/rainbow2/results/ALGEBRAIC-LADDER.md)):** Our structural cryptanalysis of Rainbow v3.7.1 proves a $2^{128}$ 1-block pair-sum coset collision (Theorem 1), exact pair-separability of `mixA` (Proposition 3), and a 192-bit finalization bottleneck (Q20), alongside a 7-rung hardening ladder (`R0`–`R6`) that eliminates these weaknesses at full throughput (`45.66`–`49.87` cycles/hash small keys, `4.61`–`4.79` GiB/s bulk).
+>
 > **News - [Cryptanalysis of Rainstorm](output/pdf/rainstorm-v4-external-cryptanalysis.pdf) ([JPEG Contact Sheet](output/pdf/rainstorm-v4-external-cryptanalysis-contact-sheet.jpg) | [15p Archival Sheet](output/pdf/rainstorm-v4-external-cryptanalysis-15p-contact-sheet.jpg)):** Our external cryptanalysis reports an exact algebraic fold collapse and verified $2^{31.9225}$ collision for two-message-round reduced Rainstorm-256 without padding compression ($\operatorname{RS}_n^{(2,0)}$), characterizes the one-padding-round obstruction and four-inverse-padding-round differential hull, and finds no production Rainstorm-128/256 ($\operatorname{RS}_n^{(4,4)}$) collision or output distinguisher below generic cost in the completed campaign. The result is empirical evidence, not a security proof.
 
 > [!TIP]
@@ -53,6 +55,7 @@ The codebase includes:
 - [Benchmark](#benchmark)
 - [Repository Structure](#repository-structure)
 - [Rainbow](#rainbow)
+  - [Cryptanalysis of Rainbow v3.7.1 & The Rainbow 2 Hardening Ladder](#cryptanalysis-of-rainbow-v371--the-rainbow-2-hardening-ladder)
 - [Rainstorm - Unvetted for Security](#rainstorm---unvetted-for-security)
   - [Cryptanalysis of Rainstorm v4.0.0](#cryptanalysis-of-rainstorm-v400)
 - [Note on Cryptographic Intent](#note-on-cryptographic-intent)
@@ -209,6 +212,35 @@ Runs 2 and 3 show similar results, consistently demonstrating that the native C+
 ## Rainbow
 
 **Rainbow** is a fast, general-purpose non-cryptographic hash that can produce 64-bit, 128-bit, or 256-bit hashes. It is simple, compact (~140 LOC), and passes all SMHasher3 tests for its 64-bit variant. Its prime-based mixing function yields strong avalanche properties.
+
+### Cryptanalysis of Rainbow v3.7.1 & The Rainbow 2 Hardening Ladder
+
+- **Paper (7-page manuscript)**: [PDF](output/pdf/rainbow-pair-sum-cryptanalysis.pdf) | [LaTeX](output/pdf/rainbow-pair-sum-cryptanalysis.tex) | [Contact Sheet (JPEG)](output/pdf/rainbow-pair-sum-cryptanalysis-contact-sheet.jpg) | [Page Renders (`page-01.jpg`–`page-07.jpg`)](output/pdf/rainbow-pair-sum-cryptanalysis-pages)
+- **Research & Verifiers**: [`research/rainbow/`](research/rainbow) (Theorems 1–2, Propositions 3–5) | [`research/rainbow-spectrum/`](research/rainbow-spectrum) (`Q01`–`Q28`) | [`research/rainbow2/results/ALGEBRAIC-LADDER.md`](research/rainbow2/results/ALGEBRAIC-LADDER.md)
+
+#### Structural Weaknesses Identified in Rainbow v3.7.1 (`src/rainbow.cpp`)
+
+1. **W1 — 1-Block Pair-Sum Coset Collapse (Theorem 1):** In Rainbow's 16-byte streaming loop, each block $(g_0, g_1) \in (\mathbb{Z}/2^{64}\mathbb{Z})^2$ enters the 256-bit state $h = (h_0, h_1, h_2, h_3)$ via
+   $$h_0 \mathrel{-}= g_0 + g_1, \quad h_1 \mathrel{+}= g_0 + g_1, \quad h_2 \mathrel{+}= g_1, \quad h_3 \mathrel{-}= g_1 + K.$$
+   Because all four updates depend only on $(u, v) = (g_0 + g_1, g_1)$, any perturbation $(g_0 + \delta, g_1 - \delta)$ shifts the pre-`mixA` state by $(0, 0, -\delta, +\delta)$. When $g_1 = 0$ (fix $g_0 + g_1 = c$), all $2^{64}$ blocks $(c - g_1, g_1)$ with the same sum $u = c$ collapses the first two lanes identically; more generally, solving the 1-block state-merge condition yields **$2^{64}$ exact 256-bit internal state merges per coset ($2^{128}$ colliding 16-byte block pairs in $O(1)$)** regardless of IV, seed, or output width (`1000/1000` instant state collisions in [`research/rainbow/verify_pair_sum.py`](research/rainbow/verify_pair_sum.py)).
+2. **W1b — 2-Adic Differential Rays (`Q18`/`Q19`):** Because multiplication by odd primes (`P, Q, R, T, U, V, W`) commutes with the 2-adic filtration $\bmod 2^k$, high-bit modular differences $\Delta = 2^{w-k} \cdot u$ survive `mixB` with elevated probability, creating anisotropic DDT collision rays ($M_r = 11.01\times$, quotiented ray $S_r = 145.29\times$ at $w=12$).
+3. **W2 — Exact Pair-Separability of `mixA` (Proposition 3):** `mixA` transforms $(h_0, h_1)$ and $(h_2, h_3)$ as two completely independent 128-bit halves: $\operatorname{mixA}(h_0, h_1, h_2, h_3) = (F_1(h_0, h_1), F_2(h_2, h_3))$. Cross-pair diffusion between $(h_0, h_1)$ and $(h_2, h_3)$ is identically **`0.000`** for any number of consecutive `mixA` rounds $k \ge 1$.
+4. **W3 — 192-Bit Finalization Bottleneck (`Q20`):** In finalization (`mixB(h); mixA(h); mixA(h);`), `mixA` never couples $(h_0, h_1)$ into $(h_2, h_3)$, and the output squeeze `g = h[2] - h[3]` reads only $(h_2, h_3)$. Consequently, after `mixB(h)` in finalization, **word $h_0''$ is 100% dead in 64-bit mode** (`0/2000` sensitivity), compressing the 256-bit state through a **192-bit bottleneck** before the 64-bit output. In 128-bit mode, the second 64-bit output word has `0/2000` sensitivity to $(h_0, h_1)$ after the first squeeze. On the $w=4$ (16-bit) model, the finalizer reaches only `4,007 / 65,536` (`6.1%`) of the state space vs. $1 - e^{-1} \approx 63.2\%$ for a random map.
+5. **W4 & W5 — 2-Lane Squeeze Prefixing & Top-Bit Seed Linearity (`Q22`):** Because the IV initializes lanes with linear shifts `(seed + olen + i)` before multiplying, flipping the top bit of the seed ($\Delta\text{seed} = 2^{63}$) only flips bit 63 in each IV lane (Hamming weight `4.0` bits out of 256), transferring $9.5\%$ of message collisions across related seeds at $w=8$.
+
+#### The Rainbow 2 Hardening Ladder (`R0` – `R6`)
+
+To evaluate minimal, speed-preserving fixes without pre-judging the design trade-off, we constructed a 7-rung hardening ladder (`R0`–`R6`) and benchmarked all 21 variants (`r0..r6` $\times$ `64, 128, 256` bits) through **SMHasher3** on a 32-vCPU AMD EPYC Milan instance (`c2d-highcpu-32`):
+
+| Rung | Modification Summary | W1: 1-Block Merges | W1b: DDT Ray $M_r$ | W2: `mixA` Cross-Pair (2 rds) | W3a: Dead-Word Live (`h0''`) | W3b: $w=4$ Finalizer Image | W5: $\Delta\text{seed}=2^{63}$ IV Wt | 64b Small Keys (cyc/hash) | 128b Small Keys (cyc/hash) | 256b Small Keys (cyc/hash) | Bulk Speed (`256 KiB` aligned) |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **R0** | Baseline Rainbow v3.7.1 | `1000/1000` ❌ | `11.01x` ❌ | `0.000` ❌ | `0/2000` ❌ | `6.1%` ❌ | `4.0` b ❌ | `50.53` | `56.94` | `87.13` | `1.47` B/c (`4.79` GiB/s) |
+| **R1** | Asymmetric rotated block load (`ROTR64(g0,19)`, `ROTR64(g1,41)`) | **`0/1000`** ✅ | **`3.95x`** ✅ | `0.000` ❌ | `0/2000` ❌ | `6.1%` ❌ | `4.0` b ❌ | **`49.87`** | **`53.68`** | **`85.85`** | **`1.47` B/c (`4.79` GiB/s)** |
+| **R2** | Feistel cross-XOR in `mixA` (`a ^= d; c ^= b;`) | `1000/1000` ❌ | `8.98x` ⚠️ | **`0.500`** ✅ | **`2000/2000`** ✅ | **`63.7%`** ✅ | `4.0` b ❌ | `56.99` | `67.22` | `112.11` | `1.39` B/c (`4.52` GiB/s) |
+| **R3** | `R1 + R2` combined core | **`0/1000`** ✅ | **`3.67x`** ✅ | **`0.500`** ✅ | **`2000/2000`** ✅ | **`63.7%`** ✅ | `4.0` b ❌ | `56.35` | `64.65` | `112.19` | `1.44` B/c (`4.69` GiB/s) |
+| **R4** | `R3` + 4-lane squeeze `(h0^h2)-(h1^h3)` | **`0/1000`** ✅ | **`3.67x`** ✅ | **`0.500`** ✅ | **`2000/2000`** ✅ | **`63.1%`** ✅ | `4.0` b ❌ | `57.60` | `67.10` | `110.55` | `1.41–1.44` B/c (`4.61–4.69` GiB/s) |
+| **R5** | `R4` + domain-separated rotated-multiply IV | **`0/1000`** ✅ | **`3.67x`** ✅ | **`0.500`** ✅ | **`2000/2000`** ✅ | **`63.1%`** ✅ | **`76.7` b** ✅ | `60.63` | `72.92` | `115.75` | `1.41–1.44` B/c (`4.60–4.69` GiB/s) |
+| **R6** | Zero-instruction cyclic `mixA` (`b^=c; d^=a; s=[b,c,d,a]`) + `R1` + `R4` | **`0/1000`** ✅ | **`3.70x`** ✅ | **`0.375`** ✅ | **`2000/2000`** ✅ | **`63.2%`** ✅ | `4.0` b ❌ | **`45.66`** | **`55.05`** | `95.61` | `1.41–1.42` B/c (`4.61–4.62` GiB/s) |
 
 ---
 

@@ -1,0 +1,1719 @@
+{
+  "stages": {
+    "sanity": [
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.693881,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r1-64-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r1-64"
+        ],
+        "log_file": "sanity-r1-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.703961,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r0-256-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r0-256"
+        ],
+        "log_file": "sanity-r0-256-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.70835,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r1-64-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r1-64"
+        ],
+        "log_file": "sanity-r1-64-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.696139,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r0-128-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r0-128"
+        ],
+        "log_file": "sanity-r0-128-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.686792,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r0-64-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r0-64"
+        ],
+        "log_file": "sanity-r0-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.706166,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r0-64-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r0-64"
+        ],
+        "log_file": "sanity-r0-64-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.704753,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r0-256-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r0-256"
+        ],
+        "log_file": "sanity-r0-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.687185,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r2-128-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r2-128"
+        ],
+        "log_file": "sanity-r2-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.682207,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r0-128-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r0-128"
+        ],
+        "log_file": "sanity-r0-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.699406,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r1-256-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r1-256"
+        ],
+        "log_file": "sanity-r1-256-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.689269,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r1-256-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r1-256"
+        ],
+        "log_file": "sanity-r1-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.639177,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r1-128-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r1-128"
+        ],
+        "log_file": "sanity-r1-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.686654,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r2-128-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r2-128"
+        ],
+        "log_file": "sanity-r2-128-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.623778,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r3-64-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r3-64"
+        ],
+        "log_file": "sanity-r3-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.689802,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r1-128-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r1-128"
+        ],
+        "log_file": "sanity-r1-128-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.666706,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r2-64-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r2-64"
+        ],
+        "log_file": "sanity-r2-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.676495,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r2-256-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r2-256"
+        ],
+        "log_file": "sanity-r2-256-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.663362,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r2-256-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r2-256"
+        ],
+        "log_file": "sanity-r2-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.673568,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r3-64-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r3-64"
+        ],
+        "log_file": "sanity-r3-64-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.6298,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r4-64-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r4-64"
+        ],
+        "log_file": "sanity-r4-64-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.661707,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r3-128-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r3-128"
+        ],
+        "log_file": "sanity-r3-128-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.641511,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r4-64-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r4-64"
+        ],
+        "log_file": "sanity-r4-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.64163,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r3-128-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r3-128"
+        ],
+        "log_file": "sanity-r3-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.689131,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r2-64-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r2-64"
+        ],
+        "log_file": "sanity-r2-64-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.671444,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r3-256-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r3-256"
+        ],
+        "log_file": "sanity-r3-256-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.636494,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r4-128-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r4-128"
+        ],
+        "log_file": "sanity-r4-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.665077,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r3-256-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r3-256"
+        ],
+        "log_file": "sanity-r3-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.617509,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r5-128-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r5-128"
+        ],
+        "log_file": "sanity-r5-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.660857,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r4-256-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r4-256"
+        ],
+        "log_file": "sanity-r4-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.640492,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r5-64-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r5-64"
+        ],
+        "log_file": "sanity-r5-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.638797,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r4-128-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r4-128"
+        ],
+        "log_file": "sanity-r4-128-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.634199,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r5-256-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r5-256"
+        ],
+        "log_file": "sanity-r5-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.666899,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r4-256-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r4-256"
+        ],
+        "log_file": "sanity-r4-256-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.621551,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r5-256-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r5-256"
+        ],
+        "log_file": "sanity-r5-256-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.618009,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r5-128-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r5-128"
+        ],
+        "log_file": "sanity-r5-128-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.641479,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r5-64-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r5-64"
+        ],
+        "log_file": "sanity-r5-64-nonnative.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.631857,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r6-128-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r6-128"
+        ],
+        "log_file": "sanity-r6-128-nonnative.log",
+        "exit_code": 0,
+        "started_unix": 1794141060.6249735,
+        "finished_unix": 1794141061.2639918,
+        "wall_seconds": 0.64,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.635162,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r6-64-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r6-64"
+        ],
+        "log_file": "sanity-r6-64-nonnative.log",
+        "exit_code": 0,
+        "started_unix": 1794141060.6244488,
+        "finished_unix": 1794141061.265235,
+        "wall_seconds": 0.64,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.646613,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r6-256-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r6-256"
+        ],
+        "log_file": "sanity-r6-256-native.log",
+        "exit_code": 0,
+        "started_unix": 1794141060.6264198,
+        "finished_unix": 1794141061.279144,
+        "wall_seconds": 0.65,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.653222,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r6-64-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r6-64"
+        ],
+        "log_file": "sanity-r6-64-native.log",
+        "exit_code": 0,
+        "started_unix": 1794141060.6245315,
+        "finished_unix": 1794141061.285215,
+        "wall_seconds": 0.66,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.654248,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r6-128-native",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=4",
+          "rainbow2-r6-128"
+        ],
+        "log_file": "sanity-r6-128-native.log",
+        "exit_code": 0,
+        "started_unix": 1794141060.6246805,
+        "finished_unix": 1794141061.286467,
+        "wall_seconds": 0.66,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 0.657753,
+        "small_cycles_per_hash": null,
+        "bulk_bytes_per_cycle": null,
+        "bulk_gib_per_sec": null,
+        "failure_lines": [],
+        "id": "sanity-r6-256-nonnative",
+        "command": [
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Sanity",
+          "--extra",
+          "--exit-code-on-failure",
+          "--endian=nonnative",
+          "--ncpu=4",
+          "rainbow2-r6-256"
+        ],
+        "log_file": "sanity-r6-256-nonnative.log",
+        "exit_code": 0,
+        "started_unix": 1794141060.6258693,
+        "finished_unix": 1794141061.289956,
+        "wall_seconds": 0.66,
+        "cached": false
+      }
+    ],
+    "speed": [
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 351.446805,
+        "small_cycles_per_hash": 50.53,
+        "bulk_bytes_per_cycle": [
+          1.47,
+          1.45
+        ],
+        "bulk_gib_per_sec": [
+          4.79,
+          4.72
+        ],
+        "failure_lines": [],
+        "id": "speed-r0-64-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r0-64"
+        ],
+        "log_file": "speed-r0-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 339.374127,
+        "small_cycles_per_hash": 49.87,
+        "bulk_bytes_per_cycle": [
+          1.47,
+          1.47
+        ],
+        "bulk_gib_per_sec": [
+          4.79,
+          4.79
+        ],
+        "failure_lines": [],
+        "id": "speed-r1-64-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r1-64"
+        ],
+        "log_file": "speed-r1-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 359.774553,
+        "small_cycles_per_hash": 56.99,
+        "bulk_bytes_per_cycle": [
+          1.39,
+          1.39
+        ],
+        "bulk_gib_per_sec": [
+          4.52,
+          4.52
+        ],
+        "failure_lines": [],
+        "id": "speed-r2-64-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r2-64"
+        ],
+        "log_file": "speed-r2-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 350.130563,
+        "small_cycles_per_hash": 56.35,
+        "bulk_bytes_per_cycle": [
+          1.44,
+          1.44
+        ],
+        "bulk_gib_per_sec": [
+          4.69,
+          4.69
+        ],
+        "failure_lines": [],
+        "id": "speed-r3-64-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r3-64"
+        ],
+        "log_file": "speed-r3-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 353.552253,
+        "small_cycles_per_hash": 57.6,
+        "bulk_bytes_per_cycle": [
+          1.41,
+          1.41
+        ],
+        "bulk_gib_per_sec": [
+          4.61,
+          4.6
+        ],
+        "failure_lines": [],
+        "id": "speed-r4-64-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r4-64"
+        ],
+        "log_file": "speed-r4-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 358.224477,
+        "small_cycles_per_hash": 60.63,
+        "bulk_bytes_per_cycle": [
+          1.41,
+          1.41
+        ],
+        "bulk_gib_per_sec": [
+          4.6,
+          4.6
+        ],
+        "failure_lines": [],
+        "id": "speed-r5-64-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r5-64"
+        ],
+        "log_file": "speed-r5-64-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 361.400921,
+        "small_cycles_per_hash": 45.66,
+        "bulk_bytes_per_cycle": [
+          1.41,
+          1.41
+        ],
+        "bulk_gib_per_sec": [
+          4.61,
+          4.6
+        ],
+        "failure_lines": [],
+        "id": "speed-r6-64-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r6-64"
+        ],
+        "log_file": "speed-r6-64-native.log",
+        "exit_code": 0,
+        "started_unix": 1794141061.2959588,
+        "finished_unix": 1794141422.702139,
+        "wall_seconds": 361.41,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 352.16511,
+        "small_cycles_per_hash": 56.94,
+        "bulk_bytes_per_cycle": [
+          1.47,
+          1.46
+        ],
+        "bulk_gib_per_sec": [
+          4.79,
+          4.75
+        ],
+        "failure_lines": [],
+        "id": "speed-r0-128-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r0-128"
+        ],
+        "log_file": "speed-r0-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 340.082276,
+        "small_cycles_per_hash": 53.68,
+        "bulk_bytes_per_cycle": [
+          1.47,
+          1.47
+        ],
+        "bulk_gib_per_sec": [
+          4.79,
+          4.79
+        ],
+        "failure_lines": [],
+        "id": "speed-r1-128-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r1-128"
+        ],
+        "log_file": "speed-r1-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 361.935312,
+        "small_cycles_per_hash": 67.22,
+        "bulk_bytes_per_cycle": [
+          1.39,
+          1.39
+        ],
+        "bulk_gib_per_sec": [
+          4.52,
+          4.52
+        ],
+        "failure_lines": [],
+        "id": "speed-r2-128-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r2-128"
+        ],
+        "log_file": "speed-r2-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 350.607675,
+        "small_cycles_per_hash": 64.65,
+        "bulk_bytes_per_cycle": [
+          1.44,
+          1.44
+        ],
+        "bulk_gib_per_sec": [
+          4.69,
+          4.69
+        ],
+        "failure_lines": [],
+        "id": "speed-r3-128-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r3-128"
+        ],
+        "log_file": "speed-r3-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 350.697788,
+        "small_cycles_per_hash": 67.1,
+        "bulk_bytes_per_cycle": [
+          1.44,
+          1.44
+        ],
+        "bulk_gib_per_sec": [
+          4.69,
+          4.69
+        ],
+        "failure_lines": [],
+        "id": "speed-r4-128-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r4-128"
+        ],
+        "log_file": "speed-r4-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 349.07314,
+        "small_cycles_per_hash": 72.92,
+        "bulk_bytes_per_cycle": [
+          1.44,
+          1.44
+        ],
+        "bulk_gib_per_sec": [
+          4.69,
+          4.69
+        ],
+        "failure_lines": [],
+        "id": "speed-r5-128-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r5-128"
+        ],
+        "log_file": "speed-r5-128-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 356.505736,
+        "small_cycles_per_hash": 55.05,
+        "bulk_bytes_per_cycle": [
+          1.41,
+          1.41
+        ],
+        "bulk_gib_per_sec": [
+          4.6,
+          4.6
+        ],
+        "failure_lines": [],
+        "id": "speed-r6-128-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r6-128"
+        ],
+        "log_file": "speed-r6-128-native.log",
+        "exit_code": 0,
+        "started_unix": 1794141422.7084053,
+        "finished_unix": 1794141779.2195046,
+        "wall_seconds": 356.51,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 342.691757,
+        "small_cycles_per_hash": 87.13,
+        "bulk_bytes_per_cycle": [
+          1.47,
+          1.47
+        ],
+        "bulk_gib_per_sec": [
+          4.79,
+          4.79
+        ],
+        "failure_lines": [],
+        "id": "speed-r0-256-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r0-256"
+        ],
+        "log_file": "speed-r0-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 357.142572,
+        "small_cycles_per_hash": 85.85,
+        "bulk_bytes_per_cycle": [
+          1.47,
+          1.45
+        ],
+        "bulk_gib_per_sec": [
+          4.79,
+          4.74
+        ],
+        "failure_lines": [],
+        "id": "speed-r1-256-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r1-256"
+        ],
+        "log_file": "speed-r1-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 362.272717,
+        "small_cycles_per_hash": 112.11,
+        "bulk_bytes_per_cycle": [
+          1.41,
+          1.4
+        ],
+        "bulk_gib_per_sec": [
+          4.6,
+          4.56
+        ],
+        "failure_lines": [],
+        "id": "speed-r2-256-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r2-256"
+        ],
+        "log_file": "speed-r2-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 364.819981,
+        "small_cycles_per_hash": 112.19,
+        "bulk_bytes_per_cycle": [
+          1.4,
+          1.39
+        ],
+        "bulk_gib_per_sec": [
+          4.56,
+          4.52
+        ],
+        "failure_lines": [],
+        "id": "speed-r3-256-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r3-256"
+        ],
+        "log_file": "speed-r3-256-native.log",
+        "exit_code": 0,
+        "started_unix": 1794141779.2235162,
+        "finished_unix": 1794142144.048884,
+        "wall_seconds": 364.83,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 368.769838,
+        "small_cycles_per_hash": 110.55,
+        "bulk_bytes_per_cycle": [
+          1.4,
+          1.39
+        ],
+        "bulk_gib_per_sec": [
+          4.57,
+          4.53
+        ],
+        "failure_lines": [],
+        "id": "speed-r4-256-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r4-256"
+        ],
+        "log_file": "speed-r4-256-native.log",
+        "exit_code": 0,
+        "started_unix": 1794142144.050117,
+        "finished_unix": 1794142512.824934,
+        "wall_seconds": 368.77,
+        "cached": false
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 371.858627,
+        "small_cycles_per_hash": 115.75,
+        "bulk_bytes_per_cycle": [
+          1.36,
+          1.36
+        ],
+        "bulk_gib_per_sec": [
+          4.45,
+          4.43
+        ],
+        "failure_lines": [],
+        "id": "speed-r5-256-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r5-256"
+        ],
+        "log_file": "speed-r5-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      },
+      {
+        "complete": true,
+        "result": "pass",
+        "passed_checks": null,
+        "total_checks": null,
+        "seconds": 356.820995,
+        "small_cycles_per_hash": 95.61,
+        "bulk_bytes_per_cycle": [
+          1.42,
+          1.41
+        ],
+        "bulk_gib_per_sec": [
+          4.62,
+          4.6
+        ],
+        "failure_lines": [],
+        "id": "speed-r6-256-native",
+        "command": [
+          "taskset",
+          "-c",
+          "0",
+          "/home/crisd/rainbow2_campaign/smhasher3/build/SMHasher3",
+          "--test=Speed",
+          "--exit-code-on-failure",
+          "--endian=native",
+          "--ncpu=1",
+          "rainbow2-r6-256"
+        ],
+        "log_file": "speed-r6-256-native.log",
+        "exit_code": 0,
+        "cached": true
+      }
+    ]
+  },
+  "updated_unix": 1794142512.8272207
+}
