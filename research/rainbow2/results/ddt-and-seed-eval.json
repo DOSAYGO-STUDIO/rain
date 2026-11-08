@@ -1,0 +1,64 @@
+{
+  "ddt_w12_ablation": {
+    "R0_R2_sym_inj": {
+      "median_max_M_r": 11.01,
+      "median_max_R_r_1": 43.14,
+      "median_max_S_r_all_odd_u": 145.29
+    },
+    "R1_R3_R4_R5_asym_inj": {
+      "median_max_M_r": 3.95,
+      "median_max_R_r_1": 38.72,
+      "median_max_S_r_all_odd_u": 85.53
+    }
+  },
+  "q22_seed_transfer_w8": {
+    "r0": {
+      "trials": 200,
+      "topbit_seed_transfer_hits": 19,
+      "topbit_seed_transfer_rate": 0.095,
+      "random_seed_transfer_hits": 1,
+      "random_seed_transfer_rate": 0.005,
+      "chance_rate_w8": 0.0039
+    },
+    "r1": {
+      "trials": 200,
+      "topbit_seed_transfer_hits": 27,
+      "topbit_seed_transfer_rate": 0.135,
+      "random_seed_transfer_hits": 3,
+      "random_seed_transfer_rate": 0.015,
+      "chance_rate_w8": 0.0039
+    },
+    "r2": {
+      "trials": 200,
+      "topbit_seed_transfer_hits": 19,
+      "topbit_seed_transfer_rate": 0.095,
+      "random_seed_transfer_hits": 1,
+      "random_seed_transfer_rate": 0.005,
+      "chance_rate_w8": 0.0039
+    },
+    "r3": {
+      "trials": 200,
+      "topbit_seed_transfer_hits": 27,
+      "topbit_seed_transfer_rate": 0.135,
+      "random_seed_transfer_hits": 3,
+      "random_seed_transfer_rate": 0.015,
+      "chance_rate_w8": 0.0039
+    },
+    "r4": {
+      "trials": 200,
+      "topbit_seed_transfer_hits": 13,
+      "topbit_seed_transfer_rate": 0.065,
+      "random_seed_transfer_hits": 0,
+      "random_seed_transfer_rate": 0.0,
+      "chance_rate_w8": 0.0039
+    },
+    "r5": {
+      "trials": 200,
+      "topbit_seed_transfer_hits": 1,
+      "topbit_seed_transfer_rate": 0.005,
+      "random_seed_transfer_hits": 0,
+      "random_seed_transfer_rate": 0.0,
+      "chance_rate_w8": 0.0039
+    }
+  }
+}
