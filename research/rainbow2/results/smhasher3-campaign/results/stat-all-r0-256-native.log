@@ -1,0 +1,44 @@
+WARNING: Hash with verification code ed7533d3 was already registered: rainbow
+         Are you certain rainbow2-r0-64 is a unique implementation?
+WARNING: Hash with verification code be75a175 was already registered: rainbow
+         Are you certain rainbow2-r0-64 is a unique implementation?
+WARNING: Hash with verification code ff03173f was already registered: rainbow-128
+         Are you certain rainbow2-r0-128 is a unique implementation?
+WARNING: Hash with verification code a8ead0c3 was already registered: rainbow-128
+         Are you certain rainbow2-r0-128 is a unique implementation?
+WARNING: Hash with verification code 65f4a210 was already registered: rainbow-256
+         Are you certain rainbow2-r0-256 is a unique implementation?
+WARNING: Hash with verification code d2afd9eb was already registered: rainbow-256
+         Are you certain rainbow2-r0-256 is a unique implementation?
+--- Testing rainbow2-r0-256 "Rainbow2 ladder R0 (256-bit): Baseline Rainbow v3.7.1 (unmodified control)."
+
+[[[ Sanity Tests ]]]
+
+Verification value LE 0x65F4A210 ...... PASS
+Running sanity check 1       .......... PASS
+Running sanity check 2       .......... PASS
+Running append zeroes test   .......... PASS
+Running prepend zeroes test  .......... PASS
+Running thread-safety test 1 .......... PASS
+Running thread-safety test 2 .......... PASS
+
+[[[ Avalanche Tests ]]]
+
+Testing   3-byte keys, 300000 reps..................max is 0.769% at bit   18 -> out 199 (^ 2)
+Testing   4-byte keys, 300000 reps..................max is 0.773% at bit   23 -> out 126 (^ 2)
+Testing   5-byte keys, 300000 reps..................max is 0.661% at bit   26 -> out 147 (^ 0)
+Testing   6-byte keys, 300000 reps..................max is 0.943% at bit   18 -> out 145 (^ 8)
+Testing   7-byte keys, 300000 reps..................max is 0.910% at bit   15 -> out  95 (^ 6)
+Testing   8-byte keys, 300000 reps..................max is 0.757% at bit   32 -> out  83 (^ 1)
+Testing   9-byte keys, 300000 reps..................max is 0.746% at bit    1 -> out  85 (^ 0)
+Testing  10-byte keys, 300000 reps..................max is 0.821% at bit   71 -> out 205 (^ 2)
+Testing  12-byte keys, 300000 reps..................max is 0.756% at bit   91 -> out   2 (^ 0)
+Testing  16-byte keys, 300000 reps..................max is 0.801% at bit   17 -> out 195 (^ 1)
+Testing  20-byte keys, 300000 reps..................max is 0.756% at bit   30 -> out 217 (^ 0)
+
+
+[[[ BIC 'Bit Independence Criteria' Tests ]]]
+
+Testing    3-byte keys,  200000 reps............max 0.0102 at bit    4 -> out ( 64,240)  (^ 0)
+Testing    8-byte keys,  200000 reps............max 0.0112 at bit    0 -> out (178,226)  (^ 0)
+Testing   11-byte keys,  200000 reps..

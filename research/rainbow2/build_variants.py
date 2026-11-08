@@ -124,8 +124,44 @@ def generate():
     s[0] = b; s[1] = c; s[2] = d; s[3] = a;"""
             s = replace_exact(s, old_mixa_full, new_mixa_full, 1)
 
-        # R4, R5, R6: 4-lane output squeeze instead of -(h[2] + h[3])
-        if rung in ("r4", "r5", "r6"):
+        # R4, R5: 4-lane rotated output squeeze ROTR64(h[0] - h[1], 29) - h[2] - h[3]
+        # (avoids bit-0 cancellation of b^d when combined with R2's post-multiply a^=d; c^=b;)
+        if rung in ("r4", "r5"):
+            s = replace_exact(
+                s,
+                """      uint64_t g = 0;
+      g -= h[2];
+      g -= h[3];""",
+                """      uint64_t g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];""",
+                1,
+            )
+            s = replace_exact(
+                s,
+                """    g = 0;
+    g -= h[2];
+    g -= h[3];""",
+                """    g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];""",
+                1,
+            )
+            s = replace_exact(
+                s,
+                """        g = 0;
+        g -= h[3];
+        g -= h[2];""",
+                """        g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];""",
+                4,
+            )
+            s = replace_exact(
+                s,
+                """      g = 0;
+      g -= h[3];
+      g -= h[2];""",
+                """      g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];""",
+                4,
+            )
+
+        # R6: 4-lane output squeeze (h[0] ^ h[2]) - (h[1] ^ h[3]) (safe with R6's pre-multiply mixA)
+        if rung == "r6":
             s = replace_exact(
                 s,
                 """      uint64_t g = 0;

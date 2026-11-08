@@ -200,9 +200,12 @@ def inject_w(s, x: int, y: int, w: int, asym: bool):
     return [h0, h1, h2, h3]
 
 
-def squeeze_word_w(h, w: int, four_lane: bool) -> int:
+def squeeze_word_w(h, w: int, rung: str) -> int:
     mask = (1 << w) - 1
-    if four_lane:
+    if rung in ("r4", "r5"):
+        _, r_b, _, _, _, _, _ = scale_rots(w)
+        return (rotr((h[0] - h[1]) & mask, r_b, w) - h[2] - h[3]) & mask
+    if rung == "r6":
         return ((h[0] ^ h[2]) - (h[1] ^ h[3])) & mask
     return (0 - h[2] - h[3]) & mask
 
@@ -210,23 +213,22 @@ def squeeze_word_w(h, w: int, four_lane: bool) -> int:
 def finalize_state_w(h, seed: int, w: int, rung: str, nwords: int = 4):
     """Run the post-tail finalization squeeze on state h (after tail absorption)."""
     mode = mixa_mode(rung)
-    four_lane = rung in ("r4", "r5", "r6")
     s = list(h)
     s = mixA_w(s, w, mode)
     s = mixB_w(s, seed, w)
     s = mixA_w(s, w, mode)
 
-    words = [squeeze_word_w(s, w, four_lane)]
+    words = [squeeze_word_w(s, w, rung)]
     if nwords >= 2:
         s = mixA_w(s, w, mode)
-        words.append(squeeze_word_w(s, w, four_lane))
+        words.append(squeeze_word_w(s, w, rung))
     if nwords == 4:
         s = mixA_w(s, w, mode)
         s = mixB_w(s, seed, w)
         s = mixA_w(s, w, mode)
-        words.append(squeeze_word_w(s, w, four_lane))
+        words.append(squeeze_word_w(s, w, rung))
         s = mixA_w(s, w, mode)
-        words.append(squeeze_word_w(s, w, four_lane))
+        words.append(squeeze_word_w(s, w, rung))
     return words
 
 
@@ -526,12 +528,12 @@ def evaluate_all():
             s_b[0] ^= q20_rng.getrandbits(64) | 1  # perturb h[0]''
 
             s_a1 = mixA_w(mixB_w(s_a, 0, 64), 64, mode)
-            w2_a = squeeze_word_w(s_a1, 64, four_lane)
-            w3_a = squeeze_word_w(mixA_w(s_a1, 64, mode), 64, four_lane)
+            w2_a = squeeze_word_w(s_a1, 64, rung)
+            w3_a = squeeze_word_w(mixA_w(s_a1, 64, mode), 64, rung)
 
             s_b1 = mixA_w(mixB_w(s_b, 0, 64), 64, mode)
-            w2_b = squeeze_word_w(s_b1, 64, four_lane)
-            w3_b = squeeze_word_w(mixA_w(s_b1, 64, mode), 64, four_lane)
+            w2_b = squeeze_word_w(s_b1, 64, rung)
+            w3_b = squeeze_word_w(mixA_w(s_b1, 64, mode), 64, rung)
 
             if (w2_a, w3_a) != (w2_b, w3_b):
                 h0_pp_changes_word23 += 1
@@ -544,12 +546,12 @@ def evaluate_all():
             st_128_b[1] ^= q20_rng.getrandbits(64) | 1
 
             sa_f = mixA_w(st_128_a, 64, mode)
-            da0 = squeeze_word_w(sa_f, 64, four_lane)
-            da1 = squeeze_word_w(mixA_w(sa_f, 64, mode), 64, four_lane)
+            da0 = squeeze_word_w(sa_f, 64, rung)
+            da1 = squeeze_word_w(mixA_w(sa_f, 64, mode), 64, rung)
 
             sb_f = mixA_w(st_128_b, 64, mode)
-            db0 = squeeze_word_w(sb_f, 64, four_lane)
-            db1 = squeeze_word_w(mixA_w(sb_f, 64, mode), 64, four_lane)
+            db0 = squeeze_word_w(sb_f, 64, rung)
+            db1 = squeeze_word_w(mixA_w(sb_f, 64, mode), 64, rung)
 
             if (da0, da1) != (db0, db1):
                 h01_post_mixB_changes_128 += 1

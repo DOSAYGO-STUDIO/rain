@@ -14,7 +14,7 @@ WARNING: Hash with verification code d2afd9eb was already registered: rainbow-25
 
 [[[ Sanity Tests ]]]
 
-Verification value BE 0xF4329234 ...... PASS
+Verification value BE 0x5EF63848 ...... PASS
 Running sanity check 1       .......... PASS
 Running sanity check 2       .......... PASS
 Running append zeroes test   .......... PASS
@@ -22,5 +22,5 @@ Running prepend zeroes test  .......... PASS
 Running thread-safety test 1 .......... PASS
 Running thread-safety test 2 .......... PASS
 
-Verification value is 0x00000001 - Testing took 0.621551 seconds
+Verification value is 0x00000001 - Testing took 0.619705 seconds
 
