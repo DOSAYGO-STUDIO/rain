@@ -1,0 +1,35 @@
+RAIN HASHES
+C++ test vectors
+Rainbow test vectors:
+91fc76841e1431f6d58871e4c981fb37e3c0ac0f9f141c3e99b78f46c727c454 ""
+5440efa52854703021a894a61ad25690515347014a9723880ed86854ecf2247f "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+9c72cf9f50d0f3145ad0f45cf97c09afa6f7555562358dc15c4f4bb14cf2aa85 "The quick brown fox jumps over the lazy dog"
+d75f220dc093a669b235ae713a8ce0f7ff33a8c40357bd66f89e885d7fbcb1c9 "The quick brown fox jumps over the lazy cog"
+6af5f348167fe18ca480b952e4ce7ed05de4bc25bdfd68a2929b7025ad784280 "The quick brown fox jumps over the lazy dog."
+c43f32b0730fefc3a97acfbed163c649744e5a167c681bd561da15d2385425cf "After the rainstorm comes the rainbow."
+49b4f0ad1df0e644296592dfa55d4ad6243e746b6ffe4ece343c41102a2c7507 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+Rainstorm test vectors:
+bf6aa062a4c6ccf8b69697494100743f24da78e0e0140af278f3156772734b49 ""
+a3eeff6dbbf8213dd3b3b00a7ad813a76dc20f9c8ddb4424ee906bca3616e7b9 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+2343e4baabecf8be423ab643fcdfa113e14bf75e7a5f8a6a37f02a260282ac45 "The quick brown fox jumps over the lazy dog"
+336f151a152a50930cf47ac8a787f55bc37e711945cc1845ec1aa4c4fdb257d4 "The quick brown fox jumps over the lazy cog"
+638cce058cae9895f61c5c03a6d75e8c56a8d4a138a01d6bf60038d076e12177 "The quick brown fox jumps over the lazy dog."
+3ca3ed36a2503b5908d5deb596951a57b7dad37fc7d2dda756c91124acafdfd1 "After the rainstorm comes the rainbow."
+3cb0c1d4fd07567910057bf9a884651da54ae2117619b3c143e96870032eb5e3 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+JavaScript/WASM test vectors
+Rainbow test vectors:
+91fc76841e1431f6d58871e4c981fb37e3c0ac0f9f141c3e99b78f46c727c454 ""
+5440efa52854703021a894a61ad25690515347014a9723880ed86854ecf2247f "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+9c72cf9f50d0f3145ad0f45cf97c09afa6f7555562358dc15c4f4bb14cf2aa85 "The quick brown fox jumps over the lazy dog"
+d75f220dc093a669b235ae713a8ce0f7ff33a8c40357bd66f89e885d7fbcb1c9 "The quick brown fox jumps over the lazy cog"
+6af5f348167fe18ca480b952e4ce7ed05de4bc25bdfd68a2929b7025ad784280 "The quick brown fox jumps over the lazy dog."
+c43f32b0730fefc3a97acfbed163c649744e5a167c681bd561da15d2385425cf "After the rainstorm comes the rainbow."
+49b4f0ad1df0e644296592dfa55d4ad6243e746b6ffe4ece343c41102a2c7507 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+Rainstorm test vectors:
+bf6aa062a4c6ccf8b69697494100743f24da78e0e0140af278f3156772734b49 ""
+a3eeff6dbbf8213dd3b3b00a7ad813a76dc20f9c8ddb4424ee906bca3616e7b9 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+2343e4baabecf8be423ab643fcdfa113e14bf75e7a5f8a6a37f02a260282ac45 "The quick brown fox jumps over the lazy dog"
+336f151a152a50930cf47ac8a787f55bc37e711945cc1845ec1aa4c4fdb257d4 "The quick brown fox jumps over the lazy cog"
+638cce058cae9895f61c5c03a6d75e8c56a8d4a138a01d6bf60038d076e12177 "The quick brown fox jumps over the lazy dog."
+3ca3ed36a2503b5908d5deb596951a57b7dad37fc7d2dda756c91124acafdfd1 "After the rainstorm comes the rainbow."
+3cb0c1d4fd07567910057bf9a884651da54ae2117619b3c143e96870032eb5e3 "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"

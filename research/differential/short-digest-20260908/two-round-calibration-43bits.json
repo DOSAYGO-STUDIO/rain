@@ -1,0 +1,103 @@
+{
+  "experiment": "two-round-rainstorm64-message-modification",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 63,
+  "digest_bits": 64,
+  "weak_rounds": 2,
+  "fixed_first_right_outputs": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "free_first_right_outputs": [
+    5,
+    6
+  ],
+  "derived_first_right_output": 7,
+  "preserved_conditions": [
+    "sum(y[5..7])",
+    "x[0..4]",
+    "sum(x[5..7])",
+    "fold word 0"
+  ],
+  "remaining_constraints": [
+    "left lane-7 data consistency",
+    "data[7] top padding byte is 0xbf"
+  ],
+  "lane7_consistency_bits": 43,
+  "reference_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "target_digest_hex": "0d983aca58efd4dd",
+  "solver": "Z3 4.15.4",
+  "backend": "sat",
+  "status": "sat",
+  "unknown_reason": null,
+  "elapsed_seconds": 0.7754356670193374,
+  "timeout_seconds": 10,
+  "threads": 1,
+  "random_seed": 43,
+  "scope": "Exact reduced two-round message modification. SAT is a verified reduced-round second preimage, not a production collision.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "6c9397bf52e88961d890b3c30966c21b0caad0ad24eb43a91bc3c63d98b1c35e",
+    "research/differential/smt_programmed.py": "2ef4df481ee2106755f44140dd9b6d78f777459d80fecb240da805df075fd78c",
+    "research/differential/smt_two_round.py": "ae5210e22b1dcf21765bd2641d39b0c6ccf1cfeb8006b0e27a95288ddcd58dbe"
+  },
+  "solver_statistics": {
+    "sat mk clause 2ary": 6305,
+    "sat mk clause 3ary": 2880,
+    "sat mk clause nary": 37628,
+    "sat mk var": 4553,
+    "sat gc clause": 9788,
+    "sat del clause": 19057,
+    "sat conflicts": 21401,
+    "sat decisions": 38851,
+    "sat propagations 2ary": 684768,
+    "sat propagations nary": 2578080,
+    "sat restarts": 3337,
+    "sat minimized lits": 347679,
+    "sat subs resolution dyn": 10983,
+    "sat elim bool vars res": 1771,
+    "sat backjumps": 21401,
+    "sat subsumed": 2302,
+    "sat subs resolution": 31,
+    "sat elim literals": 31,
+    "sat scc elim vars": 53,
+    "sat scc elim binary": 213,
+    "num allocs": 25371565,
+    "rlimit count": 3258115,
+    "max memory": 28.14,
+    "memory": 17.21,
+    "time": 0.775
+  },
+  "witness": {
+    "candidate_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000007a55705c99562a084e7a7d546cb841925fa9562257d28d",
+    "reference_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "digest_hex": "a4963aca58ef542f",
+    "reference_digest_hex": "0d983aca58efd4dd",
+    "complete_two_round_second_preimage": false,
+    "first_round_outputs": [
+      "0x0046800000000000",
+      "0xb1aae719af6d81c2",
+      "0x4c1b6e5009c0c62d",
+      "0xe58e8e86e9ded813",
+      "0xf1421f8fec6c66ab",
+      "0x5fa532da80000000",
+      "0xad8ef93afe00c04d",
+      "0xff11e8aae253d48a"
+    ],
+    "second_round_outputs": [
+      "0x83fc877849a43bbb",
+      "0x9198d0e4e07f54aa",
+      "0x4cfe4861c20cb9ae",
+      "0x28230d13f542390b",
+      "0xb03b9a62c18363e1",
+      "0xe494f9a5c94fa757",
+      "0xe9cc2381f7f27880",
+      "0x35f15e71febd6ccd"
+    ],
+    "verification": "independent-integer-reduced-round-model"
+  }
+}

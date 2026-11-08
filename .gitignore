@@ -1,0 +1,10 @@
+abc
+test_data
+test-file.src*
+test.log
+*.rc
+*.rc.dec
+rain/**/*
+rainsum
+.*.swp
+node_modules/

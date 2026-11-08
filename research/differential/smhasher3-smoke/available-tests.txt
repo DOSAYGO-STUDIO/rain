@@ -1,0 +1,47 @@
+WARNING: Hash with verification code ed7533d3 was already registered: rainbow
+         Are you certain rainlocal-rainbow-64 is a unique implementation?
+WARNING: Hash with verification code be75a175 was already registered: rainbow
+         Are you certain rainlocal-rainbow-64 is a unique implementation?
+WARNING: Hash with verification code ff03173f was already registered: rainbow-128
+         Are you certain rainlocal-rainbow-128 is a unique implementation?
+WARNING: Hash with verification code a8ead0c3 was already registered: rainbow-128
+         Are you certain rainlocal-rainbow-128 is a unique implementation?
+WARNING: Hash with verification code 65f4a210 was already registered: rainbow-256
+         Are you certain rainlocal-rainbow-256 is a unique implementation?
+WARNING: Hash with verification code d2afd9eb was already registered: rainbow-256
+         Are you certain rainlocal-rainbow-256 is a unique implementation?
+WARNING: Hash with verification code cecc05ce was already registered: rainstorm
+         Are you certain rainlocal-rainstorm-64 is a unique implementation?
+WARNING: Hash with verification code d6d12547 was already registered: rainstorm-128
+         Are you certain rainlocal-rainstorm-128 is a unique implementation?
+WARNING: Hash with verification code 72d3356f was already registered: rainstorm-256
+         Are you certain rainlocal-rainstorm-256 is a unique implementation?
+Valid tests:
+  VerifyAll
+  SanityAll
+  SpeedAll
+  All
+  Sanity
+  Speed
+  SpeedSmall
+  SpeedBulk
+  Hashmap
+  Avalanche
+  Sparse
+  Permutation
+  Cyclic
+  TwoBytes
+  Text
+  Zeroes
+  Seed
+  SeedZeroes
+  SeedSparse
+  SeedBlockLen
+  SeedBlockOffset
+  SeedBitflip
+  SeedAvalanche
+  SeedBIC
+  PerlinNoise
+  Bitflip
+  BIC
+  BadSeeds

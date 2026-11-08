@@ -1,0 +1,77 @@
+{
+  "experiment": "two-round-rainstorm64-message-modification",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 63,
+  "digest_bits": 64,
+  "weak_rounds": 2,
+  "fixed_first_right_outputs": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "free_first_right_outputs": [
+    5,
+    6
+  ],
+  "derived_first_right_output": 7,
+  "preserved_conditions": [
+    "sum(y[5..7])",
+    "x[0..4]",
+    "sum(x[5..7])",
+    "fold word 0"
+  ],
+  "remaining_constraints": [
+    "left lane-7 data consistency",
+    "data[7] top padding byte is 0xbf"
+  ],
+  "lane7_consistency_bits": 40,
+  "reference_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "target_digest_hex": "0d983aca58efd4dd",
+  "solver": "Bitwuzla 0.9.1",
+  "backend": "bitwuzla",
+  "status": "sat",
+  "unknown_reason": null,
+  "elapsed_seconds": 0.4116609999909997,
+  "timeout_seconds": 10,
+  "threads": 1,
+  "random_seed": 1,
+  "scope": "Exact reduced two-round message modification. SAT is a verified reduced-round second preimage, not a production collision.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "6c9397bf52e88961d890b3c30966c21b0caad0ad24eb43a91bc3c63d98b1c35e",
+    "research/differential/smt_programmed.py": "2ef4df481ee2106755f44140dd9b6d78f777459d80fecb240da805df075fd78c",
+    "research/differential/smt_two_round.py": "06d80f824eb354737faa2e5677ece8573ca48bb4dcf5f5fe476b78cfd6ba4dbe"
+  },
+  "solver_statistics": {},
+  "witness": {
+    "candidate_message_hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000bdbcb52cefd1bf79e4f1d92bdfb2b15c15c66f3407eae5",
+    "reference_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "digest_hex": "3c973aca58ef04c5",
+    "reference_digest_hex": "0d983aca58efd4dd",
+    "complete_two_round_second_preimage": false,
+    "first_round_outputs": [
+      "0x0046800000000000",
+      "0xb1aae719af6d81c2",
+      "0x4c1b6e5009c0c62d",
+      "0xe58e8e86e9ded813",
+      "0xf1421f8fec6c66ab",
+      "0x1323458c4a83abdb",
+      "0x5e606cc80599f94f",
+      "0x9ac2626c1036efad"
+    ],
+    "second_round_outputs": [
+      "0x83fc877849a43bbb",
+      "0x9198d0e4e07f54aa",
+      "0x4cfe4861c20cb9ae",
+      "0x28230d13f542390b",
+      "0xb03b9a62c18363e1",
+      "0xe6af3d75abf8100c",
+      "0xb2bf7d5f0f745aeb",
+      "0x0093c0c504932245"
+    ],
+    "verification": "independent-integer-reduced-round-model"
+  }
+}

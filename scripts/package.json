@@ -1,0 +1,30 @@
+{
+  "name": "@dosy-private/scripts",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "scripts for rainhashes",
+  "main": "bench.js",
+  "scripts": {
+    "test": "node bench.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dosyago/rain.git"
+  },
+  "keywords": [
+    "hash",
+    "rain",
+    "dosyago",
+    "cris"
+  ],
+  "author": "@dosy",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dosyago/rain/issues"
+  },
+  "homepage": "https://github.com/dosyago/rain#readme",
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
+}

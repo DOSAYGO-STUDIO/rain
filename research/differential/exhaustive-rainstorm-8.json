@@ -1,0 +1,2080 @@
+{
+  "mode": "exhaustive",
+  "parameters": {
+    "mode": "exhaustive",
+    "algorithm": "rainstorm",
+    "bits": null,
+    "lengths": [
+      1,
+      15,
+      16,
+      17,
+      63,
+      64,
+      65
+    ],
+    "samples": 4096,
+    "batch": 1024,
+    "all_bits": false,
+    "masks": null,
+    "hash_seed": 0,
+    "replay_seed": null,
+    "alpha": 0.01,
+    "p_min": 0.01,
+    "domain_bits": 8,
+    "family_size": 1,
+    "output": "research/differential/exhaustive-rainstorm-8.json"
+  },
+  "message_length": 1,
+  "domain": "all messages with only the low domain_bits bits variable",
+  "rows": [
+    {
+      "input_xor": 1,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x5d10fc25c0570764b5382d4251afee863fc232dc7fb7b81b8177918ed3dc2003",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 2,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x7868f9202459839c0ebedb7e44e66f64bb602017cd42716510e7b568bd1e66b4",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 3,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x3e40339fc725a267da3c511332550070bf2073de39ade816756793a2fdc67976",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 4,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x61fc453341fee4bbe5d936f69d0ead7abfb8e94ace00e46474ad88c1006e1c7d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 5,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9e635fe763ca21343762482f5c8d5e9871fe7f1397f190a6d8046bbb6fc9e52a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 6,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x38ed2b597bafff51c78015cd8d63a1f66c4d727b54f9473be1f56ca96efcf213",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 7,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe3aebe1a6b248c6893f9c171fdee71291aaf7296debb543dbf88c5e9e4b9e08e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 8,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x588bc16f0a0d0bde588f8c7303c13eafea20bfbbe7707a71782f19a7a6013b71",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 9,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x76bd748561aa917e30ded3c9ac0165eb6685a2b28e2640a10e5f57faca69f707",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 10,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x24453af9cab5c8b1b7a1117cb4ad3b3c255c629c065c53a8877d949a5f143709",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 11,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xac9e62a6553b73a3749aa853eeaeb3be6ea2f81480877d7289dce989e3fe66b9",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 12,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xee832c2fe8d88c8202459f674c1f5a30dcdb541301ff7e6825cece0a7429101c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 13,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xbb945e4a3985cd3040430b5b2f71d1feae5cfcffb6abf3c8b4f5d2ec8eebe3e3",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 14,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x5c418b650831c09a624811a7039b3366da5af3d64bc4dc0cf604bfcde8136546",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 15,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x59777a0af084399275c5f81893883e1fef3202ab26e3b665c5c6cf45448a0f93",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 16,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xdf9270072e9d97c4a6a9bac9d9516248a518728e230cc2367d35225245d4a358",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 17,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x59c46f23a65c418438c5485c1cf7b408578eb99cc68eb9217e1967eed1bd35b3",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 18,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd2107170464ece8e11d14fc7b164399e1224bcfeab839d240e34fd74236817ad",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 19,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x110eea3e408b113175b4b9f5302355c0f9b35758605e59c5e744b84f4a091da0",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 20,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xcf66cffac0e7e80d47c440aa021b4a7d78fa52f1d9149f706905d4f7d4adc7d7",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 21,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x8157d236c9977ccf9b9c59a460acb65172aab085ade1c6ff04251121a1235382",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 22,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x94c3c8f12b7771d4ff0a2fdcde3e157f844bac94aa7ad034ce7b9652aa8716c9",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 23,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2eec52ffd8082642927e69f61033d94284212c4820b7311d85615636e0b0c59f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 24,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc96b85d0b5880ab67398ec8ac991bbf828a242a095925ebaeaab079ff523d395",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 25,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x7e9d4fad1c9aa8867f020c7331eeea51ed3a47969b0f89ff4bb3f7eb9cb71b2b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 26,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x6691a5b1dff8773575eab6e38e1b67db9105c0aa83f3a6a1e9c80be8a893222a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 27,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xbe53e8bd528e0529f52119e5bb0a69b7beae88ebf09fd755229228da80fae2e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 28,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x56ae84d9bc89ffbd52fc84f6452f59a3088c26839661c51d45a5d71b1a577462",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 29,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xf75f9421e213baa0b17a22296e47cef426d1b86e44c098128150adadde2d6c55",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 30,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x50217358b49062c4c41b23cb31e6c78cc983a6d7070ae6d22b0fc7a78eb1bdf1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 31,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x604626a8fbd953d280bc7fea3690344ad8fa642dc70abeaa8fbee053199e0c33",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 32,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x1bb376b1f51cff73085eb46b3c67e46043316644a822a94bc5b61373b02c0b34",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 33,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x607e9cfc7240becca3cdf493b42ba2041b826c786fb2ff95028edc97163291a7",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 34,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x26c3246475f44130f132923fd7789cfa5d03a8bdec44b93efa5d380f193900db",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 35,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2d4419069df0cfde7468d35a18c26c329f118e21433cfeb03e1f2e9ed545fa8b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 36,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x23d436afa938dbafed366c0f5bc920eae486fa4252decc9baf7159bce7ad3d33",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 37,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd7c941f3edb0864ff59c2b262acb7e05a2febd997f7408c20561a260ac76314d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 38,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xad2f42962cd872a8b0c874244146665276c7946e5d8ffc6fc988ee7df712fc15",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 39,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x53ef97a0bc3279db28cab4965d9ad07e10a34f7b680d6d24d8d91d985751364f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 40,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x1764ba97669e2d154b72ab5bcc53df5dc38d36e61925ac7d1d60afdd8db1f1d5",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 41,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe01a6ee7e4bfabc845582e586abda29ad5339425f2da589c9cac81465df33650",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 42,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x7c7b90cb39215385c2bd5caa2af437be01590b8b0ce9e7e0434bda49190bcbc9",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 43,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x29350c6897aa91649816daf27ea3f71d6059825d528b68b9f5024f9cafa744c1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 44,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xbecb364e51a3bd29ad1a495519030c7d80a094772a0aaca6b8ebb92ef9eeaa3b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 45,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2cdd4b372d6f8865b061227963599a0e5c865b07bd8d7ba24c7b80466d5d3e24",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 46,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd88884d764ae236b83040115a32e8050d7bb67d4fddaf12348c33330eb790b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 47,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa70bc42b7a37acd45d685d2d2c29cdd32a5f601ee0c23eee2e2ab16510c95cf4",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 48,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x5508bd0b9e7b6e818868307c1b46da249eb5a9e1a6fd3a08476f1ce394697fd7",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 49,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc29673de0324d0fd9c5eabce4e3f5d0d33e5389bd3b19f4b8633d5cf1979c724",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 50,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xfc2b0ef16b30450576257fcc3a3a27e0ab2f8648b7ef3fdcf24fd351b6dbfbdf",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 51,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x48897d06f8e6f56d222e3b49878c7a014bf20176d751f15ee9b36b57aaf9953",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 52,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x37ce5ffb45e51b78752cdd34ff5d1a39449cc4e9e76bd6f9d8d660a847cecf3f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 53,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x93963c7cb993bff8f6637ccbb0a7c2c772e60e0518fa0d6039918c7237001292",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 54,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x3a0500fdf8e64014e10c4f6c8b2f477f0bcc6493a4f01e94f6338dc77da1a876",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 55,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb55945250fa4661049bf848f5c3ad883576131f992a722a84675bc898cbfc69c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 56,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x31ea1141637897b435b6d0aff1f58808cc773b56326fd672786c003409b42b22",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 57,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2e7ee78182179c57f6a243c814cf8edcf75a254b918788cb3254cf875a7904e6",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 58,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa341db6789aa7845ce32ad1edd6050c3e0d12503f2feccfb4c25f594577aafd",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 59,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xba1e4637891f6f452bb0912f1fa8f15e40d324fddecf1312ceec750d87bcab11",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 60,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x29b8964da6aa040430ffa4588a6fa318d4be3fd042b9d6ac1f374970a911aafc",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 61,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xcc1a03fd2c93aff18d8f2d83d484fba5432a99a52145802b28dd5c4494632f22",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 62,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x61bbef4fb1abaac91d91f514574d664a711fd7aea45813e89fdd8a00377b6e0",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 63,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xf51319de5dc75516bb8c68ed0808a067f0c65948cac860e6203ca75fa0f2ad3e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 64,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc96b4956a50c9aa345e733df94cd808e0d952ed90574b74ec2238a803340df9a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 65,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4245100ec37cd514401412256ba2c2576715dd6cb30650420117b5d5999a8534",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 66,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x97d1fe7123759c6d06a05e29a704af3d353b51e4c3b355094c5b3d1d0cbf94be",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 67,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x56f304a0d75ecd6aefebdf6d5541eba5cba84f86ab8147860e445b4711b8a13",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 68,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x636efcc09a9f5d35d68478280948e9b9343ce4bfef0d29241d765858d7199e38",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 69,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x80bfbd16833f7d435c6f48c1138d82223a78b7883fd857e8a69fa8253b2f8de4",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 70,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x863e4bccb70d7f47fda4932b0c6af1719c0c1e5efed60acc3d0bc6fa55835311",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 71,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xeb5923778826d3e731265f51238db07947b940171c441084f69dbe02e0249656",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 72,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe87693648dcc181150be411830d3efd1735dda2d27475598f0f177cdd275cae2",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 73,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd36741ad7dd64af517a3760f4e11ad2896bd589e6f4c994d6e24883d3ad934c1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 74,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xee01c43994ec34cf2053b0cc0a835b6c9f435d335fde21ff8304d1f4ac2ceee6",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 75,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9a1e91f75ac73af4e73312d50541e734fa58507def2351a7c78e57514b5f4ac3",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 76,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa44f28ecdc721c63e968a8110ae31e3f8a680f27058a1eefacec3cc0bc7fc2c3",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 77,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x27a3f556da7d8e5037b0a3369ccf967154bc1572313a453dbb688f018bfdff7b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 78,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x88312ae1336231339eaaa2bee911aa2357b7bf5b93960b21af1ae67fdc7c64c8",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 79,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x662c00bfc1cb1a6dc8a6ac277ea7b621dc1323fe0f807b93b0c7060bf27d6582",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 80,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x1f71c01e0515034aabe90a50c49c597e3f9ed9edd1981bacf620c412455e8afa",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 81,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa4c94279dd1d9835ad1ddfd89ae29e57be8f795c6864745eb75297ea9ad02eb",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 82,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xf7bba268d53e8a075c6c9fde625f076fc6a7a47897eed174c5d304cddcf7e516",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 83,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x135d6c7f4f6c0ac29a19ed0f3927292b5def4356efbfdefaa6ea141947b6ca06",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 84,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe7aea8d6bdcb3af463017c43ab703a98c09ae9e1f7485c14d5a0430e7c3da0e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 85,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x921882ec011ef2790f5e79078d108829cf9269709e455977d0b17d0172a143aa",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 86,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9e671ba8dc7d7f2e99f815e88fc22f7d8c348e8313c512d5a778daae10120b06",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 87,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xf0c408cf94303a5c23a8e5f18bb958341406bd985d867021741b052f727468ec",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 88,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2f70c2e825f78704f2e16b3616ea8f8b60e4e2b6508989993f07a4858ecf27ca",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 89,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x268d97c7fff91b3113c307fc0b26a3fd673191c92d82b0c2fe07a2aa70aac885",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 90,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa50587a7c54df7f86a64db5d1e023249cc5494cea61057da4aae4dc7f8264a50",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 91,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xf86e36ad1376aa332a43e1d8ef61c6d25bbf19c7b3e0811b5e8baffabedff58a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 92,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4bf07d9203974827439dd01652662f5bf149e2d40ec920536ed94ede509ab10d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 93,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x79df4331a12371fe1dc0f68186a3c992fc04530f533d3f9f7ae26f8fcf3ac205",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 94,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xbe9cb4aa23c9e31f0b578130669aea54100bf005b50367bcac1e3ad3c2f6c202",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 95,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb2ba6faed6c7597bcb29e87a81481ed38ac8457dcaa7987e7f0495883c173afd",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 96,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc8f2206cd72073e9dd5f2427a7699f825d2824761464e2256a24b55803c3a017",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 97,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe1049aaa207ed5bbf04175dd4d009e25e6dcf4052be9130dd04bb29988845cce",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 98,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2e5082745c3d1f8833ba133202821ac6721781fd56f2065e37e4b990d596fc13",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 99,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe3b07c355f83d0d9682ac375cb21c20ca90a9f0e2ac6ba84dd41d81d3195129",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 100,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb5c95f487d7f97510a16bb5def05ea6ee4deebe3dc10c5d4336b2ff53129ee6a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 101,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xba3ef827410a992382428f2128179b119e509866145f4c799cc993e95f74b394",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 102,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x1f2a4e650b436ed526510c7ab5692b3911383984f4b9eae569ebd3b330ae3a22",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 103,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x12d1454738d51428213045651eae331c82325e6838caaabf17d6270cc4d671d4",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 104,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x565ec56e85c41bf07c080edf7680c50b111ca24a570b566dc1cd37ac922f3f29",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 105,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x260a0a35a445367d39a681df92ea7bd24ddabaeb5bf532ca830ee18bd9f44b42",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 106,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x27cfff9f22f3fc3fd46ad35208c17ed1008c3c6c0e4b10b4904f0d162f28c2de",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 107,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x623abbbb40eb632511556606c59e13902bb7bede6fea7ed1c35a389c0abd1b5d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 108,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x7ee1be0c037c3694c1ab1fc99c18263bfb3b78b4b1aa23ce5a00fa062351a1e4",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 109,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x492a6b760ce40042062cb889d638f6bc7b21fdb659d086bc3fd651c3c5e2786f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 110,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc44ebd14ff6856e48e4c4a178d84f676864bd6054667cb266d2579f9fb1c3a26",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 111,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x8b6b3ebc22e096c1a571d6c71a2115e23c82b8abb57c05f729a454fd857f5f5a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 112,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd54103c2b1556cab7fd879f8d0ddc461e3b7c7945faf1899964ddb3ba10a9aa4",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 113,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa02616e5cf90505a980bca76f85d84a7da4a615ebda73a1fb3569134dc4e50d7",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 114,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x67807d3acf5e87349397de284ccf0a0d9c0fcfb8c7cfc9b3c0929c5d0d7c142a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 115,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x90e2cc774eca4bcb3f435848cd651689c4717fc54aa1feb321a24449eef04f7d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 116,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb21c9f9a4fb1c3123b9a06ba69253cbc98856b27584145fb3fee7e79619c32b1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 117,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb72af5fe6e7b1ea1e7fe4dccc5becbdfdc158142993a160dfd28cfa8e8a052bc",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 118,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd89c999ebb532f8ce90eb6e6b07d95a07b2ca0ee2b13204401f0afed84e75f5e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 119,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x98eb355d9efb7221e9ab8d5ad6ae85489c7d6c2f185b07e767292f26500ba9a9",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 120,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xfddcbdb51f4a5f642d6bdab1fa1a76da8e175e32bb93e4696593891b7cfefa25",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 121,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x23e95cc1e682b0a1340dc26054a63662ecf05e9ba30b54ca7525231ee38f4c55",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 122,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc7284bb04afccd6c84962b8f640bf79ac3d02f61d2e5efa5ac6ef1e1b8da35bf",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 123,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd3313c55ce985e5c2dce9a3b7fcd493f697121e547867aae1a4390a4b8b3b01",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 124,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xff3b4a554fac50d064a6bf3bea2181cc79777dae995b0bbd68bc5b555c504a70",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 125,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9b3225529200f11090db1db2f772b703d7bd23156052a2975d04895dd736f3e2",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 126,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa4b2df8d276f0f54d2aece06c9da7ce565d67c8cca414272742341ac7642af87",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 127,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xafb027ed46736067a2e3577822f6d923ac86401bd555eb71cfdf7aff1040cd31",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 128,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x211bc2fccdeb37fef91b152a94ccdec7fa93c73ad21e352e09a1372de408ec74",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 129,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9525c831b026732fdfb15a9f07cf8b12147bbe31402e6ceecded09ccf03f3436",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 130,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x620377edab80887a8d363e0097fe459a125a8f05fc9bab31f998e7d893c2f141",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 131,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x75a46d72e1678ec11dd40be46b29e4b8438b0f83636f2bb66ebed6bf89bb7d16",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 132,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xbf7a0f6262599f2ce1c4b7b39bcb80832c30c1a476c96a01c3718a0f4c325bb1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 133,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb73e1479ced85f35e8de05598f698b86badcdff4c31342cf6a15bdd240f19c85",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 134,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xee2c7aba9e81a6221300f0232466d9cc102140af71d57907b4a078d42cb8ab54",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 135,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb96ca272fed597253a825f8433379fd809233b11aabc8984db39845af5d16d93",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 136,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x8487889abd04af9764516d245cebb6987258c6c4198051ba5b7a55d5ed4f548e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 137,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x56c8c31df6859c12053c2410b8f225f605fda23aca35b0357bf3ce9c97969825",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 138,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xf88bef2565aec9dff22104a65f1507409196ff0366c8a8a0e0e89dd49889e56e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 139,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x28ffb3544bad33483cec639fdc7e0c9695381e7020834756ac168eb1d8abea07",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 140,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9b738efdc58a0f20a1d9b52df34d36e2c4f72dd0c09f67c76e765d5fe272ca90",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 141,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x764bb5a306f6945b2fbfe79256acdfddcaa68ff2f236e0ad4b9fe4e0ce4f7844",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 142,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x23de3ac8b14e857751a1ba4354381e92a2006941562aed416ff8cce755138b03",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 143,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x3093114057fb4ee331fdebe4d3f36c3ff0419b681464af2c2dd4b420a40e0963",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 144,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x84e3baabe58907409c87f8b6fe1fa7fef00dea88da7976b015c3830f835edad1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 145,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x36de2bcd60381b90a5866eac8c898f64ff2165039fcf638b7acc12dc89ddc0fb",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 146,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x1c17ff69ce3e69d02b354cf7f0eae090801adfa7f1cc23f7de5a718a65d67a91",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 147,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9a124ba75298e868f9d81ba90f5335c75970d4c8fa8f858fed779ca6b8986382",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 148,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x408de71c6388defc018e805cf9938cba0ed450d7a8af37ead1eb6f5ebd2e98c1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 149,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x90728089614922aa43d8a50ee69413cace4f6905dfe0f9f3b008bbf8ea53ee68",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 150,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xaaabbc36d2e7da0b9fb4689eee6ccdc4c563c9ec885799989758329326e8646b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 151,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa6830844047c69138d54aff08cebbab986bfd3e72ed7d8e19a267a53a5f8b73f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 152,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4537ca9d2b36d7b2049284f6f4c4409b6986b30c226f74b5bab00ca95700cf49",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 153,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x70fa45aa4992070f38e792bd3a370e0b007b2168f64a5adb22719f6f584c07da",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 154,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4d30bd9c85316fd97b98d8ceb0ef25b03e44e1b588845974ce8ff80215c6b5",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 155,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x42db07706abe835387afb12de58c7d3e71186eebc477e29f424b8987b40c04b6",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 156,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xdd8df20197394a459343c32538d9876c03f9edae4e81a58eac4f0497d765c307",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 157,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x595a96c3865443a0b9ee0ec1704c9be2fa102d0300f553fd2c8fbf4c3f264894",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 158,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd24fd700d8b2a2a7a18a3c652c77c566b87021594bc21e34f741257a1d986724",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 159,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x8501589fbbeded782d3b18c48aa54baf790f2f11b66bbc79ef6856f5ff54a210",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 160,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x13ceb1f1eb0905d97c48ef55ca63cd89d6533abc23141c0cb09546e304e8f7b0",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 161,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb5367c7d1c9039f0555dba45651025659ac343e4fe5b6ef351b640412514d5a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 162,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xeae3ad2ec9737f97e371874f85b7746986ba90e9f50852b18e188405d65a0969",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 163,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x63b8d03c7b361f042c64c61c2c3d21ff72b667e5dd29dc6fc50f363743e06695",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 164,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa54b0b588f4337804f877fce3472ebc3a67971c82dde40344b34462e1cd79869",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 165,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x74e83b30d80c0e3a3866661d16534dbde5799266020d64c7ea679ea4dd48333e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 166,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x45f20af3b2751dcf0d2334a5a4a70d9a53876c9964ee4a4932c6d1f282278e23",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 167,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x5d5463b63317b82ef25c00831394429c56f4169eed27c676a06486ce147972c0",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 168,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x8c6608d73ec139ab27562a9cdb88d6c2e4ea0deb2a3b34c72499981dedacd22c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 169,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa23147976b663067fea6c707aee4421fac2dbd321b5854f65e7b117b5e2dae05",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 170,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x17a6e4a9c6acebd8c8b594039b84eb09cf7d7f00fb1ea503790698fc6523b7b0",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 171,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x65c71d22d7196c9b576c37dd7ba8754dda1bff8c28fbec0eff8d8d7fdd9cdd2e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 172,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x261aca53e410766009705f797bc019d13f50345413421e0cb2c30cc31fdaf56c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 173,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x68405f7b0b83301f99515dd4e3454d1acc01cd803622085893eeb2c60751947",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 174,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x5f5b989422ec87963cfe65e02284dc324c6e2e452725d16d9458d1b6f05ce47d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 175,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe04f5771f2ad43085ebb7ab25430e8d873148c0ffd4c139c4b9bf7a3ef8fa886",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 176,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x8af946d42ba4469c902179e4040e0e5a22a993068b97ff391334e6bd36bf068b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 177,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xddc87dc08090e153b2ad94d6bbada6c95729f5dd554e0d641761cfc927dff6f7",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 178,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2d28b67c2fe4a75c111f6b797ff0d092c4d910fc7cc9065eb502a827d6566ad7",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 179,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x874d23038ee31e84385c2c50a29e30148f6e2bad632a9c77f9a6a73dfab3ed28",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 180,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x776ac7627dfcb601b76763d6597ed29ff06204e81b66e1c14f8c4f8988a80e48",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 181,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x7d34950079a14bd28afcffb4e14055ef7a9719fc4784fdc0917f317d9f6d9790",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 182,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x590e230df4e911953d122140836304c54b00afd0c9b287c6da80190aa3ae682c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 183,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x342d1028b219edd1a958655843c16f988e672a3bd6f6639faf38ac954b37b1d7",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 184,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc39054762ef2c62907e76666c077f8513b36f19d356e9dd2ad7fc3f70a6fb8f2",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 185,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa6a1c6fc807045a8a30db34d4c8ed399c8dda822e0eabcda831c33648ad979e1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 186,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x64dbb3ae5c94fb226d79b45b5d56a75f29e2be7d768b878c4c6e5b5f47ada58a",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 187,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4d715edb7e109d4319e73ab55f48b543b412febfe10141cd6d264f38873a0918",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 188,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4c9fd0c2de41ea8163d8cfd955c43959123e59df916571a7112874afed4afffe",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 189,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9a15720da37078607946185e8d271f2ffb7bad415f2c7945c2a9ab33122850b3",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 190,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xab9a998e7a252b5d45a64453affb11ac83638e772f1c2176e14bff83f1c15a1f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 191,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x1ea8d719191c8688fc36ba276e64d87e5c4de3fe9788d943655affac66aab8d0",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 192,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x32dcd2e7f712ff0cb4512a089ced02f2f9f43e8b8a206fb72ebef1b3aef4856",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 193,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc83cc9f3875a83464261ed5750c576e7bf15d1588e55b83a319ccc8c0758a59b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 194,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xfafef9af9fda1da735b1fe3c93a191817000db470f126548e408a3565a525b8e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 195,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4ae6924855a944a6352adcef2f9605896d66ac7952cf2f0092f37e38dc2872af",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 196,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x34ad881320df5ba4f5c6c14d00e7bb29a1f2f0626fc5adf6707daaa876500d23",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 197,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9c807583e527a8b4ca177abdd412b9e98870d042acb5a89996e5fbd78f604c97",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 198,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x678d7096dde334b983fb7e44db8458e45246fbd54233bfc7d66657cce6b4bff3",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 199,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc7a4ee139e84bc844c998045d54b08abdb938c76f0ca3c1609d158816693a85c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 200,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd99fc85f8542917b80099aae34c3677817947ad1acc05e4a576ccdea171ffd33",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 201,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x70b4df97a5532d7dc63f1fbec2f778ca87b82824d2fd47d9152da36567e0322d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 202,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd3cc7e675bc6ab6f5047a585a064306d81a6ea09caac1aa15ddd7eb9a2b680c5",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 203,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xcd26d171f74f32585c4e258652b83df4a176e673592bb3a7819282e42dabc9ed",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 204,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4ae6e8d48a7ec199be57c027c20072cdb952d4b19b4c2dbaf095cfc2e70bf6db",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 205,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x8eb13d66dcf31034037508e09451b7cad876f583fc8f31329cb7af801cc26188",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 206,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9bb657e937527e2896ef1023794610f1f0f7f746601dd6954f8e1412c2f1414f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 207,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x49418e19279e8d4d401a06c17b081bf3c3e3bb6214423813713e25cfaeef9d87",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 208,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe323cafca95adf986cd5f715f84c53ed1ff07ca3685f5df72a76c0b1f091fb39",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 209,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4573dc146995e0773c16418b8571015da6e72feb66a6cad3643954bc08f54e39",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 210,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xba71fb5499af5ea58db3e4d927e6cb7459c46f29eb26e9d1fc7e5f8b812d27f0",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 211,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9c77682b342dda2938535b637e242338f42dc06f4eccab6867010db7dcbaa4b9",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 212,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd0eb89931653122389b152c2bacc700f5b60f60e1635da58f87fb3f08655eb88",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 213,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x29743fc4a345c3edea06c0f5183b43b5765fa1fa7a6a947fd48e528c0ae25ea5",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 214,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xf2220a69d2ee898c1f5a99373fbb85bbd2adf40d09d95d01c9067846600407cc",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 215,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xaec7fb03a32bace9303119388a94b36d78941cbda10e5605be64a03718a936d8",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 216,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x7c748a13f451d2f19d9a46da3877e063d83f701a4f416cca6ee0f356853c1504",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 217,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xbbc74f17bdf621607da236dc18db7410c08505d46d796e22b67aebecbd917e50",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 218,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x3608ea450d32a5230d5de3a91d5f48f7a2ae6ccfff5c4fdc4e39767de7c1741",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 219,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xdcbd5cf662a74e57398744fd438c86e134503398c0b9b4d6f53a03bc0ebc23b2",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 220,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe66795090a1bb067fbb4a0bfb07a08badf88a3e90f8bcb4a38eeb67a497d9e42",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 221,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x3902a10af468586d70ebcfdc0df5d1ea2c141d940660ba7cf6784c95643fbe2e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 222,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x1fd1e375ec811ee84dfcc333d79eab500b691c3576c0089fda51cc612b9ae852",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 223,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x387f8546b2c7fcab16def6fc018e351362ea60496bea4764a420e988386b322",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 224,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x6bcca297f4a59960833367e16e501beb7e3f5595e8514789fb59ab67f36f44d9",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 225,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xede0bc3cc9407c1234d1be46cd93438fbcf52365e2431667ad4efd1845978ad2",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 226,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xb58f14a7efbb96fec7624e1c8f8bd46471a880030608ab697fbfe966efa83871",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 227,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xdd8da8becd433b1130ebf6db2c7eadbd17b008f58236d541d4e1c1dfa07e09ac",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 228,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x85848a3ac1508b0e1f5d55ecbce1e86c060deb37f2dbfc75b3cab3938c12792e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 229,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x221fc6e8c495f3ca859d0458ed8852789deed4d9cbfdcb769ac266ad7e494339",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 230,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xae010a25fd066ea254654eba94b09fe281e38580d181c09c90303b3855bbeb1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 231,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xc30839ace22a1a077d8808e62b0ac016495e88712137b7f1a6cc49ab9dc5d25c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 232,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x5fbf5ccdd3481525611b8b7b7a8a336a64f4595fd21ebd2f687e10c812d9b704",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 233,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x45060c521e379a93ab9b280abe5b5bd4045c43b13b46a178cf6b2e68f8fd87de",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 234,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x9ce07e7ba7389b82fb362293358b446346ea9db65f98c8165d48d6a2077f81b1",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 235,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xcd0dc94c4686d4236bc3c5cd7622a79ccb45ed0ee8f50cbd0afffc7d7e2eebf2",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 236,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x77f69745032f06c588d38e1c5ecf8c8bd2315f1289fb7d1fd848a82f4606e",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 237,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xd6d7a9f88e65c3742d6ed4e4c372230dbf3f069e04ee896350daaa3f435bce66",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 238,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x6af365bf9df6c637aee65a7e5193d4719d8e25bfbc1511cf76d114d96486240b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 239,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x36c6ab72e0625b85ab602f774807f1aeb05992a724e23ac6af57bd1c46c49b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 240,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x392323aedde201818c8e75134be1e3e3b05902868c1cb4e3794d9afcd0693538",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 241,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa0f7dadd302f14e8c4b6b0886fb92005a2a68db1e77ce4199132bdc498e43a89",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 242,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4b6ee4e91cb814571f141d650e34303e549a24ff0b15783d299832b722417d5c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 243,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xdb0c35dc9f74c294cee65f8918ba4c00842a474eedd1e07e59263afe2c44489c",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 244,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xbf25402ab74afec97c2dc4528d8108a6841062f82dfe0ccc43c9586603183742",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 245,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x67cdce6d4e86052df00552b71112d5803ee6ad49205c69f10f8e2d4c31981d9d",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 246,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xcec9036a933ea7789c53f8fb46dd26d3aa18ad2d40efa044c65c8ca59f246827",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 247,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x2569884ee69fd061ae69f31d2eacdec7a6b452db46e19ea05f8a27bb8865541f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 248,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xda1bd824099a4a4df2431eb43e3ab7c40c4aff45fee4acc9c455ef916da31a0b",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 249,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xeb7e6553ddbaf2928db93faa3c84bc6c673e43a924ddf7753c02aca05a0f8b16",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 250,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x25420ee27855a481061dc0edef2649fb39c9339a17bb6babc287668173094f98",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 251,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xe206d664b310648e64c83c1d838ac6e3d6abb2b2d9927dba079768ce675b0423",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 252,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x4f964d738c71a5ae8db01493f2f79518856b58ec9107e170a28c29d22dc5f442",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 253,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x99ea9db47996162ce5b26fb692653bde2c82a9d830c334dbf26275517dcb388f",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 254,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0xa2588d8a845f42eab1b67e4106f7d907dfcef13d4a49e798eefed2b6d04da2af",
+      "collision_count": 0
+    },
+    {
+      "input_xor": 255,
+      "max_count": 2,
+      "denominator": 256,
+      "max_probability": 0.0078125,
+      "output_xor": "0x423d7da84ef428dde73ea697307c7150229fc04bb9f6d4c18fcfd3e3f69178ed",
+      "collision_count": 0
+    }
+  ],
+  "selftest_passed": true,
+  "source_sha256": {
+    "src/rainbow.cpp": "d432b1b5aea6700d51dd549e8f5b753e19301439f6ddb02c85187eed5c540163",
+    "src/rainstorm.cpp": "3a7c1a375656e2ff6227bbc621aa085a07dd5bbcfe8010c88ed2191611fbf1bb",
+    "src/common.h": "d35e24c8ceb7ff0244899aeb066b208383f586b647d3b48bd25044a80d7517cb",
+    "research/differential/suite.py": "ece8b63f4c291b65b596037ec4707da4c9f248ead0d8dd1585b32b5c1ac0e660",
+    "research/differential/native.cpp": "234c076cbd104a379580a81f53e1c651ce72b6a8e2b2c6c79fb199b03fb2a126"
+  }
+}

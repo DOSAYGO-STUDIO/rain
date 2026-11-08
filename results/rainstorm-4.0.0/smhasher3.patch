@@ -1,0 +1,64 @@
+diff --git a/hashes/rainstorm.cpp b/hashes/rainstorm.cpp
+index a2212577..557f4130 100644
+--- a/hashes/rainstorm.cpp
++++ b/hashes/rainstorm.cpp
+@@ -72,7 +72,8 @@ static inline void weakfunc( uint64_t * h, const uint64_t * data, bool left ) {
+             h[j] ^= h[i];               // blit low 512
+ 
+             ctr  += h[i];               // chain
+-            h[(k & 7) + 8] -= ctr;      // chain
++            // Cross into the low half, matching the left round cross-half step.
++            h[i == 15 ? 0 : i + 1] -= ctr; // chain
+         }
+     }
+ }
+@@ -155,40 +156,40 @@ REGISTER_FAMILY(rainstorm,
+  );
+ 
+ REGISTER_HASH(rainstorm,
+-   $.desc       = "Rainstorm v3.7.1",
++   $.desc       = "Rainstorm v4.0.0",
+    $.impl_flags =
+      FLAG_IMPL_ROTATE           |
+      FLAG_IMPL_SLOW             |
+      FLAG_IMPL_LICENSE_APACHE2,
+    $.bits = 64,
+-   $.verification_LE = 0xCECC05CE,
+-   $.verification_BE = 0xAE017C49,
++   $.verification_LE = 0xDDC48013,
++   $.verification_BE = 0x4B1EB5B0,
+    $.hashfn_native   = rainstorm<64, false>,
+    $.hashfn_bswap    = rainstorm<64, true>
+  );
+ 
+ REGISTER_HASH(rainstorm_128,
+-   $.desc       = "Rainstorm 128-bit v3.7.1",
++   $.desc       = "Rainstorm 128-bit v4.0.0",
+    $.impl_flags =
+      FLAG_IMPL_ROTATE           |
+      FLAG_IMPL_SLOW             |
+      FLAG_IMPL_LICENSE_APACHE2,
+    $.bits = 128,
+-   $.verification_LE = 0xD6D12547,
+-   $.verification_BE = 0x2808847F,
++   $.verification_LE = 0x9ABE5921,
++   $.verification_BE = 0x6EEF98EA,
+    $.hashfn_native   = rainstorm<128, false>,
+    $.hashfn_bswap    = rainstorm<128, true>
+  );
+ 
+ REGISTER_HASH(rainstorm_256,
+-   $.desc       = "Rainstorm 256-bit v3.7.1",
++   $.desc       = "Rainstorm 256-bit v4.0.0",
+    $.impl_flags =
+      FLAG_IMPL_ROTATE           |
+      FLAG_IMPL_SLOW             |
+      FLAG_IMPL_LICENSE_APACHE2,
+    $.bits = 256,
+-   $.verification_LE = 0x72D3356F,
+-   $.verification_BE = 0xCDE69A9D,
++   $.verification_LE = 0x46A86116,
++   $.verification_BE = 0xD315EFEB,
+    $.hashfn_native   = rainstorm<256, false>,
+    $.hashfn_bswap    = rainstorm<256, true>
+  );

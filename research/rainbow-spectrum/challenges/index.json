@@ -1,0 +1,196 @@
+{
+  "generated": "2026-09-16T04:14:43",
+  "format": "rainbow-spectrum/public-artifact/1",
+  "contains_no_secret": true,
+  "challenges": [
+    {
+      "name": "challenge-w08-0",
+      "w": 8,
+      "t": 4,
+      "draw": 0,
+      "bytes": 73840,
+      "gates": 5311,
+      "target_evaluations_to_beat": 64
+    },
+    {
+      "name": "challenge-w08-1",
+      "w": 8,
+      "t": 4,
+      "draw": 1,
+      "bytes": 56854,
+      "gates": 4125,
+      "target_evaluations_to_beat": 64
+    },
+    {
+      "name": "challenge-w08-2",
+      "w": 8,
+      "t": 4,
+      "draw": 2,
+      "bytes": 75488,
+      "gates": 5402,
+      "target_evaluations_to_beat": 64
+    },
+    {
+      "name": "challenge-w10-0",
+      "w": 10,
+      "t": 5,
+      "draw": 0,
+      "bytes": 106228,
+      "gates": 7335,
+      "target_evaluations_to_beat": 128
+    },
+    {
+      "name": "challenge-w10-1",
+      "w": 10,
+      "t": 5,
+      "draw": 1,
+      "bytes": 112927,
+      "gates": 7746,
+      "target_evaluations_to_beat": 128
+    },
+    {
+      "name": "challenge-w10-2",
+      "w": 10,
+      "t": 5,
+      "draw": 2,
+      "bytes": 101355,
+      "gates": 7036,
+      "target_evaluations_to_beat": 128
+    },
+    {
+      "name": "challenge-w12-0",
+      "w": 12,
+      "t": 6,
+      "draw": 0,
+      "bytes": 143885,
+      "gates": 9704,
+      "target_evaluations_to_beat": 256
+    },
+    {
+      "name": "challenge-w12-1",
+      "w": 12,
+      "t": 6,
+      "draw": 1,
+      "bytes": 163829,
+      "gates": 10957,
+      "target_evaluations_to_beat": 256
+    },
+    {
+      "name": "challenge-w12-2",
+      "w": 12,
+      "t": 6,
+      "draw": 2,
+      "bytes": 170998,
+      "gates": 11396,
+      "target_evaluations_to_beat": 256
+    },
+    {
+      "name": "challenge-w14-0",
+      "w": 14,
+      "t": 7,
+      "draw": 0,
+      "bytes": 211817,
+      "gates": 13951,
+      "target_evaluations_to_beat": 512
+    },
+    {
+      "name": "challenge-w14-1",
+      "w": 14,
+      "t": 7,
+      "draw": 1,
+      "bytes": 222360,
+      "gates": 14614,
+      "target_evaluations_to_beat": 512
+    },
+    {
+      "name": "challenge-w14-2",
+      "w": 14,
+      "t": 7,
+      "draw": 2,
+      "bytes": 215493,
+      "gates": 14166,
+      "target_evaluations_to_beat": 512
+    },
+    {
+      "name": "challenge-w16-0",
+      "w": 16,
+      "t": 8,
+      "draw": 0,
+      "bytes": 262139,
+      "gates": 17094,
+      "target_evaluations_to_beat": 1024
+    },
+    {
+      "name": "challenge-w16-1",
+      "w": 16,
+      "t": 8,
+      "draw": 1,
+      "bytes": 278371,
+      "gates": 18126,
+      "target_evaluations_to_beat": 1024
+    },
+    {
+      "name": "challenge-w16-2",
+      "w": 16,
+      "t": 8,
+      "draw": 2,
+      "bytes": 293580,
+      "gates": 19074,
+      "target_evaluations_to_beat": 1024
+    },
+    {
+      "name": "challenge-w18-0",
+      "w": 18,
+      "t": 9,
+      "draw": 0,
+      "bytes": 360214,
+      "gates": 23282,
+      "target_evaluations_to_beat": 2048
+    },
+    {
+      "name": "challenge-w18-1",
+      "w": 18,
+      "t": 9,
+      "draw": 1,
+      "bytes": 414593,
+      "gates": 26664,
+      "target_evaluations_to_beat": 2048
+    },
+    {
+      "name": "challenge-w18-2",
+      "w": 18,
+      "t": 9,
+      "draw": 2,
+      "bytes": 407524,
+      "gates": 26236,
+      "target_evaluations_to_beat": 2048
+    },
+    {
+      "name": "challenge-w20-0",
+      "w": 20,
+      "t": 10,
+      "draw": 0,
+      "bytes": 491152,
+      "gates": 31512,
+      "target_evaluations_to_beat": 4096
+    },
+    {
+      "name": "challenge-w20-1",
+      "w": 20,
+      "t": 10,
+      "draw": 1,
+      "bytes": 484301,
+      "gates": 31044,
+      "target_evaluations_to_beat": 4096
+    },
+    {
+      "name": "challenge-w20-2",
+      "w": 20,
+      "t": 10,
+      "draw": 2,
+      "bytes": 487617,
+      "gates": 31228,
+      "target_evaluations_to_beat": 4096
+    }
+  ]
+}

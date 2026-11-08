@@ -1,0 +1,43 @@
+{
+  "experiment": "programmed-first-round-rainstorm64-second-preimage",
+  "production_version": "4.0.0",
+  "production_equivalent": false,
+  "message_length": 63,
+  "digest_bits": 64,
+  "weak_rounds": 1,
+  "parameterization": "eight transformed outputs of first right round",
+  "free_tail_first_round_outputs": 2,
+  "fixed_prefix_first_round_outputs": 6,
+  "padding_constraint": "top byte of data[7] equals 0xbf",
+  "reference_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "target_digest_hex": "be0777774813aa0e",
+  "solver": "Z3 4.15.4",
+  "backend": "sat",
+  "status": "sat",
+  "unknown_reason": null,
+  "elapsed_seconds": 0.039945750031620264,
+  "timeout_seconds": 30,
+  "scope": "Exact first-round algebra and exact 64-bit remaining-round circuit. SAT is a second preimage; unknown is inconclusive. Reduced-round results are not production collisions.",
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "research/differential/rainstorm_model.py": "6c9397bf52e88961d890b3c30966c21b0caad0ad24eb43a91bc3c63d98b1c35e",
+    "research/differential/smt_digest.py": "7cd8476f1650fc1eba2e249632ca292be1fd321682fc19330bc65afedb489bf8",
+    "research/differential/smt_programmed.py": "2ef4df481ee2106755f44140dd9b6d78f777459d80fecb240da805df075fd78c"
+  },
+  "witness": {
+    "candidate_message_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005716d5795cb6f29eb39d4c98386788",
+    "reference_message_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "digest_hex": "be0777774813aa0e",
+    "first_round_outputs": [
+      "0x0046800000000000",
+      "0xb1aae719af6d81c2",
+      "0x4c1b6e5009c0c62d",
+      "0xe58e8e86e9ded813",
+      "0xf1421f8fec6c66ab",
+      "0x1a05b1723040ad4c",
+      "0x71fc4dc417bb4707",
+      "0x8044158a1858a084"
+    ],
+    "verification": "independent-integer-reduced-round-model"
+  }
+}

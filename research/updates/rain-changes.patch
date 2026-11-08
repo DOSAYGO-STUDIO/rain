@@ -1,0 +1,44 @@
+# This patch explores changes to enhance the mixing of rainbow (prompted by Reiner Pope)
+# and changes to enhance the non invertibility of rainstorm (even given complete state information)
+# prompted by orlp's 'breaking hash functions' write up: https://orlp.net/blog/breaking-hash-functions/#trivial-fixed-seed-wyhash-multicollisions
+# the rainstorm passes all
+diff --git a/hashes/rainbow.cpp b/hashes/rainbow.cpp
+index 51adfd06..96b44ee5 100644
+--- a/hashes/rainbow.cpp
++++ b/hashes/rainbow.cpp
+@@ -71,7 +71,7 @@ static inline void mixB( uint64_t * s, uint64_t iv ) {
+     b  = ROTR64(b, 23);
+     b *= S;
+ 
+-    s[1] = a; s[2] = b;
++    s[1] = b; s[2] = a;
+ }
+ 
+ template <uint32_t hashsize, bool bswap>
+diff --git a/hashes/rainstorm.cpp b/hashes/rainstorm.cpp
+index 789ebfc7..36dde7a8 100644
+--- a/hashes/rainstorm.cpp
++++ b/hashes/rainstorm.cpp
+@@ -101,6 +101,7 @@ static void rainstorm( const void * in, const size_t len, const seed_t seed, voi
+ 
+     uint64_t temp[8];
+     uint64_t lenRemaining = len;
++    uint64_t ctr = CTR_LEFT + CTR_RIGHT;
+ 
+     // Process 512-bit blocks
+     while (lenRemaining >= 64) {
+@@ -111,6 +112,14 @@ static void rainstorm( const void * in, const size_t len, const seed_t seed, voi
+         for (int i = 0; i < ROUNDS; i++) {
+             weakfunc(h, temp, i & 1);
+         }
++        for (int i = 0, j = 8; i < 8; i++, j++) {
++            ctr += h[i];
++            h[i] -= h[j] ^ ctr;
++        }
++        for (int i = 8, j = 0; j < 8; i++, j++) {
++            ctr += h[i];
++            h[i] -= h[j] ^ ctr;
++        }
+ 
+         data         += 64;
+         lenRemaining -= 64;

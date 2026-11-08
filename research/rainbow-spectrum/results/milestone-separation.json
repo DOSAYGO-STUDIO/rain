@@ -1,0 +1,548 @@
+{
+  "experiment": "factored_vs_flat_separation",
+  "question": "does knowing the factorization beat holding only F?",
+  "cost_unit": "round-equivalents (1 flat F eval = k rounds; 1 pair map = 0.5 round)",
+  "generated": "2026-09-15T08:24:49",
+  "rows": [
+    {
+      "w": 3,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "18/20",
+      "flat_success": "18/20",
+      "factored_median_round_equivalents": 6.25,
+      "flat_median_round_equivalents": 215.0,
+      "log2_factored": 2.644,
+      "log2_flat": 7.748,
+      "log2_separation": 5.104,
+      "predicted_log2_factored": 2.5,
+      "predicted_log2_flat": 6,
+      "merge_exists": {
+        "merged": true,
+        "evaluations": 4097,
+        "controls_a": [
+          [
+            7,
+            7
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "controls_b": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "state": [
+          0,
+          4,
+          4,
+          1
+        ],
+        "seconds": 0.03,
+        "control_space": 4096,
+        "note": "existence check only -- the evaluation count is dominated by enumerating reach(S) in an arbitrary order, so it is NOT a measure of the optimal public cost"
+      },
+      "pairing_aligned": true
+    },
+    {
+      "w": 3,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 4.75,
+      "flat_median_round_equivalents": 324.0,
+      "log2_factored": 2.248,
+      "log2_flat": 8.34,
+      "log2_separation": 6.092,
+      "predicted_log2_factored": 2.5,
+      "predicted_log2_flat": 6,
+      "pairing_aligned": true
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "19/20",
+      "factored_median_round_equivalents": 10.75,
+      "flat_median_round_equivalents": 938,
+      "log2_factored": 3.426,
+      "log2_flat": 9.873,
+      "log2_separation": 6.447,
+      "predicted_log2_factored": 3.0,
+      "predicted_log2_flat": 8,
+      "merge_exists": {
+        "merged": true,
+        "evaluations": 65537,
+        "controls_a": [
+          [
+            5,
+            13
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "controls_b": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "state": [
+          9,
+          10,
+          11,
+          13
+        ],
+        "seconds": 0.41,
+        "control_space": 65536,
+        "note": "existence check only -- the evaluation count is dominated by enumerating reach(S) in an arbitrary order, so it is NOT a measure of the optimal public cost"
+      },
+      "pairing_aligned": true
+    },
+    {
+      "w": 4,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 8.0,
+      "flat_median_round_equivalents": 1380.0,
+      "log2_factored": 3.0,
+      "log2_flat": 10.43,
+      "log2_separation": 7.43,
+      "predicted_log2_factored": 3.0,
+      "predicted_log2_flat": 8,
+      "pairing_aligned": true
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 10.75,
+      "flat_median_round_equivalents": 3456.0,
+      "log2_factored": 3.426,
+      "log2_flat": 11.755,
+      "log2_separation": 8.329,
+      "predicted_log2_factored": 3.5,
+      "predicted_log2_flat": 10,
+      "pairing_aligned": true
+    },
+    {
+      "w": 5,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 11.5,
+      "flat_median_round_equivalents": 4215.0,
+      "log2_factored": 3.524,
+      "log2_flat": 12.041,
+      "log2_separation": 8.518,
+      "predicted_log2_factored": 3.5,
+      "predicted_log2_flat": 10,
+      "pairing_aligned": true
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 16.25,
+      "flat_median_round_equivalents": 12664.0,
+      "log2_factored": 4.022,
+      "log2_flat": 13.628,
+      "log2_separation": 9.606,
+      "predicted_log2_factored": 4.0,
+      "predicted_log2_flat": 12,
+      "pairing_aligned": true
+    },
+    {
+      "w": 6,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 17.75,
+      "flat_median_round_equivalents": 20124.0,
+      "log2_factored": 4.15,
+      "log2_flat": 14.297,
+      "log2_separation": 10.147,
+      "predicted_log2_factored": 4.0,
+      "predicted_log2_flat": 12,
+      "pairing_aligned": true
+    },
+    {
+      "w": 7,
+      "k": 2,
+      "trials": 10,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "10/10",
+      "factored_success": "10/10",
+      "flat_success": "10/10",
+      "factored_median_round_equivalents": 19.25,
+      "flat_median_round_equivalents": 54414.0,
+      "log2_factored": 4.267,
+      "log2_flat": 15.732,
+      "log2_separation": 11.465,
+      "predicted_log2_factored": 4.5,
+      "predicted_log2_flat": 14,
+      "pairing_aligned": true
+    },
+    {
+      "w": 7,
+      "k": 3,
+      "trials": 10,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "10/10",
+      "factored_success": "10/10",
+      "flat_success": "10/10",
+      "factored_median_round_equivalents": 18.0,
+      "flat_median_round_equivalents": 103548.0,
+      "log2_factored": 4.17,
+      "log2_flat": 16.66,
+      "log2_separation": 12.49,
+      "predicted_log2_factored": 4.5,
+      "predicted_log2_flat": 14,
+      "pairing_aligned": true
+    },
+    {
+      "w": 8,
+      "k": 2,
+      "trials": 5,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "5/5",
+      "factored_success": "5/5",
+      "flat_success": "5/5",
+      "factored_median_round_equivalents": 23.5,
+      "flat_median_round_equivalents": 122172,
+      "log2_factored": 4.555,
+      "log2_flat": 16.899,
+      "log2_separation": 12.344,
+      "predicted_log2_factored": 5.0,
+      "predicted_log2_flat": 16,
+      "pairing_aligned": true
+    },
+    {
+      "w": 8,
+      "k": 3,
+      "trials": 5,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "5/5",
+      "factored_success": "5/5",
+      "flat_success": "5/5",
+      "factored_median_round_equivalents": 31.0,
+      "flat_median_round_equivalents": 339156,
+      "log2_factored": 4.954,
+      "log2_flat": 18.372,
+      "log2_separation": 13.417,
+      "predicted_log2_factored": 5.0,
+      "predicted_log2_flat": 16,
+      "pairing_aligned": true
+    },
+    {
+      "w": 3,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 2,
+      "divide_and_conquer_available": "0/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 14.5,
+      "flat_median_round_equivalents": 211.0,
+      "log2_factored": 3.858,
+      "log2_flat": 7.721,
+      "log2_separation": 3.863,
+      "predicted_log2_factored": 2.5,
+      "predicted_log2_flat": 6,
+      "merge_exists": {
+        "merged": true,
+        "evaluations": 4097,
+        "controls_a": [
+          [
+            6,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "controls_b": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "state": [
+          4,
+          5,
+          1,
+          0
+        ],
+        "seconds": 0.03,
+        "control_space": 4096,
+        "note": "existence check only -- the evaluation count is dominated by enumerating reach(S) in an arbitrary order, so it is NOT a measure of the optimal public cost"
+      },
+      "pairing_aligned": false
+    },
+    {
+      "w": 3,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 6,
+      "divide_and_conquer_available": "0/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 10.5,
+      "flat_median_round_equivalents": 355.5,
+      "log2_factored": 3.392,
+      "log2_flat": 8.474,
+      "log2_separation": 5.081,
+      "predicted_log2_factored": 2.5,
+      "predicted_log2_flat": 6,
+      "pairing_aligned": false
+    },
+    {
+      "w": 4,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "0/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 36.5,
+      "flat_median_round_equivalents": 902.0,
+      "log2_factored": 5.19,
+      "log2_flat": 9.817,
+      "log2_separation": 4.627,
+      "predicted_log2_factored": 3.0,
+      "predicted_log2_flat": 8,
+      "merge_exists": {
+        "merged": true,
+        "evaluations": 65793,
+        "controls_a": [
+          [
+            15,
+            15
+          ],
+          [
+            4,
+            11
+          ]
+        ],
+        "controls_b": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "state": [
+          2,
+          14,
+          14,
+          11
+        ],
+        "seconds": 0.41,
+        "control_space": 65536,
+        "note": "existence check only -- the evaluation count is dominated by enumerating reach(S) in an arbitrary order, so it is NOT a measure of the optimal public cost"
+      },
+      "pairing_aligned": false
+    },
+    {
+      "w": 4,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "0/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 30.0,
+      "flat_median_round_equivalents": 1206.0,
+      "log2_factored": 4.907,
+      "log2_flat": 10.236,
+      "log2_separation": 5.329,
+      "predicted_log2_factored": 3.0,
+      "predicted_log2_flat": 8,
+      "pairing_aligned": false
+    },
+    {
+      "w": 5,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 12.0,
+      "flat_median_round_equivalents": 3906.0,
+      "log2_factored": 3.585,
+      "log2_flat": 11.931,
+      "log2_separation": 8.347,
+      "predicted_log2_factored": 3.5,
+      "predicted_log2_flat": 10,
+      "pairing_aligned": false
+    },
+    {
+      "w": 5,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "0/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 50.0,
+      "flat_median_round_equivalents": 5634.0,
+      "log2_factored": 5.644,
+      "log2_flat": 12.46,
+      "log2_separation": 6.816,
+      "predicted_log2_factored": 3.5,
+      "predicted_log2_flat": 10,
+      "pairing_aligned": false
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "20/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 12.75,
+      "flat_median_round_equivalents": 17412.0,
+      "log2_factored": 3.672,
+      "log2_flat": 14.088,
+      "log2_separation": 10.415,
+      "predicted_log2_factored": 4.0,
+      "predicted_log2_flat": 12,
+      "pairing_aligned": false
+    },
+    {
+      "w": 6,
+      "k": 3,
+      "trials": 20,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "0/20",
+      "factored_success": "20/20",
+      "flat_success": "20/20",
+      "factored_median_round_equivalents": 128.0,
+      "flat_median_round_equivalents": 19312.5,
+      "log2_factored": 7.0,
+      "log2_flat": 14.237,
+      "log2_separation": 7.237,
+      "predicted_log2_factored": 4.0,
+      "predicted_log2_flat": 12,
+      "pairing_aligned": false
+    },
+    {
+      "w": 7,
+      "k": 2,
+      "trials": 10,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "0/10",
+      "factored_success": "10/10",
+      "flat_success": "10/10",
+      "factored_median_round_equivalents": 167.0,
+      "flat_median_round_equivalents": 43436.0,
+      "log2_factored": 7.384,
+      "log2_flat": 15.407,
+      "log2_separation": 8.023,
+      "predicted_log2_factored": 4.5,
+      "predicted_log2_flat": 14,
+      "pairing_aligned": false
+    },
+    {
+      "w": 7,
+      "k": 3,
+      "trials": 10,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "0/10",
+      "factored_success": "10/10",
+      "flat_success": "10/10",
+      "factored_median_round_equivalents": 275.5,
+      "flat_median_round_equivalents": 99846.0,
+      "log2_factored": 8.106,
+      "log2_flat": 16.607,
+      "log2_separation": 8.502,
+      "predicted_log2_factored": 4.5,
+      "predicted_log2_flat": 14,
+      "pairing_aligned": false
+    },
+    {
+      "w": 8,
+      "k": 2,
+      "trials": 5,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "5/5",
+      "factored_success": "5/5",
+      "flat_success": "5/5",
+      "factored_median_round_equivalents": 22.0,
+      "flat_median_round_equivalents": 259050,
+      "log2_factored": 4.459,
+      "log2_flat": 17.983,
+      "log2_separation": 13.523,
+      "predicted_log2_factored": 5.0,
+      "predicted_log2_flat": 16,
+      "pairing_aligned": false
+    },
+    {
+      "w": 8,
+      "k": 3,
+      "trials": 5,
+      "spectrum_members_rejected": 0,
+      "divide_and_conquer_available": "0/5",
+      "factored_success": "5/5",
+      "flat_success": "5/5",
+      "factored_median_round_equivalents": 598.0,
+      "flat_median_round_equivalents": 358410,
+      "log2_factored": 9.224,
+      "log2_flat": 18.451,
+      "log2_separation": 9.227,
+      "predicted_log2_factored": 5.0,
+      "predicted_log2_flat": 16,
+      "pairing_aligned": false
+    }
+  ]
+}

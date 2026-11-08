@@ -1,0 +1,32 @@
+{
+  "release": "4.0.0",
+  "candidate": "A",
+  "upstream_revision": "3b619371047761408406991685da1c2b3f751899",
+  "log_sha256": "8a1c5be6e2ee4dbae05666872f00ee237c264d187a1c9842b913988e7644d477",
+  "candidate_source_sha256": "1976215168e868e49d8780321c10bb74660d9b4cd4752d7ca4b8696f766d7a48",
+  "production_source_sha256": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+  "full_suite": {
+    "bits": 256,
+    "endian": "native",
+    "passed": 253,
+    "total": 253,
+    "exit_code": 0
+  },
+  "native_streaming_cases": 3360,
+  "production_vs_candidate_a_comparisons": 512,
+  "differential_pairs_per_design": 770048,
+  "differential_collisions": {
+    "OG": 0,
+    "A": 0
+  },
+  "redteam_result_sha256": {
+    "OG.json": "7f9fa81adb2be7b9156c792c8eed77db09731e219d4a758ce0511ca8526b2744",
+    "A.json": "7dcc2a1b4843d0a896a387e24bfaa1a28b65228421af08dd4d943e92c62e71eb",
+    "rounds.json": "65d9466c9d78c0142d321c1056ba4d0a15ff6005db3fa8f693081f0b8f71b27a"
+  },
+  "native_wasm_vectors": 49,
+  "emscripten_version": "6.0.9",
+  "upstream_sanity_registrations": 3,
+  "upstream_sanity_endian_paths": 2,
+  "stream_cipher_cross_runtime_roundtrips": 2
+}

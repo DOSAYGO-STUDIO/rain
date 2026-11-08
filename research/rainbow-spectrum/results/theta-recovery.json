@@ -1,0 +1,905 @@
+{
+  "attack": "theta_recovery/pairing_by_differential_probing",
+  "access": "PublicArtifact.eval_side only -- no theta, no gates inspected",
+  "recovered": "24/24",
+  "recovered_nondefault_pairings": "16/16",
+  "queries_per_recovery": 15,
+  "control": "run against all three pairings; Experiment B pins PAIRINGS[0], so a constant-output attack would have scored 100% on every challenge this project has generated",
+  "consequence": "pairs become independent: one 4w-bit match becomes two 2w-bit matches. Per pair the MITM is still ~2^(3w/2) against the privileged 2^(w/2), so the pairing alone does not surrender the sigma route",
+  "still_secret": [
+    "which functional of the pair the injection preserves",
+    "the final mixer's inverse"
+  ],
+  "verdict": "PARTIAL BREAK of secrecy, not of the construction",
+  "generated": "2026-09-16T03:22:52",
+  "rows": [
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": false,
+      "trial": 0,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": false,
+      "trial": 1,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": false,
+      "trial": 2,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": false,
+      "trial": 3,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": true,
+      "trial": 0,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": true,
+      "trial": 1,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": true,
+      "trial": 2,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "is_default": true,
+      "hardened": true,
+      "trial": 3,
+      "recovered": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 0,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 1,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 2,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 3,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 0,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 1,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 2,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 3,
+      "recovered": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 0,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 1,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 2,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": false,
+      "trial": 3,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 0,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 1,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 2,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    },
+    {
+      "pairing": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "is_default": false,
+      "hardened": true,
+      "trial": 3,
+      "recovered": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "truth": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "correct": true,
+      "queries": 15
+    }
+  ]
+}

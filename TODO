@@ -1,0 +1,25 @@
+- fix simple enc/dec api in lib
+
+Roadmap: TreeStorm (Experimental Parallel Architecture)
+
+- [ ] Core AVX-512 Multi-Buffer Kernel:
+  - Implement 8-way interleaved Rainstorm block processor in `src/rainstorm_avx512.cpp`.
+  - Map rounds to native quadword vector instructions: `_mm512_ror_epi64`, `_mm512_add_epi64`, `_mm512_xor_si512`.
+  - Add runtime CPUID dispatch with portable fallback.
+- [ ] Tree Structure & Merkle Aggregation:
+  - Implement fixed 1 KB / 2 KB chunking.
+  - Implement binary Merkle tree parent node combination.
+  - Multi-threaded leaf chunk dispatch via OpenMP.
+- [ ] Domain Separation:
+  - Encode `IS_LEAF`, `IS_PARENT`, and `IS_ROOT` flags into Rainstorm IV/seed.
+- [ ] Tooling & CLI Integration:
+  - Expose `--tree` mode in `rainsum` CLI and JS/Wasm API.
+  - Add streaming verification / seekable sub-chunk proofs.
+
+Later maybe
+
+- use irradix l1 to encode and decode scatter indices
+- ensure key privacy in memory, by checking raw keys:
+  - Are wiped from memory after use (consider std::fill or explicit_bzero for zeroing memory).
+  - Avoid storing plaintext keys in memory longer than necessary.
+

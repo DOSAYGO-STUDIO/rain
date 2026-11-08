@@ -1,0 +1,392 @@
+[
+  {
+    "hash": "rainexp-a-64",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-a-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-a-64",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-a-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-a-128",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-a-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-a-128",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-a-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-a-256",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-a-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-a-256",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-a-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-b-64",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-b-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-b-64",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-b-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-b-128",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-b-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-b-128",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-b-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-b-256",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-b-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-b-256",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-b-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-c-64",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-c-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-c-64",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-c-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-c-128",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-c-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-c-128",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-c-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-c-256",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-c-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-c-256",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-c-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-d-64",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-d-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-d-64",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-d-64"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-d-128",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-d-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-d-128",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-d-128"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-d-256",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "rainexp-d-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "rainexp-d-256",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "rainexp-d-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "raincontrol-blake3-256",
+    "endian": "native",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=native",
+      "--ncpu=4",
+      "raincontrol-blake3-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "hash": "raincontrol-blake3-256",
+    "endian": "nonnative",
+    "command": [
+      "/Users/crisd/Creative/rain/research/differential/vendor/smhasher3/build/SMHasher3",
+      "--test=Sanity",
+      "--extra",
+      "--exit-code-on-failure",
+      "--endian=nonnative",
+      "--ncpu=4",
+      "raincontrol-blake3-256"
+    ],
+    "exit_code": 0,
+    "passed": true
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "experiment": "generic-distinguished-point-rho-collision-control",
+  "production_version": "4.0.0",
+  "status": "collision",
+  "claim": "Native-verified full Rainstorm-64 collision at generic birthday cost; not a subgeneric cryptanalytic break.",
+  "message_length": 8,
+  "digest_bits": 64,
+  "hash_seed": 0,
+  "message_a_hex": "ca145d6ba2b04305",
+  "message_b_hex": "9a377294e2e26a9a",
+  "digest_hex": "e2cf74b77eb19e23",
+  "messages_distinct": true,
+  "verification": {
+    "rho_native_cpp_rehash": true,
+    "independent_production_cpp_bridge": true,
+    "independent_integer_model": true
+  },
+  "algorithm": "parallel-stream distinguished-point rho in one process",
+  "maximum_walk_evaluations": 12000000000,
+  "walk_evaluations": 7227220749,
+  "replay_evaluations": 283559,
+  "distinguished_bits": 16,
+  "streams": 64,
+  "start_seed": 20260908,
+  "stored_endpoints": 110198,
+  "endpoint_merges": 1,
+  "same_path_merges": 0,
+  "abandoned_chains": 0,
+  "elapsed_seconds": 244.031712917,
+  "walk_evaluations_per_second": 29615907.960,
+  "ideal_random_mapping_comparison": {
+    "expected_collisions_at_observed_work": 1.4157707058238698,
+    "collision_cdf_at_observed_work": 0.7572615386074559,
+    "survival_probability_at_observed_work": 0.24273846139254404,
+    "interpretation": "The observed first collision is ordinary under the ideal 64-bit random-mapping birthday model."
+  },
+  "machine": {
+    "system": "Darwin 25.5.0 arm64",
+    "compiler": "Apple clang 21.0.0"
+  },
+  "source_sha256": {
+    "src/rainstorm.cpp": "8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f",
+    "src/common.h": "d35e24c8ceb7ff0244899aeb066b208383f586b647d3b48bd25044a80d7517cb",
+    "research/differential/rho64.cpp": "437c9449672b2c190ed7d6198f30c2bf90c72a6936978d69b957d24e6a68a320",
+    "research/differential/rainstorm_model.py": "6c9397bf52e88961d890b3c30966c21b0caad0ad24eb43a91bc3c63d98b1c35e"
+  }
+}

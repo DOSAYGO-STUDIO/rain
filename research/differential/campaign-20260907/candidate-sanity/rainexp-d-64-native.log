@@ -1,0 +1,34 @@
+WARNING: Hash with verification code 50e4cd91 was already registered: blake3
+         Are you certain raincontrol-blake3-256 is a unique implementation?
+WARNING: Hash with verification code ed7533d3 was already registered: rainbow
+         Are you certain rainlocal-rainbow-64 is a unique implementation?
+WARNING: Hash with verification code be75a175 was already registered: rainbow
+         Are you certain rainlocal-rainbow-64 is a unique implementation?
+WARNING: Hash with verification code ff03173f was already registered: rainbow-128
+         Are you certain rainlocal-rainbow-128 is a unique implementation?
+WARNING: Hash with verification code a8ead0c3 was already registered: rainbow-128
+         Are you certain rainlocal-rainbow-128 is a unique implementation?
+WARNING: Hash with verification code 65f4a210 was already registered: rainbow-256
+         Are you certain rainlocal-rainbow-256 is a unique implementation?
+WARNING: Hash with verification code d2afd9eb was already registered: rainbow-256
+         Are you certain rainlocal-rainbow-256 is a unique implementation?
+WARNING: Hash with verification code cecc05ce was already registered: rainstorm
+         Are you certain rainlocal-rainstorm-64 is a unique implementation?
+WARNING: Hash with verification code d6d12547 was already registered: rainstorm-128
+         Are you certain rainlocal-rainstorm-128 is a unique implementation?
+WARNING: Hash with verification code 72d3356f was already registered: rainstorm-256
+         Are you certain rainlocal-rainstorm-256 is a unique implementation?
+--- Testing rainexp-d-64 "Experimental Rainstorm D-64"
+
+[[[ Sanity Tests ]]]
+
+Verification value LE 0xE4837CB1 ...... PASS
+Running sanity check 1       .......... PASS
+Running sanity check 2       .......... PASS
+Running append zeroes test   .......... PASS
+Running prepend zeroes test  .......... PASS
+Running thread-safety test 1 .......... PASS
+Running thread-safety test 2 .......... PASS
+
+Verification value is 0x00000001 - Testing took 0.917958 seconds
+

@@ -1,0 +1,74 @@
+{
+  "experiment": "slope_estimate",
+  "question": "is the privileged advantage an exponent gap or a constant factor?",
+  "decision_rule": "separation iff beta - 0.5 > 0.1 and the bootstrap interval excludes 0.5; pre-registered before the run",
+  "timeout_ms": 300000,
+  "timeout_policy": "capped solves excluded from the fit, never counted",
+  "generated": "2026-09-15T10:33:02",
+  "variants": {
+    "weak": {
+      "per_width_median": {
+        "8": 514.5,
+        "10": 1775.0,
+        "12": 3372.5,
+        "14": 12431.5,
+        "16": 21311.5,
+        "18": 79731
+      },
+      "per_width_n": {
+        "8": 12,
+        "10": 12,
+        "12": 12,
+        "14": 12,
+        "16": 8,
+        "18": 5
+      },
+      "excluded": {
+        "8": 0,
+        "10": 0,
+        "12": 0,
+        "14": 0,
+        "16": 0,
+        "18": 0
+      },
+      "beta": 0.7003,
+      "bootstrap_beta_median": 0.7046,
+      "bootstrap_5": 0.6299,
+      "bootstrap_95": 0.7845,
+      "privileged_solved": "61/61"
+    },
+    "hardened": {
+      "per_width_median": {
+        "8": 516.0,
+        "10": 2133.0,
+        "12": 5478.0,
+        "14": 10508.0,
+        "16": 20275.5,
+        "18": 75402
+      },
+      "per_width_n": {
+        "8": 12,
+        "10": 12,
+        "12": 12,
+        "14": 12,
+        "16": 8,
+        "18": 5
+      },
+      "excluded": {
+        "8": 0,
+        "10": 0,
+        "12": 0,
+        "14": 0,
+        "16": 0,
+        "18": 0
+      },
+      "beta": 0.6663,
+      "bootstrap_beta_median": 0.6647,
+      "bootstrap_5": 0.6115,
+      "bootstrap_95": 0.7322,
+      "privileged_solved": "0/61"
+    }
+  },
+  "separation_demonstrated": true,
+  "conclusion": "SEPARATION: public cost grows as 2^(0.705w) against the privileged 2^(0.5w), and the bootstrap interval [0.630, 0.784] excludes 0.5. The privileged route is not merely a constant factor cheaper. Hardened public exponent 0.6647 [0.6115, 0.7322]; the public solver should gain nothing from the weakness, so weak and hardened exponents agreeing is the expected control. Privileged: weak 61/61, hardened 0/61."
+}

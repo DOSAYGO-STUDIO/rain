@@ -1,0 +1,43 @@
+{
+  "original_file": "src/rainbow.cpp",
+  "original_sha256": "d432b1b5aea6700d51dd549e8f5b753e19301439f6ddb02c85187eed5c540163",
+  "variants": {
+    "r0": {
+      "file": "research/rainbow2/variants/rainbow_r0.cpp",
+      "sha256": "f14dc26543d218a70c09628d2abc3b1ba0e717d9ffe91ecb777a15101078c884"
+    },
+    "r1": {
+      "file": "research/rainbow2/variants/rainbow_r1.cpp",
+      "sha256": "712b49ae757ac6cab128439d89335765801d7f7f6d5ad02161819b2b6e7ab9dd"
+    },
+    "r2": {
+      "file": "research/rainbow2/variants/rainbow_r2.cpp",
+      "sha256": "5e5a98ca5cf3a05fc7335f6c94e923874072e4076d3c5346c226f81ba5b4cf38"
+    },
+    "r3": {
+      "file": "research/rainbow2/variants/rainbow_r3.cpp",
+      "sha256": "fc5fcf28c846ec31052d00b90d774524b3720bcd94c8dca01cd1409de11fd5aa"
+    },
+    "r4": {
+      "file": "research/rainbow2/variants/rainbow_r4.cpp",
+      "sha256": "b44ebc8ce6b966ed6bad400c43d4f66328540ecc8b498c54c09c70eb2a835846"
+    },
+    "r5": {
+      "file": "research/rainbow2/variants/rainbow_r5.cpp",
+      "sha256": "30026320efaec387501cc6a6678223b8bf4a1b59eb660e3229976f1f9ac57487"
+    },
+    "r6": {
+      "file": "research/rainbow2/variants/rainbow_r6.cpp",
+      "sha256": "03f0addb819404e26a0cbaac3be7ce96505ff064c536566efc536201c3222fd0"
+    }
+  },
+  "definitions": {
+    "r0": "Baseline Rainbow v3.7.1 (unmodified control).",
+    "r1": "Asymmetric block injection only: h[0]-=g0, h[1]+=ROTR64(g0,19), h[2]+=g1, h[3]-=ROTR64(g1,41). Breaks pair-sum coset invariant (W1).",
+    "r2": "Feistel cross-coupled mixA only: adds a ^= d; c ^= b; at the end of mixA. Breaks pair-separability (W2) and cures dead-word h[0]'' in finalization (W3).",
+    "r3": "Hardened core (R1 + R2): asymmetric injection + Feistel cross-coupled mixA.",
+    "r4": "R3 + 4-lane lossless output squeeze: g = (h[0] ^ h[2]) - (h[1] ^ h[3]). Eliminates -sigma_2 output readout (W3, W4).",
+    "r5": "R4 + nonlinear domain-separated seed/length/width initialization. Eliminates additive seed correlation and cross-width prefixing (W4, W5).",
+    "r6": "Zero-latency cross-coupled core (R1 asymmetric injection + b^=c, d^=a, s=[b,c,d,a] in mixA + 4-lane squeeze). Fixes W1\u2013W4 at zero extra mixA instructions."
+  }
+}

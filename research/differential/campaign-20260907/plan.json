@@ -1,0 +1,9 @@
+{
+  "scope": "256-bit native, full extended per-hash suite, sequential",
+  "jobs": [
+    {"id": "A-256", "hash": "rainexp-a-256"},
+    {"id": "B-256", "hash": "rainexp-b-256"},
+    {"id": "C-256", "hash": "rainexp-c-256"},
+    {"id": "BLAKE3-256", "hash": "raincontrol-blake3-256"}
+  ]
+}

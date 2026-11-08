@@ -1,0 +1,76 @@
+{
+  "started_utc": "2026-09-07T12:01:41.416569+00:00",
+  "controller_pid": 20014,
+  "runs": [
+    {
+      "id": "OG-256",
+      "log": "og-256-native.log",
+      "status": "cancelled",
+      "pid": 16252,
+      "exit_code": null,
+      "exit_code_note": "Killed at user request; incomplete log is not a pass.",
+      "binary_sha256": "16b488bd616980a5fbc7cbe2798cde91441105a692d6702c892e3c74933cd0a4",
+      "command": [
+        "SMHasher3-original",
+        "--test=All,BadSeeds",
+        "--extra",
+        "--exit-code-on-failure",
+        "--endian=native",
+        "--ncpu=4",
+        "rainlocal-rainstorm-256"
+      ],
+      "results": {
+        "stage": "BadSeeds Tests",
+        "completed_stages": [
+          "Sanity Tests",
+          "Speed Tests",
+          "'Hashmap' Speed Tests",
+          "Avalanche Tests",
+          "BIC 'Bit Independence Criteria' Tests",
+          "Keyset 'Zeroes' Tests",
+          "Keyset 'Cyclic' Tests",
+          "Keyset 'Sparse' Tests",
+          "Keyset 'Permutation' Tests",
+          "Keyset 'Text' Tests",
+          "Keyset 'TwoBytes' Tests",
+          "Keyset 'PerlinNoise' Tests",
+          "Keyset 'Bitflip' Tests",
+          "Seed 'Zeroes' Tests",
+          "Keyset 'SeedSparse' Tests",
+          "Seed BlockLength Tests",
+          "Seed BlockOffset Tests",
+          "Keyset 'Seed' Tests",
+          "Seed Avalanche Tests",
+          "Seed 'Bit Independence Criteria' Tests",
+          "Seed Bitflip Tests",
+          "BadSeeds Tests"
+        ],
+        "reported_result": null,
+        "passed_checks": null,
+        "total_checks": null,
+        "elapsed_test_seconds": null,
+        "complete_log": false,
+        "small_cycles_per_hash": 137.91,
+        "bulk_bytes_per_cycle": [
+          0.62,
+          0.66
+        ],
+        "bulk_gib_per_second_at_reference_3_5ghz": [
+          2.02,
+          2.15
+        ],
+        "failure_marker_lines": [],
+        "skip_marker_lines": []
+      }
+    }
+  ],
+  "smhasher3_revision": "3b619371047761408406991685da1c2b3f751899",
+  "hardware": [
+    "MacBookAir10,1",
+    "8",
+    "8589934592"
+  ],
+  "updated_utc": "2026-09-07T21:02:35.050355+00:00",
+  "stopped_utc": "2026-09-07T21:03:05.441028+00:00",
+  "stop_reason": "User explicitly requested killing the local test and queue; campaign moved to cloud."
+}

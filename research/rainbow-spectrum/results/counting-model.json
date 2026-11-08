@@ -1,0 +1,267 @@
+{
+  "model": "solution_counting_before_attack",
+  "N_definition": "4w bits of final-state equality",
+  "generated": "2026-09-15T10:02:37",
+  "verification": [
+    {
+      "w": 3,
+      "t": 1,
+      "design": "symmetric",
+      "sigma_matches": 0,
+      "predicted": 0,
+      "actual": 0,
+      "agree": true
+    },
+    {
+      "w": 3,
+      "t": 1,
+      "design": "asymmetric",
+      "sigma_matches": 0,
+      "predicted": 0,
+      "actual": 0,
+      "agree": true
+    },
+    {
+      "w": 3,
+      "t": 2,
+      "design": "symmetric",
+      "sigma_matches": 12,
+      "predicted": 768,
+      "actual": 768,
+      "agree": true
+    },
+    {
+      "w": 3,
+      "t": 2,
+      "design": "asymmetric",
+      "sigma_matches": 12,
+      "predicted": 12,
+      "actual": 12,
+      "agree": true
+    },
+    {
+      "w": 3,
+      "t": 3,
+      "design": "symmetric",
+      "sigma_matches": 52,
+      "predicted": 3328,
+      "actual": null,
+      "agree": null
+    },
+    {
+      "w": 3,
+      "t": 3,
+      "design": "asymmetric",
+      "sigma_matches": 52,
+      "predicted": 52,
+      "actual": 52,
+      "agree": true
+    },
+    {
+      "w": 4,
+      "t": 1,
+      "design": "symmetric",
+      "sigma_matches": 0,
+      "predicted": 0,
+      "actual": null,
+      "agree": null
+    },
+    {
+      "w": 4,
+      "t": 1,
+      "design": "asymmetric",
+      "sigma_matches": 0,
+      "predicted": 0,
+      "actual": 0,
+      "agree": true
+    },
+    {
+      "w": 4,
+      "t": 2,
+      "design": "symmetric",
+      "sigma_matches": 0,
+      "predicted": 0,
+      "actual": null,
+      "agree": null
+    },
+    {
+      "w": 4,
+      "t": 2,
+      "design": "asymmetric",
+      "sigma_matches": 0,
+      "predicted": 0,
+      "actual": 0,
+      "agree": true
+    },
+    {
+      "w": 4,
+      "t": 3,
+      "design": "symmetric",
+      "sigma_matches": 4,
+      "predicted": 1024,
+      "actual": null,
+      "agree": null
+    },
+    {
+      "w": 4,
+      "t": 3,
+      "design": "asymmetric",
+      "sigma_matches": 4,
+      "predicted": 4,
+      "actual": 4,
+      "agree": true
+    },
+    {
+      "w": 4,
+      "t": 4,
+      "design": "symmetric",
+      "sigma_matches": 192,
+      "predicted": 49152,
+      "actual": null,
+      "agree": null
+    },
+    {
+      "w": 4,
+      "t": 4,
+      "design": "asymmetric",
+      "sigma_matches": 192,
+      "predicted": 192,
+      "actual": null,
+      "agree": null
+    }
+  ],
+  "regimes": [
+    {
+      "w": 8,
+      "k": 2,
+      "design": "symmetric",
+      "t_star": 4,
+      "log2_solutions_at_t_star": 16,
+      "window_nonempty": false
+    },
+    {
+      "w": 8,
+      "k": 2,
+      "design": "asymmetric",
+      "t_star": 4,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    },
+    {
+      "w": 8,
+      "k": 3,
+      "design": "symmetric",
+      "t_star": 2,
+      "log2_solutions_at_t_star": 16,
+      "window_nonempty": false
+    },
+    {
+      "w": 8,
+      "k": 3,
+      "design": "asymmetric",
+      "t_star": 2,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    },
+    {
+      "w": 16,
+      "k": 2,
+      "design": "symmetric",
+      "t_star": 8,
+      "log2_solutions_at_t_star": 32,
+      "window_nonempty": false
+    },
+    {
+      "w": 16,
+      "k": 2,
+      "design": "asymmetric",
+      "t_star": 8,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    },
+    {
+      "w": 16,
+      "k": 3,
+      "design": "symmetric",
+      "t_star": 4,
+      "log2_solutions_at_t_star": 32,
+      "window_nonempty": false
+    },
+    {
+      "w": 16,
+      "k": 3,
+      "design": "asymmetric",
+      "t_star": 4,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    },
+    {
+      "w": 32,
+      "k": 2,
+      "design": "symmetric",
+      "t_star": 16,
+      "log2_solutions_at_t_star": 64,
+      "window_nonempty": false
+    },
+    {
+      "w": 32,
+      "k": 2,
+      "design": "asymmetric",
+      "t_star": 16,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    },
+    {
+      "w": 32,
+      "k": 3,
+      "design": "symmetric",
+      "t_star": 8,
+      "log2_solutions_at_t_star": 64,
+      "window_nonempty": false
+    },
+    {
+      "w": 32,
+      "k": 3,
+      "design": "asymmetric",
+      "t_star": 8,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    },
+    {
+      "w": 64,
+      "k": 2,
+      "design": "symmetric",
+      "t_star": 32,
+      "log2_solutions_at_t_star": 128,
+      "window_nonempty": false
+    },
+    {
+      "w": 64,
+      "k": 2,
+      "design": "asymmetric",
+      "t_star": 32,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    },
+    {
+      "w": 64,
+      "k": 3,
+      "design": "symmetric",
+      "t_star": 16,
+      "log2_solutions_at_t_star": 128,
+      "window_nonempty": false
+    },
+    {
+      "w": 64,
+      "k": 3,
+      "design": "asymmetric",
+      "t_star": 16,
+      "log2_solutions_at_t_star": 0,
+      "window_nonempty": true
+    }
+  ],
+  "counts_verified": true,
+  "symmetric_window_empty": true,
+  "asymmetric_window_nonempty": true,
+  "conclusion": "Predicted counts match exhaustive enumeration in 8 checked cases. The SYMMETRIC design has an empty window: whenever the factored route is feasible (4(k-1)t >= 2w) at least 2^(2w) solutions already exist, because a unique sigma-match still carries 2^(2w) merge-round solutions. That is a structural impossibility result for the obvious construction. The ASYMMETRIC design -- one side's merge controls fixed -- is non-empty: each sigma-match contributes exactly one solution, giving 2^(4c) solutions at t = w/(2(k-1)) + c while the factored side keeps its birthday match. That is the only regime worth building an experiment in."
+}

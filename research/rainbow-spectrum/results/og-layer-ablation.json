@@ -1,0 +1,36 @@
+{
+  "experiment": "og/layer_ablation",
+  "question": "which secret mixing layer produces the SAT blow-up that grows with k?",
+  "w": 6,
+  "t": 3,
+  "solver": "cadical153",
+  "budget_conflicts": 3000000,
+  "draw": 0,
+  "conflicts": {
+    "parallel": {
+      "k1": 188,
+      "k2": 300
+    },
+    "coupled_in": {
+      "k1": 21474,
+      "k2": 2133724
+    },
+    "coupled_out": {
+      "k1": 14941,
+      "k2": 55390
+    },
+    "coupled": {
+      "k1": 54742,
+      "k2": ">3000000 (budget)"
+    }
+  },
+  "growth_k1_to_k2": {
+    "parallel": 1.6,
+    "coupled_in": 99.4,
+    "coupled_out": 3.7
+  },
+  "all_witnesses_verified": true,
+  "reading": "The growth with k comes from the INPUT layer L -- the layer og/structure_attack.py reads off the public circuit. This strengthens, but does not demonstrate, the inference that the coupled family's SAT cost is CDCL's weakness on dense XOR rather than hardness: no witness has been produced by removing L.",
+  "caveat": "one draw per cell; direction is clear, magnitudes are not estimates",
+  "generated": "2026-09-16T04:34:19"
+}

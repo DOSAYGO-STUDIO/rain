@@ -1,0 +1,32 @@
+{
+  "name": "@dosyago/rainsum",
+  "version": "4.0.0",
+  "module": true,
+  "type": "module",
+  "description": "Fast, compact 64/128/256-bit non-crypto hash suite (Rainbow & Rainbow 2) passing SMHasher3, plus experimental Rainstorm. C++ and Node.js/Wasm API & CLI",
+  "main": "./lib/api.mjs",
+  "bin": {
+    "jsrsum": "rainsum.mjs"
+  },
+  "scripts": {
+    "prepublishOnly": "cp ../README.md .",
+    "test": "node test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DOSAYGO-Research/rain.git"
+  },
+  "keywords": [
+    "hash",
+    "rain"
+  ],
+  "author": "@dosy",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DOSAYGO-Research/rain/issues"
+  },
+  "homepage": "https://github.com/DOSAYGO-Research/rain#readme",
+  "dependencies": {
+    "yargs": "latest"
+  }
+}

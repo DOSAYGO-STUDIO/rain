@@ -1,0 +1,213 @@
+diff --git a/hashes/Hashsrc.cmake b/hashes/Hashsrc.cmake
+index 5bb3f8c..287079d 100644
+--- a/hashes/Hashsrc.cmake
++++ b/hashes/Hashsrc.cmake
+@@ -49,6 +49,7 @@ set(HASH_SRC_FILES
+   hashes/g3-rh512-256.cpp
+   hashes/fnv.cpp
+   hashes/rainbow.cpp
++  hashes/rainbow2.cpp
+   hashes/wyhash.cpp
+   hashes/aquahash.cpp
+   hashes/aesnihash-peterrk.cpp
+diff --git a/hashes/rainbow2.cpp b/hashes/rainbow2.cpp
+new file mode 100644
+index 0000000..ab7369b
+--- /dev/null
++++ b/hashes/rainbow2.cpp
+@@ -0,0 +1,195 @@
++/*
++ * Rainbow 2 (R5) hash functions (64, 128, 256-bit)
++ * Copyright (C) 2023-2026 Cris (DOSAYGO)
++ * Licensed under the Apache License, Version 2.0
++ */
++#include "Platform.h"
++#include "Hashlib.h"
++
++static const uint64_t P = UINT64_C(0xFFFFFFFFFFFFFFFF) - 58;
++static const uint64_t Q = UINT64_C(13166748625691186689);
++static const uint64_t R = UINT64_C(1573836600196043749);
++static const uint64_t S = UINT64_C(1478582680485693857);
++static const uint64_t T = UINT64_C(1584163446043636637);
++static const uint64_t U = UINT64_C(1358537349836140151);
++static const uint64_t V = UINT64_C(2849285319520710901);
++static const uint64_t W = UINT64_C(2366157163652459183);
++
++static FORCE_INLINE void rotate_right( uint64_t h[4] ) {
++    uint64_t temp = h[3];
++    h[3] = h[2];
++    h[2] = h[1];
++    h[1] = h[0];
++    h[0] = temp;
++}
++
++static FORCE_INLINE void mixA( uint64_t * s ) {
++    uint64_t a = s[0], b = s[1], c = s[2], d = s[3];
++
++    a *= P;
++    a  = ROTR64(a, 23);
++    a *= Q;
++
++    b ^= a;
++
++    b *= R;
++    b  = ROTR64(b, 29);
++    b *= S;
++
++    c *= T;
++    c  = ROTR64(c, 31);
++    c *= U;
++
++    d ^= c;
++
++    d *= V;
++    d  = ROTR64(d, 37);
++    d *= W;
++
++    a ^= d;
++    c ^= b;
++
++    s[0] = a; s[1] = b; s[2] = c; s[3] = d;
++}
++
++static FORCE_INLINE void mixB( uint64_t * s, uint64_t iv ) {
++    uint64_t a = s[1], b = s[2];
++
++    a *= V;
++    a  = ROTR64(a, 23);
++    a *= W;
++
++    b ^= a + iv;
++
++    b *= R;
++    b  = ROTR64(b, 23);
++    b *= S;
++
++    s[1] = b; s[2] = a;
++}
++
++template <uint32_t hashsize, bool bswap>
++static void rainbow2( const void * in, const size_t olen, const seed_t seed, void * out ) {
++    const uint8_t * data = (const uint8_t *)in;
++    uint64_t dom = ((uint64_t)hashsize << 32) ^ ((uint64_t)olen * P);
++    uint64_t h[4] = {
++        ROTR64((uint64_t)seed ^ dom, 17) * Q + 1,
++        (ROTR64((uint64_t)seed + olen, 29) * R) ^ (dom + 2),
++        ROTR64((uint64_t)seed ^ (olen * T), 41) * U + 3,
++        (ROTR64((uint64_t)seed + dom, 53) * V) ^ W
++    };
++    size_t   len   = olen;
++    uint64_t g     = 0;
++    bool     inner = false;
++
++    while (len >= 16) {
++        g     = GET_U64<bswap>(data, 0);
++        h[0] -= g;
++        h[1] += ROTR64(g, 19);
++        data += 8;
++
++        g     = GET_U64<bswap>(data, 0);
++        h[2] += g;
++        h[3] -= ROTR64(g, 41);
++
++        if (inner) {
++            mixB(h, seed);
++            rotate_right(h);
++        } else {
++            mixA(h);
++        }
++        inner = !inner;
++
++        data += 8;
++        len  -= 16;
++    }
++
++    mixB(h, seed);
++
++    switch (len) {
++    case 15: h[0] += (uint64_t)data[14] << 56; // [[fallthrough]]
++    case 14: h[1] += (uint64_t)data[13] << 48; // [[fallthrough]]
++    case 13: h[2] += (uint64_t)data[12] << 40; // [[fallthrough]]
++    case 12: h[3] += (uint64_t)data[11] << 32; // [[fallthrough]]
++    case 11: h[0] += (uint64_t)data[10] << 24; // [[fallthrough]]
++    case 10: h[1] += (uint64_t)data[9]  << 16; // [[fallthrough]]
++    case  9: h[2] += (uint64_t)data[8]  <<  8; // [[fallthrough]]
++    case  8: h[3] += (uint64_t)data[7];        // [[fallthrough]]
++    case  7: h[0] += (uint64_t)data[6]  << 48; // [[fallthrough]]
++    case  6: h[1] += (uint64_t)data[5]  << 40; // [[fallthrough]]
++    case  5: h[2] += (uint64_t)data[4]  << 32; // [[fallthrough]]
++    case  4: h[3] += (uint64_t)data[3]  << 24; // [[fallthrough]]
++    case  3: h[0] += (uint64_t)data[2]  << 16; // [[fallthrough]]
++    case  2: h[1] += (uint64_t)data[1]  <<  8; // [[fallthrough]]
++    case  1: h[2] += (uint64_t)data[0];
++    }
++
++    mixA(h);
++    mixB(h, seed);
++    mixA(h);
++
++    g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];
++    PUT_U64<bswap>(g, (uint8_t *)out, 0);
++
++    if (hashsize == 128) {
++        mixA(h);
++        g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];
++        PUT_U64<bswap>(g, (uint8_t *)out, 8);
++    } else if (hashsize == 256) {
++        mixA(h);
++        g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];
++        PUT_U64<bswap>(g, (uint8_t *)out, 8);
++        mixA(h);
++        mixB(h, seed);
++        mixA(h);
++        g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];
++        PUT_U64<bswap>(g, (uint8_t *)out, 16);
++        mixA(h);
++        g = ROTR64(h[0] - h[1], 29) - h[2] - h[3];
++        PUT_U64<bswap>(g, (uint8_t *)out, 24);
++    }
++}
++
++REGISTER_FAMILY(rainbow2,
++   $.src_url    = "https://github.com/DOSAYGO-STUDIO/rain",
++   $.src_status = HashFamilyInfo::SRC_STABLEISH
++ );
++
++REGISTER_HASH(rainbow2,
++   $.desc       = "Rainbow2 v2.0.0 (64-bit, R5 hardened)",
++   $.impl_flags =
++     FLAG_IMPL_MULTIPLY_64_64   |
++     FLAG_IMPL_ROTATE           |
++     FLAG_IMPL_LICENSE_APACHE2,
++   $.bits = 64,
++   $.verification_LE = 0xB6EB54B1,
++   $.verification_BE = 0xD229A9F4,
++   $.hashfn_native   = rainbow2<64, false>,
++   $.hashfn_bswap    = rainbow2<64, true>
++ );
++
++REGISTER_HASH(rainbow2_128,
++   $.desc       = "Rainbow2 128-bit v2.0.0 (R5 hardened)",
++   $.impl_flags =
++     FLAG_IMPL_MULTIPLY_64_64   |
++     FLAG_IMPL_ROTATE           |
++     FLAG_IMPL_LICENSE_APACHE2,
++   $.bits = 128,
++   $.verification_LE = 0xBA2E84CC,
++   $.verification_BE = 0x10A85C4D,
++   $.hashfn_native   = rainbow2<128, false>,
++   $.hashfn_bswap    = rainbow2<128, true>
++ );
++
++REGISTER_HASH(rainbow2_256,
++   $.desc       = "Rainbow2 256-bit v2.0.0 (R5 hardened)",
++   $.impl_flags =
++     FLAG_IMPL_MULTIPLY_64_64   |
++     FLAG_IMPL_ROTATE           |
++     FLAG_IMPL_LICENSE_APACHE2,
++   $.bits = 256,
++   $.verification_LE = 0x4F7D97BE,
++   $.verification_BE = 0x5EF63848,
++   $.hashfn_native   = rainbow2<256, false>,
++   $.hashfn_bswap    = rainbow2<256, true>
++ );

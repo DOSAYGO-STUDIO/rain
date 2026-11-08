@@ -1,0 +1,1286 @@
+{
+  "mode": "scan",
+  "parameters": {
+    "lengths": [
+      1,
+      15,
+      16,
+      17,
+      63,
+      64,
+      65
+    ],
+    "all_bits": false,
+    "masks": null,
+    "algorithm": "rainstorm",
+    "bits": 256,
+    "alpha": 0.0025,
+    "samples": 4096,
+    "batch": 1024,
+    "replay_seed": null,
+    "hash_seed": 0,
+    "p_min": 0.01
+  },
+  "sampling": "OS random bytes; probability claims assume IID uniform messages",
+  "family_size": 32,
+  "projection_radius": 0.0497683168977139,
+  "records": [
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 1,
+      "input_xor_hex_little_endian": "01",
+      "samples": 4096,
+      "distinct_output_differences": 128,
+      "most_frequent_difference": "dba88b628ac2b92b0117a59053bd48724c2bd6bb6be5a134399b1fbdb5082711",
+      "most_frequent_count": 47,
+      "max_exact_probability_upper": 0.16324421583534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.134765625,
+      "projection_alerts": [
+        {
+          "bit": 3,
+          "frequency": 0.427978515625
+        },
+        {
+          "bit": 4,
+          "frequency": 0.6171875
+        },
+        {
+          "bit": 10,
+          "frequency": 0.443603515625
+        },
+        {
+          "bit": 12,
+          "frequency": 0.449951171875
+        },
+        {
+          "bit": 13,
+          "frequency": 0.594482421875
+        },
+        {
+          "bit": 14,
+          "frequency": 0.4326171875
+        },
+        {
+          "bit": 16,
+          "frequency": 0.43994140625
+        },
+        {
+          "bit": 19,
+          "frequency": 0.436767578125
+        },
+        {
+          "bit": 23,
+          "frequency": 0.420166015625
+        },
+        {
+          "bit": 37,
+          "frequency": 0.4365234375
+        },
+        {
+          "bit": 42,
+          "frequency": 0.5634765625
+        },
+        {
+          "bit": 45,
+          "frequency": 0.56787109375
+        },
+        {
+          "bit": 46,
+          "frequency": 0.551025390625
+        },
+        {
+          "bit": 47,
+          "frequency": 0.56591796875
+        },
+        {
+          "bit": 51,
+          "frequency": 0.437255859375
+        },
+        {
+          "bit": 53,
+          "frequency": 0.565185546875
+        },
+        {
+          "bit": 58,
+          "frequency": 0.432861328125
+        },
+        {
+          "bit": 60,
+          "frequency": 0.56884765625
+        },
+        {
+          "bit": 61,
+          "frequency": 0.418701171875
+        },
+        {
+          "bit": 67,
+          "frequency": 0.4375
+        },
+        {
+          "bit": 71,
+          "frequency": 0.438232421875
+        },
+        {
+          "bit": 73,
+          "frequency": 0.44189453125
+        },
+        {
+          "bit": 83,
+          "frequency": 0.56494140625
+        },
+        {
+          "bit": 85,
+          "frequency": 0.558349609375
+        },
+        {
+          "bit": 92,
+          "frequency": 0.59423828125
+        },
+        {
+          "bit": 106,
+          "frequency": 0.567138671875
+        },
+        {
+          "bit": 109,
+          "frequency": 0.44091796875
+        },
+        {
+          "bit": 118,
+          "frequency": 0.550537109375
+        },
+        {
+          "bit": 119,
+          "frequency": 0.445556640625
+        },
+        {
+          "bit": 120,
+          "frequency": 0.445068359375
+        },
+        {
+          "bit": 122,
+          "frequency": 0.418701171875
+        },
+        {
+          "bit": 123,
+          "frequency": 0.552734375
+        },
+        {
+          "bit": 125,
+          "frequency": 0.594970703125
+        },
+        {
+          "bit": 126,
+          "frequency": 0.43408203125
+        },
+        {
+          "bit": 128,
+          "frequency": 0.550537109375
+        },
+        {
+          "bit": 138,
+          "frequency": 0.4150390625
+        },
+        {
+          "bit": 143,
+          "frequency": 0.578857421875
+        },
+        {
+          "bit": 147,
+          "frequency": 0.557373046875
+        },
+        {
+          "bit": 148,
+          "frequency": 0.564453125
+        },
+        {
+          "bit": 160,
+          "frequency": 0.365234375
+        },
+        {
+          "bit": 161,
+          "frequency": 0.4453125
+        },
+        {
+          "bit": 166,
+          "frequency": 0.56494140625
+        },
+        {
+          "bit": 167,
+          "frequency": 0.435546875
+        },
+        {
+          "bit": 171,
+          "frequency": 0.409912109375
+        },
+        {
+          "bit": 181,
+          "frequency": 0.425048828125
+        },
+        {
+          "bit": 187,
+          "frequency": 0.550048828125
+        },
+        {
+          "bit": 190,
+          "frequency": 0.556640625
+        },
+        {
+          "bit": 191,
+          "frequency": 0.443115234375
+        },
+        {
+          "bit": 194,
+          "frequency": 0.6025390625
+        },
+        {
+          "bit": 196,
+          "frequency": 0.431884765625
+        },
+        {
+          "bit": 202,
+          "frequency": 0.56689453125
+        },
+        {
+          "bit": 204,
+          "frequency": 0.419677734375
+        },
+        {
+          "bit": 217,
+          "frequency": 0.5654296875
+        },
+        {
+          "bit": 222,
+          "frequency": 0.558837890625
+        },
+        {
+          "bit": 226,
+          "frequency": 0.5595703125
+        },
+        {
+          "bit": 227,
+          "frequency": 0.4091796875
+        },
+        {
+          "bit": 230,
+          "frequency": 0.57373046875
+        },
+        {
+          "bit": 233,
+          "frequency": 0.580810546875
+        },
+        {
+          "bit": 236,
+          "frequency": 0.44140625
+        },
+        {
+          "bit": 237,
+          "frequency": 0.563720703125
+        },
+        {
+          "bit": 240,
+          "frequency": 0.5673828125
+        },
+        {
+          "bit": 245,
+          "frequency": 0.5859375
+        },
+        {
+          "bit": 250,
+          "frequency": 0.4140625
+        },
+        {
+          "bit": 254,
+          "frequency": 0.5703125
+        },
+        {
+          "bit": 255,
+          "frequency": 0.41357421875
+        }
+      ],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 1,
+      "input_xor_hex_little_endian": "80",
+      "samples": 4096,
+      "distinct_output_differences": 128,
+      "most_frequent_difference": "7402884f068c75f3a90ce4b03e6a3bd6b4b411a3c49b5926ca16ce30f4d09f28",
+      "most_frequent_count": 48,
+      "max_exact_probability_upper": 0.16348835646034227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.14697265625,
+      "projection_alerts": [
+        {
+          "bit": 12,
+          "frequency": 0.550537109375
+        },
+        {
+          "bit": 17,
+          "frequency": 0.449951171875
+        },
+        {
+          "bit": 19,
+          "frequency": 0.433837890625
+        },
+        {
+          "bit": 20,
+          "frequency": 0.436767578125
+        },
+        {
+          "bit": 22,
+          "frequency": 0.447509765625
+        },
+        {
+          "bit": 28,
+          "frequency": 0.554443359375
+        },
+        {
+          "bit": 31,
+          "frequency": 0.43505859375
+        },
+        {
+          "bit": 38,
+          "frequency": 0.572998046875
+        },
+        {
+          "bit": 39,
+          "frequency": 0.56640625
+        },
+        {
+          "bit": 42,
+          "frequency": 0.590576171875
+        },
+        {
+          "bit": 44,
+          "frequency": 0.4501953125
+        },
+        {
+          "bit": 45,
+          "frequency": 0.430419921875
+        },
+        {
+          "bit": 46,
+          "frequency": 0.43359375
+        },
+        {
+          "bit": 48,
+          "frequency": 0.44921875
+        },
+        {
+          "bit": 50,
+          "frequency": 0.4189453125
+        },
+        {
+          "bit": 52,
+          "frequency": 0.425537109375
+        },
+        {
+          "bit": 56,
+          "frequency": 0.552978515625
+        },
+        {
+          "bit": 57,
+          "frequency": 0.35302734375
+        },
+        {
+          "bit": 58,
+          "frequency": 0.412109375
+        },
+        {
+          "bit": 61,
+          "frequency": 0.420654296875
+        },
+        {
+          "bit": 62,
+          "frequency": 0.42822265625
+        },
+        {
+          "bit": 79,
+          "frequency": 0.430908203125
+        },
+        {
+          "bit": 80,
+          "frequency": 0.428955078125
+        },
+        {
+          "bit": 85,
+          "frequency": 0.564697265625
+        },
+        {
+          "bit": 89,
+          "frequency": 0.58837890625
+        },
+        {
+          "bit": 92,
+          "frequency": 0.44140625
+        },
+        {
+          "bit": 96,
+          "frequency": 0.43896484375
+        },
+        {
+          "bit": 97,
+          "frequency": 0.553955078125
+        },
+        {
+          "bit": 100,
+          "frequency": 0.56494140625
+        },
+        {
+          "bit": 101,
+          "frequency": 0.56884765625
+        },
+        {
+          "bit": 102,
+          "frequency": 0.423095703125
+        },
+        {
+          "bit": 103,
+          "frequency": 0.42822265625
+        },
+        {
+          "bit": 108,
+          "frequency": 0.437744140625
+        },
+        {
+          "bit": 112,
+          "frequency": 0.44384765625
+        },
+        {
+          "bit": 115,
+          "frequency": 0.419677734375
+        },
+        {
+          "bit": 116,
+          "frequency": 0.426025390625
+        },
+        {
+          "bit": 118,
+          "frequency": 0.427001953125
+        },
+        {
+          "bit": 130,
+          "frequency": 0.39404296875
+        },
+        {
+          "bit": 136,
+          "frequency": 0.613525390625
+        },
+        {
+          "bit": 142,
+          "frequency": 0.398193359375
+        },
+        {
+          "bit": 143,
+          "frequency": 0.552734375
+        },
+        {
+          "bit": 144,
+          "frequency": 0.571533203125
+        },
+        {
+          "bit": 146,
+          "frequency": 0.447265625
+        },
+        {
+          "bit": 149,
+          "frequency": 0.4404296875
+        },
+        {
+          "bit": 152,
+          "frequency": 0.44091796875
+        },
+        {
+          "bit": 155,
+          "frequency": 0.443115234375
+        },
+        {
+          "bit": 156,
+          "frequency": 0.44482421875
+        },
+        {
+          "bit": 157,
+          "frequency": 0.621826171875
+        },
+        {
+          "bit": 159,
+          "frequency": 0.40576171875
+        },
+        {
+          "bit": 160,
+          "frequency": 0.554931640625
+        },
+        {
+          "bit": 161,
+          "frequency": 0.603515625
+        },
+        {
+          "bit": 167,
+          "frequency": 0.56787109375
+        },
+        {
+          "bit": 169,
+          "frequency": 0.559326171875
+        },
+        {
+          "bit": 171,
+          "frequency": 0.5498046875
+        },
+        {
+          "bit": 176,
+          "frequency": 0.562744140625
+        },
+        {
+          "bit": 177,
+          "frequency": 0.392578125
+        },
+        {
+          "bit": 179,
+          "frequency": 0.561279296875
+        },
+        {
+          "bit": 181,
+          "frequency": 0.44091796875
+        },
+        {
+          "bit": 190,
+          "frequency": 0.40478515625
+        },
+        {
+          "bit": 192,
+          "frequency": 0.582275390625
+        },
+        {
+          "bit": 193,
+          "frequency": 0.559326171875
+        },
+        {
+          "bit": 195,
+          "frequency": 0.44873046875
+        },
+        {
+          "bit": 197,
+          "frequency": 0.445068359375
+        },
+        {
+          "bit": 198,
+          "frequency": 0.438232421875
+        },
+        {
+          "bit": 201,
+          "frequency": 0.576171875
+        },
+        {
+          "bit": 205,
+          "frequency": 0.445556640625
+        },
+        {
+          "bit": 206,
+          "frequency": 0.568359375
+        },
+        {
+          "bit": 209,
+          "frequency": 0.43994140625
+        },
+        {
+          "bit": 212,
+          "frequency": 0.435546875
+        },
+        {
+          "bit": 216,
+          "frequency": 0.43701171875
+        },
+        {
+          "bit": 218,
+          "frequency": 0.562744140625
+        },
+        {
+          "bit": 228,
+          "frequency": 0.5986328125
+        },
+        {
+          "bit": 230,
+          "frequency": 0.5634765625
+        },
+        {
+          "bit": 231,
+          "frequency": 0.5732421875
+        },
+        {
+          "bit": 235,
+          "frequency": 0.449951171875
+        },
+        {
+          "bit": 239,
+          "frequency": 0.555419921875
+        },
+        {
+          "bit": 240,
+          "frequency": 0.57958984375
+        },
+        {
+          "bit": 244,
+          "frequency": 0.569091796875
+        },
+        {
+          "bit": 245,
+          "frequency": 0.577880859375
+        },
+        {
+          "bit": 247,
+          "frequency": 0.4501953125
+        }
+      ],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 15,
+      "input_xor_hex_little_endian": "010000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "862c3db71f8adf5e50438bb4fefc21f9cab37d04bf4ef542b0406b23875e2436",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.023193359375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 15,
+      "input_xor_hex_little_endian": "800000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "866c1ed5fbd4ca9b764f29ba00103d160fde8bf26449b02951feb098292bc671",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.0244140625,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 15,
+      "input_xor_hex_little_endian": "000000000000000100000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "5509c4bd6139f220167af575c64d6eac356d7ea4c27d43d8f520fc8608f454c0",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.028564453125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 15,
+      "input_xor_hex_little_endian": "000000000000000000000000000001",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "07bc5ad11ece85550ba9d18ee4156a00a066c428c56f4071cd4d481f20cc99c6",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.023681640625,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 15,
+      "input_xor_hex_little_endian": "000000000000000000000000000080",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "79ed6e602eafbb63bc58d502955e75605a7a6c5c49d738260767d29bbfdf3690",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.028564453125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 16,
+      "input_xor_hex_little_endian": "01000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "1bb39fd8e910e17ea294e5f8234bc16d27364183e6f23f949d5cc2c0d68308de",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.022705078125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 16,
+      "input_xor_hex_little_endian": "80000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "ed810754baca941308f83c5f8ab7b1d36c8a85d90cfae18bdf0d6aef6b916f44",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02001953125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 16,
+      "input_xor_hex_little_endian": "00000000000000000100000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "330cbf20925cd468b3d3b09b14ff138acebb15852a353aae733d6f8fe59a06e6",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.0263671875,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 16,
+      "input_xor_hex_little_endian": "00000000000000000000000000000001",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "36e5bd6731199ac584aa488f46f50c5fa28ac9c7c47c25c4457050c45e807b15",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.021240234375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 16,
+      "input_xor_hex_little_endian": "00000000000000000000000000000080",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "9040c74d0b5c80791575e0f81c358a65f3255c7ecd24808acff49993bd323f23",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.0205078125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 17,
+      "input_xor_hex_little_endian": "0100000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "a8400b83af86f21480b234ecac0d502e0a475b36d9575c6f21f1f38941b68e04",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.028564453125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 17,
+      "input_xor_hex_little_endian": "8000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "8b7a985ad923d32c920cd6e9d1fd8bac9de145ca2e5ffee167271af9c5e8e309",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02197265625,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 17,
+      "input_xor_hex_little_endian": "0000000000000000010000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "a159bab9edbee7c7f01b33d21504fee24c2de4f84886f06abbb12898d19f91ab",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02294921875,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 17,
+      "input_xor_hex_little_endian": "0000000000000000000000000000000001",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "d0eb327be0685950b0439f67c6f665e0d75b8a41d706cf22055ea373cf0cbf02",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.025390625,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 17,
+      "input_xor_hex_little_endian": "0000000000000000000000000000000080",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "65f13a6d1222c3aca7c712a085c4b4489bdc72898f8b184067460a013a5f25dd",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.025634765625,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 63,
+      "input_xor_hex_little_endian": "010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "5306294ba0cfd6d6018ea1437c6c5ab64f3d08bd9b7342ca6f486cab31abe953",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.025390625,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 63,
+      "input_xor_hex_little_endian": "800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "afa3ffe53ae703670980fe9d0795e797d1a494c2ca38ed1bea630a32e388462a",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02392578125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 63,
+      "input_xor_hex_little_endian": "000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "19883cf83dd3f3a075e40d04ba476630fbf4968e60d8ef4b6f800193147ace3f",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.018310546875,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 63,
+      "input_xor_hex_little_endian": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "50e800529465b9457296f8d7e99e63cf8fdc6fa4415451e80b4952d0bd9826e6",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.0302734375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 63,
+      "input_xor_hex_little_endian": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "20363453174f7406fd2c935621e4b063509cfc7f41e256f73fef8a5be4494931",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.021240234375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 64,
+      "input_xor_hex_little_endian": "01000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "48cb742216e5969def7e699f087c4841dbdaf53fb7b79f2b55141ba7a668094f",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.021484375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 64,
+      "input_xor_hex_little_endian": "80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "961b6b42a459c710c14f4153682cb7280d4d6e11ac4bdfb82ed69184115f0689",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.0234375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 64,
+      "input_xor_hex_little_endian": "00000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "46ee7a66895ec2640009fc1fc6b2aee827ee191b8825d677d8822e2349546074",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.022216796875,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 64,
+      "input_xor_hex_little_endian": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "0b73c629afc451b555a10e5bde8b29ad95d4626058f9084916b1f62c818efd39",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02490234375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 64,
+      "input_xor_hex_little_endian": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "71f894c86f9bbfa662d26df9c77b30cb495025dd751fa26eb4a7bf69519d89b6",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02099609375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 65,
+      "input_xor_hex_little_endian": "0100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "28a1e233dc444b2a06cc1fbb8ad82a67aee1f97d16b3328ff5773c8e05cdcaea",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.021240234375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 65,
+      "input_xor_hex_little_endian": "8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "6f0f0ac807828333a0b67a74d30b1c1728c5220533196ed737647e530097b236",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.0234375,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 65,
+      "input_xor_hex_little_endian": "0000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "161379e0bbae7da02dbb4106d283e242a0d040a46066efab421c779e7705aa6f",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.022216796875,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 65,
+      "input_xor_hex_little_endian": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "81ed401eef872069568b53b92f1d2cc68f2b55b8b8b4e55d25fcb2839847052d",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02001953125,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    },
+    {
+      "algorithm": "rainstorm",
+      "bits": 256,
+      "length": 65,
+      "input_xor_hex_little_endian": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080",
+      "samples": 4096,
+      "distinct_output_differences": 4096,
+      "most_frequent_difference": "86810241bed47debdb50d67411ccc4a3f6646f165d77468aa4a2e21170bcd459",
+      "most_frequent_count": 1,
+      "max_exact_probability_upper": 0.15201374708534227,
+      "collisions": 0,
+      "collision_witness": null,
+      "max_bit_bias": 0.02197265625,
+      "projection_alerts": [],
+      "bounds": {
+        "all_exact_differences_hoeffding_radius": 0.15176960646034227,
+        "zero_collision_upper": 0.002573784840948915,
+        "miss_any_mass_at_least_p_upper": 4.23552305332645e-15,
+        "samples_per_delta_for_discovery": 1509
+      }
+    }
+  ],
+  "candidate": "d",
+  "candidate_sha256": "91e3f77a391e1dcdef0b06f75644c137ba251cbbddcfeacc15442ad928884e6a",
+  "native_reference_checks": "variants/checks.json (run before this screen)"
+}

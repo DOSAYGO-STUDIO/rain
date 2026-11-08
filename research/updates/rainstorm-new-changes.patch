@@ -1,0 +1,83 @@
+diff --git a/hashes/rainbow.cpp b/hashes/rainbow.cpp
+index 51adfd06..96b44ee5 100644
+--- a/hashes/rainbow.cpp
++++ b/hashes/rainbow.cpp
+@@ -71,7 +71,7 @@ static inline void mixB( uint64_t * s, uint64_t iv ) {
+     b  = ROTR64(b, 23);
+     b *= S;
+ 
+-    s[1] = a; s[2] = b;
++    s[1] = b; s[2] = a;
+ }
+ 
+ template <uint32_t hashsize, bool bswap>
+diff --git a/hashes/rainstorm.cpp b/hashes/rainstorm.cpp
+index 789ebfc7..399fd483 100644
+--- a/hashes/rainstorm.cpp
++++ b/hashes/rainstorm.cpp
+@@ -101,6 +101,7 @@ static void rainstorm( const void * in, const size_t len, const seed_t seed, voi
+ 
+     uint64_t temp[8];
+     uint64_t lenRemaining = len;
++    uint64_t ctr = CTR_LEFT + CTR_RIGHT;
+ 
+     // Process 512-bit blocks
+     while (lenRemaining >= 64) {
+@@ -112,6 +113,23 @@ static void rainstorm( const void * in, const size_t len, const seed_t seed, voi
+             weakfunc(h, temp, i & 1);
+         }
+ 
++        int bits = __builtin_popcount(h[h[3] & 15]);
++
++        if ((bits % 3) == 0) {
++          ctr = CTR_LEFT + CTR_RIGHT;
++        } else {
++          ctr ^= h[h[7] & 15];
++        }
++
++        for (int i = 0, j = 8; i < 8; i++, j++) {
++            ctr += h[i];
++            h[i] -= h[j] ^ ctr;
++        }
++        for (int i = 8, j = 0; j < 8; i++, j++) {
++            ctr += h[i];
++            h[i] -= h[j] ^ ctr;
++        }
++
+         data         += 64;
+         lenRemaining -= 64;
+     }
+@@ -155,7 +173,7 @@ REGISTER_FAMILY(rainstorm,
+  );
+ 
+ REGISTER_HASH(rainstorm,
+-   $.desc       = "Rainstorm v0.0.6",
++   $.desc       = "Rainstorm v1.3.1",
+    $.impl_flags =
+      FLAG_IMPL_ROTATE           |
+      FLAG_IMPL_SLOW             |
+@@ -168,7 +186,7 @@ REGISTER_HASH(rainstorm,
+  );
+ 
+ REGISTER_HASH(rainstorm_128,
+-   $.desc       = "Rainstorm 128-bit v0.0.6",
++   $.desc       = "Rainstorm 128-bit v1.3.1",
+    $.impl_flags =
+      FLAG_IMPL_ROTATE           |
+      FLAG_IMPL_SLOW             |
+@@ -181,13 +199,13 @@ REGISTER_HASH(rainstorm_128,
+  );
+ 
+ REGISTER_HASH(rainstorm_256,
+-   $.desc       = "Rainstorm 256-bit v0.0.6",
++   $.desc       = "Rainstorm 256-bit v1.3.1",
+    $.impl_flags =
+      FLAG_IMPL_ROTATE           |
+      FLAG_IMPL_SLOW             |
+      FLAG_IMPL_LICENSE_APACHE2,
+    $.bits = 256,
+-   $.verification_LE = 0x8BDBF180,
++   $.verification_LE = 0x3A047441,
+    $.verification_BE = 0xA08B2DEB,
+    $.hashfn_native   = rainstorm<256, false>,
+    $.hashfn_bswap    = rainstorm<256, true>

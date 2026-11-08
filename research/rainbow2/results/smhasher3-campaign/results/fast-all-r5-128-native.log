@@ -1,0 +1,78 @@
+WARNING: Hash with verification code ed7533d3 was already registered: rainbow
+         Are you certain rainbow2-r0-64 is a unique implementation?
+WARNING: Hash with verification code be75a175 was already registered: rainbow
+         Are you certain rainbow2-r0-64 is a unique implementation?
+WARNING: Hash with verification code ff03173f was already registered: rainbow-128
+         Are you certain rainbow2-r0-128 is a unique implementation?
+WARNING: Hash with verification code a8ead0c3 was already registered: rainbow-128
+         Are you certain rainbow2-r0-128 is a unique implementation?
+WARNING: Hash with verification code 65f4a210 was already registered: rainbow-256
+         Are you certain rainbow2-r0-256 is a unique implementation?
+WARNING: Hash with verification code d2afd9eb was already registered: rainbow-256
+         Are you certain rainbow2-r0-256 is a unique implementation?
+-------------------------------------------------------------------------------
+--- Testing rainbow2-r5-128 "Rainbow2 ladder R5 (128-bit): R4 + nonlinear domain-separated seed/length/width initialization. Eliminates additive seed correlation and cross-width prefixing (W4, W5)."
+
+[[[ Sanity Tests ]]]
+
+Verification value LE 0xEA64F06C ...... PASS
+Running sanity check 1       .......... PASS
+Running sanity check 2       .......... PASS
+Running append zeroes test   .......... PASS
+Running prepend zeroes test  .......... PASS
+Running thread-safety test 1 .......... PASS
+Running thread-safety test 2 .......... PASS
+
+[[[ Speed Tests ]]]
+
+Small key speed test - [1, 31]-byte keys
+   1-byte keys -    54.51 cycles/hash
+   2-byte keys -    55.38 cycles/hash
+   3-byte keys -    55.38 cycles/hash
+   4-byte keys -    55.38 cycles/hash
+   5-byte keys -    56.24 cycles/hash
+   6-byte keys -    56.24 cycles/hash
+   7-byte keys -    57.11 cycles/hash
+   8-byte keys -    57.11 cycles/hash
+   9-byte keys -    57.11 cycles/hash
+  10-byte keys -    57.97 cycles/hash
+  11-byte keys -    57.11 cycles/hash
+  12-byte keys -    57.97 cycles/hash
+  13-byte keys -    57.11 cycles/hash
+  14-byte keys -    59.70 cycles/hash
+  15-byte keys -    57.97 cycles/hash
+  16-byte keys -    83.93 cycles/hash
+  17-byte keys -    83.93 cycles/hash
+  18-byte keys -    85.66 cycles/hash
+  19-byte keys -    83.93 cycles/hash
+  20-byte keys -    86.09 cycles/hash
+  21-byte keys -    84.79 cycles/hash
+  22-byte keys -    87.39 cycles/hash
+  23-byte keys -    85.66 cycles/hash
+  24-byte keys -    85.66 cycles/hash
+  25-byte keys -    88.25 cycles/hash
+  26-byte keys -    87.39 cycles/hash
+  27-byte keys -    89.12 cycles/hash
+  28-byte keys -    88.25 cycles/hash
+  29-byte keys -    88.25 cycles/hash
+  30-byte keys -    90.85 cycles/hash
+  31-byte keys -    93.45 cycles/hash
+Average        -    72.42 cycles/hash
+ rnd-byte keys -    72.57 cycles/hash
+
+Bulk speed test - 262144-byte keys
+Alignment   7 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment   6 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment   5 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment   4 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment   3 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment   2 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment   1 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment   0 -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Average       -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+Alignment rnd -  1.45 bytes/cycle -  4.73 GiB/sec @ 3.5 ghz
+
+Bulk speed test - [262017, 262144]-byte keys
+Alignment   7 -  1.45 bytes/cycle -  4.72 GiB/sec @ 3.5 ghz
+Alignment   6 -  1.45 bytes/cycle -  4.72 GiB/sec @ 3.5 ghz
+Alignment   5 -  1.44 bytes/cycle -  4.69 GiB/sec @ 3.5 ghz

@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "random_witness_trials": 256,
+  "right_round_collision_witness": {
+    "block": [
+      "0xcaeeed1a5e6d3b",
+      "0x17aa4620ec706370",
+      "0x9038d68a43a70050",
+      "0x39852078408355e1",
+      "0xad51bdf485fc6acc",
+      "0xda2b9ad88e8b4986",
+      "0xd3427b17aaa12a24",
+      "0x4eed0d0dfc952add"
+    ],
+    "state_a": [
+      "0x9eb1e13216b5cbcd",
+      "0x3b853d391fbde1a2",
+      "0x15b731bfde05901a",
+      "0x3e034e8e80022e9a",
+      "0x6b3a196999221e4f",
+      "0x1c18efda01de51e0",
+      "0x59bb237b0491dfea",
+      "0xeb8b791eb6bd51c7",
+      "0x9fb4a57543c6c732",
+      "0x40b9e52fe21da54f",
+      "0xc973765b30b1dce4",
+      "0x7a82066a95db8150",
+      "0x76759d46fc23a823",
+      "0x314a1dd73be214e0",
+      "0x17c352287d255fa4",
+      "0x7e9fd0828e8153e3"
+    ],
+    "state_b": [
+      "0x9eb1e13216b5cbcc",
+      "0x3b853d391fbde1a2",
+      "0x15b731bfde05901a",
+      "0x3e034e8e80022e9a",
+      "0x6b3a196999221e4f",
+      "0x1c18efda01de51e0",
+      "0x59bb237b0491dfea",
+      "0xeb8b791eb6bd51c7",
+      "0x9fb4a57543c4c732",
+      "0x40b9e52fe21da550",
+      "0xc973765b30b1dce5",
+      "0x7a82066a95db8151",
+      "0x76759d46fc23a824",
+      "0x314a1dd73be214e1",
+      "0x17c352287d255fa5",
+      "0x7e9fd0828e8153e4"
+    ],
+    "common_output": [
+      "0xcb93ae8d3379e701",
+      "0xd7dbbffbb56a4f74",
+      "0x90976e1b9c6e27dd",
+      "0xf76a95b2ad310a59",
+      "0xddbd105953f8fae0",
+      "0x67e384fa56b0ccac",
+      "0xd899fe03b7a684cd",
+      "0x25d82cac0bb98bdc",
+      "0x32ec4669ba48e065",
+      "0xec5e82c2aad7aed6",
+      "0x85205fa4426bb7c7",
+      "0xc969db3c2d3324c3",
+      "0xb6870930cadae4af",
+      "0x7bfb6b20576e9d4c",
+      "0x8122dd78b3375b27",
+      "0xce5355b2bd04da1b"
+    ]
+  },
+  "selftest_passed": true,
+  "source_sha256": {
+    "src/rainbow.cpp": "d432b1b5aea6700d51dd549e8f5b753e19301439f6ddb02c85187eed5c540163",
+    "src/rainstorm.cpp": "3a7c1a375656e2ff6227bbc621aa085a07dd5bbcfe8010c88ed2191611fbf1bb",
+    "src/common.h": "d35e24c8ceb7ff0244899aeb066b208383f586b647d3b48bd25044a80d7517cb",
+    "research/differential/suite.py": "ece8b63f4c291b65b596037ec4707da4c9f248ead0d8dd1585b32b5c1ac0e660",
+    "research/differential/native.cpp": "234c076cbd104a379580a81f53e1c651ce72b6a8e2b2c6c79fb199b03fb2a126"
+  }
+}

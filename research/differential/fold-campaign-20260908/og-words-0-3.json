@@ -1,0 +1,18 @@
+{
+  "experiment": "reachable-fold-cancellation",
+  "variant": "OG",
+  "solver": "Z3 4.15.4",
+  "status": "unknown",
+  "elapsed_seconds": 61.33243333408609,
+  "timeout_seconds": 60,
+  "message_length": 64,
+  "symbolic_prefix_bytes_per_message": 8,
+  "fixed_suffix_byte": 0,
+  "equal_fold_words": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "scope": "Exact 64-bit arithmetic; bounded symbolic prefixes; SAT is a witness, unknown is inconclusive."
+}

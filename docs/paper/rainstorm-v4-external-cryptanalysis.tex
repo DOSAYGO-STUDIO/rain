@@ -1,0 +1,397 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.78in,headheight=14pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{booktabs,array,tabularx,multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{needspace}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+
+\definecolor{Navy}{HTML}{102D44}
+\definecolor{Teal}{HTML}{0D716A}
+\definecolor{Pale}{HTML}{EDF5F4}
+\definecolor{Gray}{HTML}{52606D}
+\definecolor{Red}{HTML}{9B2C2C}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Navy,
+  urlcolor=Teal,
+  citecolor=Teal,
+  pdftitle={A Fold Collapse in Two-Round Rainstorm-256 without Padding Compression},
+  pdfauthor={Cris},
+  pdfsubject={Exact reduction to a 64-bit collision problem},
+  pdfkeywords={Rainstorm; reduced-round cryptanalysis; collision attacks; fold collapse}
+}
+\urlstyle{same}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Cryptanalysis of Rainstorm v4.0.0}
+\rhead{Cris}
+\cfoot{\thepage\ / \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\large\bfseries\color{Navy}}{\thesection}{0.55em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{Teal}}{\thesubsection}{0.55em}{}
+\titlespacing*{\section}{0pt}{1.25em}{0.35em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.25em}
+
+\setlist[itemize]{leftmargin=1.3em,itemsep=0.12em,topsep=0.2em}
+\setlist[enumerate]{leftmargin=1.5em,itemsep=0.15em,topsep=0.2em}
+
+\lstdefinestyle{code}{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{Pale},
+  frame=single,
+  rulecolor=\color{Teal!45},
+  breaklines=true,
+  columns=fullflexible,
+  xleftmargin=0.25em,
+  xrightmargin=0.25em,
+  aboveskip=0.45em,
+  belowskip=0.45em
+}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{result}{Experimental Result}
+
+\newcommand{\W}{\mathbb{Z}/2^{64}\mathbb{Z}}
+\newcommand{\ROTR}{\operatorname{ROTR}}
+\newcommand{\ROTL}{\operatorname{ROTL}}
+\newcommand{\RS}{\operatorname{RS}}
+\newcommand{\Fold}{\operatorname{Fold}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+
+% Archival source snapshot; do not retarget this release name after publication.
+\newcommand{\archiveTag}{rainstorm-v4-cryptanalysis-eprint-v1}
+\newcommand{\archiveName}{\nolinkurl{rainstorm-v4-cryptanalysis-eprint-v1}}
+\newcommand{\archiveRoot}{https://github.com/DOSAYGO-STUDIO/rain}
+\newcommand{\archiveFile}[2]{\href{\archiveRoot/blob/\archiveTag/#1}{#2}}
+\newcommand{\archiveTree}[2]{\href{\archiveRoot/tree/\archiveTag/#1}{#2}}
+
+\begin{document}
+\begin{center}
+{\LARGE\bfseries\color{Navy} A Fold Collapse in Two-Round Rainstorm-256\\without Padding Compression}\par
+\vspace{0.7em}
+{\large Cris}\par
+DOSAYGO Corporation\\
+\href{mailto:research@dosaygo.com}{\texttt{research@dosaygo.com}}\\
+\vspace{0.4em}
+17 September 2026
+\end{center}
+
+\begin{abstract}
+We give an algebraic collision reduction for a precisely specified variant of Rainstorm v4.0.0: one 64-byte message block, seed zero, two message rounds, no padding compression, and the unchanged fold and output finalization. A uniquely programmable first round produces a family of distinct messages indexed by one 64-bit word. On this family five folded words vanish identically, and equality of a sixth word implies equality of the complete 256-bit digest. We prove this implication, including preservation through finalization, and exhibit a concrete collision found using 4,070,333,044 evaluations of the resulting 64-bit map, plus 33,707 replay evaluations. This is an observed cost; an expected birthday-scale search cost requires a random-mapping heuristic. One restored padding round preserves five fold equalities but introduces an additional aggregate condition. The result identifies a specific interaction between message programming, cross-half XOR, and subtractive folding. It does not give a collision attack on production Rainstorm, which uses four message rounds and four padding rounds. We include the complete restricted-target definition and an executable witness verifier.
+\end{abstract}
+\noindent\textbf{Keywords:} Rainstorm; reduced-round cryptanalysis; collision attacks; subtractive folding.
+
+\section{Introduction}
+Rainstorm v4.0.0 is a word-oriented hash with sixteen 64-bit state words and 64-byte input blocks~\cite{rainstorm-v4}. For a complete 64-byte message, it executes four alternating message rounds, four rounds on a mandatory padding block, subtracts the high state half from the low half, and applies width-dependent finalization. We study the effect of keeping only the first two message rounds and omitting padding compression. This is a substantial reduction of the production schedule.
+
+The contribution is an exact structural observation about this target. The message words can program all eight transformed outputs of the first right round. Choosing those outputs as $(0,0,0,0,0,0,v,-v)$ makes five words of the subsequent subtractive fold identically zero. A collision in the remaining first fold word then gives a complete reduced 256-bit collision. The new object of analysis is this interaction between the round and fold; the collision-search technique is standard. The argument requires no chosen initial state, probabilistic differential trail, or solver assumption.
+
+The paper separates three kinds of evidence: a proved reduction from collisions in a 64-bit map to reduced digest collisions; one verified collision witness with recorded search cost; and an exact condition explaining why that witness does not survive a restored padding round. The reduction alone neither proves that the map behaves randomly nor supplies a general expected running time. No quantitative production security margin follows from these results.
+
+\paragraph{Relation to existing techniques.}
+Programming intermediate words is a form of message modification. The subsequent search exploits a low-dimensional image of the fold. Rebound cryptanalysis uses internal degrees of freedom and outward propagation to obtain attacks~\cite{lamberger2010}; the attack here requires no inbound connection between independently chosen internal states. We therefore describe it as a fold collapse rather than a completed rebound attack. We claim a construction-specific identity, not a new generic collision-search algorithm or an exhaustive priority result over all Rainstorm analyses.
+
+\section{Complete Definition of the Restricted Target}
+\label{sec:scope}
+All additions and subtractions are modulo $2^{64}$, in $\W$. The operations $\oplus$ and $\mathbin{\&}$ are bitwise XOR and AND. $\ROTR_z$ rotates a 64-bit word right by $z$ bits; $\ROTL_z$ is its inverse. Words are indexed from zero and message and digest words use little-endian byte order.
+
+The domain consists of exactly 64-byte messages $M$, parsed as eight words $d_0,\ldots,d_7$. The seed is fixed to zero. Initialize $h_i=64+p_i$, where
+\[
+(p_0,\ldots,p_{15})=(1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47).
+\]
+Write $L_i=h_i$ and $H_i=h_{8+i}$. The following constants are decimal unless prefixed by \code{0x}:
+\begin{lstlisting}[style=code]
+K = [18446744073709551557, 13166748625691186689,
+     1573836600196043749, 1478582680485693857,
+     1584163446043636637, 1358537349836140151,
+     2849285319520710901, 2366157163652459183]
+Z = [17, 19, 23, 29, 31, 37, 41, 53]
+C_R = 0x1032547698badcfe
+C_L = 0xefcdab8967452301
+P = [0x8080808080808080] * 8
+\end{lstlisting}
+Here $P$ is the mandatory padding block for this message length.
+
+\paragraph{Right round $R_d$.}
+Set $c_0=C_R$. In increasing lane order compute
+\begin{align}
+q_0&=H_0,&q_i&=H_i-c_i\quad(i>0),\\
+y_i&=\ROTR_{Z_i}((q_i\oplus d_i)-K_i),&c_{i+1}&=c_i+y_i.
+\end{align}
+The output is
+\[
+H'_i=y_i,\qquad L'_0=(L_0\oplus y_0)-c_8,\qquad
+L'_i=L_i\oplus y_i\quad(i>0).
+\]
+
+\paragraph{Left round $T_d$.}
+For an arbitrary incoming $(L,H)$ set $b_0=C_L$ and compute
+\begin{align}
+a_0&=L_0,&a_i&=L_i-b_i\quad(i>0),\\
+x_i&=\ROTR_{Z_i}((a_i\oplus d_i)-K_i),&b_{i+1}&=b_i+x_i.
+\end{align}
+The output is
+\[
+L'_i=x_i,\qquad H'_0=(H_0\oplus x_0)-b_8,\qquad
+H'_i=H_i\oplus x_i\quad(i>0).
+\]
+Each round resets its counter. These equations specify every state word, including the cross-half final counter subtraction.
+
+\begin{definition}[Reduced digest]
+$\RS_n^{(r_m,r_p)}(M)$ starts at the IV above, applies $r_m$ rounds on $d$ in the order $R_d,T_d,R_d,T_d,\ldots$, then $r_p$ rounds on $P$ starting afresh with $R_P$. It replaces each $L_i$ by $F_i=L_i-H_i$, retaining $H$. It then applies $f_n$ left rounds $T_P$, where $(f_{64},f_{128},f_{256},f_{512})=(0,2,4,8)$, and emits the first $n/64$ low words in little-endian order.
+\end{definition}
+Production at this length is $\RS_n^{(4,4)}$. The attacked function is $\RS_n^{(2,0)}$. Padding compression is deleted in the latter, but $P$ is still used in finalization. A collision is a pair of distinct messages in this fixed domain with equal digests under the same target.
+
+\section{Programming and the Fold Identity}
+\label{sec:programming}
+\subsection{Exact right-round programming}
+
+\begin{lemma}[Message programming]\label{lem:program}
+For every prescribed vector $(y_0,\ldots,y_7)\in\W^8$ and incoming state, there is a unique data block that realizes those transformed words in one right round:
+\begin{equation}
+  d_i=q_i\oplus\left(\ROTL_{Z_i}(y_i)+K_i\right).
+  \label{eq:program}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Invert, in order, the fixed rotation, subtraction of $K_i$, and XOR by $d_i$. The counter prefix determining $q_i$ is known from $y_0,\ldots,y_{i-1}$. Every operation is bijective on a 64-bit word, so the recovered $d_i$ is unique.
+\end{proof}
+
+This lemma converts chosen internal first-round outputs into an ordinary chosen 64-byte message. It is not a free-start relaxation.
+
+\section{Practical Two-Round Collision Attack}
+\label{sec:collision}
+
+\subsection{Fold degeneration after two rounds}
+
+\begin{proposition}[Two-round fold identity]\label{prop:fold}
+After a programmed right round and the following left round on the same data, let $x_i$ be the transformed low words. Then $H^{\prime\prime}_0=(y_0\oplus x_0)-C_L-\sum_jx_j$ and $H^{\prime\prime}_i=y_i\oplus x_i$ for $i>0$, so
+\begin{align}
+  F_0 &= C_L+\sum_{j=0}^{7}x_j-y_0+2(y_0\mathbin{\&}x_0), \\
+  F_i &= -y_i+2(y_i\mathbin{\&}x_i),\qquad 1\leq i\leq 7.
+  \label{eq:foldidentity}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+For $i>0$, substitute $L''_i=x_i$ and $H''_i=y_i\oplus x_i$, then use the integer identity $a\oplus b=a+b-2(a\mathbin{\&}b)$. Word zero includes the final left-counter subtraction in $H''_0$, adding $C_L+\sum_jx_j$ to the fold expression.
+\end{proof}
+
+Choose
+\begin{equation}
+  y(v)=(0,0,0,0,0,0,v,-v).
+  \label{eq:family}
+\end{equation}
+The zero sum keeps the first-right-round wrap fixed. Proposition~\ref{prop:fold} gives $F_1=\cdots=F_5=0$. Define
+\begin{equation}
+  G(v)=F_0(v)=C_L+\sum_{j=0}^{7}x_j(v).
+  \label{eq:G}
+\end{equation}
+
+\begin{corollary}[Six-word collapse]
+If $v_a\neq v_b$ and $G(v_a)=G(v_b)$, then the corresponding legal 64-byte messages have equal fold words $F_0,\ldots,F_5$ after two message rounds.
+\end{corollary}
+
+\begin{lemma}[Finalization preserves prefix equality]
+For fixed data, the first $k$ low output words of a left round depend only on the first $k$ low input words. The induced map on this prefix is bijective.
+\end{lemma}
+\begin{proof}
+The recurrence for $x_0$ uses only $L_0$. For $i>0$, the recurrence uses $L_i$ and the already computed $x_0,\ldots,x_{i-1}$. No high word is read. Conversely, recover $L_0=(\ROTL_{Z_0}(x_0)+K_0)\oplus d_0$ and, for $i>0$, recover
+$L_i=((\ROTL_{Z_i}(x_i)+K_i)\oplus d_i)+C_L+\sum_{j<i}x_j$.
+This gives an inverse for every prefix.
+\end{proof}
+
+\begin{proposition}[Collision reduction]\label{prop:collision}
+Distinct $v_a,v_b$ with $G(v_a)=G(v_b)$ yield distinct 64-byte messages colliding under each of $\RS_{64}^{(2,0)}$, $\RS_{128}^{(2,0)}$, and $\RS_{256}^{(2,0)}$. Their first six output words also agree under $\RS_{512}^{(2,0)}$.
+\end{proposition}
+\begin{proof}
+The vectors $y(v_a)$ and $y(v_b)$ differ in lane six. By unique programming they cannot arise from the same message at the fixed IV. The fold identity gives equality of words zero through five. Repeated application of the prefix lemma preserves this equality for any number of final left rounds on $P$, covering the stated output widths. No equality of the final two words is required or claimed.
+\end{proof}
+
+\subsection{Collision algorithm and complexity}
+
+The native implementation evaluates $G$ and interleaves 64 distinguished-point walks in a single process. This is not a claim of 64 hardware threads. A word is distinguished when its low 16 bits are zero. Starts are generated by SplitMix64 with seed 20260908; a walk is restarted after $20\cdot2^{16}$ steps if it has no endpoint. On a repeated endpoint, the two walks are aligned by length and replayed to find distinct predecessors with equal images. Same-path merges are discarded. The actual fold and digests are checked before reporting a collision.
+
+\begin{lstlisting}[style=code,caption={Collision-search outline; all steps evaluate the defined map G.}]
+initialize 64 walks with pseudorandom starts
+repeat, interleaving one step of each walk:
+    current <- G(current); length <- length + 1
+    if low_16_bits(current) == 0:
+        if endpoint was previously stored:
+            align and replay the two walks
+            if distinct predecessors a,b satisfy G(a) == G(b):
+                verify the programmed messages and return them
+        store endpoint, start, and length; restart walk
+    else if length == 20 * 2^16:
+        restart walk
+\end{lstlisting}
+
+For comparison, if $t$ distinct inputs to a random 64-bit function have independent uniform images, then
+\[
+\Pr[\text{a collision}]\approx1-\exp\left(-\frac{t(t-1)}{2\cdot2^{64}}\right).
+\]
+This gives a scale of $2^{32}$ evaluations. Applying that scale to iterated $G$ and its distinguished-point search is a heuristic: we do not prove random-mapping behavior, a success distribution, or an expected time bound for this specific map. The exact witness establishes that $G$ is not injective. One successful run establishes the cost below, not a general $2^{31.9}$ attack complexity.
+
+\begin{table}[ht]
+\centering
+\caption{Exact successful-search accounting on an Apple M1 MacBook Air.}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Walk evaluations & 4,070,333,044 ($2^{31.9225}$) \\
+Replay evaluations & 33,707 \\
+Stored endpoints & 62,738 \\
+Endpoint merges & 1 \\
+Wall time & 73.572 s \\
+Throughput & 55,324,465 evaluations/s \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A $G$ evaluation programs a message and computes two rounds and one fold word; it is not a full production hash evaluation. The recorded walk and replay counts total 4,070,366,751 evaluations, excluding initialization, table operations, and final verification. The reported throughput divides walk evaluations by recorded elapsed time. The table is historical run accounting, not a benchmark repeated for this revision. There were no recorded same-path merges or abandoned chains. The 62,738 endpoint records are a memory-use count; allocator overhead and peak resident memory were not measured.
+
+A random 256-bit function has a generic birthday scale of $2^{128}$ queries. On a domain of only $2^{64}$ messages, it would be exceedingly unlikely to have any collision at all: the expected number is approximately $2^{-129}$. Thus the demonstrated collision on this structured domain is substantive. The approximately 96-bit difference in birthday exponents is a comparison of target dimensions, not a calibrated speedup in production hash evaluations or a bound on production security.
+
+\subsection{Witness and independent verification}
+\label{sec:witness}
+
+The recovered parameters are shown as little-endian byte strings:
+\begin{lstlisting}[style=code]
+v_a = 685a913fd5b0d24c
+v_b = edf1c79141fbc6c4
+\end{lstlisting}
+
+Equation~\eqref{eq:program} yields the distinct messages:
+\begin{lstlisting}[style=code]
+message_a =
+96ffffffffffffff58b56a3e941b7459bab074c685cf1afa
+c02a2056945049fbfad0d3accbbf31fa1c4d50f00cd517fd
+193863ec0929f2a58af12b6ca5571671
+
+message_b =
+96ffffffffffffff58b56a3e941b7459bab074c685cf1afa
+c02a2056945049fbfad0d3accbbf31fa1c4d50f00cd517fd
+75d7ff14f926a35834c0702bc01e3bc8
+\end{lstlisting}
+
+The integer-model fold prefixes are
+\[
+F_a[0..5]=F_b[0..5]=
+(\mathtt{f65354081cfe534e},0,0,0,0,0).
+\]
+The first word emits as little-endian bytes \code{4e53fe1c085453f6}.
+
+\begin{table}[ht]
+\centering
+\caption{Independently replayed reduced digests.}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Width & Common digest \\
+\midrule
+64 & \code{4e53fe1c085453f6} \\
+128 & \code{62b5f41d42757d67c8a1b25310889a9d} \\
+256 & \code{303dbf39c7cd3ae7893f50fcc1328919}\newline
+      \code{25347bdd65f99d45d9a4f38c92d87b0d} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The search used the native round implementation in its explicitly reduced mapping. A separate Python integer model replays the pair, and a C++ bridge checks the production outputs. Appendix~\ref{sec:verifier} supplies a self-contained Python verifier requiring no repository imports; it derives the messages from the parameters and checks the fold prefix, reduced digests, and padding obstruction. These are separate computational paths, not independent human reviews.
+
+Native C++ production Rainstorm-128 replay gives distinct outputs:
+\begin{lstlisting}[style=code]
+message_a -> d26309b4c14f18dbeab1510045114504
+message_b -> a53a7f6a61e35a2fc3675c1c726dd017
+\end{lstlisting}
+
+\section{Extending the Attack: The Padding Boundary}
+\label{sec:padding}
+
+Let $u_i(v)$ be the transformed high words of the next, fixed-data right round, and let $S(v)=\sum_i u_i(v)$.  The two-round reduction omits this round.  The following observation gives an exact, less artificial boundary.
+
+\begin{proposition}[One-padding-round extension]\label{prop:padding}
+For the family in Equation~\eqref{eq:family}, if $G(v_a)=G(v_b)$ then, after one genuine \code{0x80} padding right round,
+\[
+ F_i(v_a)=F_i(v_b),\qquad 1\leq i\leq5.
+\]
+Fold word zero is also equal if and only if $S(v_a)=S(v_b)$.
+\end{proposition}
+
+\begin{proof}
+Before padding, $x_0,\ldots,x_5$ are independent of $v$: the programmed data words zero through five are constant, and the zero sum of $y$ fixes $L^{\prime}_0$, so the left-round recurrence fixes this entire prefix.  For $1\leq i\leq5$, $H_i=x_i$; moreover $H_0=x_0-G(v)$ follows directly from the left-round equation.  Equality of $G$ therefore makes both state halves equal through lane five.  The padding right round consequently has identical $u_0,\ldots,u_5$ and identical low/high words 1--5.  Its final lane wraps the complete counter into low word zero, changing it by $S(v)$; high word zero remains $u_0$.  Subtractive folding proves both statements.
+\end{proof}
+
+The concrete $G$-collision witness in Section~\ref{sec:witness} verifies the first statement: its post-padding fold words 1--5 are equal, while word zero differs because
+\[
+S(v_a)=\mathtt{56ddbed97c83ad47}\neq
+S(v_b)=\mathtt{ae1525395140b829}.
+\]
+The aggregate equality $S(v_a)=S(v_b)$ is an additional equation, not a proved independent 64-bit random condition. Enforcing equality of $(G,S)$ is sufficient for the six-word prefix; conditional on equality of $G$, equality of $S$ is necessary and sufficient. Its domain still has only $2^{64}$ parameters. Under a random 128-bit-map model, even enumeration of that entire domain gives only about $1/2$ expected colliding pairs and probability about $1-e^{-1/2}$ of at least one. Consequently an unrestricted $2^{64}$ birthday-search claim is not justified for this fixed family, and an iteration on 128-bit outputs cannot directly serve as its 64-bit parameter walk. A useful extension would need exploitable dependence or a larger controllable message family. We give no collision or complexity bound for $\RS_n^{(2,1)}$.
+
+The theorem also does not address the restored third and fourth message rounds. In particular, equality of the fold discards information about the two halves; it need not imply equal internal states. Production retains those states through further mixing before folding. The reduced witness below fails the production check. This is a limitation of this construction and witness, not a lower bound against other attacks.
+
+\section{Reproducibility and Limitations}
+The existing archive \href{\archiveRoot/tree/\archiveTag}{\archiveName} identifies the original campaign, not this revised manuscript. The reference file \archiveFile{src/rainstorm.cpp}{\code{src/rainstorm.cpp}} has SHA-256
+\begin{lstlisting}[style=code]
+8b70ceb620aaaf19859733705fa39c0ce849340a701e05fb89cdc2e07bf3712f
+\end{lstlisting}
+The historical \archiveFile{research/differential/rebound-campaign-20260908/two-round-native-rho-search.json}{search record} and \archiveFile{research/differential/rebound-campaign-20260908/two-round-native-rho-replay.json}{replay record} contain the messages and accounting used here. The native search source is \archiveFile{research/differential/rho64.cpp}{\code{rho64.cpp}}; the separate model is \archiveFile{research/differential/rainstorm_model.py}{\code{rainstorm\_model.py}}. The original tag remains fixed. This revision does not claim that its manuscript or new standalone verifier is already in that archive.
+
+The verifier in the appendix can be copied to a file and run with Python 3. It checks the witness quickly without repeating the search. In the revised working tree it is also provided as \nolinkurl{research/differential/verify_paper_collision.py}. To run it or repeat the native search from the repository root:
+\begin{lstlisting}[style=code]
+python3 research/differential/verify_paper_collision.py
+c++ -std=c++17 -O3 research/differential/rho64.cpp -o /tmp/rain-rho
+/tmp/rain-rho search-two-round 5000000000 16 64 20260908 6 7
+\end{lstlisting}
+The second command sequence runs billions of evaluations. Platform-dependent timings need not match the historical Apple M1 MacBook Air (eight cores, 8 GB RAM). The mathematical reduction and witness do not depend on the reported timing.
+
+The earlier campaign also contains internal differential measurements, backward-state searches, solver timeouts, and output screens. They are retained in the archive but are not premises of this paper's theorem. In particular, unsuccessful search is not evidence for a production security level. No production collision, preimage attack, or security proof is established here. The unresolved problem is to retain useful message control while satisfying the conditions imposed by the omitted rounds.
+
+\paragraph{Research disclosure.}
+The author designed Rainstorm. OpenAI Daybreak assisted the original campaign with hypotheses, experiment design, implementation, and analysis; AI assistance also contributed to manuscript revision. The human author is responsible for reviewing the mathematics, evidence, and final submission. The claims rest on the displayed proofs and reproducible witness, not on the research tool's authority.
+
+\section{Conclusion}
+For a fixed-IV, two-message-round variant without padding compression, first-round programming and subtractive folding reduce a 256-bit collision target to equality of one 64-bit map. Prefix preservation proves that the equality survives the unchanged finalization. The explicit witness establishes a practical reduced collision, while the search cost remains an observation supported by a birthday heuristic rather than a proved expected bound. One restored padding round adds an exact aggregate condition that the witness fails. Extending the attack to production remains open.
+
+\begin{thebibliography}{9}
+\bibitem{rainstorm-v4}
+Cris. Rainstorm v4.0.0: reference implementation.
+\archiveFile{src/rainstorm.cpp}{Source in \archiveName}, 2026.
+\bibitem{lamberger2010}
+M. Lamberger, F. Mendel, C. Rechberger, V. Rijmen, and M. Schl\"affer.
+The Rebound Attack and Subspace Distinguishers: Application to Whirlpool.
+Cryptology ePrint Archive, 2010/198, 2010.
+\url{https://eprint.iacr.org/2010/198}
+\end{thebibliography}
+
+\clearpage
+\appendix
+\section{Executable Witness Verifier}\label{sec:verifier}
+This listing is complete Python 3 code using only built-ins. All hexadecimal parameters below are integers; the main text gives their little-endian encoding. Assertions check fixed expected values, not merely that two implementations agree. Run without Python's \code{-O} option, which disables assertions.
+\lstinputlisting[style=code,basicstyle=\ttfamily\footnotesize,lastline=66]{../../research/differential/verify_paper_collision.py}
+\clearpage
+\noindent\textbf{Witness checks (continued).}
+\lstinputlisting[style=code,basicstyle=\ttfamily\footnotesize,firstline=67]{../../research/differential/verify_paper_collision.py}
+\end{document}

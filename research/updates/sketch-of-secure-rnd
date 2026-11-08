@@ -1,0 +1,150 @@
+better just use our own lib:
+
+
+#include <cstdint>
+#include <cstdlib>
+#include <stdexcept>
+#include <random>
+#include <cstring>
+
+#ifdef _WIN32
+  #include <windows.h>
+  #include <bcrypt.h>
+#elif defined(__linux__) || defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__APPLE__)
+  #include <fcntl.h>
+  #include <unistd.h>
+  #include <sys/random.h>
+#else
+  #include <fstream>
+#endif
+
+class CustomRandom {
+public:
+  static uint32_t randombytes_random() {
+    uint32_t value;
+    randombytes_buf(&value, sizeof(value));
+    return value;
+  }
+
+  static uint32_t randombytes_uniform(const uint32_t upper_bound) {
+    if (upper_bound < 2) {
+      return 0; // Only one possible value
+    }
+
+    uint32_t r, min;
+    min = -upper_bound % upper_bound; // Ensure uniformity
+
+    do {
+      r = randombytes_random();
+    } while (r < min);
+
+    return r % upper_bound;
+  }
+
+  static void randombytes_buf(void *buf, size_t size) {
+#ifdef _WIN32
+    if (BCryptGenRandom(nullptr, static_cast<PUCHAR>(buf), static_cast<ULONG>(size), BCRYPT_USE_SYSTEM_PREFERRED_RNG) != 0) {
+      throw std::runtime_error("BCryptGenRandom failed");
+    }
+#elif defined(__linux__) || defined(__FreeBSD__) || defined(__OpenBSD__)
+    if (getrandom(buf, size, 0) == -1) {
+      throw std::runtime_error("getrandom() failed");
+    }
+#elif defined(__APPLE__)
+    if (getentropy(buf, size) == -1) {
+      throw std::runtime_error("getentropy() failed");
+    }
+#else
+    // Fallback to /dev/urandom
+    int fd = open("/dev/urandom", O_RDONLY);
+    if (fd < 0) {
+      throw std::runtime_error("Failed to open /dev/urandom");
+    }
+    ssize_t read_bytes = read(fd, buf, size);
+    close(fd);
+    if (read_bytes < 0 || static_cast<size_t>(read_bytes) != size) {
+      throw std::runtime_error("Failed to read from /dev/urandom");
+    }
+#endif
+  }
+};
+
+
+
+
+
+
+
+
+
+---------------
+
+
+#ifndef TOOL_H
+#define TOOL_H
+
+#include <vector>
+#include <random>
+#include <stdexcept>
+
+// Uncomment if libsodium is available
+// #include <sodium.h>
+
+class RandomGenerator {
+public:
+  RandomGenerator() {
+#ifdef SODIUM_AVAILABLE
+    if (sodium_init() < 0) {
+      throw std::runtime_error("Failed to initialize libsodium");
+    }
+#endif
+  }
+
+  // Generate random bytes
+  std::vector<unsigned char> get_random_bytes(size_t size) {
+#ifdef SODIUM_AVAILABLE
+    std::vector<unsigned char> buffer(size);
+    randombytes_buf(buffer.data(), size);
+    return buffer;
+#else
+    return fallback_random_bytes(size);
+#endif
+  }
+
+private:
+  // Fallback method using std::random_device and std::mt19937_64
+  std::vector<unsigned char> fallback_random_bytes(size_t size) {
+    static thread_local std::mt19937_64 rng(std::random_device{}());
+    std::vector<unsigned char> buffer(size);
+    for (size_t i = 0; i < size; ++i) {
+      buffer[i] = static_cast<unsigned char>(rng() & 0xFF);
+    }
+    return buffer;
+  }
+};
+
+#endif // TOOL_H
+
+
+
+----
+
+Makefile
+
+
+
+# Detect if libsodium is installed
+LIBSODIUM_CFLAGS = $(shell pkg-config --cflags libsodium 2>/dev/null)
+LIBSODIUM_LDFLAGS = $(shell pkg-config --libs libsodium 2>/dev/null)
+
+# Check if libsodium is available
+ifdef LIBSODIUM_LDFLAGS
+  CXXFLAGS += $(LIBSODIUM_CFLAGS) -DSODIUM_AVAILABLE
+  LDFLAGS += $(LIBSODIUM_LDFLAGS)
+  $(info Using libsodium for secure random generation.)
+else
+  $(info Libsodium not found. Using fallback random generator.)
+endif
+
+
+

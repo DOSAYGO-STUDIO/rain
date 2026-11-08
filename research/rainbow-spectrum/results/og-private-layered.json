@@ -1,0 +1,118 @@
+{
+  "model": "E[C_priv] = O(k * 2^(w/2)); attempts bounded independently of k",
+  "rows": [
+    {
+      "w": 12,
+      "k": 2,
+      "solved": "8/8",
+      "median_evaluations": 256.0,
+      "median_attempts": 1.0,
+      "predicted_per_attempt": 256
+    },
+    {
+      "w": 12,
+      "k": 3,
+      "solved": "8/8",
+      "median_evaluations": 512.0,
+      "median_attempts": 1.0,
+      "predicted_per_attempt": 512
+    },
+    {
+      "w": 12,
+      "k": 4,
+      "solved": "8/8",
+      "median_evaluations": 2304.0,
+      "median_attempts": 3.0,
+      "predicted_per_attempt": 768
+    },
+    {
+      "w": 12,
+      "k": 5,
+      "solved": "8/8",
+      "median_evaluations": 1024.0,
+      "median_attempts": 1.0,
+      "predicted_per_attempt": 1024
+    },
+    {
+      "w": 12,
+      "k": 6,
+      "solved": "8/8",
+      "median_evaluations": 2560.0,
+      "median_attempts": 2.0,
+      "predicted_per_attempt": 1280
+    },
+    {
+      "w": 12,
+      "k": 7,
+      "solved": "8/8",
+      "median_evaluations": 3072.0,
+      "median_attempts": 2.0,
+      "predicted_per_attempt": 1536
+    },
+    {
+      "w": 12,
+      "k": 8,
+      "solved": "8/8",
+      "median_evaluations": 4480.0,
+      "median_attempts": 2.5,
+      "predicted_per_attempt": 1792
+    },
+    {
+      "w": 14,
+      "k": 2,
+      "solved": "8/8",
+      "median_evaluations": 512.0,
+      "median_attempts": 1.0,
+      "predicted_per_attempt": 512
+    },
+    {
+      "w": 14,
+      "k": 3,
+      "solved": "8/8",
+      "median_evaluations": 1536.0,
+      "median_attempts": 1.5,
+      "predicted_per_attempt": 1024
+    },
+    {
+      "w": 14,
+      "k": 4,
+      "solved": "8/8",
+      "median_evaluations": 3840.0,
+      "median_attempts": 2.5,
+      "predicted_per_attempt": 1536
+    },
+    {
+      "w": 14,
+      "k": 5,
+      "solved": "8/8",
+      "median_evaluations": 4096.0,
+      "median_attempts": 2.0,
+      "predicted_per_attempt": 2048
+    },
+    {
+      "w": 14,
+      "k": 6,
+      "solved": "8/8",
+      "median_evaluations": 10240.0,
+      "median_attempts": 4.0,
+      "predicted_per_attempt": 2560
+    },
+    {
+      "w": 14,
+      "k": 7,
+      "solved": "8/8",
+      "median_evaluations": 6144.0,
+      "median_attempts": 2.0,
+      "predicted_per_attempt": 3072
+    },
+    {
+      "w": 14,
+      "k": 8,
+      "solved": "8/8",
+      "median_evaluations": 5376.0,
+      "median_attempts": 1.5,
+      "predicted_per_attempt": 3584
+    }
+  ],
+  "generated": "2026-09-16T06:55:57"
+}

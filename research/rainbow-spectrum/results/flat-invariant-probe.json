@@ -1,0 +1,189 @@
+{
+  "probe": "flat_invariant_recovery_k1",
+  "question": "at k=1, can a flat attacker obtain the steering capability?",
+  "generated": "2026-09-15T08:12:07",
+  "widths": [
+    {
+      "w": 4,
+      "recovered": true,
+      "evaluations_used": 3,
+      "recovered_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          15,
+          15
+        ]
+      ],
+      "reference_pair_sum_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "invariant_holds_on_random_states": true,
+      "mergeability_agreement": "500/500",
+      "agrees_everywhere": true
+    },
+    {
+      "w": 8,
+      "recovered": true,
+      "evaluations_used": 3,
+      "recovered_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          255,
+          255
+        ]
+      ],
+      "reference_pair_sum_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "invariant_holds_on_random_states": true,
+      "mergeability_agreement": "500/500",
+      "agrees_everywhere": true
+    },
+    {
+      "w": 16,
+      "recovered": true,
+      "evaluations_used": 3,
+      "recovered_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          65535,
+          65535
+        ]
+      ],
+      "reference_pair_sum_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "invariant_holds_on_random_states": true,
+      "mergeability_agreement": "500/500",
+      "agrees_everywhere": true
+    },
+    {
+      "w": 32,
+      "recovered": true,
+      "evaluations_used": 3,
+      "recovered_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4294967295,
+          4294967295
+        ]
+      ],
+      "reference_pair_sum_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "invariant_holds_on_random_states": true,
+      "mergeability_agreement": "500/500",
+      "agrees_everywhere": true
+    },
+    {
+      "w": 64,
+      "recovered": true,
+      "evaluations_used": 3,
+      "recovered_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          18446744073709551615,
+          18446744073709551615
+        ]
+      ],
+      "reference_pair_sum_functionals": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "invariant_holds_on_random_states": true,
+      "mergeability_agreement": "500/500",
+      "agrees_everywhere": true
+    }
+  ],
+  "k1_separation_exists": false,
+  "conclusion": "NO separation at k=1: a flat attacker recovers an equivalent steering capability in a constant number of evaluations, independent of w. Any factored-vs-flat separation must therefore come from composition."
+}

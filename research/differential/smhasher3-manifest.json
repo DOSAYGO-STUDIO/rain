@@ -1,0 +1,42 @@
+{
+  "smhasher3_revision": "3b619371047761408406991685da1c2b3f751899",
+  "production_sha256": {
+    "common.h": "d35e24c8ceb7ff0244899aeb066b208383f586b647d3b48bd25044a80d7517cb",
+    "rainbow.cpp": "d432b1b5aea6700d51dd549e8f5b753e19301439f6ddb02c85187eed5c540163",
+    "rainstorm.cpp": "3a7c1a375656e2ff6227bbc621aa085a07dd5bbcfe8010c88ed2191611fbf1bb"
+  },
+  "verification_codes": {
+    "rainlocal_rainbow_64": {
+      "LE": "0xed7533d3",
+      "BE": "0xbe75a175"
+    },
+    "rainlocal_rainbow_128": {
+      "LE": "0xff03173f",
+      "BE": "0xa8ead0c3"
+    },
+    "rainlocal_rainbow_256": {
+      "LE": "0x65f4a210",
+      "BE": "0xd2afd9eb"
+    },
+    "rainlocal_rainstorm_64": {
+      "LE": "0xcecc05ce",
+      "BE": "0x483ec3c9"
+    },
+    "rainlocal_rainstorm_128": {
+      "LE": "0xd6d12547",
+      "BE": "0x3ae5ecd9"
+    },
+    "rainlocal_rainstorm_256": {
+      "LE": "0x72d3356f",
+      "BE": "0x4903d9ef"
+    }
+  },
+  "supported_sizes": [
+    64,
+    128,
+    256
+  ],
+  "limitation": "Upstream Testlib does not instantiate 512-bit hashes. No truncated substitute is registered.",
+  "full_command_template": "SMHasher3 --test=All,BadSeeds --extra --ncpu=4 rainlocal-<algorithm>-<bits>",
+  "status": "Prepared source snapshot and verification codes; not a full statistical test result."
+}

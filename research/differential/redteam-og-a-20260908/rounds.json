@@ -1,0 +1,8 @@
+{
+  "trials": 1000,
+  "og_chosen_state_collisions": 1000,
+  "a_same_pair_collisions": 0,
+  "a_inverse_checks": 1000,
+  "shared_one_round_xor_differential_checks": 1000,
+  "scope": "Fixed-block, freely chosen incoming states; not reachable-message collisions."
+}

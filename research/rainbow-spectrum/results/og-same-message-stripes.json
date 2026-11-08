@@ -1,0 +1,61 @@
+{
+  "experiment": "og/same_message_stripes",
+  "composition": "D(m) = (Rainbow_s1(m), ..., Rainbow_sk(m)); actual Rainbow at width w",
+  "attack": "concat.joint_collision_prefixed: shared random 2-block prefix, then a joint H-collision over all stripes with bridge-offset agreement",
+  "cost_unit": "H evaluations (k per queried x)",
+  "rows": [
+    {
+      "w": 6,
+      "k": 1,
+      "verified": "8/8",
+      "log2_cost": 2.32
+    },
+    {
+      "w": 6,
+      "k": 2,
+      "verified": "8/8",
+      "log2_cost": 7.67
+    },
+    {
+      "w": 6,
+      "k": 3,
+      "verified": "8/8",
+      "log2_cost": 12.36
+    },
+    {
+      "w": 6,
+      "k": 4,
+      "verified": "7/8",
+      "log2_cost": 20.42,
+      "censored": 1,
+      "note": "one run hit the 2^26 cap; median from 7, biased low"
+    },
+    {
+      "w": 8,
+      "k": 1,
+      "verified": "8/8",
+      "log2_cost": 4.29
+    },
+    {
+      "w": 8,
+      "k": 2,
+      "verified": "8/8",
+      "log2_cost": 9.18
+    },
+    {
+      "w": 8,
+      "k": 3,
+      "verified": "8/8",
+      "log2_cost": 15.55
+    }
+  ],
+  "predicted": "2^((k-1)w) for k >= 2",
+  "slope_bits_per_stripe": {
+    "w6_k2_to_k4": 6.38,
+    "w8_k2_to_k3": 6.37
+  },
+  "verification": "every solved collision checked against the full 4-word digest of every stripe",
+  "not_a_lower_bound": "the best attack built here, not a proof no better attack exists",
+  "no_secret": "every seed is part of the hash; the keyholder pays the same joint cost as the attacker, so this composition cannot give bounded private latency",
+  "generated": "2026-09-16T04:58:42"
+}

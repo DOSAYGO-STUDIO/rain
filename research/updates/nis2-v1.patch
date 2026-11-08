@@ -1,0 +1,55 @@
+diff --git a/hashes/rainstorm.cpp b/hashes/rainstorm.cpp
+index 4a7e831f..789ebfc7 100644
+--- a/hashes/rainstorm.cpp
++++ b/hashes/rainstorm.cpp
+@@ -44,13 +44,6 @@ static const uint64_t     Z[8]      = { 17, 19, 23, 29, 31, 37, 41, 53 };
+ static constexpr uint64_t CTR_LEFT  = UINT64_C(0xefcdab8967452301);
+ static constexpr uint64_t CTR_RIGHT = UINT64_C(0x1032547698badcfe);
+ 
+-static inline void compress1( uint64_t * h, const uint64_t * start, const seed_t seed ) {
+-  for (int i = 0, j = 1; i < 15; i++, j++) {
+-      h[i] += h[j] - K[h[j]&15];
+-      h[j] = start[j] ^ seed;
+-  }
+-}
+-
+ // Weak function that works with 512-bit (8x64-bit) blocks
+ static inline void weakfunc( uint64_t * h, const uint64_t * data, bool left ) {
+     uint64_t ctr;
+@@ -87,7 +80,7 @@ static inline void weakfunc( uint64_t * h, const uint64_t * data, bool left ) {
+ template <uint32_t hashsize, bool bswap>
+ static void rainstorm( const void * in, const size_t len, const seed_t seed, void * out ) {
+     const uint8_t * data  = (const uint8_t *)in;
+-    const uint64_t        start[16] = {
++    uint64_t        h[16] = {
+         seed + len +  1,
+         seed + len +  2,
+         seed + len +  2,
+@@ -105,9 +98,6 @@ static void rainstorm( const void * in, const size_t len, const seed_t seed, voi
+         seed + len + 41,
+         seed + len + 43
+     };
+-    uint64_t        h[16];
+-    std::memcpy(h, start, sizeof(start));
+-
+ 
+     uint64_t temp[8];
+     uint64_t lenRemaining = len;
+@@ -122,8 +112,6 @@ static void rainstorm( const void * in, const size_t len, const seed_t seed, voi
+             weakfunc(h, temp, i & 1);
+         }
+ 
+-        compress1(h, start, seed);
+-
+         data         += 64;
+         lenRemaining -= 64;
+     }
+@@ -138,8 +126,6 @@ static void rainstorm( const void * in, const size_t len, const seed_t seed, voi
+     // So I'm commenting it out.
+     //
+     //temp[lenRemaining >> 3] |= (uint64_t)(lenRemaining << ((lenRemaining&7)*8));
+-    
+-    compress1(h, start, seed);
+ 
+     for (int i = 0; i < ROUNDS; i++) {
+         weakfunc(h, temp, i & 1);

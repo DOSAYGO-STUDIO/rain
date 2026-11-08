@@ -1,0 +1,7 @@
+{
+  "trials": 1000,
+  "original_model_matches_native": true,
+  "A_two_sided_inverse": true,
+  "B_two_sided_inverse": true,
+  "scope": "Round-only models; no full-hash candidate or SMHasher3 claim."
+}

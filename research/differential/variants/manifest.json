@@ -1,0 +1,27 @@
+{
+  "original_sha256": "3a7c1a375656e2ff6227bbc621aa085a07dd5bbcfe8010c88ed2191611fbf1bb",
+  "variants": {
+    "a": {
+      "file": "research/differential/variants/rainstorm_a.cpp",
+      "sha256": "1976215168e868e49d8780321c10bb74660d9b4cd4752d7ca4b8696f766d7a48"
+    },
+    "b": {
+      "file": "research/differential/variants/rainstorm_b.cpp",
+      "sha256": "e73f69b13cf7297aa8267d964ee8d6f9775d7b040b3b017cd85bb4560cb4b0db"
+    },
+    "c": {
+      "file": "research/differential/variants/rainstorm_c.cpp",
+      "sha256": "fc0bea71291ce25c26418fd10bf53d9c69484087b1dc18421e409241ddedf884"
+    },
+    "d": {
+      "file": "research/differential/variants/rainstorm_d.cpp",
+      "sha256": "91e3f77a391e1dcdef0b06f75644c137ba251cbbddcfeacc15442ad928884e6a"
+    }
+  },
+  "definitions": {
+    "a": "Cross-half wrap; original finalization.",
+    "b": "Double final right counter; original finalization.",
+    "c": "A + four alternating final rounds + one explicit domain block.",
+    "d": "Original round + four alternating final rounds only (optional experimental fourth)."
+  }
+}
