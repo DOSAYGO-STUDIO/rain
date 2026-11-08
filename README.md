@@ -1,6 +1,6 @@
 # Rain
 
-> **News - [Cryptanalysis of Rainstorm](output/pdf/rainstorm-v4-external-cryptanalysis.pdf):** an independent external review reports a practical collision for a two-message-round reduction and no production Rainstorm-128 collision or output distinguisher below the generic $2^{64}$ collision baseline in the completed campaign. The result is evidence, not a security proof.
+> **News - [Cryptanalysis of Rainstorm](output/pdf/rainstorm-v4-external-cryptanalysis.pdf) ([JPEG Contact Sheet](output/pdf/rainstorm-v4-external-cryptanalysis-contact-sheet.jpg) | [15p Archival Sheet](output/pdf/rainstorm-v4-external-cryptanalysis-15p-contact-sheet.jpg)):** Our external cryptanalysis reports an exact algebraic fold collapse and verified $2^{31.9225}$ collision for two-message-round reduced Rainstorm-256 without padding compression ($\operatorname{RS}_n^{(2,0)}$), characterizes the one-padding-round obstruction and four-inverse-padding-round differential hull, and finds no production Rainstorm-128/256 ($\operatorname{RS}_n^{(4,4)}$) collision or output distinguisher below generic cost in the completed campaign. The result is empirical evidence, not a security proof.
 
 > [!TIP]
 > **Example usage (hash everything)**:
@@ -54,6 +54,7 @@ The codebase includes:
 - [Repository Structure](#repository-structure)
 - [Rainbow](#rainbow)
 - [Rainstorm - Unvetted for Security](#rainstorm---unvetted-for-security)
+  - [Cryptanalysis of Rainstorm v4.0.0](#cryptanalysis-of-rainstorm-v400)
 - [Note on Cryptographic Intent](#note-on-cryptographic-intent)
 - [Genesis](#genesis)
 - [License](#license)
@@ -213,10 +214,34 @@ Runs 2 and 3 show similar results, consistently demonstrating that the native C+
 
 ## Rainstorm - Unvetted for Security
 
-**Rainstorm** is a slower, more complex hash function inspired by cryptographic designs. It supports output sizes of 64 to 512 bits and adjustable rounds. While it uses operations reminiscent of cryptographic hashes, it **is not formally analyzed by any 3rd-party**. Consider it experimental, but designed to be secure. 
+**Rainstorm** is a slower, more complex hash function inspired by cryptographic designs. It supports output sizes of 64 to 512 bits and adjustable rounds. While it uses operations reminiscent of cryptographic hashes, it **is not formally certified**. Consider it experimental, with public cryptanalytic evaluation documented below.
+
+### Cryptanalysis of Rainstorm v4.0.0
+
+- **Paper (8-page revised manuscript)**: [PDF](output/pdf/rainstorm-v4-external-cryptanalysis.pdf) | [LaTeX](output/pdf/rainstorm-v4-external-cryptanalysis.tex) | [Standalone Python Verifier](research/differential/verify_paper_collision.py)
+- **Contact Sheets (JPEG for X / social)**: [Full 8-Page Contact Sheet (4x2)](output/pdf/rainstorm-v4-external-cryptanalysis-contact-sheet.jpg) | [Portrait 8-Page Sheet (2x4)](output/pdf/rainstorm-v4-external-cryptanalysis-contact-sheet-portrait.jpg) | [X Post Card 1 (Pages 1–4)](output/pdf/rainstorm-v4-external-cryptanalysis-x-sheet-1.jpg) | [X Post Card 2 (Pages 5–8)](output/pdf/rainstorm-v4-external-cryptanalysis-x-sheet-2.jpg) | [Archival 15-Page Campaign Contact Sheet](output/pdf/rainstorm-v4-external-cryptanalysis-15p-contact-sheet.jpg)
+- **Individual Page Renders**: [`output/pdf/rainstorm-v4-external-cryptanalysis-pages/`](output/pdf/rainstorm-v4-external-cryptanalysis-pages) (`page-01.jpg`–`page-08.jpg`)
+
+#### Summary of Findings (`src/rainstorm.cpp` v4.0.0, SHA-256 `8b70ceb6...`)
+
+1. **Exact Right-Round Message Programming (Lemma 1):** For any fixed incoming 1024-bit state $(L, H)$ and any target vector of transformed first-round outputs $(y_0, \dots, y_7) \in (\mathbb{Z}/2^{64}\mathbb{Z})^8$, there is a unique 64-byte message block $d_i = q_i \oplus (\operatorname{ROTL}_{Z_i}(y_i) + K_i)$ realizing $y$ in one right round $R_d$.
+2. **Two-Round Algebraic Fold Collapse (Proposition 1 & Corollary 1):** After one programmed right round $R_d$ and the subsequent left round $T_d$ on the same block, the subtractive fold $F_i = L_i'' - H_i''$ satisfies the exact identity
+   $$F_0 = C_L + \sum_{j=0}^7 x_j - y_0 + 2(y_0 \,\&\, x_0), \qquad F_i = -y_i + 2(y_i \,\&\, x_i) \quad (1 \le i \le 7)$$
+   using $a \oplus b = a + b - 2(a \,\&\, b) \pmod{2^{64}}$. Choosing the 1-parameter family $y(v) = (0, 0, 0, 0, 0, 0, v, -v)$ forces $F_1 = F_2 = F_3 = F_4 = F_5 = 0$ identically and keeps the right-round counter wrap $c_8 = C_R$ fixed, collapsing six of the eight folded 64-bit words into a single 64-bit scalar condition $G(v) = F_0(v) = C_L + \sum_{j=0}^7 x_j(v)$.
+3. **Finalization Prefix Preservation & Practical Reduced Collision (Lemma 2 & Proposition 2):** Because finalization left rounds $T_P$ are triangular in lane index ($a_i, x_i, L_i'$ depend only on lanes $\le i$), equality of the first six folded words $(F_0, \dots, F_5)$ is preserved through any number of finalization rounds. A 64-walk distinguished-point rho search on an Apple M1 MacBook Air found the colliding parameters `v_a = 685a913fd5b0d24c` and `v_b = edf1c79141fbc6c4` after **$4{,}070{,}333{,}044$ ($2^{31.9225}$) walk evaluations** ($73.572\text{ s}$ wall time, $55.3\text{M}$ evals/s), yielding distinct 64-byte messages that collide across the full 64-, 128-, and 256-bit reduced digests $\operatorname{RS}_n^{(2,0)}$ (and share their first six 64-bit output words under $\operatorname{RS}_{512}^{(2,0)}$).
+4. **The Padding Boundary & Full-Schedule Separation (Proposition 3):** Restoring a single mandatory padding round ($\operatorname{RS}_n^{(2,1)}$) preserves the five zero fold words $F_1 = \dots = F_5 = 0$ on the $y(v)$ family, but adds an exact second 64-bit condition $S(v) = \sum_{j=0}^7 u_j(v)$ at fold word zero. On the recovered $\operatorname{RS}_n^{(2,0)}$ witness, $S(v_a) = \texttt{56dd9e897c83da47} \ne \texttt{0aa1525395140b82} = S(v_b)$, so the reduced collision is separated by production Rainstorm ($\operatorname{RS}_n^{(4,4)}$, four message rounds + four padding rounds). Across the full differential, rebound, higher-order, MITM, and SAT/SMT (Z3 / Bitwuzla) campaigns, no collision or output distinguisher was found for full production Rainstorm.
+
+| Target Variant | Rounds $(r_m, r_p)$ | Result | Complexity / Status |
+|---|---|---|---|
+| $R_d$ (1st message round) | $(1, 0)$ | Exact 8-word state programming ($y_0, \dots, y_7$) | $O(1)$ per block (bijective) |
+| $\operatorname{RS}_{64/128/256}^{(2,0)}$ | $(2, 0)$ | 6-word fold collapse ($F_1=\dots=F_5=0$) + full 256-bit collision | **$2^{31.9225}$** walk evals (`73.6 s` on M1, verified witness) |
+| $\operatorname{RS}_{64/128/256}^{(2,1)}$ | $(2, 1)$ | 5-word collapse preserved; adds 2nd 64-bit condition $S(v_a)=S(v_b)$ | 128-bit target on 64-bit family ($2^{-64}$ random-map survival) |
+| $T_P^{-4} \circ \operatorname{Fold}$ | $(0, 4)$ inv. | Sparse backward differential hull from arbitrary pre-fold state | $\Pr[\text{wt} \le 36] \approx 2.16 \times 10^{-7}$ ($58 / 2^{28}$ held-out pairs; unreachable from IV) |
+| Production $\operatorname{RS}_n^{(4,4)}$ | $(4, 4)$ | Full 4 message + 4 padding rounds + finalization | **No collision or distinguisher found** |
 
 ### Documents
 
+- **Cryptanalysis of Rainstorm v4.0.0 (Fold Collapse & Full-Schedule Boundary)**: [PDF](output/pdf/rainstorm-v4-external-cryptanalysis.pdf) | [Contact Sheet (JPEG)](output/pdf/rainstorm-v4-external-cryptanalysis-contact-sheet.jpg)
 - **Rainstorm Formal Spec (Draft)**: [PDF](docs/paper/storm-spec.pdf)
 - **Rainstorm Crypto Note**: [PDF](docs/paper/crypto-note.pdf)
 
